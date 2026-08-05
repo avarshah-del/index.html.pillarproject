@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pillar Project | Gen Z Memory Care Respite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pillar: {
+                            light: '#f3e8ff', // soft lavender
+                            DEFAULT: '#9333ea', // main purple
+                            dark: '#581c87', // deep violet
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 font-bold text-2xl text-pillar-dark">
+                    The Pillar Project
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-slate-600 hover:text-pillar transition">Home</a>
+                    <a href="#book" class="text-slate-600 hover:text-pillar transition">The Book</a>
+                    <a href="#resources" class="text-slate-600 hover:text-pillar transition">Resources</a>
+                    <a href="#contact" class="text-slate-600 hover:text-pillar transition">Contact</a>
+                    <a href="#donate" class="bg-pillar text-white px-4 py-2 rounded-full font-semibold hover:bg-pillar-dark transition">Donate</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home / Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
+            Bridging the Gap in <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Memory Care</span>
+        </h1>
+        <p class="mt-4 text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            When Alzheimer's impacts a family, primary caregivers shoulder immense burnout. The Pillar Project is a Gen Z-led initiative providing grassroots, intergenerational respite through our "Divide and Pamper" model.
+        </p>
+        <div class="mt-10 flex justify-center gap-4">
+            <a href="#resources" class="bg-pillar text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg">Learn How We Help</a>
+            <a href="#contact" class="bg-white text-pillar border-2 border-pillar px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-light transition shadow-lg">Join the Movement</a>
+        </div>
+    </section>
+
+    <!-- The Book Section -->
+    <section id="book" class="py-20 bg-pillar-dark text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">Case Alzheimers: A Brain HQ Mystery</h2>
+                    <p class="text-pillar-light text-lg mb-6">
+                        Publishing officially in November for National Alzheimer's Awareness Month!
+                    </p>
+                    <p class="mb-6 leading-relaxed">
+                        Explaining memory loss to children can be terrifying for young families. Instead of a scary medical talk, this book takes kids on an action-packed spy adventure inside "Brain HQ" alongside Agent H.M. Through fun metaphors, children learn how the brain works, why memories get misplaced, and how to show empathy to family members facing dementia.
+                    </p>
+                    <a href="#contact" class="inline-block bg-white text-pillar-dark px-6 py-3 rounded-full font-bold hover:bg-slate-100 transition">Request a Copy / Media Inquiry</a>
+                </div>
+                <div class="bg-white/10 p-8 rounded-2xl border border-white/20 text-center">
+                    <div class="h-64 bg-pillar flex items-center justify-center rounded-xl mb-4">
+                        <span class="text-2xl font-bold opacity-50">[ Book Cover Image Placeholder ]</span>
+                    </div>
+                    <p class="text-sm text-pillar-light">Featured on the Reading With Your Kids Podcast</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources / Divide & Pamper Section -->
+    <section id="resources" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center text-slate-900 mb-16">Our "Divide & Pamper" Model</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-pillar text-4xl mb-4">🧠</div>
+                <h3 class="text-xl font-bold mb-3">Sensory Engagement</h3>
+                <p class="text-slate-600">Trained high school "Memory Care Allies" lead interactive music, art, and tactile sessions for memory care patients, bringing joy and dignity back to aging.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-pillar text-4xl mb-4">☕</div>
+                <h3 class="text-xl font-bold mb-3">Caregiver Respite</h3>
+                <p class="text-slate-600">While patients are engaged, primary family caregivers receive dedicated, guilt-free time to step away, breathe, and relax.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                <div class="text-pillar text-4xl mb-4">🎁</div>
+                <h3 class="text-xl font-bold mb-3">Wellness Baskets</h3>
+                <p class="text-slate-600">Caregivers receive wellness totes filled with stress-relief journals, herbal teas, and self-care tools to support their mental health.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate" class="py-20 bg-pillar-light">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-slate-900 mb-6">Support Our Mission</h2>
+            <p class="text-lg text-slate-700 mb-10 max-w-2xl mx-auto">
+                Your donations directly fund Caregiver Wellness Baskets, sensory supplies for our volunteers, and the printing of our educational children's book for local schools and libraries.
+            </p>
+            <a href="#" class="inline-block bg-pillar text-white px-10 py-4 rounded-full font-bold text-xl hover:bg-pillar-dark transition shadow-xl">
+                Donate to The Pillar Project
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section id="contact" class="py-12 bg-slate-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Get Involved</h2>
+            <p class="text-slate-300 mb-8">Want to become a Memory Care Ally, partner with us, or feature our project?</p>
+            <div class="flex justify-center gap-6 mb-12">
+                <a href="mailto:pillarproject@gmail.com" class="text-pillar-light hover:text-white transition text-lg font-semibold">📧 pillarproject@gmail.com</a>
+                <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition text-lg font-semibold">📱 @thepillarproject1</a>
+            </div>
+            <div class="border-t border-slate-700 pt-8 text-sm text-slate-400">
+                &copy; 2026 The Pillar Project. All rights reserved.
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
