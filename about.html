@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | The Pillar Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pillar: {
+                            light: '#f3e8ff', 
+                            DEFAULT: '#9333ea', 
+                            dark: '#581c87', 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 font-bold text-2xl text-pillar-dark">
+                    The Pillar Project
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-slate-600 hover:text-pillar transition">Home</a>
+                    <a href="about.html" class="text-pillar font-bold transition">Our Story</a>
+                    <a href="index.html#resources" class="text-slate-600 hover:text-pillar transition">Resources</a>
+                    <a href="index.html#socials" class="text-slate-600 hover:text-pillar transition">Socials</a>
+                    <a href="index.html#book" class="text-slate-600 hover:text-pillar transition">The Book</a>
+                    <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-4 py-2 rounded-full font-semibold hover:bg-pillar-dark transition">Donate</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Our Story Content -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h1 class="text-5xl font-extrabold text-slate-900 tracking-tight mb-10 text-center">
+            Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Story</span>
+        </h1>
+        
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100 text-lg text-slate-700 leading-relaxed space-y-6">
+            <p>
+                It all began from a single reason, to help our family. Around 10 years ago, our grandfather, Jayant Shah, was diagnosed with Alzheimer’s disease, and our grandmother became his primary caregiver. We watched helplessly as he slowly slid down the slippery slope of dementia, powerless to do anything to stop it. 
+            </p>
+            <p>
+                We saw how Alzheimer’s left him confused, distressed, violent and eventually, sedentary. We saw our grandmother care for him, day after day, helping him to live through even the most challenging moments of his life. We saw her stress, her worries, and, most importantly, her extraordinary strength and determination.
+            </p>
+            <p>
+                Our grandmother, Hina, is superwoman, but even the strongest of heroes are put to the test during those harsh years. She showed us what an incredible caregiver can be like. Her story taught us a valuable lesson. Behind every patient lies a caregiver who tends to them and helps them through their darkest hours. It showed us the overlooked struggles of these people, who, unfortunately, are frequently forgotten by society. 
+            </p>
+            <p>
+                Forgotten by society, yet incurring the immense burden of Alzheimer's. Caregivers are these hidden heroes, working around the clock, patiently for their loved ones, often without regard for their own health. 
+            </p>
+            <p class="font-bold text-pillar-dark text-xl text-center mt-8 leading-relaxed">
+                Our initiative was built on the realization that caregivers cannot pour from an empty cup. We realized that providing our grandmother simple moments to herself, made an immense difference in not only how she cared for herself, but as well, how she cared for our grandfather. We strive to provide a community and give caregivers the much needed respite and relaxation they deserve because we want to provide caregivers with the much needed self care and respite they should have.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section class="py-12 bg-slate-900 text-white text-center mt-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Get Involved</h2>
+            <p class="text-slate-300 mb-8">Want to become a Memory Care Ally, partner with us, or feature our project?</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+                <a href="mailto:pillarproject@gmail.com" class="text-pillar-light hover:text-white transition text-lg font-semibold">📧 pillarproject@gmail.com</a>
+                <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition text-lg font-semibold">📱 @thepillarproject1</a>
+            </div>
+            <div class="border-t border-slate-700 pt-8 text-sm text-slate-400">
+                &copy; 2026 The Pillar Project. All rights reserved.
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
