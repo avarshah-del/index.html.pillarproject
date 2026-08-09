@@ -15,29 +15,20 @@
                             DEFAULT: '#9333ea', // main purple
                             dark: '#581c87', // deep violet
                         }
+                    },
+                    animation: {
+                        'gradient': 'gradient 15s ease infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <style>
-        /* Moving Gradient Background Animation */
-        .animate-gradient {
-            background: linear-gradient(-45deg, #f8fafc, #f3e8ff, #e9d5ff, #ffffff);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        /* Gentle Floating Animation for Icons */
-        .float-hover:hover {
-            transform: translateY(-10px);
-            transition: transform 0.3s ease-in-out;
-        }
-    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
@@ -45,12 +36,14 @@
     <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <!-- LOGO INSERTED HERE -->
+                
+                <!-- LOGO FIX APPLIED HERE -->
                 <div class="flex-shrink-0">
                     <a href="#home">
-                        <img src="The%20Pillar%20Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition">
+                        <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition">
                     </a>
                 </div>
+
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#home" class="text-slate-600 hover:text-pillar transition">Home</a>
                     <a href="about.html" class="text-slate-600 hover:text-pillar transition">Our Story</a>
@@ -64,8 +57,8 @@
         </div>
     </nav>
 
-    <!-- Home / Hero Section with Moving Background -->
-    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 animate-gradient">
+    <!-- Home / Hero Section with Native Tailwind Moving Background -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-pillar-light to-white bg-[length:400%_400%] animate-gradient">
         <div class="max-w-6xl mx-auto text-center">
             <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
                 Bridging the Gap in <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Memory Care</span>
@@ -80,21 +73,21 @@
         </div>
     </section>
 
-    <!-- Divide & Pamper Section (With Floating Hover Effects) -->
+    <!-- Divide & Pamper Section (With Tailwind Floating Hover Effects) -->
     <section id="about-model" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-4xl font-bold text-center text-slate-900 mb-16">Our "Divide & Pamper" Model</h2>
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 float-hover">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2">
                 <div class="text-pillar text-5xl mb-4">🧠</div>
                 <h3 class="text-xl font-bold mb-3">Sensory Engagement</h3>
                 <p class="text-slate-600">Trained high school "Memory Care Allies" lead interactive music, art, and tactile sessions for memory care patients, bringing joy and dignity back to aging.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 float-hover">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2">
                 <div class="text-pillar text-5xl mb-4">☕</div>
                 <h3 class="text-xl font-bold mb-3">Caregiver Respite</h3>
                 <p class="text-slate-600">While patients are engaged, primary family caregivers receive dedicated, guilt-free time to step away, breathe, and relax.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 float-hover">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2">
                 <div class="text-pillar text-5xl mb-4">🎁</div>
                 <h3 class="text-xl font-bold mb-3">Wellness Baskets</h3>
                 <p class="text-slate-600">Caregivers receive wellness totes filled with stress-relief journals, herbal teas, and self-care tools to support their mental health.</p>
@@ -111,19 +104,19 @@
             <!-- Support & Community Sub-section -->
             <h3 class="text-2xl font-bold text-pillar-dark mb-6 border-b-2 border-pillar-light pb-2">Support & Community</h3>
             <div class="grid md:grid-cols-2 gap-6 mb-12">
-                <a href="https://www.alz.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition float-hover">
+                <a href="https://www.alz.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-pillar-dark mb-2">Alzheimer's Association ↗</h3>
                     <p class="text-slate-600">24/7 helpline, local support groups, and comprehensive educational resources regarding dementia.</p>
                 </a>
-                <a href="https://www.caregiveraction.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition float-hover">
+                <a href="https://www.caregiveraction.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-pillar-dark mb-2">Caregiver Action Network ↗</h3>
                     <p class="text-slate-600">The nation's leading family caregiver organization working to improve the quality of life for those who care for loved ones.</p>
                 </a>
-                <a href="https://www.daughterhood.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition float-hover">
+                <a href="https://www.daughterhood.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-pillar-dark mb-2">Daughterhood.org ↗</h3>
                     <p class="text-slate-600">A community and podcast designed to validate and support women navigating the eldercare system for their parents.</p>
                 </a>
-                <a href="https://www.caregiver.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition float-hover">
+                <a href="https://www.caregiver.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-pillar-dark mb-2">Family Caregiver Alliance (FCA) ↗</h3>
                     <p class="text-slate-600">Information, support, and specialized resources specifically geared toward families caring for adults with cognitive disorders.</p>
                 </a>
@@ -132,19 +125,19 @@
             <!-- Training & Certification Sub-section -->
             <h3 class="text-2xl font-bold text-pillar-dark mb-6 border-b-2 border-pillar-light pb-2">Training & Certification</h3>
             <div class="grid md:grid-cols-2 gap-6">
-                <a href="https://www.alz.org/professionals/professional-providers/dementia-care-training-certification/essentialz-certification" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition float-hover">
+                <a href="https://www.alz.org/professionals/professional-providers/dementia-care-training-certification/essentialz-certification" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-pillar-dark mb-2">essentiALZ® Certification ↗</h3>
                     <p class="text-slate-600">The Alzheimer's Association's official individual certification recognizing knowledge of quality dementia care practices.</p>
                 </a>
-                <a href="https://www.nccdp.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition float-hover">
+                <a href="https://www.nccdp.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-pillar-dark mb-2">NCCDP Certified Dementia Practitioner ↗</h3>
                     <p class="text-slate-600">The National Council of Certified Dementia Practitioners offers the global standard in CDP certification for care professionals.</p>
                 </a>
-                <a href="https://teepasnow.com/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition float-hover">
+                <a href="https://teepasnow.com/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-pillar-dark mb-2">Positive Approach to Care® (PAC) ↗</h3>
                     <p class="text-slate-600">Teepa Snow's widely recognized training modules focused on practical, compassionate strategies for engaging with memory care patients.</p>
                 </a>
-                <a href="https://www.uclahealth.org/medical-services/geriatrics/dementia/caregiver-education" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition float-hover">
+                <a href="https://www.uclahealth.org/medical-services/geriatrics/dementia/caregiver-education" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
                     <h3 class="text-xl font-bold text-pillar-dark mb-2">UCLA Dementia Care Video Series ↗</h3>
                     <p class="text-slate-600">A free, high-quality educational series perfect for young volunteers looking to understand the behavioral realities of dementia.</p>
                 </a>
@@ -222,7 +215,7 @@
     </section>
 
     <style>
-        /* Shimmer effect for the book placeholder */
+        /* CSS keyframes that Tailwind doesn't support natively yet */
         @keyframes shimmer {
             100% { transform: translateX(100%); }
         }
