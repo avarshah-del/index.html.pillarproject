@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer | The Pillar Project</title>
+    
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        pillar: {
+                            light: '#f3e8ff', 
+                            DEFAULT: '#9333ea', 
+                            dark: '#581c87', 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="font-medium text-slate-600 hover:text-pillar transition">Home</a>
+                    <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a>
+                    <a href="volunteer.html" class="font-medium text-pillar transition">Volunteer</a>
+                    <a href="book.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
+                    <a href="index.html#resources" class="font-medium text-slate-600 hover:text-pillar transition">Resources</a>
+                    <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Volunteer Hero Section -->
+    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-pillar-light">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-6">
+                Become a <span class="text-pillar">Memory Care Ally</span>
+            </h1>
+            <p class="text-xl text-slate-700 mb-10 leading-relaxed max-w-2xl mx-auto">
+                Step up, earn service hours, and make a massive difference in your community. We are mobilizing Gen Z to bridge the generational gap in dementia care.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0h4EkzwNL62GOZZ808rNiTUoXDIPSBiIFfhmxiB3PKo6g4A/viewform?usp=header" target="_blank" class="inline-block bg-pillar text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-xl hover:-translate-y-1">
+                Apply to Volunteer
+            </a>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <h2 class="font-heading text-4xl text-center text-slate-900 mb-16">What Does an Ally Do?</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center">
+                <div class="text-pillar text-5xl mb-4">🎨</div>
+                <h3 class="font-heading text-xl mb-3">Lead Engagement</h3>
+                <p class="text-slate-600">You will run art, music, and tactile sensory sessions for memory care residents at our partner facilities, bringing them joy and cognitive stimulation.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center">
+                <div class="text-pillar text-5xl mb-4">🛡️</div>
+                <h3 class="font-heading text-xl mb-3">Provide Respite</h3>
+                <p class="text-slate-600">By engaging the patients, you are directly giving their family caregivers a dedicated 1-2 hour window to step away, breathe, and avoid burnout.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center">
+                <div class="text-pillar text-5xl mb-4">🎓</div>
+                <h3 class="font-heading text-xl mb-3">Learn & Grow</h3>
+                <p class="text-slate-600">No prior experience needed! We provide you with the training and empathetic communication skills necessary to interact safely and compassionately.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="py-12 bg-slate-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="font-heading text-3xl mb-6">Contact Us</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+                <a href="mailto:pillarproject@gmail.com" class="text-pillar-light hover:text-white transition font-semibold">📧 pillarproject@gmail.com</a>
+                <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition font-semibold">📱 @thepillarproject1</a>
+            </div>
+            <div class="border-t border-slate-700 pt-8 text-sm text-slate-400">
+                &copy; 2026 The Pillar Project. All rights reserved.
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE PILLAR GUIDE CHATBOT CODE -->
+    <style>
+        #pillar-chat-btn { position: fixed; bottom: 20px; right: 20px; background-color: #9333ea; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s; }
+        #pillar-chat-btn:hover { transform: scale(1.1); }
+        #pillar-chat-window { display: none; position: fixed; bottom: 90px; right: 20px; width: 320px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #e2e8f0; }
+        #pillar-chat-header { background-color: #9333ea; color: white; padding: 16px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; display: flex; justify-content: space-between; align-items: center; }
+        #pillar-chat-body { padding: 16px; height: 280px; overflow-y: auto; background-color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .bot-msg { background: #e2e8f0; color: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
+        .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;}
+        .chat-option:hover { background: #7e22ce; }
+    </style>
+
+    <button id="pillar-chat-btn" onclick="toggleChat()">💬</button>
+
+    <div id="pillar-chat-window">
+        <div id="pillar-chat-header">
+            <span>The Pillar Guide</span>
+            <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✖</button>
+        </div>
+        <div id="pillar-chat-body">
+            <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div>
+            <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
+            <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
+            <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            var win = document.getElementById("pillar-chat-window");
+            win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none";
+        }
+        function sendReply(type) {
+            var body = document.getElementById("pillar-chat-body");
+            var html = '';
+            if (type === 'volunteer') {
+                html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="https://docs.google.com/forms/d/e/1FAIpQLSf0h4EkzwNL62GOZZ808rNiTUoXDIPSBiIFfhmxiB3PKo6g4A/viewform?usp=header" target="_blank" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>';
+            } else if (type === 'book') {
+                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="book.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>';
+            } else if (type === 'resources') {
+                html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br><a href="index.html#resources" style="color:#9333ea; font-weight:bold;">Click here for more resources.</a></div>';
+            }
+            html += '<button class="chat-option" onclick="resetChat()" style="margin-top: 15px; background: #64748b;">Start Over</button>';
+            body.innerHTML = html;
+        }
+        function resetChat() {
+            document.getElementById("pillar-chat-body").innerHTML = `
+                <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div>
+                <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
+                <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
+                <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
+            `;
+        }
+    </script>
+</body>
+</html>
