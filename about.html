@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Story | The Pillar Project</title>
+    
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
                     colors: {
                         pillar: {
                             light: '#f3e8ff', 
@@ -27,16 +37,19 @@
     <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0 font-bold text-2xl text-pillar-dark">
-                    The Pillar Project
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <!-- Logo Image matches the homepage -->
+                        <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition">
+                    </a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="text-slate-600 hover:text-pillar transition">Home</a>
-                    <a href="about.html" class="text-pillar font-bold transition">Our Story</a>
-                    <a href="index.html#resources" class="text-slate-600 hover:text-pillar transition">Resources</a>
-                    <a href="index.html#socials" class="text-slate-600 hover:text-pillar transition">Socials</a>
-                    <a href="index.html#book" class="text-slate-600 hover:text-pillar transition">The Book</a>
-                    <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-4 py-2 rounded-full font-semibold hover:bg-pillar-dark transition">Donate</a>
+                    <a href="index.html" class="font-medium text-slate-600 hover:text-pillar transition">Home</a>
+                    <a href="about.html" class="font-medium text-pillar transition">Our Story</a>
+                    <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a>
+                    <a href="book.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
+                    <a href="index.html#resources" class="font-medium text-slate-600 hover:text-pillar transition">Resources</a>
+                    <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
                 </div>
             </div>
         </div>
@@ -44,11 +57,17 @@
 
     <!-- Our Story Content -->
     <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 class="text-5xl font-extrabold text-slate-900 tracking-tight mb-10 text-center">
+        <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-10 text-center">
             Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Story</span>
         </h1>
         
         <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100 text-lg text-slate-700 leading-relaxed space-y-6">
+            
+            <!-- Optional Photo Box: You can replace this div with an actual <img> tag when you have a photo ready! -->
+            <div class="w-full h-64 bg-slate-100 rounded-xl mb-8 flex items-center justify-center border-2 border-dashed border-slate-300">
+                <span class="text-slate-400 font-medium">[ Optional: Add a family photo or founder headshot here ]</span>
+            </div>
+
             <p>
                 It all began from a single reason, to help our family. Around 10 years ago, our grandfather, Jayant Shah, was diagnosed with Alzheimer’s disease, and our grandmother became his primary caregiver. We watched helplessly as he slowly slid down the slippery slope of dementia, powerless to do anything to stop it. 
             </p>
@@ -61,20 +80,23 @@
             <p>
                 Forgotten by society, yet incurring the immense burden of Alzheimer's. Caregivers are these hidden heroes, working around the clock, patiently for their loved ones, often without regard for their own health. 
             </p>
-            <p class="font-bold text-pillar-dark text-xl text-center mt-8 leading-relaxed">
-                Our initiative was built on the realization that caregivers cannot pour from an empty cup. We realized that providing our grandmother simple moments to herself, made an immense difference in not only how she cared for herself, but as well, how she cared for our grandfather. We strive to provide a community and give caregivers the much needed respite and relaxation they deserve because we want to provide caregivers with the much needed self care and respite they should have.
-            </p>
+            
+            <!-- Highlighted Mission Statement -->
+            <div class="mt-10 p-8 bg-pillar-light/40 rounded-xl border-l-4 border-pillar">
+                <p class="font-heading font-bold text-pillar-dark text-xl text-center leading-relaxed">
+                    Our initiative was built on the realization that caregivers cannot pour from an empty cup. We realized that providing our grandmother simple moments to herself made an immense difference in not only how she cared for herself, but as well, how she cared for our grandfather. We strive to provide a community and give caregivers the much needed respite and relaxation they deserve.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Contact & Footer -->
     <section class="py-12 bg-slate-900 text-white text-center mt-12">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-6">Get Involved</h2>
-            <p class="text-slate-300 mb-8">Want to become a Memory Care Ally, partner with us, or feature our project?</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
-                <a href="mailto:pillarproject@gmail.com" class="text-pillar-light hover:text-white transition text-lg font-semibold">📧 pillarproject@gmail.com</a>
-                <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition text-lg font-semibold">📱 @thepillarproject1</a>
+            <h2 class="font-heading text-3xl mb-6">Contact Us</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8">
+                <a href="mailto:pillarproject@gmail.com" class="text-pillar-light hover:text-white transition font-semibold">📧 pillarproject@gmail.com</a>
+                <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition font-semibold">📱 @thepillarproject1</a>
             </div>
             <div class="border-t border-slate-700 pt-8 text-sm text-slate-400">
                 &copy; 2026 The Pillar Project. All rights reserved.
@@ -82,5 +104,59 @@
         </div>
     </section>
 
+    <!-- FREE PILLAR GUIDE CHATBOT CODE -->
+    <style>
+        #pillar-chat-btn { position: fixed; bottom: 20px; right: 20px; background-color: #9333ea; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s; }
+        #pillar-chat-btn:hover { transform: scale(1.1); }
+        #pillar-chat-window { display: none; position: fixed; bottom: 90px; right: 20px; width: 320px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #e2e8f0; }
+        #pillar-chat-header { background-color: #9333ea; color: white; padding: 16px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; display: flex; justify-content: space-between; align-items: center; }
+        #pillar-chat-body { padding: 16px; height: 280px; overflow-y: auto; background-color: #f8fafc; font-family: 'Inter', sans-serif; }
+        .bot-msg { background: #e2e8f0; color: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
+        .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;}
+        .chat-option:hover { background: #7e22ce; }
+    </style>
+
+    <button id="pillar-chat-btn" onclick="toggleChat()">💬</button>
+
+    <div id="pillar-chat-window">
+        <div id="pillar-chat-header">
+            <span>The Pillar Guide</span>
+            <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✖</button>
+        </div>
+        <div id="pillar-chat-body">
+            <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div>
+            <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
+            <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
+            <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            var win = document.getElementById("pillar-chat-window");
+            win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none";
+        }
+        function sendReply(type) {
+            var body = document.getElementById("pillar-chat-body");
+            var html = '';
+            if (type === 'volunteer') {
+                html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="volunteer.html" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>';
+            } else if (type === 'book') {
+                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="book.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>';
+            } else if (type === 'resources') {
+                html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br><a href="index.html#resources" style="color:#9333ea; font-weight:bold;">Click here for more resources.</a></div>';
+            }
+            html += '<button class="chat-option" onclick="resetChat()" style="margin-top: 15px; background: #64748b;">Start Over</button>';
+            body.innerHTML = html;
+        }
+        function resetChat() {
+            document.getElementById("pillar-chat-body").innerHTML = `
+                <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div>
+                <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
+                <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
+                <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
+            `;
+        }
+    </script>
 </body>
 </html>
