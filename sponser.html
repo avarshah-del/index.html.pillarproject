@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESTRICTED: BRAIN HQ MAINFRAME</title>
+    <style>
+        /* SPY THEME COLORS & FONTS */
+        :root {
+            --navy: #020a1c;
+            --neon-green: #00ff41;
+            --light-blue: #a8c7fa;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--navy);
+            color: var(--neon-green);
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* LOGIN SCREEN STYLES */
+        #login-screen {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .terminal-box {
+            border: 2px solid var(--neon-green);
+            padding: 40px;
+            box-shadow: 0 0 15px var(--neon-green);
+            max-width: 500px;
+            width: 100%;
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        input[type="text"] {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            font-size: 1.5rem;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            outline: none;
+            margin: 20px 0;
+            width: 60%;
+            text-transform: uppercase;
+        }
+
+        button {
+            background-color: transparent;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--neon-green);
+            color: var(--navy);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        #access-message {
+            margin-top: 20px;
+            font-weight: bold;
+            height: 20px;
+        }
+
+        /* DASHBOARD STYLES (HIDDEN INITIALLY) */
+        #dashboard {
+            display: none;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--light-blue);
+        }
+
+        .dashboard-header {
+            text-align: center;
+            border-bottom: 1px solid var(--neon-green);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-header h1 {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--neon-green);
+            padding: 20px 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-card h2 {
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        /* SPONSORSHIP TIERS */
+        .tier-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .tier-container {
+                flex-direction: column;
+            }
+        }
+
+        .tier-box {
+            flex: 1;
+            border: 1px solid var(--neon-green);
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 255, 65, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .tier-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px var(--neon-green);
+        }
+
+        .tier-price {
+            font-size: 1.5rem;
+            color: var(--neon-green);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        ul {
+            text-align: left;
+            line-height: 1.6;
+            color: var(--light-blue);
+        }
+
+        .comms-button {
+            display: inline-block;
+            background-color: var(--neon-green);
+            color: var(--navy);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .comms-button:hover {
+            background-color: var(--white);
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🛑 LOGIN SCREEN -->
+    <div id="login-screen">
+        <div class="terminal-box">
+            <h2>RESTRICTED ACCESS</h2>
+            <p>BRAIN HQ PROJECT DOSSIER</p>
+            <p>Enter Clearance Code:</p>
+            <input type="text" id="passcode" autocomplete="off" placeholder="_ _ _ _ _ _">
+            <br>
+            <button onclick="checkPassword()">INITIALIZE</button>
+            <div id="access-message"></div>
+        </div>
+    </div>
+
+    <!-- 🟢 PROJECT DASHBOARD (REVEALED ON SUCCESS) -->
+    <div id="dashboard">
+        
+        <div class="dashboard-header">
+            <h1>CASE ALZHEIMER'S</h1>
+            <p>MISSION BRIEFING & PARTNERSHIP OVERVIEW // AUTHORIZED PERSONNEL ONLY</p>
+        </div>
+
+        <div class="section-card">
+            <h2>1. THE COMMANDER's BRIEFING</h2>
+            <p>Agent, we have a critical mission. Millions of children are facing a family Alzheimer's diagnosis without the intel they need to understand it. They see their loved ones changing, but no one is explaining the biology behind it in a way they can grasp. We are changing that today.</p>
+        </div>
+
+        <div class="section-card">
+            <h2>2. THE GADGET (About the Book)</h2>
+            <p><strong>Case Alzheimer's</strong> is an "informational fiction" spy-thriller for kids ages 5-10. We translate complex neurobiology into highly accessible concepts:</p>
+            <ul>
+                <li><strong>The Science:</strong> Amyloid plaques block the tracks, and Tau Tangles (weeds) invade the cells causing synaptic failure.</li>
+                <li><strong>The Empathy:</strong> Demystifies behavioral changes by exploring the Amygdala ("Emotion-Land") and Broca's Area ("The Word Warehouse").</li>
+                <li><strong>Verified Intel:</strong> Formally endorsed by global dementia leaders <strong>Teepa Snow</strong> and <strong>Lori La Bey</strong>.</li>
+            </ul>
+        </div>
+
+        <div class="section-card">
+            <h2>3. ACTIVE FIELD OPS (The School Pilot)</h2>
+            <p>We are launching our curriculum this November across local elementary schools in Livingston, NJ. We are bringing the book and an interactive STEM/Neuroscience Author Visit to 4th, 5th, and 6th-grade science classrooms. Teachers receive a zero-prep Educator Guide to merge human anatomy standards with empathy building.</p>
+        </div>
+
+        <div class="section-card">
+            <h2>4. YOUR ASSIGNMENT (Sponsorship Tiers)</h2>
+            <p>To fund the initial print run for these students, we need founding partners.</p>
+            
+            <div class="tier-container">
+                <!-- TIER 1 -->
+                <div class="tier-box">
+                    <h3>Classroom Sponsor</h3>
+                    <div class="tier-price">$250 (25 Books)</div>
+                    <p>Funds a complete class set for one local classroom.</p>
+                    <hr style="border-color: var(--neon-green); opacity: 0.3;">
+                    <ul>
+                        <li><strong>Your Logo</strong> printed on the <strong>back cover</strong> of the pilot edition.</li>
+                        <li>A formal "Thank You" printed inside the book.</li>
+                    </ul>
+                </div>
+
+                <!-- TIER 2 -->
+                <div class="tier-box">
+                    <h3>Command Sponsor</h3>
+                    <div class="tier-price">50+ Books Funded</div>
+                    <p>Provides massive community distribution to schools or caregiver groups.</p>
+                    <hr style="border-color: var(--neon-green); opacity: 0.3;">
+                    <ul>
+                        <li><strong>Your Logo</strong> printed on the <strong>FRONT cover</strong> of the pilot edition.</li>
+                        <li>A direct mention and personalized "Thank You" note printed in the book.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+            <h2>SECURE COMMS</h2>
+            <p>Ready to join the mission and secure a sponsorship?</p>
+            <!-- Replace 'your.email@example.com' with your actual email address -->
+            <a href="mailto:avarshah@gmail.com/subject=Case Alzheimer's Sponsorship" class="comms-button">ESTABLISH CONNECTION</a>
+        </div>
+
+    </div>
+
+    <!-- ⚙️ THE JAVASCRIPT ENGINE -->
+    <script>
+        // Listen for the "Enter" key on the input field
+        document.getElementById("passcode").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkPassword();
+            }
+        });
+
+        function checkPassword() {
+            const input = document.getElementById("passcode").value.toUpperCase();
+            const messageEl = document.getElementById("access-message");
+            const loginScreen = document.getElementById("login-screen");
+            const dashboard = document.getElementById("dashboard");
+
+            // THE SECRET PASSCODE
+            if (input === "HQ2026") {
+                messageEl.style.color = "#00ff41";
+                messageEl.innerText = "ACCESS GRANTED. Decrypting files...";
+                
+                // Add a small delay for dramatic spy effect
+                setTimeout(() => {
+                    loginScreen.style.display = "none";
+                    dashboard.style.display = "block";
+                    // Scroll to top just in case
+                    window.scrollTo(0,0);
+                }, 1200);
+
+            } else {
+                messageEl.style.color = "red";
+                messageEl.innerText = "ACCESS DENIED. Invalid clearance code.";
+                document.getElementById("passcode").value = ""; // Clear the input
+            }
+        }
+    </script>
+</body>
+</html>
