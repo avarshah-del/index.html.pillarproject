@@ -22,6 +22,18 @@
             overflow-x: hidden;
         }
 
+        /* 1. CRT SCANLINES EFFECT */
+        body::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none; /* Lets you click through the scanlines */
+        }
+
         h1, h2, h3 {
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -45,6 +57,8 @@
             max-width: 500px;
             width: 100%;
             background: rgba(0, 255, 65, 0.05);
+            position: relative;
+            z-index: 10;
         }
 
         input[type="text"] {
@@ -61,7 +75,7 @@
             text-transform: uppercase;
         }
 
-        button {
+        button.hack-btn {
             background-color: transparent;
             border: 1px solid var(--neon-green);
             color: var(--neon-green);
@@ -72,7 +86,7 @@
             transition: all 0.3s ease;
         }
 
-        button:hover {
+        button.hack-btn:hover {
             background-color: var(--neon-green);
             color: var(--navy);
             box-shadow: 0 0 10px var(--neon-green);
@@ -84,13 +98,32 @@
             height: 20px;
         }
 
-        /* DASHBOARD STYLES (HIDDEN INITIALLY) */
+        /* 2. PROGRESS BAR STYLES */
+        #loading-container {
+            display: none;
+            width: 80%;
+            margin: 20px auto 0 auto;
+            border: 1px solid var(--neon-green);
+            height: 15px;
+            background: transparent;
+        }
+        
+        #loading-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--neon-green);
+            transition: width 0.3s ease;
+        }
+
+        /* DASHBOARD STYLES */
         #dashboard {
             display: none;
             padding: 40px 20px;
             max-width: 900px;
             margin: 0 auto;
             color: var(--light-blue);
+            position: relative;
+            z-index: 10;
         }
 
         .dashboard-header {
@@ -100,10 +133,20 @@
             margin-bottom: 40px;
         }
 
-        .dashboard-header h1 {
+        /* 3. THE TYPEWRITER DECRYPTION EFFECT */
+        .typing-effect {
+            overflow: hidden; 
+            border-right: .15em solid var(--neon-green); 
+            white-space: nowrap; 
+            margin: 0 auto; 
+            letter-spacing: .15em; 
+            animation: typing 2.5s steps(40, end), blink-caret .75s step-end infinite;
+            display: inline-block;
             color: var(--neon-green);
             text-shadow: 0 0 5px var(--neon-green);
         }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--neon-green); } }
 
         .section-card {
             background: rgba(255, 255, 255, 0.03);
@@ -115,6 +158,19 @@
         .section-card h2 {
             color: var(--white);
             margin-top: 0;
+        }
+
+        /* 4. REDACTED TEXT EFFECT */
+        .redacted {
+            background-color: var(--neon-green);
+            color: var(--neon-green); 
+            transition: all 0.3s ease;
+            padding: 0 5px;
+            cursor: help;
+        }
+        .redacted:hover {
+            background-color: transparent;
+            color: var(--white); 
         }
 
         /* SPONSORSHIP TIERS */
@@ -157,6 +213,15 @@
             color: var(--light-blue);
         }
 
+        /* BOTTOM BUTTONS */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
         .comms-button {
             display: inline-block;
             background-color: var(--neon-green);
@@ -165,13 +230,37 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2rem;
-            margin-top: 20px;
             text-align: center;
+            border: 1px solid var(--neon-green);
+            transition: all 0.3s ease;
         }
 
         .comms-button:hover {
             background-color: var(--white);
+            color: var(--navy);
             box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        /* 5. SELF DESTRUCT BUTTON */
+        .destruct-button {
+            display: inline-block;
+            background-color: transparent;
+            color: #ff3333;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            border: 1px solid #ff3333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .destruct-button:hover {
+            background-color: #ff3333;
+            color: var(--white);
+            box-shadow: 0 0 20px #ff3333;
         }
     </style>
 </head>
@@ -185,7 +274,12 @@
             <p>Enter Clearance Code:</p>
             <input type="text" id="passcode" autocomplete="off" placeholder="_ _ _ _ _ _">
             <br>
-            <button onclick="checkPassword()">INITIALIZE</button>
+            <button id="auth-btn" class="hack-btn" onclick="checkPassword()">INITIALIZE</button>
+            
+            <div id="loading-container">
+                <div id="loading-bar"></div>
+            </div>
+
             <div id="access-message"></div>
         </div>
     </div>
@@ -194,12 +288,12 @@
     <div id="dashboard">
         
         <div class="dashboard-header">
-            <h1>CASE ALZHEIMER'S</h1>
+            <h1 class="typing-effect">CASE ALZHEIMER'S</h1>
             <p>MISSION BRIEFING & PARTNERSHIP OVERVIEW // AUTHORIZED PERSONNEL ONLY</p>
         </div>
 
         <div class="section-card">
-            <h2>1. THE COMMANDER's BRIEFING</h2>
+            <h2>1. THE COMMANDER'S BRIEFING</h2>
             <p>Agent, we have a critical mission. Millions of children are facing a family Alzheimer's diagnosis without the intel they need to understand it. They see their loved ones changing, but no one is explaining the biology behind it in a way they can grasp. We are changing that today.</p>
         </div>
 
@@ -209,13 +303,13 @@
             <ul>
                 <li><strong>The Science:</strong> Amyloid plaques block the tracks, and Tau Tangles (weeds) invade the cells causing synaptic failure.</li>
                 <li><strong>The Empathy:</strong> Demystifies behavioral changes by exploring the Amygdala ("Emotion-Land") and Broca's Area ("The Word Warehouse").</li>
-                <li><strong>Verified Intel:</strong> Formally endorsed by global dementia leaders <strong>Teepa Snow</strong> and <strong>Lori La Bey</strong>.</li>
+                <li><strong>Verified Intel:</strong> Formally endorsed by global dementia leaders <span class="redacted">Teepa Snow</span> and <span class="redacted">Lori La Bey</span>.</li>
             </ul>
         </div>
 
         <div class="section-card">
             <h2>3. ACTIVE FIELD OPS (The School Pilot)</h2>
-            <p>We are launching our curriculum this November across local elementary schools in Livingston, NJ. We are bringing the book and an interactive STEM/Neuroscience Author Visit to 4th, 5th, and 6th-grade science classrooms. Teachers receive a zero-prep Educator Guide to merge human anatomy standards with empathy building.</p>
+            <p>We are launching our curriculum this November across local elementary schools in <span class="redacted">Livingston, NJ</span>. We are bringing the book and an interactive STEM/Neuroscience Author Visit to 4th, 5th, and 6th-grade science classrooms. Teachers receive a zero-prep Educator Guide to merge human anatomy standards with empathy building.</p>
         </div>
 
         <div class="section-card">
@@ -252,8 +346,13 @@
         <div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
             <h2>SECURE COMMS</h2>
             <p>Ready to join the mission and secure a sponsorship?</p>
-            <!-- Replace 'your.email@example.com' with your actual email address -->
-            <a href="mailto:avarshah@gmail.com/subject=Case Alzheimer's Sponsorship" class="comms-button">ESTABLISH CONNECTION</a>
+            
+            <div class="button-group">
+                <!-- Replace 'your.email@example.com' with your actual email address -->
+                <a href="mailto:your.email@example.com?subject=Case Alzheimer's Sponsorship" class="comms-button">ESTABLISH CONNECTION</a>
+                
+                <button class="destruct-button" onclick="selfDestruct()">[ PURGE MAINFRAME ]</button>
+            </div>
         </div>
 
     </div>
@@ -273,25 +372,50 @@
             const messageEl = document.getElementById("access-message");
             const loginScreen = document.getElementById("login-screen");
             const dashboard = document.getElementById("dashboard");
+            const passcodeInput = document.getElementById("passcode");
+            const authBtn = document.getElementById("auth-btn");
+            const loadContainer = document.getElementById("loading-container");
+            const loadBar = document.getElementById("loading-bar");
 
             // THE SECRET PASSCODE
             if (input === "HQ2026") {
-                messageEl.style.color = "#00ff41";
-                messageEl.innerText = "ACCESS GRANTED. Decrypting files...";
+                // Hide input and button, start fake hack sequence
+                passcodeInput.style.display = "none";
+                authBtn.style.display = "none";
+                loadContainer.style.display = "block";
                 
-                // Add a small delay for dramatic spy effect
+                messageEl.style.color = "#00ff41";
+                messageEl.innerText = "BYPASSING FIREWALL... 24%";
+                loadBar.style.width = "24%";
+
+                // Sequence events
+                setTimeout(() => {
+                    messageEl.innerText = "DECRYPTING MISSION FILES... 78%";
+                    loadBar.style.width = "78%";
+                }, 800);
+
+                setTimeout(() => {
+                    messageEl.innerText = "ACCESS GRANTED. Welcome Agent.";
+                    loadBar.style.width = "100%";
+                }, 1600);
+                
+                // Reveal Dashboard
                 setTimeout(() => {
                     loginScreen.style.display = "none";
                     dashboard.style.display = "block";
-                    // Scroll to top just in case
                     window.scrollTo(0,0);
-                }, 1200);
+                }, 2400);
 
             } else {
                 messageEl.style.color = "red";
                 messageEl.innerText = "ACCESS DENIED. Invalid clearance code.";
-                document.getElementById("passcode").value = ""; // Clear the input
+                document.getElementById("passcode").value = ""; 
             }
+        }
+
+        // The Self-Destruct Joke Button
+        function selfDestruct() {
+            alert("⚠️ CRITICAL WARNING: Self-destruct sequence initiated...\n\nJust kidding! \n\nBut please do establish connection via email before this intel expires. 😉");
         }
     </script>
 </body>
