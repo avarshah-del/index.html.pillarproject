@@ -365,20 +365,20 @@
             <div class="slider-wrapper">
                 <div class="slides-container" id="mission-slides">
                     <div class="slide">
-                        <h3>PHASE 1: The Diagnosis</h3>
-                        <p>Children notice behavioral changes in their loved ones. Confusion and fear set in. Agent H.M. is called to investigate.</p>
+                        <h3>PHASE 1: The Mission at Brain HQ</h3>
+                        <p>Agent H.M. is called to the Prefrontal Cortex by Big Boss. The brain is glitching, files have disappeared, and mysterious tangles are taking over!</p>
                     </div>
                     <div class="slide">
-                        <h3>PHASE 2: Infiltrating Brain HQ</h3>
-                        <p>Agent H.M. shrinks down and enters the brain, discovering regions like the Amygdala ("Emotion-Land") and Broca's Area ("The Word Warehouse").</p>
+                        <h3>PHASE 2: The Word Warehouse</h3>
+                        <p>At Broca's and Wernicke's areas, H.M. discovers a "Class-8 Aphasia" where tangles are strangling the glowing word-orbs.</p>
                     </div>
                     <div class="slide">
-                        <h3>PHASE 3: Identifying the Threat</h3>
-                        <p>The science is revealed: Amyloid plaques block the neural tracks, and Tau Tangles act as weeds, causing synaptic failure and glitches.</p>
+                        <h3>PHASE 3: Emotion-Land</h3>
+                        <p>Jumping the Synaptic Gap on a Signal Scooter, H.M. arrives at the Amygdala to find the rollercoaster rides out of whack and weeds causing emotional glitches.</p>
                     </div>
                     <div class="slide">
-                        <h3>PHASE 4: Mission Accomplished</h3>
-                        <p>With the mystery solved, the fear is gone. Children learn exactly how to support their loved ones with empathy and patience.</p>
+                        <h3>PHASE 4: Saving the Archives</h3>
+                        <p>At the Hippocampus Data Library, the New Data Section is completely blocked by weeds. While new memories can't be saved, H.M. discovers the Deep Archives of old memories are still safe!</p>
                     </div>
                 </div>
                 <div class="slider-controls">
@@ -392,7 +392,7 @@
             </ul>
         </div>
 
-        <!-- NEW SECTION: WHY CASE ALZHEIMER'S -->
+        <!-- SECTION: WHY CASE ALZHEIMER'S -->
         <div class="section-card">
             <h2>3. WHY CASE ALZHEIMER'S? (PARTNER BENEFITS)</h2>
             <p>Why should your organization fund this mission?</p>
@@ -513,14 +513,12 @@
             
             currentSlide += direction;
             
-            // Loop around if they go past the ends
             if (currentSlide >= totalSlides) {
                 currentSlide = 0;
             } else if (currentSlide < 0) {
                 currentSlide = totalSlides - 1;
             }
             
-            // Move the container
             const percentage = -(currentSlide * 100);
             slidesContainer.style.transform = `translateX(${percentage}%)`;
         }
