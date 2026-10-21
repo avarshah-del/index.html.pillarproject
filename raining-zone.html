@@ -1,0 +1,139 @@
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Training Zone | Case Alzheimer's</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Background */
+        body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #050b14; color: #e0e0e0; overflow-x: hidden; }
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        h1, h2, h3, .spy-font { font-family: 'Share Tech Mono', monospace; }
+        
+        /* Nav & Top Bar */
+        .top-bar { background: #0b1a2a; color: #45A29E; padding: 8px 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #45A29E; }
+        .switch-btn { background: transparent; color: #66FCF1; border: 1px solid #66FCF1; padding: 5px 15px; cursor: pointer; font-family: 'Share Tech Mono'; transition: 0.3s; border-radius: 3px; text-decoration: none;}
+        .switch-btn:hover { background: #66FCF1; color: #050b14; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: rgba(5, 11, 20, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(102, 252, 241, 0.2);}
+        .logo { font-size: 26px; color: #66FCF1; text-shadow: 0 0 10px rgba(102,252,241,0.5); }
+        .nav-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 16px; transition: 0.3s; }
+        .nav-links a:hover { color: #FFD700; text-shadow: 0 0 5px #FFD700; }
+        .sponsor-btn { background: rgba(57, 255, 20, 0.1); border: 1px solid #39FF14; color: #39FF14 !important; padding: 10px 20px; font-weight: bold; text-shadow: 0 0 5px #39FF14; box-shadow: 0 0 10px rgba(57,255,20,0.3) inset, 0 0 10px rgba(57,255,20,0.3); border-radius: 4px; transition: 0.3s; }
+        .sponsor-btn:hover { background: #39FF14; color: #000 !important; box-shadow: 0 0 20px #39FF14 inset, 0 0 20px #39FF14; }
+
+        /* Page Layout */
+        .header-section { text-align: center; padding: 60px 20px 20px; }
+        .header-section h1 { color: #FFD700; font-size: 3rem; margin: 0; text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+        .header-section p { color: #66FCF1; font-size: 1.2rem; }
+
+        .container { max-width: 1000px; margin: 0 auto 50px; padding: 20px; }
+
+        /* Download Section */
+        .download-box { background: rgba(10, 25, 47, 0.6); border: 2px dashed #66FCF1; border-radius: 10px; padding: 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); margin-bottom: 50px; backdrop-filter: blur(5px);}
+        .download-text { max-width: 60%; }
+        .download-text h2 { color: #fff; font-size: 2rem; margin-top: 0; }
+        .btn-download { display: inline-block; background: #66FCF1; color: #050b14; font-family: 'Share Tech Mono'; font-size: 1.2rem; font-weight: bold; padding: 15px 30px; text-decoration: none; border-radius: 5px; transition: 0.3s; margin-top: 15px; box-shadow: 0 0 15px rgba(102, 252, 241, 0.5); }
+        .btn-download:hover { background: #fff; box-shadow: 0 0 25px #66FCF1; transform: translateY(-2px); }
+        .preview-image { width: 250px; height: 320px; background: rgba(255,255,255,0.05); border: 1px solid #45A29E; display: flex; align-items: center; justify-content: center; text-align: center; color: #45A29E; border-radius: 5px; }
+
+        /* Glossary Section */
+        .glossary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .glossary-card { background: rgba(5, 11, 20, 0.8); border-left: 4px solid #FFD700; padding: 20px; transition: 0.3s; border-top: 1px solid #1a2a3a; border-right: 1px solid #1a2a3a; border-bottom: 1px solid #1a2a3a; }
+        .glossary-card:hover { transform: translateX(5px); border-left-color: #66FCF1; background: rgba(11, 26, 42, 0.9); }
+        .glossary-term { color: #FFD700; font-size: 1.2rem; margin-bottom: 5px; }
+        .glossary-def { color: #c4c4c4; font-size: 0.95rem; line-height: 1.5; }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid #45A29E; margin-top: 50px; font-size: 0.9rem; color: #45A29E; }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="top-bar spy-font">
+        <span>ENCRYPTED CONNECTION // HUB: CASE ALZHEIMER'S</span>
+        <a href="index.html" class="switch-btn">⟲ SWITCH TO PILLAR PROJECT</a>
+    </div>
+
+    <nav>
+        <div class="logo spy-font">BRAIN HQ // CA</div>
+        <div class="nav-links spy-font">
+            <a href="case-alzheimers.html">HOME</a>
+            <a href="the-book.html">THE BOOK</a>
+            <a href="training-zone.html" style="color:#FFD700;">AGENT TRAINING ZONE</a>
+            <a href="educators.html">EDUCATORS</a>
+            <a href="sponsor-portal.html" class="sponsor-btn">SPONSOR PORTAL [RESTRICTED]</a>
+        </div>
+    </nav>
+
+    <div class="header-section">
+        <h1 class="spy-font">AGENT TRAINING ZONE</h1>
+        <p class="spy-font">Welcome to the Academy. Access your required mission files below.</p>
+    </div>
+
+    <section class="container">
+        <!-- Download Box -->
+        <div class="download-box">
+            <div class="download-text">
+                <h2 class="spy-font">TOP SECRET: SPY EXPLORATION PACKET</h2>
+                <p>Gear up for your mission! Download this free 5-page coloring and activity workbook. Navigate through the Prefrontal Cortex, solve the aphasia glitch in the Word Warehouse, and draw your favorite memory inside the secure vault of the Data Library.</p>
+                <a href="#" class="btn-download">↓ DOWNLOAD PDF (2.4 MB)</a>
+            </div>
+            <div class="preview-image spy-font">
+                [ VISUAL PLACEHOLDER: <br>CANVA COLORING BOOK MOCKUP ]
+            </div>
+        </div>
+
+        <!-- Glossary Grid -->
+        <h2 class="spy-font" style="color: #66FCF1; border-bottom: 1px solid #45A29E; padding-bottom: 10px;">HQ DATABASE: SPY GLOSSARY</h2>
+        <div class="glossary-grid">
+            <div class="glossary-card">
+                <div class="glossary-term spy-font">Prefrontal Cortex (Brain HQ)</div>
+                <div class="glossary-def">The boss of the brain that makes big decisions and solves puzzles.</div>
+            </div>
+            <div class="glossary-card">
+                <div class="glossary-term spy-font">Hippocampus (The Data Library)</div>
+                <div class="glossary-def">The brain's memory saver that grabs new memories and files them away.</div>
+            </div>
+            <div class="glossary-card">
+                <div class="glossary-term spy-font">Amygdala (Emotion-Land)</div>
+                <div class="glossary-def">The part of the brain that controls your feelings and emotions.</div>
+            </div>
+            <div class="glossary-card">
+                <div class="glossary-term spy-font">Aphasia (A Class-8 Glitch!)</div>
+                <div class="glossary-def">A condition that makes it hard to find the right words or speak.</div>
+            </div>
+            <div class="glossary-card">
+                <div class="glossary-term spy-font">Tangles (The Weeds)</div>
+                <div class="glossary-def">Twisted proteins in Alzheimer's that block brain tracks like weeds.</div>
+            </div>
+            <div class="glossary-card">
+                <div class="glossary-term spy-font">Action Potential</div>
+                <div class="glossary-def">A high-speed zap of electricity that shoots messages down a brain cell.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="spy-font">
+        TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.
+    </footer>
+
+    <!-- Background Script -->
+    <script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        let particles = [];
+        class Particle {
+            constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = Math.random() * 0.5 - 0.25; this.speedY = Math.random() * 0.5 - 0.25; }
+            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > canvas.width) this.speedX *= -1; if (this.y < 0 || this.y > canvas.height) this.speedY *= -1; }
+            draw() { ctx.fillStyle = 'rgba(102, 252, 241, 0.4)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+        }
+        function init() { for (let i = 0; i < 150; i++) particles.push(new Particle()); }
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); } requestAnimationFrame(animate); }
+        init(); animate();
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+    </script>
+</body>
+</html>
