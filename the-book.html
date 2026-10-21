@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Book | Case Alzheimer's</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Background (Same as Homepage) */
+        body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #050b14; color: #e0e0e0; overflow-x: hidden; }
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        h1, h2, h3, .spy-font { font-family: 'Share Tech Mono', monospace; }
+        
+        /* Nav & Top Bar (Same as Homepage) */
+        .top-bar { background: #0b1a2a; color: #45A29E; padding: 8px 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #45A29E; }
+        .switch-btn { background: transparent; color: #66FCF1; border: 1px solid #66FCF1; padding: 5px 15px; cursor: pointer; font-family: 'Share Tech Mono'; transition: 0.3s; border-radius: 3px; text-decoration: none;}
+        .switch-btn:hover { background: #66FCF1; color: #050b14; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: rgba(5, 11, 20, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(102, 252, 241, 0.2);}
+        .logo { font-size: 26px; color: #66FCF1; text-shadow: 0 0 10px rgba(102,252,241,0.5); }
+        .nav-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 16px; transition: 0.3s; }
+        .nav-links a:hover { color: #FFD700; text-shadow: 0 0 5px #FFD700; }
+        .sponsor-btn { background: rgba(57, 255, 20, 0.1); border: 1px solid #39FF14; color: #39FF14 !important; padding: 10px 20px; font-weight: bold; text-shadow: 0 0 5px #39FF14; box-shadow: 0 0 10px rgba(57,255,20,0.3) inset, 0 0 10px rgba(57,255,20,0.3); border-radius: 4px; transition: 0.3s; }
+        .sponsor-btn:hover { background: #39FF14; color: #000 !important; box-shadow: 0 0 20px #39FF14 inset, 0 0 20px #39FF14; }
+
+        /* Inner Page Content Layout */
+        .content-container { max-width: 1100px; margin: 50px auto; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        
+        .book-details h1 { color: #66FCF1; font-size: 2.8rem; margin-top: 0; text-shadow: 0 0 15px rgba(102, 252, 241, 0.4);}
+        .book-details h3 { color: #FFD700; font-size: 1.5rem; }
+        .book-details p { line-height: 1.8; font-size: 1.1rem; color: #c4c4c4; }
+        
+        /* The "Data File" Box for What Kids Learn */
+        .data-file { background: rgba(11, 26, 42, 0.7); border: 1px solid #45A29E; padding: 25px; border-radius: 8px; margin-top: 30px; box-shadow: 0 0 15px rgba(69, 162, 158, 0.2);}
+        .data-file ul { list-style: none; padding: 0; }
+        .data-file li { margin-bottom: 15px; padding-left: 25px; position: relative; }
+        .data-file li::before { content: "►"; color: #66FCF1; position: absolute; left: 0; font-family: 'Share Tech Mono'; }
+        
+        /* Image Grid for "Look Inside" */
+        .look-inside { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .book-image { background: rgba(255,255,255,0.05); border: 1px dashed #66FCF1; height: 250px; display: flex; align-items: center; justify-content: center; border-radius: 5px; color: #66FCF1; font-size: 1.2rem; text-align: center; padding: 20px;}
+        .book-cover-main { height: 400px; border: 2px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid #45A29E; margin-top: 50px; font-size: 0.9rem; color: #45A29E; }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="top-bar spy-font">
+        <span>ENCRYPTED CONNECTION // HUB: CASE ALZHEIMER'S</span>
+        <a href="index.html" class="switch-btn">⟲ SWITCH TO PILLAR PROJECT</a>
+    </div>
+
+    <nav>
+        <div class="logo spy-font">BRAIN HQ // CA</div>
+        <div class="nav-links spy-font">
+            <a href="case-alzheimers.html">HOME</a>
+            <a href="the-book.html" style="color:#FFD700;">THE BOOK</a>
+            <a href="training-zone.html">AGENT TRAINING ZONE</a>
+            <a href="educators.html">EDUCATORS</a>
+            <a href="sponsor-portal.html" class="sponsor-btn">SPONSOR PORTAL [RESTRICTED]</a>
+        </div>
+    </nav>
+
+    <!-- Main Content for The Book Page -->
+    <section class="content-container">
+        <!-- Left Side: Text and Synopsis -->
+        <div class="book-details">
+            <h1 class="spy-font">MISSION BRIEFING</h1>
+            <h3 class="spy-font">Target: The Tangles</h3>
+            <p><strong>"H.M., You're Late!" yelled Big Boss. "We are in big trouble, Agent. The brain is glitching... and the worst part... The Double-Chocolate-Chunk Cookie recipe is GONE!"</strong></p>
+            <p>Join Agent H.M. as she boards the high-speed Synaptic Express to investigate mysterious "tangles" taking over the brain. From the Word Warehouse to Emotion Land, this thrilling, science-backed adventure demystifies the neurobiology of Alzheimer's disease.</p>
+            
+            <div class="data-file">
+                <h3 class="spy-font">DECRYPTED DATA: WHAT KIDS LEARN</h3>
+                <ul>
+                    <li><strong>The Data Library:</strong> How the hippocampus processes short-term memory versus deep archives.</li>
+                    <li><strong>The Word Warehouse:</strong> Understanding aphasia and why loved ones forget names (Broca's & Wernicke's areas).</li>
+                    <li><strong>Emotion Land:</strong> Making sense of the amygdala, sudden mood shifts, and building emotional empathy.</li>
+                    <li><strong>Action Potential:</strong> How chemical messengers travel across the Synaptic Gap.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Side: Look Inside Images -->
+        <div class="look-inside">
+            <div class="book-image book-cover-main spy-font">
+                [ PLACEHOLDER: MAIN FRONT COVER IMAGE ]<br>8.25" x 8.25"
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="book-image spy-font">[ PLACEHOLDER: INTERIOR SPREAD 1 <br>(e.g. Synaptic Express) ]</div>
+                <div class="book-image spy-font">[ PLACEHOLDER: INTERIOR SPREAD 2 <br>(e.g. Brain HQ Map) ]</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="spy-font">
+        TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.
+    </footer>
+
+    <!-- Background Script -->
+    <script>
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        let particles = [];
+        class Particle {
+            constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = Math.random() * 0.5 - 0.25; this.speedY = Math.random() * 0.5 - 0.25; }
+            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > canvas.width) this.speedX *= -1; if (this.y < 0 || this.y > canvas.height) this.speedY *= -1; }
+            draw() { ctx.fillStyle = 'rgba(102, 252, 241, 0.4)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+        }
+        function init() { for (let i = 0; i < 150; i++) particles.push(new Particle()); }
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); } requestAnimationFrame(animate); }
+        init(); animate();
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+    </script>
+</body>
+</html>
