@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -42,8 +43,16 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+    <!-- NEW: TOP HUB SWITCHER -->
+    <div style="background: #050b14; color: #66FCF1; padding: 8px 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', Courier, monospace; border-bottom: 2px solid #45A29E; position: fixed; width: 100%; z-index: 60; top: 0;">
+        <span>CURRENT HUB: THE PILLAR PROJECT (MAIN)</span>
+        <a href="case-alzheimers.html" style="background: transparent; color: #FFD700; border: 1px solid #FFD700; padding: 5px 15px; text-decoration: none; border-radius: 3px; font-weight: bold; transition: 0.3s;" onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#050b14';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#FFD700';">
+            ⟲ ENTER CASE ALZHEIMER'S (SPY HUB)
+        </a>
+    </div>
+
+    <!-- Navigation (Shifted down slightly to accommodate the top bar) -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 mt-[38px]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0">
@@ -54,34 +63,35 @@
                 </div>
 
                 <!-- SPONSOR PORTAL BUTTON -->
-<div style="text-align: center; margin: 20px;">
-    <a href="dossier.html" style="
-        background-color: transparent;
-        border: 2px solid #00ff41;
-        color: #00ff41;
-        padding: 10px 20px;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 1.1rem;
-        font-weight: bold;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
-        display: inline-block;
-        box-shadow: 0 0 5px rgba(0, 255, 65, 0.2);
-    " 
-    onmouseover="this.style.backgroundColor='#00ff41'; this.style.color='#020a1c'; this.style.boxShadow='0 0 15px #00ff41';" 
-    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#00ff41'; this.style.boxShadow='0 0 5px rgba(0, 255, 65, 0.2)';">
-        🔒 Sponsor Portal (Restricted)
-    </a>
-</div>
+                <div style="text-align: center; margin: 20px;">
+                    <a href="dossier.html" style="
+                        background-color: transparent;
+                        border: 2px solid #00ff41;
+                        color: #00ff41;
+                        padding: 10px 20px;
+                        font-family: 'Courier New', Courier, monospace;
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        transition: all 0.3s ease;
+                        display: inline-block;
+                        box-shadow: 0 0 5px rgba(0, 255, 65, 0.2);
+                    " 
+                    onmouseover="this.style.backgroundColor='#00ff41'; this.style.color='#020a1c'; this.style.boxShadow='0 0 15px #00ff41';" 
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#00ff41'; this.style.boxShadow='0 0 5px rgba(0, 255, 65, 0.2)';">
+                        🔒 Sponsor Portal (Restricted)
+                    </a>
+                </div>
 
                 <!-- Updated Links for Multi-Page Layout -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html" class="font-medium text-pillar transition">Home</a>
                     <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a>
                     <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a>
-                    <a href="book.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
+                    <!-- CHANGED: Now points to the Spy Hub -->
+                    <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
                     <a href="#resources" class="font-medium text-slate-600 hover:text-pillar transition">Resources</a>
                     <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
                 </div>
@@ -89,8 +99,8 @@
         </div>
     </nav>
 
-    <!-- Home / Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-pillar-light to-white bg-[length:400%_400%] animate-gradient">
+    <!-- Home / Hero Section (Added pt-40 to prevent nav overlap) -->
+    <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-pillar-light to-white bg-[length:400%_400%] animate-gradient">
         <div class="max-w-6xl mx-auto text-center">
             <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-6">
                 Bridging the Gap in <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Memory Care</span>
@@ -105,7 +115,7 @@
         </div>
     </section>
 
-    <!-- NEW: Trust & Partnership Bar -->
+    <!-- Trust & Partnership Bar -->
     <div class="bg-white border-y border-slate-200 py-6">
         <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-8 text-slate-500 font-semibold text-sm uppercase tracking-wider">
             <span>In Partnership With: Brandywine Living</span>
@@ -138,7 +148,7 @@
         </div>
     </section>
 
-    <!-- Quick Book Promo (Points to the new Book Page) -->
+    <!-- Quick Book Promo (Now points to case-alzheimers.html) -->
     <section class="py-20 bg-pillar-dark text-white text-center">
         <div class="max-w-4xl mx-auto px-4">
             <span class="uppercase tracking-widest text-pillar-light font-bold text-sm mb-2 block">Publishing This November</span>
@@ -146,7 +156,8 @@
             <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
                 Explaining memory loss to children doesn't have to be scary. Join Agent H.M. on a spy adventure inside the brain to learn how memories work and how to show empathy to loved ones.
             </p>
-            <a href="book.html" class="inline-block bg-white text-pillar-dark px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg hover:-translate-y-1">Explore the Book</a>
+            <!-- CHANGED: Now points to the Spy Hub -->
+            <a href="case-alzheimers.html" class="inline-block bg-white text-pillar-dark px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg hover:-translate-y-1">Enter Brain HQ</a>
         </div>
     </section>
 
@@ -167,7 +178,7 @@
         </div>
     </section>
 
-    <!-- Social Media Feed Section (ADDED BACK!) -->
+    <!-- Social Media Feed Section -->
     <section id="socials" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="font-heading text-4xl text-center text-slate-900 mb-6">Our Journey on Instagram</h2>
         <p class="text-center text-slate-600 mb-12 text-lg">
@@ -235,7 +246,8 @@
             if (type === 'volunteer') {
                 html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="volunteer.html" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>';
             } else if (type === 'book') {
-                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="book.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>';
+                /* CHANGED: Bot now links to case-alzheimers.html */
+                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="case-alzheimers.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>';
             } else if (type === 'resources') {
                 html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br>Scroll down to our Resources section for more links.</div>';
             }
