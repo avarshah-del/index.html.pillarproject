@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Alzheimer's | The Pillar Project</title>
+    <!-- Importing Google Fonts for the Spy/Terminal look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Background */
+        body, html { 
+            margin: 0; padding: 0; 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #050b14; /* Deep Night Mission Navy */
+            color: #e0e0e0; 
+            overflow-x: hidden; 
+        }
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        h1, h2, h3, .spy-font { font-family: 'Share Tech Mono', monospace; }
+        
+        /* Top Hub Switcher Bar */
+        .top-bar { 
+            background: #0b1a2a; color: #45A29E; 
+            padding: 8px 20px; font-size: 13px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid #45A29E; 
+        }
+        .switch-btn { 
+            background: transparent; color: #66FCF1; 
+            border: 1px solid #66FCF1; padding: 5px 15px; 
+            cursor: pointer; font-family: 'Share Tech Mono'; 
+            transition: 0.3s; border-radius: 3px;
+        }
+        .switch-btn:hover { background: #66FCF1; color: #050b14; }
+
+        /* Main Navigation */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 50px; background: rgba(5, 11, 20, 0.8); 
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-size: 26px; color: #66FCF1; text-shadow: 0 0 10px rgba(102,252,241,0.5); }
+        .nav-links a { 
+            color: #fff; text-decoration: none; margin: 0 15px; 
+            font-size: 16px; transition: 0.3s; 
+        }
+        .nav-links a:hover { color: #FFD700; text-shadow: 0 0 5px #FFD700; }
+        
+        /* Glowing Sponsor Button */
+        .sponsor-btn { 
+            background: rgba(57, 255, 20, 0.1); border: 1px solid #39FF14; 
+            color: #39FF14 !important; padding: 10px 20px; 
+            font-weight: bold; text-shadow: 0 0 5px #39FF14; 
+            box-shadow: 0 0 10px rgba(57,255,20,0.3) inset, 0 0 10px rgba(57,255,20,0.3); 
+            border-radius: 4px; transition: 0.3s; 
+        }
+        .sponsor-btn:hover { 
+            background: #39FF14; color: #000 !important; 
+            box-shadow: 0 0 20px #39FF14 inset, 0 0 20px #39FF14; 
+        }
+
+        /* Hero Section */
+        .hero { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 80px 50px; min-height: 60vh; 
+        }
+        .hero-content { max-width: 50%; }
+        .typewriter { 
+            font-size: 3.2rem; color: #FFD700; 
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); 
+            min-height: 140px; margin-top: 0;
+        }
+        .hero-sub { font-size: 1.2rem; line-height: 1.6; margin-bottom: 40px; color: #c4c4c4; }
+        
+        /* Call to Action Buttons */
+        .cta-btn { 
+            display: inline-block; padding: 15px 30px; margin-right: 20px; 
+            font-family: 'Share Tech Mono'; text-decoration: none; 
+            font-size: 18px; font-weight: bold; border-radius: 4px; transition: 0.3s; 
+        }
+        .btn-gold { 
+            background: #FFD700; color: #050b14; 
+            box-shadow: 0 0 15px rgba(255,215,0,0.6); 
+        }
+        .btn-gold:hover { background: #fff; box-shadow: 0 0 25px #FFD700; transform: translateY(-2px); }
+        .btn-cyan { 
+            background: rgba(102,252,241,0.1); color: #66FCF1; 
+            border: 2px solid #66FCF1; box-shadow: 0 0 10px rgba(102,252,241,0.3); 
+        }
+        .btn-cyan:hover { background: #66FCF1; color: #050b14; transform: translateY(-2px); }
+        
+        /* Book Cover Placeholder */
+        .hero-image { 
+            width: 40%; height: 500px; 
+            border: 2px dashed #66FCF1; display: flex; align-items: center; justify-content: center; 
+            position: relative; box-shadow: 0 0 30px rgba(102, 252, 241, 0.1); 
+            background: rgba(10, 25, 47, 0.4); backdrop-filter: blur(5px); border-radius: 10px;
+        }
+
+        /* Moving Ticker Tape Endorsement */
+        .endorsement { 
+            background: #FFD700; color: #050b14; padding: 15px 0; 
+            font-weight: bold; font-size: 1.1rem; overflow: hidden; white-space: nowrap; 
+        }
+        .endorsement-text { display: inline-block; animation: ticker 25s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
+
+        /* Footer */
+        footer { 
+            text-align: center; padding: 40px; border-top: 1px solid #45A29E; 
+            margin-top: 50px; font-size: 0.9rem; color: #45A29E; 
+        }
+    </style>
+</head>
+<body>
+    <!-- The Interactive Floating Data Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Top Hub Switcher -->
+    <div class="top-bar spy-font">
+        <span>ENCRYPTED CONNECTION // HUB: CASE ALZHEIMER'S</span>
+      <a href="index.html" class="switch-btn" style="text-decoration: none;">⟲ SWITCH TO PILLAR PROJECT</a>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="logo spy-font">BRAIN HQ // CA</div>
+        <div class="nav-links spy-font">
+            <a href="#">HOME</a>
+            <a href="#">THE BOOK</a>
+            <a href="#">AGENT TRAINING ZONE</a>
+            <a href="#">EDUCATORS</a>
+            <a href="#">ABOUT</a>
+            <a href="#" class="sponsor-btn">SPONSOR PORTAL [RESTRICTED]</a>
+        </div>
+    </nav>
+
+    <!-- Main Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="typewriter spy-font" id="typewriter"></h1>
+            <p class="hero-sub">A science-backed, spy-themed adventure that replaces fear with empathy for families navigating Alzheimer's disease.</p>
+            <a href="#" class="cta-btn btn-gold">GET THE BOOK</a>
+            <a href="#" class="cta-btn btn-cyan">DOWNLOAD MISSION PACKET</a>
+        </div>
+        <div class="hero-image spy-font">
+            [ VISUAL PLACEHOLDER: GLOWING BOOK COVER ]
+        </div>
+    </section>
+
+    <!-- Endorsements Banner -->
+    <div class="endorsement spy-font">
+        <div class="endorsement-text">★ ENDORSED BY LEADERS IN DEMENTIA EDUCATION: TEEPA SNOW, LORI LA BEY, HFC, ALICE-KATE LAMB, & ANKE HOFFMAN ★</div>
+    </div>
+
+    <footer class="spy-font">
+        TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.
+    </footer>
+
+    <!-- JavaScript for Animations -->
+    <script>
+        // 1. Typewriter Effect Script
+        const text = "Demystifying Dementia for the Next Generation of Agents.";
+        const element = document.getElementById("typewriter");
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 40); // typing speed
+            } else {
+                setInterval(() => {
+                    element.style.borderRight = element.style.borderRight === 'none' ? '4px solid #66FCF1' : 'none';
+                }, 500); // blinking cursor speed
+            }
+        }
+        window.onload = () => {
+            element.style.borderRight = '4px solid #66FCF1';
+            setTimeout(typeWriter, 500);
+        };
+
+        // 2. Floating Data Particles Background Script
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particles = [];
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(102, 252, 241, 0.4)'; // Cyan particles
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        function init() {
+            for (let i = 0; i < 150; i++) particles.push(new Particle());
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+        init();
+        animate();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
