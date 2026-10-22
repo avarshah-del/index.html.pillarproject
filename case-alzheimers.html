@@ -93,6 +93,14 @@ HTML
         .endorsement-text { display: inline-block; animation: ticker 25s linear infinite; }
         @keyframes ticker { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
 
+        /* Brain Map CSS */
+        .hotspot { cursor: crosshair; z-index: 10; }
+        .pulse-dot { width: 20px; height: 20px; background-color: #FFD700; border-radius: 50%; box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); animation: pulse 2s infinite; }
+        .hotspot:hover .pulse-dot { background-color: #66FCF1; box-shadow: 0 0 0 0 rgba(102, 252, 241, 0.7); }
+        .tooltip { visibility: hidden; width: 250px; background-color: rgba(5, 11, 20, 0.95); color: #66FCF1; text-align: left; border: 1px solid #66FCF1; border-radius: 6px; padding: 15px; position: absolute; z-index: 100; bottom: 125%; left: 50%; margin-left: -125px; opacity: 0; transition: opacity 0.3s; box-shadow: 0 0 15px rgba(102, 252, 241, 0.3); }
+        .hotspot:hover .tooltip { visibility: visible; opacity: 1; }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
+
         footer { 
             text-align: center; padding: 40px; border-top: 1px solid #45A29E; 
             margin-top: 50px; font-size: 0.9rem; color: #45A29E; 
@@ -125,7 +133,6 @@ HTML
             <a href="training-zone.html" class="cta-btn btn-cyan">DOWNLOAD MISSION PACKET</a>
         </div>
         <div class="hero-image">
-            <!-- UPDATED IMAGE LINK BELOW -->
             <img src="titlenew.png" alt="Case Alzheimer's Book Cover" class="book-cover-img">
         </div>
     </section>
@@ -133,6 +140,58 @@ HTML
     <div class="endorsement spy-font">
         <div class="endorsement-text">★ ENDORSED BY LEADERS IN DEMENTIA EDUCATION: TEEPA SNOW, LORI LA BEY, HFC, ALICE-KATE LAMB, & ANKE HOFFMAN ★</div>
     </div>
+
+    <!-- NEW: Interactive Brain Map Section -->
+    <section style="padding: 60px 20px; text-align: center;">
+        <h2 class="spy-font" style="color: #66FCF1; border-bottom: 1px solid #45A29E; padding-bottom: 10px; display: inline-block;">INTERACTIVE HQ MAP: EXPLORE THE BRAIN</h2>
+        <p style="color: #c4c4c4; max-width: 600px; margin: 10px auto 30px;">Hover over the glowing sectors below to scan the different regions of Brain HQ.</p>
+        
+        <div class="brain-map-container" style="position: relative; width: 100%; max-width: 800px; height: 500px; margin: 0 auto; background: rgba(10, 25, 47, 0.6); border: 2px dashed #45A29E; border-radius: 10px; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+            
+            <!-- This looks for 'brain-map.png' in your GitHub repo -->
+            <img src="brain-map.png" alt="Brain Map" style="width: 70%; opacity: 0.8; filter: drop-shadow(0 0 10px #45A29E);">
+        
+            <!-- Hotspot 1: Prefrontal Cortex -->
+            <div class="hotspot" style="position: absolute; top: 20%; left: 25%;">
+                <div class="pulse-dot"></div>
+                <div class="tooltip spy-font">
+                    <strong>Brain HQ</strong><br>
+                    (Prefrontal Cortex)<br>
+                    <span style="font-family: 'Poppins', sans-serif; font-size: 0.8rem; color: #e0e0e0;">The boss of the brain that makes big decisions and solves puzzles.</span>
+                </div>
+            </div>
+        
+            <!-- Hotspot 2: Word Warehouse -->
+            <div class="hotspot" style="position: absolute; top: 40%; left: 15%;">
+                <div class="pulse-dot"></div>
+                <div class="tooltip spy-font">
+                    <strong>Word Warehouse</strong><br>
+                    (Broca's & Wernicke's)<br>
+                    <span style="font-family: 'Poppins', sans-serif; font-size: 0.8rem; color: #e0e0e0;">The language factories that help us build words and talk to each other.</span>
+                </div>
+            </div>
+        
+            <!-- Hotspot 3: Emotion Land -->
+            <div class="hotspot" style="position: absolute; top: 60%; left: 50%;">
+                <div class="pulse-dot"></div>
+                <div class="tooltip spy-font">
+                    <strong>Emotion Land</strong><br>
+                    (Amygdala)<br>
+                    <span style="font-family: 'Poppins', sans-serif; font-size: 0.8rem; color: #e0e0e0;">The part of the brain that controls your feelings and sudden mood shifts.</span>
+                </div>
+            </div>
+        
+            <!-- Hotspot 4: Data Library -->
+            <div class="hotspot" style="position: absolute; top: 50%; left: 65%;">
+                <div class="pulse-dot"></div>
+                <div class="tooltip spy-font">
+                    <strong>The Data Library</strong><br>
+                    (Hippocampus)<br>
+                    <span style="font-family: 'Poppins', sans-serif; font-size: 0.8rem; color: #e0e0e0;">The memory saver that grabs new memories and stores old favorites in the deep archives.</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="spy-font">
         TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.
