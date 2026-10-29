@@ -22,9 +22,9 @@ HTML
                     },
                     colors: {
                         pillar: {
-                            light: '#f3e8ff', 
-                            DEFAULT: '#9333ea', 
-                            dark: '#581c87', 
+                            light: '#f3e8ff',
+                            DEFAULT: '#9333ea',
+                            dark: '#581c87',
                         }
                     }
                 }
@@ -34,25 +34,25 @@ HTML
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-    <!-- NEW: TOP HUB SWITCHER -->
+    <!-- TOP HUB SWITCHER -->
     <div style="background: #050b14; color: #66FCF1; padding: 8px 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; font-family: 'Courier New', Courier, monospace; border-bottom: 2px solid #45A29E; position: fixed; width: 100%; z-index: 60; top: 0;">
         <span>CURRENT HUB: THE PILLAR PROJECT (MAIN)</span>
-        <a href="case-alzheimers.html" style="background: transparent; color: #FFD700; border: 1px solid #FFD700; padding: 5px 15px; text-decoration: none; border-radius: 3px; font-weight: bold; transition: 0.3s;" onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#050b14';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#FFD700';">
+        <a href="case-alzheimers.html" style="background: transparent; color: #FFD700; border: 1px solid #FFD700; padding: 5px 15px; text-decoration: none; border-radius: 3px; font-weight: bold; transition: 0.3s;" 
+        onmouseover="this.style.backgroundColor='#FFD700'; this.style.color='#050b14';" 
+        onmouseout="this.style.backgroundColor='transparent'; this.style.color='#FFD700';">
             ⟲ ENTER CASE ALZHEIMER'S (SPY HUB)
         </a>
     </div>
 
-    <!-- Navigation (Shifted down slightly to accommodate the top bar) -->
+    <!-- Navigation -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 mt-[38px]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0">
                     <a href="index.html">
-                        <!-- Logo Image matches the homepage -->
                         <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition">
                     </a>
                 </div>
-                
                 <!-- SPONSOR PORTAL BUTTON -->
                 <div style="text-align: center; margin: 20px;">
                     <a href="sponsor-portal.html" style="
@@ -75,13 +75,10 @@ HTML
                         🔒 Sponsor Portal (Restricted)
                     </a>
                 </div>
-
-                <!-- Updated Links for Multi-Page Layout -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html" class="font-medium text-slate-600 hover:text-pillar transition">Home</a>
                     <a href="about.html" class="font-medium text-pillar transition">Our Story</a>
                     <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a>
-                    <!-- CHANGED: Now points to the Spy Hub -->
                     <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
                     <a href="index.html#resources" class="font-medium text-slate-600 hover:text-pillar transition">Resources</a>
                     <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
@@ -90,35 +87,49 @@ HTML
         </div>
     </nav>
 
-    <!-- Our Story Content (Added pt-40 to prevent nav overlap) -->
-    <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-10 text-center">
+    <!-- REFINED: Our Story Content (Split Layout & Improved Typography) -->
+    <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-16 text-center">
             Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Story</span>
         </h1>
-        
-        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100 text-lg text-slate-700 leading-relaxed space-y-6">
-            
-            <img src="IMG_2628.jpeg" alt="The Pillar Project Founders and Family" class="w-full h-auto rounded-2xl shadow-md mb-8 border border-slate-200">
 
-            <p>
-                It all began from a single reason, to help our family. Around 10 years ago, our grandfather, Jayant Shah, was diagnosed with Alzheimer’s disease, and our grandmother became his primary caregiver. We watched helplessly as he slowly slid down the slippery slope of dementia, powerless to do anything to stop it. 
-            </p>
-            <p>
-                We saw how Alzheimer’s left him confused, distressed, violent and eventually, sedentary. We saw our grandmother care for him, day after day, helping him to live through even the most challenging moments of his life. We saw her stress, her worries, and, most importantly, her extraordinary strength and determination.
-            </p>
-            <p>
-                Our grandmother, Hina, is superwoman, but even the strongest of heroes are put to the test during those harsh years. She showed us what an incredible caregiver can be like. Her story taught us a valuable lesson. Behind every patient lies a caregiver who tends to them and helps them through their darkest hours. It showed us the overlooked struggles of these people, who, unfortunately, are frequently forgotten by society. 
-            </p>
-            <p>
-                Forgotten by society, yet incurring the immense burden of Alzheimer's. Caregivers are these hidden heroes, working around the clock, patiently for their loved ones, often without regard for their own health. 
-            </p>
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-slate-100 grid md:grid-cols-2 gap-12 items-start">
             
-            <!-- Highlighted Mission Statement -->
-            <div class="mt-10 p-8 bg-pillar-light/40 rounded-xl border-l-4 border-pillar">
-                <p class="font-heading font-bold text-pillar-dark text-xl text-center leading-relaxed">
-                    Our initiative was built on the realization that caregivers cannot pour from an empty cup. We realized that providing our grandmother simple moments to herself made an immense difference in not only how she cared for herself, but as well, how she cared for our grandfather. We strive to provide a community and give caregivers the much needed respite and relaxation they deserve.
-                </p>
+            <!-- Left Side: Visuals & Pull Quote -->
+            <div class="space-y-8 sticky top-32">
+                <img src="IMG_2628.jpeg" alt="The Pillar Project Founders and Family" class="w-full h-auto rounded-2xl shadow-md border border-slate-200">
+                
+                <!-- Stylized Pull Quote -->
+                <blockquote class="p-8 bg-pillar-light/40 rounded-xl border-l-4 border-pillar shadow-sm">
+                    <p class="font-heading font-bold text-pillar-dark text-2xl leading-snug">
+                        "Caregivers cannot pour from an empty cup."
+                    </p>
+                </blockquote>
             </div>
+
+            <!-- Right Side: Editorial Text Block -->
+            <!-- Note the "leading-loose" for line height and clean spacing -->
+            <div class="text-lg text-slate-700 leading-loose space-y-6">
+                <p>
+                    It all began from a single reason, to help our family. Around 10 years ago, our grandfather, Jayant Shah, was diagnosed with Alzheimer’s disease, and our grandmother became his primary caregiver. We watched helplessly as he slowly slid down the slippery slope of dementia, powerless to do anything to stop it.
+                </p>
+                <p>
+                    We saw how Alzheimer’s left him confused, distressed, violent and eventually, sedentary. We saw our grandmother care for him, day after day, helping him to live through even the most challenging moments of his life. We saw her stress, her worries, and, most importantly, her extraordinary strength and determination.
+                </p>
+                <p>
+                    Our grandmother, Hina, is superwoman, but even the strongest of heroes are put to the test during those harsh years. She showed us what an incredible caregiver can be like. Her story taught us a valuable lesson. Behind every patient lies a caregiver who tends to them and helps them through their darkest hours. It showed us the overlooked struggles of these people, who, unfortunately, are frequently forgotten by society.
+                </p>
+                <p>
+                    Forgotten by society, yet incurring the immense burden of Alzheimer's. Caregivers are these hidden heroes, working around the clock, patiently for their loved ones, often without regard for their own health.
+                </p>
+                
+                <div class="mt-8 p-6 bg-slate-50 border border-slate-200 rounded-xl">
+                    <p class="font-medium text-slate-800 leading-relaxed">
+                        Our initiative was built on the realization that providing our grandmother simple moments to herself made an immense difference in not only how she cared for herself, but as well, how she cared for our grandfather. We strive to provide a community and give caregivers the much-needed respite and relaxation they deserve.
+                    </p>
+                </div>
+            </div>
+            
         </div>
     </section>
 
@@ -147,9 +158,8 @@ HTML
         .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;}
         .chat-option:hover { background: #7e22ce; }
     </style>
-
+    
     <button id="pillar-chat-btn" onclick="toggleChat()">💬</button>
-
     <div id="pillar-chat-window">
         <div id="pillar-chat-header">
             <span>The Pillar Guide</span>
@@ -162,7 +172,7 @@ HTML
             <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
         </div>
     </div>
-
+    
     <script>
         function toggleChat() {
             var win = document.getElementById("pillar-chat-window");
@@ -174,7 +184,6 @@ HTML
             if (type === 'volunteer') {
                 html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="volunteer.html" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>';
             } else if (type === 'book') {
-                /* CHANGED: Bot now links to case-alzheimers.html */
                 html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="case-alzheimers.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>';
             } else if (type === 'resources') {
                 html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br><a href="index.html#resources" style="color:#9333ea; font-weight:bold;">Click here for more resources.</a></div>';
