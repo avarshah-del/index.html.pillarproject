@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Training Simulation | Brain HQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #050b14; color: #e0e0e0; overflow-x: hidden; }
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .spy-font { font-family: 'Share Tech Mono', monospace; }
+        
+        /* Layout Container */
+        .container { max-width: 800px; margin: 50px auto; position: relative; z-index: 10; padding: 20px; }
+        .game-panel { background: rgba(5, 11, 20, 0.9); border: 2px solid #45A29E; border-radius: 10px; box-shadow: 0 0 20px rgba(69, 162, 158, 0.3); backdrop-filter: blur(10px); padding: 40px; display: none; }
+        .game-panel.active { display: block; animation: fadeIn 0.5s; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Typography */
+        h1, h2, h3 { color: #66FCF1; margin-top: 0; text-shadow: 0 0 10px rgba(102, 252, 241, 0.4); }
+        h1 { font-size: 2.5rem; text-align: center; }
+        p { font-size: 1.1rem; line-height: 1.6; color: #c4c4c4; }
+
+        /* Buttons & Inputs */
+        input[type="text"] { background: rgba(10, 25, 47, 0.8); border: 2px dashed #FFD700; color: #FFD700; font-size: 1.5rem; padding: 15px; width: 100%; box-sizing: border-box; text-align: center; font-family: 'Share Tech Mono'; outline: none; margin-bottom: 20px; text-transform: uppercase; }
+        input[type="text"]:focus { box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+        .btn { display: inline-block; background: #FFD700; color: #050b14; font-family: 'Share Tech Mono'; font-size: 1.2rem; font-weight: bold; padding: 15px 30px; border: none; cursor: pointer; border-radius: 4px; transition: 0.3s; width: 100%; text-align: center; margin-top: 10px; }
+        .btn:hover { background: #fff; box-shadow: 0 0 20px #FFD700; transform: translateY(-2px); }
+        .btn-cyan { background: transparent; border: 2px solid #66FCF1; color: #66FCF1; }
+        .btn-cyan:hover { background: rgba(102, 252, 241, 0.2); box-shadow: 0 0 15px rgba(102, 252, 241, 0.4); }
+
+        /* Character Dialog Box */
+        .dialog-box { display: flex; align-items: flex-start; gap: 20px; background: rgba(10, 25, 47, 0.6); border-left: 4px solid #FFD700; padding: 20px; margin-bottom: 30px; border-radius: 0 8px 8px 0; }
+        .character-name { color: #FFD700; font-size: 1.2rem; margin-bottom: 5px; }
+        .character-text { font-size: 1.1rem; color: #fff; }
+
+        /* Map Grid */
+        .map-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 30px; }
+        .map-node { background: rgba(11, 26, 42, 0.8); border: 2px dashed #45A29E; padding: 20px; text-align: center; cursor: pointer; border-radius: 8px; transition: 0.3s; }
+        .map-node:hover { background: rgba(69, 162, 158, 0.2); border-color: #66FCF1; transform: scale(1.02); }
+        .map-node.locked { opacity: 0.5; pointer-events: none; border-color: #ff3333; }
+        .map-node.completed { background: rgba(57, 255, 20, 0.1); border: 2px solid #39FF14; color: #39FF14; pointer-events: none; }
+
+        /* Quiz Styles */
+        .option-btn { display: block; width: 100%; background: transparent; border: 2px solid #45A29E; color: #66FCF1; padding: 15px; margin-bottom: 10px; font-size: 1.1rem; font-family: 'Poppins', sans-serif; cursor: pointer; border-radius: 6px; transition: 0.3s; text-align: left; }
+        .option-btn:hover { background: rgba(102, 252, 241, 0.1); box-shadow: 0 0 10px rgba(102, 252, 241, 0.2); }
+        .option-btn.correct { background: #39FF14; color: #050b14; border-color: #39FF14; }
+        .option-btn.wrong { background: #ff3333; color: #fff; border-color: #ff3333; }
+
+        /* Purple Blob Buddy */
+        #buddy-container { position: fixed; bottom: 30px; right: 30px; z-index: 100; text-align: center; display: none; animation: float 3s ease-in-out infinite; }
+        .buddy-speech { background: #fff; color: #050b14; padding: 10px 15px; border-radius: 15px 15px 0 15px; font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); font-family: 'Share Tech Mono'; max-width: 200px; display: none; }
+        .buddy-img { width: 80px; height: 80px; filter: drop-shadow(0 0 15px rgba(147, 51, 234, 0.6)); }
+        
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- PURPLE BLOB BUDDY -->
+    <div id="buddy-container">
+        <div id="buddy-speech" class="buddy-speech">Let's go, Agent!</div>
+        <!-- Replace this placeholder with your purple blob PNG! -->
+        <img src="purple-blob.png" alt="Agent Buddy" class="buddy-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'40\' fill=\'%239333ea\'/><circle cx=\'35\' cy=\'40\' r=\'5\' fill=\'white\'/><circle cx=\'65\' cy=\'40\' r=\'5\' fill=\'white\'/><path d=\'M 40 60 Q 50 70 60 60\' stroke=\'white\' stroke-width=\'3\' fill=\'none\'/></svg>'">
+    </div>
+
+    <div class="container">
+        
+        <!-- 1. LOGIN SCREEN -->
+        <div id="screen-login" class="game-panel active">
+            <h1 class="spy-font">HQ SECURITY TERMINAL</h1>
+            <p style="text-align: center;">Authorized personnel only. Please initiate your training simulation.</p>
+            <input type="text" id="agent-name" placeholder="ENTER YOUR AGENT NAME" autocomplete="off">
+            <button class="btn" onclick="startGame()">INITIALIZE LINK</button>
+        </div>
+
+        <!-- 2. BRAIN HQ (INTRO) -->
+        <div id="screen-hq" class="game-panel">
+            <h1 class="spy-font">BRAIN HQ</h1>
+            <div class="dialog-box">
+                <div>
+                    <div class="character-name spy-font">BIG BOSS:</div>
+                    <div class="character-text">
+                        "Ah, Agent <span class="player-name-display" style="color:#66FCF1; font-weight:bold;"></span>! You're finally here. We are in big trouble. This is Case Alzheimer's."<br><br>
+                        "Mysterious tangles are causing glitches all over the brain. I need you to travel to three critical regions, meet the operatives in charge, and pass their security checks to reboot the systems. Take your purple buddy with you. Now GO!"
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-cyan" onclick="showMap()">OPEN NEURAL MAP</button>
+        </div>
+
+        <!-- 3. MAP NAVIGATION -->
+        <div id="screen-map" class="game-panel">
+            <h1 class="spy-font">HQ RADAR MAP</h1>
+            <p style="text-align: center;">Select a region to investigate. Clear all three to finish your mission.</p>
+            
+            <div class="map-grid">
+                <div id="node-warehouse" class="map-node spy-font" onclick="enterZone('warehouse')">
+                    <h2 style="margin:0;">1. WORD WAREHOUSE</h2>
+                    <p style="margin:5px 0 0 0; color:#fff;">Broca's & Wernicke's Areas</p>
+                    <span class="status-indicator text-sm mt-2 block" style="color:#FFD700;">STATUS: GLITCHING</span>
+                </div>
+                
+                <div id="node-emotion" class="map-node spy-font" onclick="enterZone('emotion')">
+                    <h2 style="margin:0;">2. EMOTION LAND</h2>
+                    <p style="margin:5px 0 0 0; color:#fff;">The Amygdala</p>
+                    <span class="status-indicator text-sm mt-2 block" style="color:#FFD700;">STATUS: GLITCHING</span>
+                </div>
+                
+                <div id="node-library" class="map-node spy-font" onclick="enterZone('library')">
+                    <h2 style="margin:0;">3. DATA LIBRARY</h2>
+                    <p style="margin:5px 0 0 0; color:#fff;">The Hippocampus</p>
+                    <span class="status-indicator text-sm mt-2 block" style="color:#FFD700;">STATUS: GLITCHING</span>
+                </div>
+            </div>
+            
+            <button id="btn-finale" class="btn" style="display:none; margin-top: 30px; background: #39FF14;" onclick="showFinale()">ALL ZONES SECURE - RETURN TO HQ</button>
+        </div>
+
+        <!-- 4. QUIZ ZONE (Dynamically updates based on location) -->
+        <div id="screen-zone" class="game-panel">
+            <h1 id="zone-title" class="spy-font">ZONE TITLE</h1>
+            
+            <div id="zone-intro" class="dialog-box">
+                <div>
+                    <div id="zone-character" class="character-name spy-font">CHARACTER:</div>
+                    <div id="zone-dialog" class="character-text">Dialog goes here.</div>
+                </div>
+            </div>
+
+            <div id="quiz-container" style="display:none; margin-top: 20px;">
+                <div style="color: #FFD700; font-family: 'Share Tech Mono'; margin-bottom: 15px;">
+                    SECURITY CHECK <span id="q-counter">1</span>/3
+                </div>
+                <h3 id="question-text" style="color: #fff; font-family: 'Poppins'; margin-bottom: 20px;">Question?</h3>
+                <div id="options-container"></div>
+            </div>
+
+            <button id="btn-start-quiz" class="btn btn-cyan" onclick="startQuiz()">INITIATE SECURITY CHECK</button>
+        </div>
+
+        <!-- 5. THE TRUE STORY OF H.M. -->
+        <div id="screen-finale" class="game-panel">
+            <h1 class="spy-font" style="color: #FFD700;">DECRYPTED FILE: H.M.</h1>
+            <p>You did it, Agent <span class="player-name-display" style="color:#66FCF1; font-weight:bold;"></span>! The tangles haven't disappeared, but because of your empathy, the brain is safe and comforted.</p>
+            
+            <div style="background: rgba(255, 215, 0, 0.1); border-left: 4px solid #FFD700; padding: 20px; margin: 30px 0;">
+                <h2 class="spy-font" style="color: #FFD700; font-size: 1.5rem; margin-bottom: 10px;">TOP SECRET HISTORY:</h2>
+                <p style="color: #fff;">Did you know your character, <strong>Agent H.M.</strong>, is named after a real hero of science?</p>
+                <p style="color: #fff;">Henry Molaison, known in medical records as "Patient H.M.", lost his hippocampus in a surgery long ago. He couldn't form new memories, but his willingness to be studied by scientists helped the world understand exactly how the human memory works! We honor him by becoming agents of empathy.</p>
+            </div>
+            
+            <button class="btn" onclick="showRewards()">ACCESS VAULT & BADGE</button>
+        </div>
+
+        <!-- 6. REWARDS VAULT -->
+        <div id="screen-rewards" class="game-panel" style="text-align: center;">
+            <h1 class="spy-font" style="color: #39FF14; font-size: 3rem;">MISSION ACCOMPLISHED</h1>
+            <p>You are now a certified Dementia Empathy Agent. Download your gear below!</p>
+            
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px; flex-wrap: wrap;">
+                <a href="agent-certificate.pdf" target="_blank" style="display: block; padding: 30px; background: rgba(57, 255, 20, 0.1); border: 2px solid #39FF14; border-radius: 10px; color: #39FF14; text-decoration: none; width: 200px; transition: 0.3s;" onmouseover="this.style.background='#39FF14'; this.style.color='#050b14';" onmouseout="this.style.background='rgba(57, 255, 20, 0.1)'; this.style.color='#39FF14';">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🏅</div>
+                    <div class="spy-font" style="font-weight: bold; font-size: 1.2rem;">AGENT CERTIFICATE</div>
+                </a>
+                
+                <a href="cookie-recipe.pdf" target="_blank" style="display: block; padding: 30px; background: rgba(102, 252, 241, 0.1); border: 2px solid #66FCF1; border-radius: 10px; color: #66FCF1; text-decoration: none; width: 200px; transition: 0.3s;" onmouseover="this.style.background='#66FCF1'; this.style.color='#050b14';" onmouseout="this.style.background='rgba(102, 252, 241, 0.1)'; this.style.color='#66FCF1';">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🍪</div>
+                    <div class="spy-font" style="font-weight: bold; font-size: 1.2rem;">COOKIE RECIPE</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- GAME LOGIC SCRIPT -->
+    <script>
+        // Global Game State
+        let agentName = "";
+        let currentZoneKey = "";
+        let currentQuestionIndex = 0;
+        
+        let completedZones = {
+            warehouse: false,
+            emotion: false,
+            library: false
+        };
+
+        // Zone Data & Questions
+        const zoneData = {
+            warehouse: {
+                title: "WORD WAREHOUSE",
+                character: "THE MANAGER",
+                dialog: "\"Attention Agent! We have a Class-8 Aphasia glitch on our hands. The tangles are wrapping around the glowing word-orbs. Answer these security questions so we can clear the vines!\"",
+                questions: [
+                    { q: "What is the main job of the Word Warehouse (Broca's & Wernicke's Areas)?", options: ["To store old memories", "To help us build words and talk", "To pump ATP fuel"], answer: 1 },
+                    { q: "What is the medical name for the glitch that makes it hard to find the right words?", options: ["Aphasia", "Action Potential", "Hippocampus"], answer: 0 },
+                    { q: "True or False: If a loved one forgets a word, we should get angry at them.", options: ["True", "False, we should be patient!"], answer: 1 }
+                ]
+            },
+            emotion: {
+                title: "EMOTION LAND",
+                character: "THE RIDE OPERATOR",
+                dialog: "\"Welcome to the Amygdala! Normally, this place is a fun park of feelings, but the rides are totally out of whack. Prove your empathy to reboot the emotional tracks!\"",
+                questions: [
+                    { q: "Which part of the brain controls your feelings and sudden mood shifts?", options: ["The Prefrontal Cortex", "The Amygdala", "The Myelin"], answer: 1 },
+                    { q: "If the Amygdala is glitching, how might a person act?", options: ["They might get suddenly sad or angry", "They will run super fast", "They will forget how to walk"], answer: 0 },
+                    { q: "What is the best way to help someone whose Amygdala is overwhelmed?", options: ["Yell at them to calm down", "Show empathy and give them comfort", "Ignore them completely"], answer: 1 }
+                ]
+            },
+            library: {
+                title: "DATA LIBRARY",
+                character: "THE LIBRARIAN",
+                dialog: "\"Agent! The New Data section is blocked by weeds, and the supercomputer can't save anything new! We must access the Deep Archives to find comfort in old memories.\"",
+                questions: [
+                    { q: "What is the scientific name for the brain's Data Library?", options: ["The Hippocampus", "The Proteasome Unit", "The Dendrite"], answer: 0 },
+                    { q: "In Alzheimer's, which memories are usually lost FIRST?", options: ["Old memories from childhood", "New memories that just happened", "Neither"], answer: 1 },
+                    { q: "Where are a person's oldest, favorite memories kept safe?", options: ["In the Deep Archives (Long-Term Memory)", "In the Synaptic Gap", "In the ATP Fuel jug"], answer: 0 }
+                ]
+            }
+        };
+
+        // UI Helpers
+        function switchScreen(screenId) {
+            document.querySelectorAll('.game-panel').forEach(panel => panel.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        function buddySpeak(text, duration = 3000) {
+            const speechBubble = document.getElementById('buddy-speech');
+            speechBubble.innerText = text;
+            speechBubble.style.display = 'block';
+            setTimeout(() => { speechBubble.style.display = 'none'; }, duration);
+        }
+
+        // 1. Start Game
+        function startGame() {
+            const input = document.getElementById('agent-name').value.trim();
+            if(input === "") {
+                alert("Please enter a codename, Agent!");
+                return;
+            }
+            agentName = input.toUpperCase();
+            
+            // Insert name into all placeholder spans
+            document.querySelectorAll('.player-name-display').forEach(el => el.innerText = agentName);
+            
+            // Show Buddy!
+            document.getElementById('buddy-container').style.display = 'block';
+            buddySpeak("Let's go, Agent " + agentName + "!");
+            
+            switchScreen('screen-hq');
+        }
+
+        // 2. Show Map
+        function showMap() {
+            switchScreen('screen-map');
+            buddySpeak("Select a glitching zone!");
+            
+            // Check if all zones are completed
+            if(completedZones.warehouse && completedZones.emotion && completedZones.library) {
+                document.getElementById('btn-finale').style.display = 'block';
+                buddySpeak("All zones secure! Return to HQ!", 5000);
+            }
+        }
+
+        // 3. Enter a Specific Zone
+        function enterZone(zoneKey) {
+            currentZoneKey = zoneKey;
+            currentQuestionIndex = 0;
+            const data = zoneData[zoneKey];
+            
+            document.getElementById('zone-title').innerText = data.title;
+            document.getElementById('zone-character').innerText = data.character + ":";
+            document.getElementById('zone-dialog').innerText = data.dialog;
+            
+            document.getElementById('zone-intro').style.display = 'flex';
+            document.getElementById('btn-start-quiz').style.display = 'inline-block';
+            document.getElementById('quiz-container').style.display = 'none';
+            
+            switchScreen('screen-zone');
+            buddySpeak("We found " + data.character + "!");
+        }
+
+        // 4. Start the Quiz Loop
+        function startQuiz() {
+            document.getElementById('zone-intro').style.display = 'none';
+            document.getElementById('btn-start-quiz').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const data = zoneData[currentZoneKey];
+            const q = data.questions[currentQuestionIndex];
+            
+            document.getElementById('q-counter').innerText = currentQuestionIndex + 1;
+            document.getElementById('question-text').innerText = q.q;
+            
+            const optionsDiv = document.getElementById('options-container');
+            optionsDiv.innerHTML = '';
+            
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(index, btn, q.answer);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selectedIndex, btnEl, correctIndex) {
+            const allBtns = document.querySelectorAll('#options-container .option-btn');
+            allBtns.forEach(b => b.disabled = true); // prevent double clicking
+            
+            if(selectedIndex === correctIndex) {
+                btnEl.classList.add('correct');
+                buddySpeak("Correct! System stabilized.");
+                
+                setTimeout(() => {
+                    currentQuestionIndex++;
+                    if(currentQuestionIndex < 3) {
+                        renderQuestion();
+                    } else {
+                        // Zone Complete!
+                        completedZones[currentZoneKey] = true;
+                        
+                        // Update Map UI
+                        const mapNode = document.getElementById('node-' + currentZoneKey);
+                        mapNode.classList.add('completed');
+                        mapNode.querySelector('.status-indicator').innerText = "STATUS: SECURE";
+                        mapNode.querySelector('.status-indicator').style.color = "#39FF14";
+                        
+                        buddySpeak("Zone Secured! Great job.", 4000);
+                        showMap();
+                    }
+                }, 1500);
+            } else {
+                btnEl.classList.add('wrong');
+                allBtns[correctIndex].classList.add('correct'); // show right answer
+                buddySpeak("Oops! Try that one again.");
+                
+                setTimeout(() => { renderQuestion(); }, 2500); // retry question
+            }
+        }
+
+        // 5. Show Final Reveal
+        function showFinale() {
+            switchScreen('screen-finale');
+            buddySpeak("We did it! We saved Brain HQ!");
+        }
+
+        // 6. Show Rewards
+        function showRewards() {
+            switchScreen('screen-rewards');
+            document.getElementById('buddy-container').style.display = 'none'; // hide buddy
+            
+            // Speed up particles for celebration!
+            particles.forEach(p => { p.speedX *= 3; p.speedY *= 3; });
+        }
+
+        // --- BACKGROUND PARTICLES ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        let particles = [];
+        class Particle {
+            constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() * 0.5 - 0.25); this.speedY = (Math.random() * 0.5 - 0.25); }
+            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > canvas.width) this.speedX *= -1; if (this.y < 0 || this.y > canvas.height) this.speedY *= -1; }
+            draw() { ctx.fillStyle = 'rgba(102, 252, 241, 0.4)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+        }
+        function init() { for (let i = 0; i < 150; i++) particles.push(new Particle()); }
+        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); } requestAnimationFrame(animate); }
+        init(); animate();
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+    </script>
+</body>
+</html>
