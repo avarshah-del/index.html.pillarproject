@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -21,9 +22,9 @@
                     },
                     colors: {
                         pillar: {
-                            light: '#f3e8ff', 
-                            DEFAULT: '#9333ea', 
-                            dark: '#581c87', 
+                            light: '#f3e8ff',
+                            DEFAULT: '#9333ea',
+                            dark: '#581c87',
                         }
                     }
                 }
@@ -33,8 +34,16 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
+    <!-- TOP HUB SWITCHER -->
+    <div class="fixed w-full z-50 top-0 bg-slate-100 border-b border-slate-200 px-6 py-2 flex justify-between items-center text-xs md:text-sm font-sans text-slate-600 shadow-sm">
+        <span class="font-medium tracking-wide">Current Hub: The Pillar Project (Main)</span>
+        <a href="case-alzheimers.html" class="bg-pillar text-white px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm">
+            ⟲ Switch to Case Alzheimer's
+        </a>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-40 mt-[36px]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0">
@@ -42,11 +51,20 @@
                         <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition">
                     </a>
                 </div>
-                <div class="hidden md:flex space-x-8 items-center">
+                <!-- SPONSOR PORTAL BUTTON -->
+                <div class="hidden md:block ml-4">
+                    <a href="sponsor-portal.html" class="text-teal-700 border-2 border-teal-600 px-5 py-2 rounded-full font-semibold text-sm hover:bg-teal-50 hover:shadow-sm transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                        Sponsor Portal
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center ml-auto">
                     <a href="index.html" class="font-medium text-slate-600 hover:text-pillar transition">Home</a>
                     <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a>
                     <a href="volunteer.html" class="font-medium text-pillar transition">Volunteer</a>
-                    <a href="book.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
+                    <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
                     <a href="index.html#resources" class="font-medium text-slate-600 hover:text-pillar transition">Resources</a>
                     <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
                 </div>
@@ -54,40 +72,167 @@
         </div>
     </nav>
 
-    <!-- Volunteer Hero Section -->
-    <section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-pillar-light">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-6">
-                Become a <span class="text-pillar">Memory Care Ally</span>
-            </h1>
-            <p class="text-xl text-slate-700 mb-10 leading-relaxed max-w-2xl mx-auto">
-                Step up, earn service hours, and make a massive difference in your community. We are mobilizing Gen Z to bridge the generational gap in dementia care.
-            </p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0h4EkzwNL62GOZZ808rNiTUoXDIPSBiIFfhmxiB3PKo6g4A/viewform?usp=header" target="_blank" class="inline-block bg-pillar text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-xl hover:-translate-y-1">
-                Apply to Volunteer
-            </a>
+    <!-- HERO SECTION: Split Layout with Photo -->
+    <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-pillar-light/30">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-left">
+                <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-6">
+                    Become a <span class="text-pillar">Memory Care Ally</span>
+                </h1>
+                <p class="text-xl text-slate-700 mb-10 leading-relaxed">
+                    Step up, earn service hours, and make a massive difference in your community. We are mobilizing Gen Z to bridge the generational gap in dementia care.
+                </p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0h4EkzwNL62GOZZ808rNiTUoXDIPSBiIFfhmxiB3PKo6g4A/viewform?usp=header" target="_blank" class="inline-block bg-pillar text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-xl hover:-translate-y-1">
+                    Apply to Volunteer
+                </a>
+            </div>
+            
+            <div class="relative mt-10 md:mt-0">
+                <div class="rounded-2xl shadow-xl overflow-hidden border-4 border-white bg-slate-200 aspect-[4/3] flex items-center justify-center relative">
+                    <!-- Updated Image Source -->
+                    <img src="IMG_1358.jpeg" alt="Youth volunteer with a memory care resident" class="w-full h-full object-cover z-10">
+                    <span class="absolute z-0 text-slate-500 font-medium px-6 text-center text-sm">
+                        [ VISUAL PLACEHOLDER: Image IMG_1358.jpeg loading... ]
+                    </span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- What We Do Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <!-- MANDATORY TRAINING SECTION -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl text-center border-b-4 border-pillar">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-pillar/20 text-pillar-light mb-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h2 class="font-heading text-3xl md:text-4xl text-white mb-4">Mandatory Training: The Empowered Caregiver</h2>
+            <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">
+                Safety and empathy are our top priorities. Before interacting with residents, all applicants must complete the Alzheimer’s Association's official training course to understand person-centered care.
+            </p>
+            <a href="https://training.alz.org" target="_blank" class="inline-block bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg">
+                Access Training Portal ↗
+            </a>
+            <p class="mt-6 text-sm text-pillar-light font-medium tracking-wide">
+                * You must upload your Certificate of Completion to earn your official Memory Care Ally status.
+            </p>
+        </div>
+    </section>
+
+    <!-- WHAT WE DO SECTION (Emojis replaced with clean SVGs) -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <h2 class="font-heading text-4xl text-center text-slate-900 mb-16">What Does an Ally Do?</h2>
-        
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center">
-                <div class="text-pillar text-5xl mb-4">🎨</div>
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 group hover:-translate-y-2 transition duration-300">
+                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
                 <h3 class="font-heading text-xl mb-3">Lead Engagement</h3>
-                <p class="text-slate-600">You will run art, music, and tactile sensory sessions for memory care residents at our partner facilities, bringing them joy and cognitive stimulation.</p>
+                <p class="text-slate-600 leading-relaxed">You will run art, music, and tactile sensory sessions for memory care residents at our partner facilities, bringing them joy and cognitive stimulation.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center">
-                <div class="text-pillar text-5xl mb-4">🛡️</div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 group hover:-translate-y-2 transition duration-300">
+                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                 <h3 class="font-heading text-xl mb-3">Provide Respite</h3>
-                <p class="text-slate-600">By engaging the patients, you are directly giving their family caregivers a dedicated 1-2 hour window to step away, breathe, and avoid burnout.</p>
+                <p class="text-slate-600 leading-relaxed">By engaging the patients, you are directly giving their family caregivers a dedicated 1-2 hour window to step away, breathe, and avoid burnout.</p>
             </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center">
-                <div class="text-pillar text-5xl mb-4">🎓</div>
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 group hover:-translate-y-2 transition duration-300">
+                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
                 <h3 class="font-heading text-xl mb-3">Learn & Grow</h3>
-                <p class="text-slate-600">No prior experience needed! We provide you with the training and empathetic communication skills necessary to interact safely and compassionately.</p>
+                <p class="text-slate-600 leading-relaxed">Beyond the online training, we provide you with on-site shadowing and the empathetic communication skills necessary to interact confidently.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE: 4-Step Process -->
+    <section class="py-20 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-4xl text-center text-slate-900 mb-16">How It Works</h2>
+            
+            <div class="grid md:grid-cols-4 gap-6 text-center">
+                <div class="relative">
+                    <div class="w-12 h-12 bg-pillar text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 z-10 relative shadow-md">1</div>
+                    <div class="hidden md:block absolute top-6 left-[50%] w-full h-1 bg-slate-300 -z-0"></div>
+                    <h4 class="font-heading font-bold text-slate-800 mb-2">Apply Online</h4>
+                    <p class="text-sm text-slate-600">Fill out our quick interest form to let us know your availability.</p>
+                </div>
+                
+                <div class="relative">
+                    <div class="w-12 h-12 bg-pillar text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 z-10 relative shadow-md">2</div>
+                    <div class="hidden md:block absolute top-6 left-[50%] w-full h-1 bg-slate-300 -z-0"></div>
+                    <h4 class="font-heading font-bold text-slate-800 mb-2">Complete Training</h4>
+                    <p class="text-sm text-slate-600">Pass "The Empowered Caregiver" course and submit your certificate.</p>
+                </div>
+                
+                <div class="relative">
+                    <div class="w-12 h-12 bg-pillar text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 z-10 relative shadow-md">3</div>
+                    <div class="hidden md:block absolute top-6 left-[50%] w-full h-1 bg-slate-300 -z-0"></div>
+                    <h4 class="font-heading font-bold text-slate-800 mb-2">Shadow a Session</h4>
+                    <p class="text-sm text-slate-600">Join a senior ally at a partner facility to learn the ropes in person.</p>
+                </div>
+                
+                <div class="relative">
+                    <div class="w-12 h-12 bg-pillar text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 z-10 relative shadow-md">4</div>
+                    <h4 class="font-heading font-bold text-slate-800 mb-2">Lead & Earn Hours</h4>
+                    <p class="text-sm text-slate-600">Start leading activities, logging verified service hours, and changing lives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF / TESTIMONIALS -->
+    <section class="py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-heading text-4xl text-center text-slate-900 mb-12">Hear From Our Allies</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <blockquote class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm relative">
+                <span class="absolute top-4 left-4 text-6xl text-pillar/20 font-serif">"</span>
+                <p class="text-slate-700 italic relative z-10 pt-4 leading-relaxed">
+                    Volunteering with The Pillar Project completely changed my perspective on aging. Seeing a resident's face light up when we play their favorite music from the 60s is the most rewarding part of my week.
+                </p>
+                <footer class="mt-6 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center text-slate-500 font-bold">M</div>
+                    <div>
+                        <p class="font-bold text-slate-900">Maya S.</p>
+                        <p class="text-sm text-slate-500">High School Junior, NJ</p>
+                    </div>
+                </footer>
+            </blockquote>
+            
+            <blockquote class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm relative">
+                <span class="absolute top-4 left-4 text-6xl text-pillar/20 font-serif">"</span>
+                <p class="text-slate-700 italic relative z-10 pt-4 leading-relaxed">
+                    I needed service hours for NHS, but I stayed because of the community. The mandatory training made me feel totally prepared, and knowing we are giving family caregivers a break feels incredibly impactful.
+                </p>
+                <footer class="mt-6 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center text-slate-500 font-bold">D</div>
+                    <div>
+                        <p class="font-bold text-slate-900">Daniel R.</p>
+                        <p class="text-sm text-slate-500">High School Senior, NJ</p>
+                    </div>
+                </footer>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- MINIMALIST FAQ -->
+    <section class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-3xl text-center text-slate-900 mb-10">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Do I need prior experience with dementia?</h4>
+                    <p class="text-slate-600">Not at all. We require all volunteers to complete The Empowered Caregiver course online, and we provide on-site shadowing before you ever lead a session on your own.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">How do I verify my service hours?</h4>
+                    <p class="text-slate-600">Once you are an official Memory Care Ally, you will receive access to our volunteer portal where a site supervisor will sign off on your logged hours for NHS, college apps, or graduation requirements.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">How old do I have to be?</h4>
+                    <p class="text-slate-600">We currently accept high school and college students (ages 14-22). If you are under 18, you will need a parent or guardian to sign a standard liability waiver before your first visit.</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -117,9 +262,8 @@
         .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;}
         .chat-option:hover { background: #7e22ce; }
     </style>
-
+    
     <button id="pillar-chat-btn" onclick="toggleChat()">💬</button>
-
     <div id="pillar-chat-window">
         <div id="pillar-chat-header">
             <span>The Pillar Guide</span>
@@ -132,7 +276,7 @@
             <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
         </div>
     </div>
-
+    
     <script>
         function toggleChat() {
             var win = document.getElementById("pillar-chat-window");
@@ -144,7 +288,7 @@
             if (type === 'volunteer') {
                 html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="https://docs.google.com/forms/d/e/1FAIpQLSf0h4EkzwNL62GOZZ808rNiTUoXDIPSBiIFfhmxiB3PKo6g4A/viewform?usp=header" target="_blank" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>';
             } else if (type === 'book') {
-                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="book.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>';
+                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="case-alzheimers.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>';
             } else if (type === 'resources') {
                 html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br><a href="index.html#resources" style="color:#9333ea; font-weight:bold;">Click here for more resources.</a></div>';
             }
