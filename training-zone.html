@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -65,6 +66,11 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
         #error-msg { color: #ff3333; font-family: 'Share Tech Mono'; margin-top: 15px; display: none; font-size: 1.2rem; font-weight: bold; text-align: center; }
+
+        /* Pledge Checkboxes */
+        .pledge-label { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; cursor: pointer; padding: 15px; background: rgba(5, 11, 20, 0.5); border-radius: 8px; border: 1px solid #45A29E; transition: 0.3s; }
+        .pledge-label:hover { background: rgba(69, 162, 158, 0.2); }
+        .pledge-check { width: 25px; height: 25px; accent-color: #39FF14; cursor: pointer; margin-top: 3px; }
     </style>
 </head>
 <body>
@@ -86,7 +92,7 @@
                 <div class="hidden md:flex space-x-8 items-center ml-auto font-sans">
                     <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-teal-500 transition">Home</a>
                     <a href="the-book.html" class="font-medium text-slate-600 hover:text-teal-500 transition">The Book</a>
-                    <a href="training-zone.html" class="font-medium text-slate-600 hover:text-teal-500 transition">Training Zone</a>
+                    <a href="training-zone.html" class="font-medium text-teal-600 hover:text-teal-500 transition">Training Zone</a>
                     <a href="sponsor-portal.html" class="text-teal-700 border-2 border-teal-600 px-5 py-2 rounded-full font-semibold text-sm hover:bg-teal-50 transition-all">Sponsor Portal</a>
                 </div>
             </div>
@@ -152,7 +158,7 @@
             <button id="btn-finale" class="spy-btn" style="display:none; margin-top: 40px; background: #39FF14;" onclick="showFinale()">ALL ZONES SECURE - RETURN TO HQ</button>
         </div>
 
-        <!-- 3. ZONE INTERACTION (Explanation + Quiz) -->
+        <!-- 3. ZONE INTERACTION -->
         <div id="screen-zone" class="game-panel">
             <button onclick="showMap()" style="background:none; border:none; color:#c4c4c4; cursor:pointer; font-family:'Share Tech Mono'; margin-bottom: 20px;">⟵ BACK TO MAP</button>
             <h1 id="zone-title" class="spy-font" style="font-size: 2.5rem;">ZONE TITLE</h1>
@@ -190,23 +196,50 @@
                 <p class="kid-text" style="color: #fff; margin-top: 15px;">We honor him today by becoming agents of empathy.</p>
             </div>
             
-            <button class="spy-btn" onclick="showRewards()">ACCESS REWARDS VAULT</button>
+            <button class="spy-btn" onclick="showPledge()">PROCEED TO OATH</button>
+        </div>
+
+        <!-- 4.5 THE PLEDGE (NEW SCREEN) -->
+        <div id="screen-pledge" class="game-panel" style="text-align: center;">
+            <h1 class="spy-font" style="color: #39FF14; font-size: 3rem;">THE AGENT PLEDGE</h1>
+            <p class="kid-text">Before you enter the Secure Vault, you must take the official oath of a Dementia Empathy Agent.</p>
+            
+            <div style="background: rgba(10, 25, 47, 0.8); border: 2px solid #45A29E; padding: 30px; margin: 30px 0; border-radius: 12px; text-align: left;">
+                <p class="spy-font" style="font-size: 1.5rem; color: #FFD700; text-align: center; margin-bottom: 25px;">"I, Agent <span class="player-name-display"></span>, pledge to..."</p>
+                
+                <label class="pledge-label">
+                    <input type="checkbox" class="pledge-check" onchange="verifyPledge()">
+                    <span class="kid-text" style="margin: 0; color: #fff;">Be patient and kind when someone forgets a word or a memory.</span>
+                </label>
+                
+                <label class="pledge-label">
+                    <input type="checkbox" class="pledge-check" onchange="verifyPledge()">
+                    <span class="kid-text" style="margin: 0; color: #fff;">Show comfort and love when their Amygdala gets overwhelmed.</span>
+                </label>
+                
+                <label class="pledge-label">
+                    <input type="checkbox" class="pledge-check" onchange="verifyPledge()">
+                    <span class="kid-text" style="margin: 0; color: #fff;">Remember that even when the brain glitches, the person I love is still inside.</span>
+                </label>
+            </div>
+            
+            <button id="btn-take-pledge" class="spy-btn" style="background: #39FF14; opacity: 0.5; pointer-events: none;" onclick="showRewards()">I PLEDGE (Check all boxes)</button>
         </div>
 
         <!-- 5. REWARDS VAULT -->
         <div id="screen-rewards" class="game-panel" style="text-align: center;">
             <h1 class="spy-font" style="color: #39FF14; font-size: 3.5rem;">VAULT UNLOCKED</h1>
-            <p class="kid-text" style="font-size: 1.3rem;">You are now an officially certified Dementia Empathy Agent. Download your gear below!</p>
+            <p class="kid-text" style="font-size: 1.3rem;">Welcome to the ranks, Agent <span class="player-name-display" style="color:#66FCF1; font-weight:bold;"></span>. Download your official gear below!</p>
             
             <div style="display: flex; gap: 30px; justify-content: center; margin-top: 50px; flex-wrap: wrap;">
                 
-                <!-- CERTIFICATE DOWNLOAD LINK (Updated to 2.png) -->
+                <!-- CERTIFICATE DOWNLOAD LINK -->
                 <a href="2.png" download="Agent-Certificate.png" target="_blank" style="display: block; padding: 40px 20px; background: rgba(57, 255, 20, 0.1); border: 3px solid #39FF14; border-radius: 15px; color: #39FF14; text-decoration: none; width: 250px; transition: 0.3s; box-shadow: inset 0 0 20px rgba(57,255,20,0.2);" onmouseover="this.style.background='#39FF14'; this.style.color='#050b14'; this.style.transform='translateY(-10px)';" onmouseout="this.style.background='rgba(57, 255, 20, 0.1)'; this.style.color='#39FF14'; this.style.transform='translateY(0)';">
                     <div style="font-size: 4rem; margin-bottom: 20px;">🏅</div>
                     <div class="spy-font" style="font-weight: bold; font-size: 1.4rem;">PRINT YOUR CERTIFICATE</div>
                 </a>
                 
-                <!-- RECIPE DOWNLOAD LINK (Updated to ZIP file) -->
+                <!-- RECIPE DOWNLOAD LINK -->
                 <a href="Spy%20Cookie%20Recipe%20Background.zip" download="Spy Cookie Recipe Background.zip" target="_blank" style="display: block; padding: 40px 20px; background: rgba(102, 252, 241, 0.1); border: 3px solid #66FCF1; border-radius: 15px; color: #66FCF1; text-decoration: none; width: 250px; transition: 0.3s; box-shadow: inset 0 0 20px rgba(102,252,241,0.2);" onmouseover="this.style.background='#66FCF1'; this.style.color='#050b14'; this.style.transform='translateY(-10px)';" onmouseout="this.style.background='rgba(102, 252, 241, 0.1)'; this.style.color='#66FCF1'; this.style.transform='translateY(0)';">
                     <div style="font-size: 4rem; margin-bottom: 20px;">🍪</div>
                     <div class="spy-font" style="font-weight: bold; font-size: 1.4rem;">HQ COOKIE RECIPE</div>
@@ -419,6 +452,35 @@
         function showFinale() {
             switchScreen('screen-finale');
             buddySpeak("We did it! We saved Brain HQ!");
+        }
+
+        function showPledge() {
+            switchScreen('screen-pledge');
+            buddySpeak("Time to take the oath!");
+        }
+
+        function verifyPledge() {
+            const checkboxes = document.querySelectorAll('.pledge-check');
+            const btn = document.getElementById('btn-take-pledge');
+            let allChecked = true;
+            
+            checkboxes.forEach(box => {
+                if (!box.checked) {
+                    allChecked = false;
+                }
+            });
+            
+            if (allChecked) {
+                btn.style.opacity = "1";
+                btn.style.pointerEvents = "auto";
+                btn.innerText = "ENTER THE VAULT";
+                btn.style.boxShadow = "0 0 25px rgba(57, 255, 20, 0.6)";
+            } else {
+                btn.style.opacity = "0.5";
+                btn.style.pointerEvents = "none";
+                btn.innerText = "I PLEDGE (Check all boxes)";
+                btn.style.boxShadow = "none";
+            }
         }
 
         function showRewards() {
