@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain HQ: Agent Training Zone </title>
+    <title>Brain HQ: Agent Training Zone | The Pillar Project</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,24 +77,47 @@
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
 
         /* AVATAR BUILDER CSS */
-        .avatar-opt, .gadget-opt {
-            background: rgba(10, 25, 47, 0.9); border: 2px solid rgba(102, 252, 241, 0.3);
-            font-size: 2rem; padding: 10px; border-radius: 50%; cursor: pointer;
-            transition: all 0.2s ease; width: 65px; height: 65px;
-            display: flex; align-items: center; justify-content: center;
+        .locker-container {
+            display: flex; flex-direction: row; gap: 30px; background: rgba(5,11,20,0.8);
+            padding: 25px; border-radius: 15px; border: 1px solid var(--neon-blue);
+            margin-bottom: 25px; width: 100%; max-width: 600px; align-items: flex-start;
         }
-        .avatar-opt:hover, .gadget-opt:hover { border-color: var(--neon-blue); transform: scale(1.1); }
-        .avatar-opt.active, .gadget-opt.active {
-            border-color: var(--neon-green); background: rgba(57, 255, 20, 0.2);
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        
+        .avatar-preview-box {
+            position: relative; width: 200px; height: 200px; 
+            background: rgba(102, 252, 241, 0.1); border: 2px dashed var(--neon-blue); 
+            border-radius: 15px; overflow: hidden; flex-shrink: 0;
         }
+        
+        .avatar-layer {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none;
+        }
+
+        .locker-menus {
+            flex: 1; display: flex; flex-direction: column; gap: 15px;
+        }
+        
+        .locker-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .locker-btn {
+            background: rgba(10, 25, 47, 0.9); border: 1px solid rgba(102, 252, 241, 0.3);
+            color: #a0aec0; padding: 6px 12px; border-radius: 6px; cursor: pointer;
+            transition: all 0.2s ease; font-family: 'Share Tech Mono', monospace; font-size: 0.8rem;
+        }
+        .locker-btn:hover { border-color: var(--neon-blue); color: var(--neon-blue); }
+        .locker-btn.active {
+            border-color: var(--neon-green); background: rgba(57, 255, 20, 0.15);
+            color: var(--neon-green); box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+
         .agent-badge-display {
             display: flex; align-items: center; gap: 15px; background: rgba(5,11,20,0.8);
             padding: 10px 20px; border-radius: 50px; border: 1px solid var(--neon-blue);
         }
-        .badge-icon {
-            font-size: 1.6rem; background: rgba(102, 252, 241, 0.1); border-radius: 50%;
-            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
+        
+        .badge-icon-layered {
+            position: relative; width: 50px; height: 50px; background: rgba(102, 252, 241, 0.1);
+            border-radius: 50%; overflow: hidden; border: 2px solid var(--neon-blue);
         }
 
         .spy-btn {
@@ -145,9 +168,7 @@
         #bot-messages { flex: 1; padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; font-family: 'Inter', sans-serif; }
 
         @media (max-width: 768px) {
-            header { padding: 15px 20px; }
-            .game-panel { padding: 25px 20px; }
-            .dialog-container { flex-direction: column; text-align: center; }
+            .locker-container { flex-direction: column; align-items: center; }
             #hq-bot-modal { left: 5vw; width: 90vw; }
         }
     </style>
@@ -166,42 +187,68 @@
         <div id="screen-login" class="game-panel active" style="text-align: center; align-items: center;">
             <h1 class="spy-font" style="color: var(--neon-blue); font-size: 2.5rem; margin-bottom: 5px;">AGENT RECRUITMENT</h1>
             <p class="kid-font" style="font-size: 1.15rem; color: #a0aec0; max-width: 550px; margin-bottom: 25px;">
-                Build your official Brain HQ ID Badge to enter the training zone. Your clearance data will be saved securely to this device!
+                Build your official Brain HQ ID Badge in the Agent Locker to enter the training zone. Your clearance data will be saved securely to this device!
             </p>
 
-            <div class="avatar-builder" style="background: rgba(5,11,20,0.8); padding: 25px; border-radius: 15px; border: 1px solid var(--neon-blue); margin-bottom: 25px; width: 100%; max-width: 500px;">
-                <h3 class="spy-font" style="color: var(--gold); margin-bottom: 15px; font-size: 1.1rem;">1. SELECT AGENT AVATAR</h3>
-                <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 25px;">
-                    <button class="avatar-opt active" onclick="selectAvatar(this, '🕵️‍♂️')">🕵️‍♂️</button>
-                    <button class="avatar-opt" onclick="selectAvatar(this, '🕵️‍♀️')">🕵️‍♀️</button>
-                    <button class="avatar-opt" onclick="selectAvatar(this, '🥷')">🥷</button>
-                    <button class="avatar-opt" onclick="selectAvatar(this, '🦸‍♂️')">🦸‍♂️</button>
+            <!-- NEW AGENT LOCKER (Layered Customizer) -->
+            <div class="locker-container">
+                <div class="avatar-preview-box">
+                    <img id="preview-base" class="avatar-layer" style="z-index: 1;" src="boy.png" alt="Base">
+                    <img id="preview-top" class="avatar-layer" style="z-index: 2;" src="sweatshirt.png" alt="Top">
+                    <img id="preview-acc" class="avatar-layer" style="z-index: 3;" src="glasses,png.png" alt="Accessory">
                 </div>
                 
-                <h3 class="spy-font" style="color: var(--gold); margin-bottom: 15px; font-size: 1.1rem;">2. SELECT PRIMARY GADGET</h3>
-                <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-                    <button class="gadget-opt active" onclick="selectGadget(this, '🔍')">🔍</button>
-                    <button class="gadget-opt" onclick="selectGadget(this, '📻')">📻</button>
-                    <button class="gadget-opt" onclick="selectGadget(this, '🧠')">🧠</button>
-                    <button class="gadget-opt" onclick="selectGadget(this, '🔦')">🔦</button>
+                <div class="locker-menus">
+                    <div style="text-align: left;">
+                        <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">BASE AGENT:</div>
+                        <div class="locker-row">
+                            <button class="locker-btn active" onclick="setAvatarItem('base', 'boy.png', this)">Agent Boy</button>
+                            <button class="locker-btn" onclick="setAvatarItem('base', 'girl.png', this)">Agent Girl</button>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">UNIFORM:</div>
+                        <div class="locker-row">
+                            <button class="locker-btn active" onclick="setAvatarItem('top', 'sweatshirt.png', this)">Sweatshirt</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'jacket.png', this)">Jacket</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'labcoat.png', this)">Lab Coat</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'suit.png', this)">Spy Suit</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'vest.png', this)">Vest</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', '', this)">None</button>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: left;">
+                        <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">GEAR:</div>
+                        <div class="locker-row">
+                            <button class="locker-btn active" onclick="setAvatarItem('acc', 'glasses,png.png', this)">Glasses</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', 'goggles.png', this)">Goggles</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', 'monacle.png', this)">Monocle</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', 'tophat.png', this)">Top Hat</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', '', this)">None</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div style="display: flex; gap: 10px; justify-content: center; max-width: 500px; width: 100%;">
+            <div style="display: flex; gap: 10px; justify-content: center; max-width: 600px; width: 100%;">
                 <input type="text" id="player-name-input" class="spy-input spy-font" placeholder="ENTER CODENAME..." maxlength="15" style="margin: 0; flex: 1;">
                 <button class="spy-btn spy-font" onclick="generateName()" style="padding: 10px 20px; font-size: 1.2rem; border-color: var(--gold); color: var(--gold);" title="Generate Random Spy Name">🎲</button>
             </div>
             
-            <button class="spy-btn spy-font" onclick="startMission()" style="margin-top: 25px; background: var(--neon-blue); color: #050b14; font-weight: bold; width: 100%; max-width: 500px; font-size: 1.2rem;">CREATE ID & ENTER HQ</button>
+            <button class="spy-btn spy-font" onclick="startMission()" style="margin-top: 25px; background: var(--neon-blue); color: #050b14; font-weight: bold; width: 100%; max-width: 600px; font-size: 1.2rem;">CREATE ID & ENTER HQ</button>
         </div>
 
-        <!-- 2. NEW MAIN HUB / PORTAL SELECTOR -->
+        <!-- 2. MAIN HUB / PORTAL SELECTOR -->
         <div id="screen-hub" class="game-panel">
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(102, 252, 241, 0.3); padding-bottom: 15px; flex-wrap: wrap; gap: 15px;">
                 <div class="agent-badge-display">
-                    <div class="badge-icon">
-                        <span id="badge-avatar">🕵️‍♂️</span>
-                        <span id="badge-gadget" style="font-size: 0.85rem; margin-left: -8px; margin-top: 20px;">🔍</span>
+                    <!-- Layered Mini Badge -->
+                    <div class="badge-icon-layered">
+                        <img id="badge-base" class="avatar-layer" style="z-index: 1;" src="" alt="">
+                        <img id="badge-top" class="avatar-layer" style="z-index: 2;" src="" alt="">
+                        <img id="badge-acc" class="avatar-layer" style="z-index: 3;" src="" alt="">
                     </div>
                     <div>
                         <div class="spy-font" style="color: #a0aec0; font-size: 0.75rem;">AGENT CODENAME</div>
@@ -222,21 +269,16 @@
                 <p class="kid-font" style="color: #cbd5e1; font-size: 1.1rem;">Select your mission portal, Agent.</p>
 
                 <div class="portal-grid">
-                    <!-- MISSION 1: The Book Protocol -->
                     <div class="zone-card" onclick="requirePassword('book')" style="border-color: var(--neon-blue);">
                         <div class="zone-icon">📖</div>
                         <div class="spy-font" style="color: var(--neon-blue); font-weight: bold; font-size: 1.2rem;">THE BOOK PROTOCOL</div>
                         <div class="kid-font" style="font-size: 0.95rem; color: #a0aec0; margin-top: 8px;">🔐 Secret Code Required</div>
                     </div>
-                    
-                    <!-- MISSION 2: Saara's Academy -->
                     <div class="zone-card" onclick="alert('Saara\'s Video Academy is currently under construction! HQ Engineers are building it now.')" style="border-color: #555; background: rgba(0,0,0,0.4);">
                         <div class="zone-icon">🎬</div>
                         <div class="spy-font" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">SAARA'S ACADEMY</div>
                         <div class="kid-font" style="font-size: 0.95rem; color: var(--alert-pink); margin-top: 8px; font-weight: bold;">🚧 Under Construction 🚧</div>
                     </div>
-
-                    <!-- MISSION 3: Defense Simulator -->
                     <div class="zone-card" onclick="alert('Brain Defense Simulator coming soon! Prepare to defend the neurons!')" style="border-color: #555; background: rgba(0,0,0,0.4);">
                         <div class="zone-icon">🛡️</div>
                         <div class="spy-font" style="color: var(--neon-green); font-weight: bold; font-size: 1.2rem;">DEFENSE SIMULATOR</div>
@@ -249,23 +291,19 @@
         <!-- 3. PASSWORD GATE -->
         <div id="screen-password" class="game-panel" style="text-align: center; align-items: center;">
             <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
-            
             <div style="font-size: 4rem; margin-bottom: 10px;">🔐</div>
             <h2 class="spy-font" style="color: var(--alert-pink); font-size: 2rem;">RESTRICTED CLEARANCE</h2>
             <p class="kid-font" style="color: #cbd5e1; margin-bottom: 25px; max-width: 500px; font-size: 1.1rem;">
                 To unlock The Book Protocol, you must enter the secret code found at the back of the book <i>Case: Alzheimer's</i>.
             </p>
-            
             <input type="text" id="book-password-input" class="spy-input spy-font" placeholder="ENTER SECRET CODE..." style="max-width: 400px; margin-bottom: 20px; font-size: 1.5rem;">
-            
             <button class="spy-btn spy-font" onclick="verifyPassword()" style="background: var(--neon-blue); color: #050b14; font-size: 1.2rem; font-weight: bold;">DECRYPT TRANSMISSION</button>
             <div id="password-error" class="spy-font" style="color: var(--alert-pink); margin-top: 15px; display: none; font-weight: bold;">❌ ACCESS DENIED. INCORRECT CODE.</div>
         </div>
 
-        <!-- 4. THE BOOK PROTOCOL (Original 4-Zone Game) -->
+        <!-- 4. THE BOOK PROTOCOL -->
         <div id="screen-book-protocol" class="game-panel">
             <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
-            
             <div style="text-align: center;">
                 <h2 class="spy-font" style="color: var(--neon-blue); font-size: 2rem;">THE BOOK PROTOCOL</h2>
                 <p class="kid-font" style="color: #cbd5e1; font-size: 1.1rem;">ZONES REBOOTED: <span id="cleared-count" style="color: var(--neon-green); font-weight:bold;">0/4</span></p>
@@ -297,7 +335,6 @@
                 <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem;" onclick="showScreen('screen-book-protocol')">← RETURN TO PROTOCOL</button>
                 <div id="zone-tagline" class="spy-font" style="color: var(--neon-blue);"></div>
             </div>
-
             <div class="dialog-container">
                 <div id="zone-avatar" class="char-avatar"></div>
                 <div>
@@ -305,11 +342,9 @@
                     <div id="zone-dialog-text" class="dialog-bubble kid-font"></div>
                 </div>
             </div>
-
             <div id="learning-bubble" style="background: rgba(102, 252, 241, 0.08); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 0 10px 10px 0; margin-bottom: 25px;">
                 <p id="zone-explanation" class="kid-font" style="font-size: 1.1rem; color: #fff;"></p>
             </div>
-
             <div id="zone-question-container">
                 <div id="zone-question" class="question-title kid-font"></div>
                 <div id="zone-options" class="options-list"></div>
@@ -350,7 +385,7 @@
 
     </div>
 
-    <!-- FLOATING HQ ASSISTANT WIDGET (Remains the Same) -->
+    <!-- FLOATING HQ ASSISTANT WIDGET -->
     <div id="hq-bot-bubble" onclick="toggleBotChat()">
         <span style="font-size: 1.8rem;">🤖</span>
         <span class="spy-font" style="color: #66FCF1; font-weight: bold; font-size: 0.95rem;">ASK HQ ASSISTANT</span>
@@ -379,8 +414,14 @@
     <!-- GAME LOGIC SCRIPT -->
     <script>
         let agentName = "";
-        let selectedAvatar = "🕵️‍♂️";
-        let selectedGadget = "🔍";
+        
+        // NEW: Layered Avatar State
+        let avatarLayers = {
+            base: "boy.png",
+            top: "sweatshirt.png",
+            acc: "glasses,png.png"
+        };
+        
         let xpPoints = 0;
         let completedZones = { hq: false, warehouse: false, emotion: false, library: false };
         let currentZoneKey = "";
@@ -390,22 +431,34 @@
             const savedData = localStorage.getItem('brainHqAgent');
             if (savedData) {
                 const data = JSON.parse(savedData);
-                agentName = data.name; selectedAvatar = data.avatar; selectedGadget = data.gadget;
+                agentName = data.name; 
+                if(data.avatarLayers) avatarLayers = data.avatarLayers;
                 xpPoints = data.xp || 0; completedZones = data.zones || completedZones;
+                
                 updateBadgeDisplay(); updateHubStatus();
                 document.getElementById('status-indicator').textContent = "ACTIVE MISSION";
                 showScreen('screen-hub');
             }
         };
 
-        function selectAvatar(btn, emoji) {
-            document.querySelectorAll('.avatar-opt').forEach(el => el.classList.remove('active'));
-            btn.classList.add('active'); selectedAvatar = emoji;
-        }
+        // NEW: Set Layered Avatar Items
+        function setAvatarItem(layer, filename, btnElement) {
+            // Update the state
+            avatarLayers[layer] = filename;
+            
+            // Update the big preview image
+            const previewImg = document.getElementById(`preview-${layer}`);
+            if(filename) {
+                previewImg.src = filename;
+                previewImg.style.display = 'block';
+            } else {
+                previewImg.style.display = 'none';
+            }
 
-        function selectGadget(btn, emoji) {
-            document.querySelectorAll('.gadget-opt').forEach(el => el.classList.remove('active'));
-            btn.classList.add('active'); selectedGadget = emoji;
+            // Update button active state
+            const parentRow = btnElement.parentElement;
+            parentRow.querySelectorAll('.locker-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
         }
 
         function generateName() {
@@ -418,14 +471,16 @@
         function startMission() {
             const input = document.getElementById('player-name-input');
             if (!input.value.trim()) { alert("Please enter or generate a Codename, Agent!"); return; }
-            agentName = input.value.trim().toUpperCase(); saveProgress();
+            agentName = input.value.trim().toUpperCase(); 
+            saveProgress();
+            
             updateBadgeDisplay(); updateHubStatus();
             document.getElementById('status-indicator').textContent = "ACTIVE MISSION";
             showScreen('screen-hub');
         }
 
         function saveProgress() {
-            const data = { name: agentName, avatar: selectedAvatar, gadget: selectedGadget, xp: xpPoints, zones: completedZones };
+            const data = { name: agentName, avatarLayers: avatarLayers, xp: xpPoints, zones: completedZones };
             localStorage.setItem('brainHqAgent', JSON.stringify(data));
         }
 
@@ -437,9 +492,28 @@
 
         function updateBadgeDisplay() {
             document.querySelectorAll('.player-name-display').forEach(el => el.textContent = agentName);
-            document.getElementById('badge-avatar').textContent = selectedAvatar;
-            document.getElementById('badge-gadget').textContent = selectedGadget;
             document.getElementById('xp-display').textContent = `${xpPoints} XP`;
+
+            // Update Mini Layered Badge in Hub
+            const badgeBase = document.getElementById('badge-base');
+            const badgeTop = document.getElementById('badge-top');
+            const badgeAcc = document.getElementById('badge-acc');
+            
+            badgeBase.src = avatarLayers.base;
+            
+            if(avatarLayers.top) {
+                badgeTop.src = avatarLayers.top;
+                badgeTop.style.display = 'block';
+            } else {
+                badgeTop.style.display = 'none';
+            }
+            
+            if(avatarLayers.acc) {
+                badgeAcc.src = avatarLayers.acc;
+                badgeAcc.style.display = 'block';
+            } else {
+                badgeAcc.style.display = 'none';
+            }
         }
 
         function showScreen(screenId) {
@@ -449,12 +523,11 @@
 
         // --- PASSWORD PROTOCOL ---
         function requirePassword(type) {
-            // If they already completed it, don't ask for password again
             const clearedTotal = Object.values(completedZones).filter(Boolean).length;
             if (clearedTotal === 4) {
                 showScreen('screen-book-protocol');
             } else {
-                document.getElementById('book-password-input').value = ""; // Reset input
+                document.getElementById('book-password-input').value = "";
                 document.getElementById('password-error').style.display = 'none';
                 showScreen('screen-password');
             }
@@ -462,8 +535,6 @@
 
         function verifyPassword() {
             const input = document.getElementById('book-password-input').value.trim().toUpperCase();
-            
-            // --- EDIT YOUR SECRET BOOK CODE HERE ---
             if (input === "PILLAR" || input === "MEMORY") { 
                 document.getElementById('password-error').style.display = 'none';
                 showScreen('screen-book-protocol');
