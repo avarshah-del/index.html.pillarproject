@@ -1,282 +1,279 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Pillar Project | Gen Z Memory Care Respite</title>
+<!DOCTYPE html> 
+<html lang="en" class="scroll-smooth"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>The Pillar Project | Gen Z Memory Care Respite</title> 
     
-    <!-- Google Fonts: Montserrat (Headings) & Inter (Body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Montserrat (Headings) & Inter (Body) --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <script> 
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'], 
                         heading: ['Montserrat', 'sans-serif'], 
-                    },
+                    }, 
                     colors: {
                         pillar: {
                             light: '#f3e8ff', 
                             DEFAULT: '#9333ea', 
                             dark: '#581c87', 
-                        }
-                    },
+                        } 
+                    }, 
                     animation: {
-                        'gradient': 'gradient 15s ease infinite',
-                    },
+                        'gradient': 'gradient 15s ease infinite', 
+                    }, 
                     keyframes: {
                         gradient: {
-                            '0%, 100%': { 'background-position': '0% 50%' },
-                            '50%': { 'background-position': '100% 50%' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+                            '0%, 100%': { 'background-position': '0% 50%' }, 
+                            '50%': { 'background-position': '100% 50%' }, 
+                        } 
+                    } 
+                } 
+            } 
+        } 
+    </script> 
+</head> 
+<body class="bg-slate-50 text-slate-800 font-sans antialiased"> 
 
-    <!-- REFINED: TOP HUB SWITCHER (Clean, Professional, Trustworthy) -->
-    <div class="fixed w-full z-50 top-0 bg-slate-100 border-b border-slate-200 px-6 py-2 flex justify-between items-center text-xs md:text-sm font-sans text-slate-600 shadow-sm">
-        <span class="font-medium tracking-wide">Current Hub: The Pillar Project (Main)</span>
-        <a href="case-alzheimers.html" class="bg-pillar text-white px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm">
-            ⟲ Switch to Case Alzheimer's
-        </a>
-    </div>
+    <!-- REFINED: TOP HUB SWITCHER (Clean, Professional, Trustworthy) --> 
+    <div class="fixed w-full z-50 top-0 bg-slate-100 border-b border-slate-200 px-6 py-2 flex justify-between items-center text-xs md:text-sm font-sans text-slate-600 shadow-sm"> 
+        <span class="font-medium tracking-wide">Current Hub: The Pillar Project (Main)</span> 
+        <a href="case-alzheimers.html" class="bg-pillar text-white px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm"> ⟲ Switch to Case Alzheimer's </a> 
+    </div> 
 
-    <!-- Navigation (Adjusted mt-[36px] to sit perfectly under the top bar) -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-40 mt-[36px]">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0">
-                    <a href="index.html">
-                        <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition">
-                    </a>
-                </div>
+    <!-- Navigation (Adjusted mt-[36px] to sit perfectly under the top bar) --> 
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-40 mt-[36px]"> 
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> 
+            <div class="flex justify-between h-16 items-center"> 
+                <div class="flex-shrink-0"> 
+                    <a href="index.html"> <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition"> </a> 
+                </div> 
+                <!-- REFINED: SPONSOR PORTAL BUTTON (Soft Teal Outline) --> 
+                <div class="hidden md:block ml-4"> 
+                    <a href="sponsor-portal.html" class="text-teal-700 border-2 border-teal-600 px-5 py-2 rounded-full font-semibold text-sm hover:bg-teal-50 hover:shadow-sm transition-all flex items-center gap-2"> 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> Sponsor Portal 
+                    </a> 
+                </div> 
+                <div class="hidden md:flex space-x-8 items-center ml-auto"> 
+                    <a href="index.html" class="font-medium text-pillar transition">Home</a> 
+                    <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a> 
+                    <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a> 
+                    <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a> 
+                    <a href="#resources" class="font-medium text-slate-600 hover:text-pillar transition">Resources</a> 
+                    <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a> 
+                </div> 
+            </div> 
+        </div> 
+    </nav> 
 
-                <!-- REFINED: SPONSOR PORTAL BUTTON (Soft Teal Outline) -->
-                <div class="hidden md:block ml-4">
-                    <a href="sponsor-portal.html" class="text-teal-700 border-2 border-teal-600 px-5 py-2 rounded-full font-semibold text-sm hover:bg-teal-50 hover:shadow-sm transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        Sponsor Portal
-                    </a>
-                </div>
+    <!-- REFINED: HERO SECTION (Added Photo Layout) --> 
+    <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-pillar-light/40 to-white bg-[length:400%_400%] animate-gradient overflow-hidden"> 
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center"> 
+            <!-- Left Side: Text --> 
+            <div class="text-left"> 
+                <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-6"> Bridging the Gap in <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Memory Care</span> </h1> 
+                <p class="mt-4 text-xl text-slate-600 leading-relaxed"> When Alzheimer's impacts a family, primary caregivers shoulder immense burnout. The Pillar Project is a Gen Z-led initiative providing grassroots, intergenerational respite through our "Divide and Pamper" model. </p> 
+                <div class="mt-10 flex flex-col sm:flex-row gap-4"> 
+                    <a href="#about-model" class="bg-pillar text-white text-center px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1">Learn How We Help</a> 
+                    <a href="volunteer.html" class="bg-white text-pillar text-center border-2 border-pillar px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-light transition shadow-lg hover:-translate-y-1">Join the Movement</a> 
+                </div> 
+            </div> 
+            <!-- Right Side: Authentic Photography Placeholder --> 
+            <div class="relative mt-10 md:mt-0"> 
+                <!-- IMPORTANT: Rename a real photo of your volunteers to 'volunteer-hero.jpg' and drop it in your GitHub files! --> 
+                <div class="rounded-2xl shadow-2xl overflow-hidden border-4 border-white bg-slate-200 aspect-video md:aspect-[4/3] flex items-center justify-center relative"> 
+                    <img src="IMG_1358.jpeg" alt="Gen Z volunteers with memory care patients" class="w-full h-full object-cover z-10"> 
+                    <!-- This text will show if the image is missing, guiding you to upload it --> 
+                    <span class="absolute z-0 text-slate-500 font-medium px-6 text-center"> [ VISUAL PLACEHOLDER: Insert high-quality photo of Gen Z volunteers interacting with seniors here. Name the file "volunteer-hero.jpg" ] </span> 
+                </div> 
+                <!-- Floating Location Tag --> 
+                <div class="absolute -bottom-6 -left-6 bg-white py-3 px-6 rounded-xl shadow-xl border border-slate-100 z-20 hidden md:block"> 
+                    <p class="text-sm font-bold text-slate-800 flex items-center gap-2"> 
+                        <svg class="w-5 h-5 text-pillar" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Based in Livingston, NJ 
+                    </p> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
 
-                <div class="hidden md:flex space-x-8 items-center ml-auto">
-                    <a href="index.html" class="font-medium text-pillar transition">Home</a>
-                    <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a>
-                    <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a>
-                    <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
-                    <a href="#resources" class="font-medium text-slate-600 hover:text-pillar transition">Resources</a>
-                    <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Trust & Partnership Bar --> 
+    <div class="bg-white border-y border-slate-200 py-6"> 
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-8 text-slate-500 font-semibold text-sm uppercase tracking-wider"> 
+            <span>In Partnership With: Brandywine Living</span> <span class="hidden md:inline text-pillar">•</span> 
+            <span>As Heard On: Reading With Your Kids</span> <span class="hidden md:inline text-pillar">•</span> 
+            <span>Est. 2024</span> 
+        </div> 
+    </div> 
 
-    <!-- REFINED: HERO SECTION (Added Photo Layout) -->
-    <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-pillar-light/40 to-white bg-[length:400%_400%] animate-gradient overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            
-            <!-- Left Side: Text -->
-            <div class="text-left">
-                <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-6">
-                    Bridging the Gap in <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Memory Care</span>
-                </h1>
-                <p class="mt-4 text-xl text-slate-600 leading-relaxed">
-                    When Alzheimer's impacts a family, primary caregivers shoulder immense burnout. The Pillar Project is a Gen Z-led initiative providing grassroots, intergenerational respite through our "Divide and Pamper" model.
-                </p>
-                <div class="mt-10 flex flex-col sm:flex-row gap-4">
-                    <a href="#about-model" class="bg-pillar text-white text-center px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1">Learn How We Help</a>
-                    <a href="volunteer.html" class="bg-white text-pillar text-center border-2 border-pillar px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-light transition shadow-lg hover:-translate-y-1">Join the Movement</a>
-                </div>
-            </div>
-
-            <!-- Right Side: Authentic Photography Placeholder -->
-            <div class="relative mt-10 md:mt-0">
-                <!-- IMPORTANT: Rename a real photo of your volunteers to 'volunteer-hero.jpg' and drop it in your GitHub files! -->
-                <div class="rounded-2xl shadow-2xl overflow-hidden border-4 border-white bg-slate-200 aspect-video md:aspect-[4/3] flex items-center justify-center relative">
-                  <img src="IMG_1358.jpeg" alt="Gen Z volunteers with memory care patients" class="w-full h-full object-cover z-10">
-                    
-                    <!-- This text will show if the image is missing, guiding you to upload it -->
-                    <span class="absolute z-0 text-slate-500 font-medium px-6 text-center">
-                        [ VISUAL PLACEHOLDER: Insert high-quality photo of Gen Z volunteers interacting with seniors here. Name the file "volunteer-hero.jpg" ]
-                    </span>
-                </div>
-                
-                <!-- Floating Location Tag -->
-                <div class="absolute -bottom-6 -left-6 bg-white py-3 px-6 rounded-xl shadow-xl border border-slate-100 z-20 hidden md:block">
-                    <p class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-pillar" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        Based in Livingston, NJ
+    <!-- RECOGNITION / PRESS SECTION (EPIC MENTOR GUIDE) -->
+    <section style="padding: 40px 20px; background: rgba(5, 11, 20, 0.95); border-top: 1px solid #45A29E; border-bottom: 1px solid #45A29E; text-align: center;">
+        <h3 style="font-family: 'Share Tech Mono', monospace; color: #FFD700; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 25px;">OFFICIALLY RECOGNIZED BY</h3>
+        
+        <div style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;">
+            <!-- Clickable Epic Mentor Guide Badge -->
+            <a href="https://lnkd.in/p/euQwGpf4" target="_blank" style="text-decoration: none; display: block;">
+                <div style="background: rgba(255, 215, 0, 0.1); border: 1px solid #FFD700; padding: 20px 30px; border-radius: 12px; max-width: 350px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)'">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">🌟</div>
+                    <h4 style="font-family: 'Inter', sans-serif; color: #fff; font-size: 1.2rem; margin-bottom: 10px;">The Epic Mentor Guide</h4>
+                    <p style="font-family: 'Inter', sans-serif; color: #cbd5e1; font-size: 0.95rem; line-height: 1.5;">
+                        "Case Alzheimer's" was proudly featured by Ilana in the Epic Mentor Newsletter for its innovative, youth-led approach to dementia empathy.
                     </p>
                 </div>
-            </div>
-
+            </a>
         </div>
     </section>
 
-    <!-- Trust & Partnership Bar -->
-    <div class="bg-white border-y border-slate-200 py-6">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-8 text-slate-500 font-semibold text-sm uppercase tracking-wider">
-            <span>In Partnership With: Brandywine Living</span>
-            <span class="hidden md:inline text-pillar">•</span>
-            <span>As Heard On: Reading With Your Kids</span>
-            <span class="hidden md:inline text-pillar">•</span>
-            <span>Est. 2024</span>
-        </div>
-    </div>
+    <!-- REFINED: Divide & Pamper Section --> 
+    <section id="about-model" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-slate-50"> 
+        <h2 class="font-heading text-4xl text-center text-slate-900 mb-16">Our "Divide & Pamper" Model</h2> 
+        <div class="grid md:grid-cols-3 gap-8"> 
+            <!-- Card 1 --> 
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2 hover:shadow-md group"> 
+                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg> 
+                <h3 class="font-heading text-xl mb-3 text-slate-900">Sensory Engagement</h3> 
+                <p class="text-slate-600 leading-relaxed">Trained high school "Memory Care Allies" lead interactive music, art, and tactile sessions for memory care patients, bringing joy and dignity back to aging.</p> 
+            </div> 
+            <!-- Card 2 --> 
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2 hover:shadow-md group"> 
+                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8zm12 2h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2m-7-9v2m4-2v2M7 5v2"></path></svg> 
+                <h3 class="font-heading text-xl mb-3 text-slate-900">Caregiver Respite</h3> 
+                <p class="text-slate-600 leading-relaxed">While patients are engaged, primary family caregivers receive dedicated, guilt-free time to step away, breathe, and relax.</p> 
+            </div> 
+            <!-- Card 3 --> 
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2 hover:shadow-md group"> 
+                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg> 
+                <h3 class="font-heading text-xl mb-3 text-slate-900">Wellness Baskets</h3> 
+                <p class="text-slate-600 leading-relaxed">Caregivers receive wellness totes filled with stress-relief journals, herbal teas, and self-care tools to support their mental health.</p> 
+            </div> 
+        </div> 
+    </section> 
 
-    <!-- REFINED: Divide & Pamper Section (System Emojis replaced with clean SVGs) -->
-    <section id="about-model" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-slate-50">
-        <h2 class="font-heading text-4xl text-center text-slate-900 mb-16">Our "Divide & Pamper" Model</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            
-            <!-- Card 1 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2 hover:shadow-md group">
-                <!-- Sensory Sparkle SVG -->
-                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                <h3 class="font-heading text-xl mb-3 text-slate-900">Sensory Engagement</h3>
-                <p class="text-slate-600 leading-relaxed">Trained high school "Memory Care Allies" lead interactive music, art, and tactile sessions for memory care patients, bringing joy and dignity back to aging.</p>
-            </div>
-            
-            <!-- Card 2 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2 hover:shadow-md group">
-                <!-- Coffee Cup SVG -->
-                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8zm12 2h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2m-7-9v2m4-2v2M7 5v2"></path></svg>
-                <h3 class="font-heading text-xl mb-3 text-slate-900">Caregiver Respite</h3>
-                <p class="text-slate-600 leading-relaxed">While patients are engaged, primary family caregivers receive dedicated, guilt-free time to step away, breathe, and relax.</p>
-            </div>
-            
-            <!-- Card 3 -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:-translate-y-2 hover:shadow-md group">
-                <!-- Caring Heart/Hand SVG -->
-                <svg class="w-12 h-12 text-pillar mb-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                <h3 class="font-heading text-xl mb-3 text-slate-900">Wellness Baskets</h3>
-                <p class="text-slate-600 leading-relaxed">Caregivers receive wellness totes filled with stress-relief journals, herbal teas, and self-care tools to support their mental health.</p>
-            </div>
+    <!-- Quick Book Promo --> 
+    <section class="py-20 bg-pillar-dark text-white text-center"> 
+        <div class="max-w-4xl mx-auto px-4"> 
+            <span class="uppercase tracking-widest text-pillar-light font-bold text-sm mb-2 block">Publishing This November</span> 
+            <h2 class="font-heading text-4xl mb-6">Case Alzheimers: A Brain HQ Mystery</h2> 
+            <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto"> Explaining memory loss to children doesn't have to be scary. Join Agent H.M. on a spy adventure inside the brain to learn how memories work and how to show empathy to loved ones. </p> 
+            <a href="case-alzheimers.html" class="inline-block bg-white text-pillar-dark px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg hover:-translate-y-1">Enter Brain HQ</a> 
+        </div> 
+    </section> 
 
-        </div>
-    </section>
-
-    <!-- Quick Book Promo -->
-    <section class="py-20 bg-pillar-dark text-white text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <span class="uppercase tracking-widest text-pillar-light font-bold text-sm mb-2 block">Publishing This November</span>
-            <h2 class="font-heading text-4xl mb-6">Case Alzheimers: A Brain HQ Mystery</h2>
-            <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-                Explaining memory loss to children doesn't have to be scary. Join Agent H.M. on a spy adventure inside the brain to learn how memories work and how to show empathy to loved ones.
-            </p>
-            <a href="case-alzheimers.html" class="inline-block bg-white text-pillar-dark px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg hover:-translate-y-1">Enter Brain HQ</a>
-        </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section id="resources" class="py-20 bg-slate-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-heading text-4xl text-center text-slate-900 mb-6">Caregiver Resources</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="https://www.alz.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
-                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Alzheimer's Association ↗</h3>
-                    <p class="text-slate-600">24/7 helpline, local support groups, and comprehensive educational resources regarding dementia.</p>
-                </a>
-                <a href="https://teepasnow.com/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
-                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Positive Approach to Care® ↗</h3>
-                    <p class="text-slate-600">Teepa Snow's widely recognized training modules focused on practical, compassionate strategies.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Feed Section -->
-    <section id="socials" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-heading text-4xl text-center text-slate-900 mb-6">Our Journey on Instagram</h2>
-        <p class="text-center text-slate-600 mb-12 text-lg">
-            Follow along <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar font-bold hover:underline">@thepillarproject1</a> for updates, volunteer shoutouts, and real-time impact.
+    <!-- TED-ED TALK SECTION -->
+    <section style="padding: 60px 20px; background-color: #050b14; text-align: center;">
+        <h2 style="font-family: 'Share Tech Mono', monospace; color: #66FCF1; font-size: 2.5rem; margin-bottom: 10px;">WATCH THE MISSION IN ACTION</h2>
+        <p style="font-family: 'Inter', sans-serif; color: #a0aec0; font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px;">
+            Ava Shah took the TED-Ed stage to discuss the inspiration behind Case Alzheimer's and how Generation Z can change the future of memory care.
         </p>
         
-        <div class="bg-white border border-slate-200 rounded-2xl p-4 text-center min-h-[300px] flex items-center justify-center shadow-sm">
-            <div class="w-full overflow-hidden rounded-xl">
-                <!-- Elfsight Instagram Feed -->
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-9ab5c311-02d3-407c-a703-695f4a8fe236" data-elfsight-app-lazy></div>
-            </div>
+        <!-- Video Embed Container -->
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 800px; margin: 0 auto; border: 2px solid #66FCF1; border-radius: 12px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.2);">
+            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/rHwoYGU_3UA" 
+                    title="Ava Shah TED-Ed Talk" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
         </div>
     </section>
 
-    <!-- Footer -->
-    <section class="py-12 bg-slate-900 text-white text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="font-heading text-3xl mb-6">Contact Us</h2>
-            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8">
-                <a href="mailto:pillarproject@gmail.com" class="text-pillar-light hover:text-white transition font-semibold">📧 contactpillarproject@gmail.com</a>
-                <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition font-semibold">📱 @thepillarproject1</a>
-            </div>
-            <div class="border-t border-slate-700 pt-8 text-sm text-slate-400">
-                &copy; 2026 The Pillar Project. All rights reserved.
-            </div>
-        </div>
-    </section>
+    <!-- Resources Section --> 
+    <section id="resources" class="py-20 bg-slate-100"> 
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> 
+            <h2 class="font-heading text-4xl text-center text-slate-900 mb-6">Caregiver Resources</h2> 
+            <div class="grid md:grid-cols-2 gap-6"> 
+                <a href="https://www.alz.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2"> 
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Alzheimer's Association ↗</h3> 
+                    <p class="text-slate-600">24/7 helpline, local support groups, and comprehensive educational resources regarding dementia.</p> 
+                </a> 
+                <a href="https://teepasnow.com/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2"> 
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Positive Approach to Care® ↗</h3> 
+                    <p class="text-slate-600">Teepa Snow's widely recognized training modules focused on practical, compassionate strategies.</p> 
+                </a> 
+            </div> 
+        </div> 
+    </section> 
 
-    <!-- FREE PILLAR GUIDE CHATBOT CODE -->
-    <style>
-        #pillar-chat-btn { position: fixed; bottom: 20px; right: 20px; background-color: #9333ea; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s; }
-        #pillar-chat-btn:hover { transform: scale(1.1); }
-        #pillar-chat-window { display: none; position: fixed; bottom: 90px; right: 20px; width: 320px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #e2e8f0; }
-        #pillar-chat-header { background-color: #9333ea; color: white; padding: 16px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; display: flex; justify-content: space-between; align-items: center; }
-        #pillar-chat-body { padding: 16px; height: 280px; overflow-y: auto; background-color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .bot-msg { background: #e2e8f0; color: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
-        .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;}
-        .chat-option:hover { background: #7e22ce; }
-    </style>
+    <!-- Social Media Feed Section --> 
+    <section id="socials" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> 
+        <h2 class="font-heading text-4xl text-center text-slate-900 mb-6">Our Journey on Instagram</h2> 
+        <p class="text-center text-slate-600 mb-12 text-lg"> Follow along <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar font-bold hover:underline">@thepillarproject1</a> for updates, volunteer shoutouts, and real-time impact. </p> 
+        <div class="bg-white border border-slate-200 rounded-2xl p-4 text-center min-h-[300px] flex items-center justify-center shadow-sm"> 
+            <div class="w-full overflow-hidden rounded-xl"> 
+                <!-- Elfsight Instagram Feed --> 
+                <script src="https://elfsightcdn.com/platform.js" async></script> 
+                <div class="elfsight-app-9ab5c311-02d3-407c-a703-695f4a8fe236" data-elfsight-app-lazy></div> 
+            </div> 
+        </div> 
+    </section> 
 
-    <button id="pillar-chat-btn" onclick="toggleChat()">💬</button>
+    <!-- Footer --> 
+    <section class="py-12 bg-slate-900 text-white text-center"> 
+        <div class="max-w-4xl mx-auto px-4"> 
+            <h2 class="font-heading text-3xl mb-6">Contact Us</h2> 
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8"> 
+                <a href="mailto:pillarproject@gmail.com" class="text-pillar-light hover:text-white transition font-semibold">📧 contactpillarproject@gmail.com</a> 
+                <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition font-semibold">📱 @thepillarproject1</a> 
+            </div> 
+            <div class="border-t border-slate-700 pt-8 text-sm text-slate-400"> &copy; 2026 The Pillar Project. All rights reserved. </div> 
+        </div> 
+    </section> 
 
-    <div id="pillar-chat-window">
-        <div id="pillar-chat-header">
-            <span>The Pillar Guide</span>
-            <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✖</button>
-        </div>
-        <div id="pillar-chat-body">
-            <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div>
-            <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
-            <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
-            <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
-        </div>
-    </div>
-
-    <script>
+    <!-- FREE PILLAR GUIDE CHATBOT CODE --> 
+    <style> 
+        #pillar-chat-btn { position: fixed; bottom: 20px; right: 20px; background-color: #9333ea; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s; } 
+        #pillar-chat-btn:hover { transform: scale(1.1); } 
+        #pillar-chat-window { display: none; position: fixed; bottom: 90px; right: 20px; width: 320px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #e2e8f0; } 
+        #pillar-chat-header { background-color: #9333ea; color: white; padding: 16px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; display: flex; justify-content: space-between; align-items: center; } 
+        #pillar-chat-body { padding: 16px; height: 280px; overflow-y: auto; background-color: #f8fafc; font-family: 'Inter', sans-serif; } 
+        .bot-msg { background: #e2e8f0; color: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; } 
+        .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;} 
+        .chat-option:hover { background: #7e22ce; } 
+    </style> 
+    
+    <button id="pillar-chat-btn" onclick="toggleChat()">💬</button> 
+    
+    <div id="pillar-chat-window"> 
+        <div id="pillar-chat-header"> 
+            <span>The Pillar Guide</span> 
+            <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✖</button> 
+        </div> 
+        <div id="pillar-chat-body"> 
+            <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div> 
+            <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button> 
+            <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button> 
+            <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button> 
+        </div> 
+    </div> 
+    
+    <script> 
         function toggleChat() {
-            var win = document.getElementById("pillar-chat-window");
-            win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none";
-        }
+            var win = document.getElementById("pillar-chat-window"); 
+            win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none"; 
+        } 
         function sendReply(type) {
-            var body = document.getElementById("pillar-chat-body");
-            var html = '';
+            var body = document.getElementById("pillar-chat-body"); 
+            var html = ''; 
             if (type === 'volunteer') {
-                html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="volunteer.html" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>';
+                html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="volunteer.html" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>'; 
             } else if (type === 'book') {
-                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="case-alzheimers.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>';
+                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="case-alzheimers.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>'; 
             } else if (type === 'resources') {
-                html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br>Scroll down to our Resources section for more links.</div>';
-            }
-            html += '<button class="chat-option" onclick="resetChat()" style="margin-top: 15px; background: #64748b;">Start Over</button>';
-            body.innerHTML = html;
-        }
+                html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br>Scroll down to our Resources section for more links.</div>'; 
+            } 
+            html += '<button class="chat-option" onclick="resetChat()" style="margin-top: 15px; background: #64748b;">Start Over</button>'; 
+            body.innerHTML = html; 
+        } 
         function resetChat() {
-            document.getElementById("pillar-chat-body").innerHTML = `
-                <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div>
-                <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
-                <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
-                <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
-            `;
-        }
-    </script>
-</body>
+            document.getElementById("pillar-chat-body").innerHTML = ` <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div> <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button> <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button> <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button> `; 
+        } 
+    </script> 
+</body> 
 </html>
