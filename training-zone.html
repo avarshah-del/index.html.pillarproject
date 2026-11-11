@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain HQ: Agent Training Zone | The Pillar Project</title>
+    <title>Brain HQ: Agent Training Zone </title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -110,8 +110,10 @@
         }
         .spy-input:focus { box-shadow: 0 0 15px var(--neon-blue); }
 
-        /* Zones & Quizzes */
+        /* Zones & Portals */
         .zone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 100%; margin-top: 30px; }
+        .portal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; margin-top: 30px; }
+        
         .zone-card { background: rgba(5, 11, 20, 0.6); border: 2px dashed rgba(102, 252, 241, 0.4); border-radius: 15px; padding: 25px 20px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
         .zone-card:hover { border-style: solid; border-color: var(--neon-blue); transform: translateY(-5px); box-shadow: 0 5px 20px rgba(102, 252, 241, 0.3); }
         .zone-card.cleared { border-color: var(--neon-green); border-style: solid; background: rgba(57, 255, 20, 0.05); pointer-events: none; }
@@ -168,7 +170,6 @@
             </p>
 
             <div class="avatar-builder" style="background: rgba(5,11,20,0.8); padding: 25px; border-radius: 15px; border: 1px solid var(--neon-blue); margin-bottom: 25px; width: 100%; max-width: 500px;">
-                
                 <h3 class="spy-font" style="color: var(--gold); margin-bottom: 15px; font-size: 1.1rem;">1. SELECT AGENT AVATAR</h3>
                 <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 25px;">
                     <button class="avatar-opt active" onclick="selectAvatar(this, '🕵️‍♂️')">🕵️‍♂️</button>
@@ -194,9 +195,8 @@
             <button class="spy-btn spy-font" onclick="startMission()" style="margin-top: 25px; background: var(--neon-blue); color: #050b14; font-weight: bold; width: 100%; max-width: 500px; font-size: 1.2rem;">CREATE ID & ENTER HQ</button>
         </div>
 
-        <!-- 2. MISSION HUB / DASHBOARD -->
+        <!-- 2. NEW MAIN HUB / PORTAL SELECTOR -->
         <div id="screen-hub" class="game-panel">
-            <!-- Dynamic Header with Avatar & Logout -->
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(102, 252, 241, 0.3); padding-bottom: 15px; flex-wrap: wrap; gap: 15px;">
                 <div class="agent-badge-display">
                     <div class="badge-icon">
@@ -208,7 +208,6 @@
                         <div class="player-name-display spy-font" style="color: var(--neon-blue); font-weight: bold; font-size: 1.2rem;"></div>
                     </div>
                 </div>
-                
                 <div style="display: flex; gap: 20px; align-items: center;">
                     <div style="text-align: right;">
                         <div class="spy-font" style="color: #a0aec0; font-size: 0.75rem;">HQ CLEARANCE</div>
@@ -219,8 +218,57 @@
             </div>
 
             <div style="text-align: center;">
-                <h2 class="spy-font" style="margin-top: 30px; color: var(--neon-blue);">SELECT A GLITCHED ZONE</h2>
-                <p class="kid-font" style="color: #cbd5e1;">ZONES REBOOTED: <span id="cleared-count" style="color: var(--neon-green); font-weight:bold;">0/4</span></p>
+                <h2 class="spy-font" style="margin-top: 30px; color: var(--neon-blue); font-size: 2rem;">TRAINING CENTER</h2>
+                <p class="kid-font" style="color: #cbd5e1; font-size: 1.1rem;">Select your mission portal, Agent.</p>
+
+                <div class="portal-grid">
+                    <!-- MISSION 1: The Book Protocol -->
+                    <div class="zone-card" onclick="requirePassword('book')" style="border-color: var(--neon-blue);">
+                        <div class="zone-icon">📖</div>
+                        <div class="spy-font" style="color: var(--neon-blue); font-weight: bold; font-size: 1.2rem;">THE BOOK PROTOCOL</div>
+                        <div class="kid-font" style="font-size: 0.95rem; color: #a0aec0; margin-top: 8px;">🔐 Secret Code Required</div>
+                    </div>
+                    
+                    <!-- MISSION 2: Saara's Academy -->
+                    <div class="zone-card" onclick="alert('Saara\'s Video Academy is currently under construction! HQ Engineers are building it now.')" style="border-color: #555; background: rgba(0,0,0,0.4);">
+                        <div class="zone-icon">🎬</div>
+                        <div class="spy-font" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">SAARA'S ACADEMY</div>
+                        <div class="kid-font" style="font-size: 0.95rem; color: var(--alert-pink); margin-top: 8px; font-weight: bold;">🚧 Under Construction 🚧</div>
+                    </div>
+
+                    <!-- MISSION 3: Defense Simulator -->
+                    <div class="zone-card" onclick="alert('Brain Defense Simulator coming soon! Prepare to defend the neurons!')" style="border-color: #555; background: rgba(0,0,0,0.4);">
+                        <div class="zone-icon">🛡️</div>
+                        <div class="spy-font" style="color: var(--neon-green); font-weight: bold; font-size: 1.2rem;">DEFENSE SIMULATOR</div>
+                        <div class="kid-font" style="font-size: 0.95rem; color: #a0aec0; margin-top: 8px;">Daily Habits Mini-Game</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. PASSWORD GATE -->
+        <div id="screen-password" class="game-panel" style="text-align: center; align-items: center;">
+            <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
+            
+            <div style="font-size: 4rem; margin-bottom: 10px;">🔐</div>
+            <h2 class="spy-font" style="color: var(--alert-pink); font-size: 2rem;">RESTRICTED CLEARANCE</h2>
+            <p class="kid-font" style="color: #cbd5e1; margin-bottom: 25px; max-width: 500px; font-size: 1.1rem;">
+                To unlock The Book Protocol, you must enter the secret code found at the back of the book <i>Case: Alzheimer's</i>.
+            </p>
+            
+            <input type="text" id="book-password-input" class="spy-input spy-font" placeholder="ENTER SECRET CODE..." style="max-width: 400px; margin-bottom: 20px; font-size: 1.5rem;">
+            
+            <button class="spy-btn spy-font" onclick="verifyPassword()" style="background: var(--neon-blue); color: #050b14; font-size: 1.2rem; font-weight: bold;">DECRYPT TRANSMISSION</button>
+            <div id="password-error" class="spy-font" style="color: var(--alert-pink); margin-top: 15px; display: none; font-weight: bold;">❌ ACCESS DENIED. INCORRECT CODE.</div>
+        </div>
+
+        <!-- 4. THE BOOK PROTOCOL (Original 4-Zone Game) -->
+        <div id="screen-book-protocol" class="game-panel">
+            <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
+            
+            <div style="text-align: center;">
+                <h2 class="spy-font" style="color: var(--neon-blue); font-size: 2rem;">THE BOOK PROTOCOL</h2>
+                <p class="kid-font" style="color: #cbd5e1; font-size: 1.1rem;">ZONES REBOOTED: <span id="cleared-count" style="color: var(--neon-green); font-weight:bold;">0/4</span></p>
 
                 <div class="zone-grid">
                     <div id="zone-btn-hq" class="zone-card" onclick="enterZone('hq')">
@@ -243,10 +291,10 @@
             </div>
         </div>
 
-        <!-- 3. ZONE INTERACTIVE CHALLENGE -->
+        <!-- 5. ZONE INTERACTIVE CHALLENGE -->
         <div id="screen-zone" class="game-panel">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem;" onclick="returnToHub()">← RETURN TO HUB</button>
+                <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem;" onclick="showScreen('screen-book-protocol')">← RETURN TO PROTOCOL</button>
                 <div id="zone-tagline" class="spy-font" style="color: var(--neon-blue);"></div>
             </div>
 
@@ -270,7 +318,7 @@
             </div>
         </div>
 
-        <!-- 4. AGENT PLEDGE -->
+        <!-- 6. AGENT PLEDGE -->
         <div id="screen-pledge" class="game-panel" style="text-align: center;">
             <h1 class="spy-font" style="color: var(--neon-green); font-size: 2.5rem;">THE OFFICIAL AGENT PLEDGE</h1>
             <p class="kid-font" style="font-size: 1.2rem; color: #cbd5e1; max-width: 650px; margin: 15px auto;">
@@ -285,8 +333,9 @@
             <button id="btn-take-pledge" class="spy-btn spy-font" style="background: #39FF14; color: #050b14; opacity: 0.5; pointer-events: none;" onclick="showRewards()">I PLEDGE (Check all boxes)</button>
         </div>
 
-        <!-- 5. REWARDS VAULT -->
+        <!-- 7. REWARDS VAULT -->
         <div id="screen-rewards" class="game-panel" style="text-align: center;">
+            <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
             <h1 class="spy-font" style="color: var(--neon-green); font-size: 3rem;">VAULT UNLOCKED</h1>
             <p class="kid-font" style="font-size: 1.3rem; color: #fff;">Welcome to the ranks, <span class="player-name-display" style="color: var(--neon-blue); font-weight: bold;"></span>.</p>
             <div style="display: flex; gap: 30px; justify-content: center; margin-top: 40px; flex-wrap: wrap;">
@@ -301,7 +350,7 @@
 
     </div>
 
-    <!-- FLOATING HQ ASSISTANT WIDGET -->
+    <!-- FLOATING HQ ASSISTANT WIDGET (Remains the Same) -->
     <div id="hq-bot-bubble" onclick="toggleBotChat()">
         <span style="font-size: 1.8rem;">🤖</span>
         <span class="spy-font" style="color: #66FCF1; font-weight: bold; font-size: 0.95rem;">ASK HQ ASSISTANT</span>
@@ -327,47 +376,36 @@
         </div>
     </div>
 
-    <!-- GAME LOGIC & LOCAL STORAGE SCRIPT -->
+    <!-- GAME LOGIC SCRIPT -->
     <script>
-        // Global Game State (Saved to LocalStorage)
         let agentName = "";
         let selectedAvatar = "🕵️‍♂️";
         let selectedGadget = "🔍";
         let xpPoints = 0;
         let completedZones = { hq: false, warehouse: false, emotion: false, library: false };
-        
         let currentZoneKey = "";
         let currentQuestionIndex = 0;
 
-        // Auto-Login Check
         window.onload = function() {
             const savedData = localStorage.getItem('brainHqAgent');
             if (savedData) {
                 const data = JSON.parse(savedData);
-                agentName = data.name;
-                selectedAvatar = data.avatar;
-                selectedGadget = data.gadget;
-                xpPoints = data.xp || 0;
-                completedZones = data.zones || completedZones;
-                
-                updateBadgeDisplay();
-                updateHubStatus();
+                agentName = data.name; selectedAvatar = data.avatar; selectedGadget = data.gadget;
+                xpPoints = data.xp || 0; completedZones = data.zones || completedZones;
+                updateBadgeDisplay(); updateHubStatus();
                 document.getElementById('status-indicator').textContent = "ACTIVE MISSION";
                 showScreen('screen-hub');
             }
         };
 
-        // Avatar Selection Functions
         function selectAvatar(btn, emoji) {
             document.querySelectorAll('.avatar-opt').forEach(el => el.classList.remove('active'));
-            btn.classList.add('active');
-            selectedAvatar = emoji;
+            btn.classList.add('active'); selectedAvatar = emoji;
         }
 
         function selectGadget(btn, emoji) {
             document.querySelectorAll('.gadget-opt').forEach(el => el.classList.remove('active'));
-            btn.classList.add('active');
-            selectedGadget = emoji;
+            btn.classList.add('active'); selectedGadget = emoji;
         }
 
         function generateName() {
@@ -380,12 +418,8 @@
         function startMission() {
             const input = document.getElementById('player-name-input');
             if (!input.value.trim()) { alert("Please enter or generate a Codename, Agent!"); return; }
-            
-            agentName = input.value.trim().toUpperCase();
-            saveProgress();
-            
-            updateBadgeDisplay();
-            updateHubStatus();
+            agentName = input.value.trim().toUpperCase(); saveProgress();
+            updateBadgeDisplay(); updateHubStatus();
             document.getElementById('status-indicator').textContent = "ACTIVE MISSION";
             showScreen('screen-hub');
         }
@@ -397,8 +431,7 @@
 
         function signOut() {
             if(confirm("Sign out? This will erase your saved clearance data on this device.")) {
-                localStorage.removeItem('brainHqAgent');
-                location.reload(); 
+                localStorage.removeItem('brainHqAgent'); location.reload(); 
             }
         }
 
@@ -409,20 +442,43 @@
             document.getElementById('xp-display').textContent = `${xpPoints} XP`;
         }
 
-        // Zone Data
+        function showScreen(screenId) {
+            document.querySelectorAll('.game-panel').forEach(panel => panel.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        // --- PASSWORD PROTOCOL ---
+        function requirePassword(type) {
+            // If they already completed it, don't ask for password again
+            const clearedTotal = Object.values(completedZones).filter(Boolean).length;
+            if (clearedTotal === 4) {
+                showScreen('screen-book-protocol');
+            } else {
+                document.getElementById('book-password-input').value = ""; // Reset input
+                document.getElementById('password-error').style.display = 'none';
+                showScreen('screen-password');
+            }
+        }
+
+        function verifyPassword() {
+            const input = document.getElementById('book-password-input').value.trim().toUpperCase();
+            
+            // --- EDIT YOUR SECRET BOOK CODE HERE ---
+            if (input === "PILLAR" || input === "MEMORY") { 
+                document.getElementById('password-error').style.display = 'none';
+                showScreen('screen-book-protocol');
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+            }
+        }
+
+        // --- ZONE DATA & LOGIC ---
         const zoneData = {
             hq: { title: "BRAIN HQ", character: "BIG BOSS", cssClass: "char-boss", emoji: "😎", explanation: "WHAT IS IT? The Prefrontal Cortex is the boss of the brain. It sits right behind your forehead and makes all the big decisions!", dialog: "\"Agent! The tangles are causing glitches everywhere! Pass this security check so we can reboot the main servers.\"", questions: [{q: "Where is Brain HQ (The Prefrontal Cortex) located?", options: ["Right behind your forehead", "In your toes", "In your stomach"], answer: 0 }, {q: "What is the main job of Brain HQ?", options: ["To pump blood", "To make big decisions and solve puzzles", "To digest food"], answer: 1 }, {q: "What is the condition causing the tangles and glitches in the brain called?", options: ["A Cold", "Aphasia", "Alzheimer's"], answer: 2 }] },
             warehouse: { title: "WORD WAREHOUSE", character: "THE MANAGER", cssClass: "char-manager", emoji: "📋", explanation: "WHAT IS IT? Broca's and Wernicke's areas are the language factories! They help us build words and talk to each other.", dialog: "\"Attention Agent! We have a Class-8 Aphasia glitch on our hands. The tangles are wrapping around the glowing word-orbs! Answer these questions to help clear the vines.\"", questions: [{q: "What does the Word Warehouse help us do?", options: ["Run fast", "Build words and talk", "Go to sleep"], answer: 1 }, {q: "What is the medical name for the glitch that makes it hard to find the right words?", options: ["Aphasia", "Action Potential", "Hippocampus"], answer: 0 }, {q: "True or False: If a loved one forgets a word, we should get angry at them.", options: ["True", "False! We should be kind and patient."], answer: 1 }] },
             emotion: { title: "EMOTION LAND", character: "RIDE OPERATOR", cssClass: "char-ride", emoji: "🎢", explanation: "WHAT IS IT? The Amygdala (Ah-MIG-dah-la) is the part of the brain that controls your feelings. It's like a roller coaster of emotions!", dialog: "\"Welcome to the Amygdala! Normally, this place is a fun park of feelings, but the rides are totally out of whack. Prove your empathy to reboot the tracks!\"", questions: [{q: "What does the Amygdala control?", options: ["Your hearing", "Your feelings and emotions", "Your muscles"], answer: 1 }, {q: "When a person with Alzheimer's feels scared or confused, what is the best gadget to use?", options: ["Gentle words and a comforting hug", "A loud whistle", "Running away"], answer: 0 }, {q: "True or False: Even if someone forgets things, their feelings are still real.", options: ["True! Love and kindness are always felt.", "False."], answer: 0 }] },
             library: { title: "DATA LIBRARY", character: "HEAD LIBRARIAN", cssClass: "char-librarian", emoji: "📖", explanation: "WHAT IS IT? The Hippocampus is the brain's giant memory vault. It stores all your favorite memories like books on a shelf!", dialog: "\"Agent! Some of our memory shelves have glitched. Help me check the archive files so we can preserve our oldest, most treasured memories!\"", questions: [{q: "What is the Hippocampus shaped like?", options: ["A tiny seahorse", "A basketball", "A slice of pizza"], answer: 0 }, {q: "When Alzheimer's affects the Data Library, what usually gets forgotten first?", options: ["New things that happened recently", "Their own name from childhood", "How to breathe"], answer: 0 }, {q: "How can you help an older family member remember things happily?", options: ["By looking through photo albums and listening to old songs together", "By testing them with a hard math quiz", "By ignoring them"], answer: 0 }] }
         };
-
-        function showScreen(screenId) {
-            document.querySelectorAll('.game-panel').forEach(panel => panel.classList.remove('active'));
-            document.getElementById(screenId).classList.add('active');
-        }
-
-        function returnToHub() { showScreen('screen-hub'); }
 
         function enterZone(zoneKey) {
             currentZoneKey = zoneKey; currentQuestionIndex = 0;
@@ -442,7 +498,6 @@
             const optionsContainer = document.getElementById('zone-options'); optionsContainer.innerHTML = '';
             const feedbackBox = document.getElementById('zone-feedback');
             feedbackBox.style.display = 'none'; document.getElementById('btn-next-question').style.display = 'none';
-            
             q.options.forEach((opt, index) => {
                 const btn = document.createElement('button'); btn.className = 'option-btn';
                 btn.textContent = opt; btn.onclick = () => checkAnswer(index, btn);
@@ -473,17 +528,12 @@
             if (currentQuestionIndex < zone.questions.length) {
                 loadQuestion();
             } else {
-                // Zone Cleared Logic
                 if (!completedZones[currentZoneKey]) {
-                    completedZones[currentZoneKey] = true;
-                    xpPoints += 100;
-                    saveProgress(); // Save new XP and Zone status
+                    completedZones[currentZoneKey] = true; xpPoints += 100; saveProgress();
                 }
-                
                 confetti({ particleCount: 75, spread: 60, origin: { y: 0.6 } });
-                updateBadgeDisplay();
-                updateHubStatus();
-                showScreen('screen-hub');
+                updateBadgeDisplay(); updateHubStatus();
+                showScreen('screen-book-protocol');
             }
         }
 
@@ -491,16 +541,13 @@
             const clearedTotal = Object.values(completedZones).filter(Boolean).length;
             document.getElementById('cleared-count').textContent = `${clearedTotal}/4`;
             
-            // Mark individual zone buttons as cleared
             Object.keys(completedZones).forEach(key => {
                 if(completedZones[key]) document.getElementById(`zone-btn-${key}`).classList.add('cleared');
             });
-
             if (clearedTotal === 4) document.getElementById('btn-vault').style.display = 'inline-block';
         }
 
         function goToPledge() { showScreen('screen-pledge'); }
-
         function verifyPledge() {
             const checkboxes = document.querySelectorAll('.pledge-check');
             const allChecked = Array.from(checkboxes).every(box => box.checked);
@@ -508,21 +555,13 @@
             if (allChecked) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; btn.textContent = "I PLEDGE! UNLOCK REWARDS 🔓";
             } else { btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none'; btn.textContent = "I PLEDGE (Check all boxes)"; }
         }
-
         function showRewards() { confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } }); showScreen('screen-rewards'); }
 
-        // ==========================================
-        // HQ ASSISTANT CHATBOT
-        // ==========================================
+        // --- BOT ---
         let chatHistory = [];
         const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
-
-        function toggleBotChat() {
-            const modal = document.getElementById("hq-bot-modal");
-            modal.style.display = modal.style.display === "none" || modal.style.display === "" ? "flex" : "none";
-        }
+        function toggleBotChat() { const modal = document.getElementById("hq-bot-modal"); modal.style.display = modal.style.display === "none" || modal.style.display === "" ? "flex" : "none"; }
         function sendQuickPrompt(promptText) { document.getElementById("bot-input").value = promptText; sendAgentMessage(); }
-
         async function sendAgentMessage() {
             const inputEl = document.getElementById("bot-input"); const message = inputEl.value.trim();
             if (!message) return;
@@ -539,12 +578,7 @@
 
             try {
                 const res = await fetch(CHAT_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userMessage: message, history: chatHistory.slice(-6) }) });
-                
-                // Add status check for worker errors
-                if (!res.ok) {
-                    throw new Error(`HQ Server Error! Status: ${res.status} - ${res.statusText}`);
-                }
-
+                if (!res.ok) throw new Error(`HQ Server Error! Status: ${res.status}`);
                 const data = await res.json(); loadingBubble.remove();
                 const botReply = data.reply || "Transmission lost. Try again, Agent!";
                 
@@ -553,15 +587,10 @@
                 aiBubble.textContent = botReply; msgContainer.appendChild(aiBubble);
                 chatHistory.push({ role: "user", content: message }, { role: "assistant", content: botReply });
             } catch (err) {
-                loadingBubble.remove(); 
-                
-                // Print the exact error to your console
-                console.error("🚨 Bot Error Log:", err);
-
+                loadingBubble.remove(); console.error("🚨 Bot Error Log:", err);
                 const errorBubble = document.createElement("div");
                 errorBubble.style.cssText = "align-self: flex-start; background: rgba(255, 51, 51, 0.15); border: 1px solid #ff3333; color: #ff9999; padding: 8px 12px; border-radius: 12px; font-size: 0.85rem;";
-                errorBubble.textContent = "Signal jammed! Open your Browser Console (F12) to see the exact error, Agent."; 
-                msgContainer.appendChild(errorBubble);
+                errorBubble.textContent = "Signal jammed! Check your connection."; msgContainer.appendChild(errorBubble);
             }
             msgContainer.scrollTop = msgContainer.scrollHeight;
         }
