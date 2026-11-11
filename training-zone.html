@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -540,6 +539,12 @@ HTML
 
             try {
                 const res = await fetch(CHAT_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userMessage: message, history: chatHistory.slice(-6) }) });
+                
+                // Add status check for worker errors
+                if (!res.ok) {
+                    throw new Error(`HQ Server Error! Status: ${res.status} - ${res.statusText}`);
+                }
+
                 const data = await res.json(); loadingBubble.remove();
                 const botReply = data.reply || "Transmission lost. Try again, Agent!";
                 
@@ -548,9 +553,15 @@ HTML
                 aiBubble.textContent = botReply; msgContainer.appendChild(aiBubble);
                 chatHistory.push({ role: "user", content: message }, { role: "assistant", content: botReply });
             } catch (err) {
-                loadingBubble.remove(); const errorBubble = document.createElement("div");
+                loadingBubble.remove(); 
+                
+                // Print the exact error to your console
+                console.error("🚨 Bot Error Log:", err);
+
+                const errorBubble = document.createElement("div");
                 errorBubble.style.cssText = "align-self: flex-start; background: rgba(255, 51, 51, 0.15); border: 1px solid #ff3333; color: #ff9999; padding: 8px 12px; border-radius: 12px; font-size: 0.85rem;";
-                errorBubble.textContent = "Signal jammed. Check back in a moment, Agent."; msgContainer.appendChild(errorBubble);
+                errorBubble.textContent = "Signal jammed! Open your Browser Console (F12) to see the exact error, Agent."; 
+                msgContainer.appendChild(errorBubble);
             }
             msgContainer.scrollTop = msgContainer.scrollHeight;
         }
