@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,31 +191,29 @@
                 Build your official Brain HQ ID Badge in the Agent Locker to enter the training zone. Your clearance data will be saved securely to this device!
             </p>
 
-            <!-- NEW AGENT LOCKER (Layered Customizer) -->
+            <!-- AGENT LOCKER (Layered Customizer with new _200x200 filenames) -->
             <div class="locker-container">
                 <div class="avatar-preview-box">
-                    <img id="preview-base" class="avatar-layer" style="z-index: 1;" src="boy.png" alt="Base">
-                    <img id="preview-top" class="avatar-layer" style="z-index: 2;" src="sweatshirt.png" alt="Top">
-                    <img id="preview-acc" class="avatar-layer" style="z-index: 3;" src="glasses,png.png" alt="Accessory">
+                    <img id="preview-base" class="avatar-layer" style="z-index: 1;" src="boy_200x200.png" alt="Base">
+                    <img id="preview-top" class="avatar-layer" style="z-index: 2;" src="jacket_200x200.png" alt="Top">
+                    <img id="preview-acc" class="avatar-layer" style="z-index: 3;" src="glasses_png_200x200.png" alt="Accessory">
                 </div>
                 
                 <div class="locker-menus">
                     <div style="text-align: left;">
                         <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">BASE AGENT:</div>
                         <div class="locker-row">
-                            <button class="locker-btn active" onclick="setAvatarItem('base', 'boy.png', this)">Agent Boy</button>
-                            <button class="locker-btn" onclick="setAvatarItem('base', 'girl.png', this)">Agent Girl</button>
+                            <button class="locker-btn active" onclick="setAvatarItem('base', 'boy_200x200.png', this)">Agent Boy</button>
+                            <button class="locker-btn" onclick="setAvatarItem('base', 'girl_200x200.png', this)">Agent Girl</button>
                         </div>
                     </div>
                     
                     <div style="text-align: left;">
                         <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">UNIFORM:</div>
                         <div class="locker-row">
-                            <button class="locker-btn active" onclick="setAvatarItem('top', 'sweatshirt.png', this)">Sweatshirt</button>
-                            <button class="locker-btn" onclick="setAvatarItem('top', 'jacket.png', this)">Jacket</button>
-                            <button class="locker-btn" onclick="setAvatarItem('top', 'labcoat.png', this)">Lab Coat</button>
-                            <button class="locker-btn" onclick="setAvatarItem('top', 'suit.png', this)">Spy Suit</button>
-                            <button class="locker-btn" onclick="setAvatarItem('top', 'vest.png', this)">Vest</button>
+                            <button class="locker-btn active" onclick="setAvatarItem('top', 'jacket_200x200.png', this)">Jacket</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'labcoat_200x200.png', this)">Lab Coat</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'suit_200x200.png', this)">Spy Suit</button>
                             <button class="locker-btn" onclick="setAvatarItem('top', '', this)">None</button>
                         </div>
                     </div>
@@ -222,10 +221,9 @@
                     <div style="text-align: left;">
                         <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">GEAR:</div>
                         <div class="locker-row">
-                            <button class="locker-btn active" onclick="setAvatarItem('acc', 'glasses,png.png', this)">Glasses</button>
-                            <button class="locker-btn" onclick="setAvatarItem('acc', 'goggles.png', this)">Goggles</button>
-                            <button class="locker-btn" onclick="setAvatarItem('acc', 'monacle.png', this)">Monocle</button>
-                            <button class="locker-btn" onclick="setAvatarItem('acc', 'tophat.png', this)">Top Hat</button>
+                            <button class="locker-btn active" onclick="setAvatarItem('acc', 'glasses_png_200x200.png', this)">Glasses</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', 'goggles_200x200.png', this)">Goggles</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', 'monacle_200x200.png', this)">Monocle</button>
                             <button class="locker-btn" onclick="setAvatarItem('acc', '', this)">None</button>
                         </div>
                     </div>
@@ -415,11 +413,11 @@
     <script>
         let agentName = "";
         
-        // NEW: Layered Avatar State
+        // Layered Avatar State with NEW filenames
         let avatarLayers = {
-            base: "boy.png",
-            top: "sweatshirt.png",
-            acc: "glasses,png.png"
+            base: "boy_200x200.png",
+            top: "jacket_200x200.png",
+            acc: "glasses_png_200x200.png"
         };
         
         let xpPoints = 0;
@@ -441,7 +439,6 @@
             }
         };
 
-        // NEW: Set Layered Avatar Items
         function setAvatarItem(layer, filename, btnElement) {
             // Update the state
             avatarLayers[layer] = filename;
