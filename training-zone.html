@@ -1,19 +1,16 @@
-
+HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain HQ: Agent Training Zone | The Pillar Project</title>
-    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Share+Tech+Mono&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
     <!-- Canvas Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
     <style>
         :root {
             --bg-color: #050b14;
@@ -27,13 +24,11 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
             background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(20, 40, 80, 0.5) 0%, transparent 80%),
-                linear-gradient(rgba(5, 11, 20, 0.9) 2px, transparent 2px),
-                linear-gradient(90deg, rgba(5, 11, 20, 0.9) 2px, transparent 2px);
+            background-image: radial-gradient(circle at 50% 50%, rgba(20, 40, 80, 0.5) 0%, transparent 80%), 
+                              linear-gradient(rgba(5, 11, 20, 0.9) 2px, transparent 2px), 
+                              linear-gradient(90deg, rgba(5, 11, 20, 0.9) 2px, transparent 2px);
             background-size: 100% 100%, 30px 30px, 30px 30px;
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
@@ -44,35 +39,31 @@
             overflow-x: hidden;
             position: relative;
         }
-
         .spy-font { font-family: 'Share Tech Mono', monospace; letter-spacing: 2px; text-transform: uppercase; }
         .kid-font { font-family: 'Fredoka', cursive; }
-
         .scanlines {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
             background-size: 100% 4px; z-index: 99; pointer-events: none; opacity: 0.6;
         }
-
         header {
             width: 100%; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;
             border-bottom: 2px solid var(--neon-blue); background: rgba(5, 11, 20, 0.9);
             box-shadow: 0 4px 20px rgba(102, 252, 241, 0.2); z-index: 10;
         }
-
         .brand-title { font-size: 1.5rem; color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
         .hq-status { font-size: 0.9rem; color: var(--neon-green); }
-
+        
         #game-container {
             flex: 1; width: 100%; max-width: 1000px; padding: 40px 20px;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             position: relative; z-index: 5;
         }
-
+        
         .game-panel {
             background: var(--panel-bg); border: 2px solid var(--neon-blue); border-radius: 20px;
-            box-shadow: var(--border-glow); width: 100%; padding: 40px; position: relative;
-            display: none; animation: fadeIn 0.4s ease-in-out forwards;
+            box-shadow: var(--border-glow); width: 100%; padding: 40px;
+            position: relative; display: none; animation: fadeIn 0.4s ease-in-out forwards;
         }
         .game-panel.active { display: flex; flex-direction: column; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
@@ -83,23 +74,16 @@
             padding: 25px; border-radius: 15px; border: 1px solid var(--neon-blue);
             margin-bottom: 25px; width: 100%; max-width: 600px; align-items: flex-start;
         }
-        
         .avatar-preview-box {
-            position: relative; width: 200px; height: 200px; 
-            background: rgba(102, 252, 241, 0.1); border: 2px dashed var(--neon-blue); 
-            border-radius: 15px; overflow: hidden; flex-shrink: 0;
+            position: relative; width: 200px; height: 200px; background: rgba(102, 252, 241, 0.1);
+            border: 2px dashed var(--neon-blue); border-radius: 15px; overflow: hidden; flex-shrink: 0;
         }
-        
         .avatar-layer {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: contain; pointer-events: none;
         }
-
-        .locker-menus {
-            flex: 1; display: flex; flex-direction: column; gap: 15px;
-        }
-        
+        .locker-menus { flex: 1; display: flex; flex-direction: column; gap: 15px; }
         .locker-row { display: flex; flex-wrap: wrap; gap: 8px; }
-
         .locker-btn {
             background: rgba(10, 25, 47, 0.9); border: 1px solid rgba(102, 252, 241, 0.3);
             color: #a0aec0; padding: 6px 12px; border-radius: 6px; cursor: pointer;
@@ -110,12 +94,11 @@
             border-color: var(--neon-green); background: rgba(57, 255, 20, 0.15);
             color: var(--neon-green); box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
         }
-
+        
         .agent-badge-display {
             display: flex; align-items: center; gap: 15px; background: rgba(5,11,20,0.8);
             padding: 10px 20px; border-radius: 50px; border: 1px solid var(--neon-blue);
         }
-        
         .badge-icon-layered {
             position: relative; width: 50px; height: 50px; background: rgba(102, 252, 241, 0.1);
             border-radius: 50%; overflow: hidden; border: 2px solid var(--neon-blue);
@@ -126,8 +109,10 @@
             padding: 15px 30px; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
             display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;
         }
-        .spy-btn:hover { background: var(--neon-blue); color: var(--bg-color); box-shadow: 0 0 20px var(--neon-blue); transform: translateY(-2px); }
-
+        .spy-btn:hover {
+            background: var(--neon-blue); color: var(--bg-color);
+            box-shadow: 0 0 20px var(--neon-blue); transform: translateY(-2px);
+        }
         .spy-input {
             background: rgba(5, 11, 20, 0.8); border: 2px solid var(--neon-blue); border-radius: 8px;
             color: #fff; padding: 15px 20px; font-size: 1.2rem; outline: none; width: 100%; text-align: center;
@@ -137,37 +122,72 @@
         /* Zones & Portals */
         .zone-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 100%; margin-top: 30px; }
         .portal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%; margin-top: 30px; }
-        
-        .zone-card { background: rgba(5, 11, 20, 0.6); border: 2px dashed rgba(102, 252, 241, 0.4); border-radius: 15px; padding: 25px 20px; text-align: center; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .zone-card {
+            background: rgba(5, 11, 20, 0.6); border: 2px dashed rgba(102, 252, 241, 0.4);
+            border-radius: 15px; padding: 25px 20px; text-align: center; cursor: pointer;
+            transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
         .zone-card:hover { border-style: solid; border-color: var(--neon-blue); transform: translateY(-5px); box-shadow: 0 5px 20px rgba(102, 252, 241, 0.3); }
         .zone-card.cleared { border-color: var(--neon-green); border-style: solid; background: rgba(57, 255, 20, 0.05); pointer-events: none; }
-        .zone-card.cleared::after { content: "✓ REBOOTED"; position: absolute; top: 10px; right: 10px; color: var(--neon-green); font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; font-weight: bold; }
+        .zone-card.cleared::after {
+            content: "✓ REBOOTED"; position: absolute; top: 10px; right: 10px;
+            color: var(--neon-green); font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; font-weight: bold;
+        }
         .zone-icon { font-size: 3rem; margin-bottom: 15px; display: inline-block; }
 
-        .dialog-container { display: flex; align-items: center; gap: 25px; background: rgba(5, 11, 20, 0.8); border: 1px solid rgba(102, 252, 241, 0.3); border-radius: 12px; padding: 20px; margin-bottom: 30px; }
-        .char-avatar { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border: 3px solid; flex-shrink: 0; background: rgba(0, 0, 0, 0.5); }
-        .char-boss { border-color: var(--neon-blue); } .char-manager { border-color: var(--gold); } .char-ride { border-color: var(--alert-pink); } .char-librarian { border-color: var(--neon-green); }
+        .dialog-container {
+            display: flex; align-items: center; gap: 25px; background: rgba(5, 11, 20, 0.8);
+            border: 1px solid rgba(102, 252, 241, 0.3); border-radius: 12px; padding: 20px; margin-bottom: 30px;
+        }
+        .char-avatar {
+            width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; border: 3px solid; flex-shrink: 0; background: rgba(0, 0, 0, 0.5);
+        }
+        .char-boss { border-color: var(--neon-blue); }
+        .char-manager { border-color: var(--gold); }
+        .char-ride { border-color: var(--alert-pink); }
+        .char-librarian { border-color: var(--neon-green); }
         
         .dialog-bubble { font-size: 1.15rem; line-height: 1.5; color: #d1d5db; }
         .dialog-name { font-size: 0.85rem; margin-bottom: 5px; font-weight: bold; }
+        
         .question-title { font-size: 1.4rem; margin-bottom: 20px; color: #fff; }
         .options-list { display: flex; flex-direction: column; gap: 15px; width: 100%; }
-        .option-btn { background: rgba(5, 11, 20, 0.7); border: 1px solid var(--neon-blue); color: #fff; padding: 15px 20px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 1.05rem; font-family: 'Inter', sans-serif; transition: all 0.2s ease; }
+        .option-btn {
+            background: rgba(5, 11, 20, 0.7); border: 1px solid var(--neon-blue);
+            color: #fff; padding: 15px 20px; border-radius: 8px; text-align: left;
+            cursor: pointer; font-size: 1.05rem; font-family: 'Inter', sans-serif; transition: all 0.2s ease;
+        }
         .option-btn:hover { background: rgba(102, 252, 241, 0.2); border-color: #fff; }
         .option-btn.correct { background: rgba(57, 255, 20, 0.2) !important; border-color: var(--neon-green) !important; color: var(--neon-green) !important; }
         .option-btn.wrong { background: rgba(255, 0, 127, 0.2) !important; border-color: var(--alert-pink) !important; color: var(--alert-pink) !important; }
+        
         .feedback-box { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; font-size: 1.05rem; line-height: 1.4; }
 
         /* Bot & Misc */
         .pledge-list { display: flex; flex-direction: column; gap: 15px; margin: 25px 0; text-align: left; }
-        .pledge-label { display: flex; align-items: center; gap: 15px; background: rgba(5, 11, 20, 0.6); padding: 15px; border-radius: 8px; border: 1px solid rgba(102, 252, 241, 0.2); cursor: pointer; }
+        .pledge-label {
+            display: flex; align-items: center; gap: 15px; background: rgba(5, 11, 20, 0.6);
+            padding: 15px; border-radius: 8px; border: 1px solid rgba(102, 252, 241, 0.2); cursor: pointer;
+        }
         .pledge-label input[type="checkbox"] { width: 22px; height: 22px; accent-color: var(--neon-green); cursor: pointer; }
 
-        #hq-bot-bubble { position: fixed; bottom: 25px; left: 25px; z-index: 100; cursor: pointer; display: flex; align-items: center; gap: 10px; background: rgba(10, 25, 47, 0.95); border: 2px solid #66FCF1; padding: 10px 18px; border-radius: 50px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.4); transition: transform 0.2s; }
+        #hq-bot-bubble {
+            position: fixed; bottom: 25px; left: 25px; z-index: 100; cursor: pointer;
+            display: flex; align-items: center; gap: 10px; background: rgba(10, 25, 47, 0.95);
+            border: 2px solid #66FCF1; padding: 10px 18px; border-radius: 50px;
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.4); transition: transform 0.2s;
+        }
         #hq-bot-bubble:hover { transform: scale(1.05); }
-        #hq-bot-modal { display: none; position: fixed; bottom: 85px; left: 25px; width: 340px; max-width: 90vw; height: 460px; background: #050b14; border: 2px solid #45A29E; border-radius: 16px; z-index: 101; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        #bot-messages { flex: 1; padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem; font-family: 'Inter', sans-serif; }
-
+        #hq-bot-modal {
+            display: none; position: fixed; bottom: 85px; left: 25px; width: 340px; max-width: 90vw;
+            height: 460px; background: #050b14; border: 2px solid #45A29E; border-radius: 16px;
+            z-index: 101; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+        #bot-messages {
+            flex: 1; padding: 14px; overflow-y: auto; display: flex; flex-direction: column;
+            gap: 10px; font-size: 0.95rem; font-family: 'Inter', sans-serif;
+        }
         @media (max-width: 768px) {
             .locker-container { flex-direction: column; align-items: center; }
             #hq-bot-modal { left: 5vw; width: 90vw; }
@@ -175,6 +195,7 @@
     </style>
 </head>
 <body>
+
     <div class="scanlines"></div>
 
     <header>
@@ -184,58 +205,33 @@
 
     <div id="game-container">
         
-        <!-- 1. SECURE GATEWAY / AVATAR BUILDER -->
+        <!-- 1. SECURE GATEWAY / LOGIN / REGISTER -->
         <div id="screen-login" class="game-panel active" style="text-align: center; align-items: center;">
-            <h1 class="spy-font" style="color: var(--neon-blue); font-size: 2.5rem; margin-bottom: 5px;">AGENT RECRUITMENT</h1>
-            <p class="kid-font" style="font-size: 1.15rem; color: #a0aec0; max-width: 550px; margin-bottom: 25px;">
-                Build your official Brain HQ ID Badge in the Agent Locker to enter the training zone. Your clearance data will be saved securely to this device!
-            </p>
-
-            <!-- AGENT LOCKER (Layered Customizer with new _200x200 filenames) -->
-            <div class="locker-container">
-                <div class="avatar-preview-box">
-                    <img id="preview-base" class="avatar-layer" style="z-index: 1;" src="boy_200x200.png" alt="Base">
-                    <img id="preview-top" class="avatar-layer" style="z-index: 2;" src="jacket_200x200.png" alt="Top">
-                    <img id="preview-acc" class="avatar-layer" style="z-index: 3;" src="glasses_png_200x200.png" alt="Accessory">
-                </div>
-                
-                <div class="locker-menus">
-                    <div style="text-align: left;">
-                        <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">BASE AGENT:</div>
-                        <div class="locker-row">
-                            <button class="locker-btn active" onclick="setAvatarItem('base', 'boy_200x200.png', this)">Agent Boy</button>
-                            <button class="locker-btn" onclick="setAvatarItem('base', 'girl_200x200.png', this)">Agent Girl</button>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: left;">
-                        <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">UNIFORM:</div>
-                        <div class="locker-row">
-                            <button class="locker-btn active" onclick="setAvatarItem('top', 'jacket_200x200.png', this)">Jacket</button>
-                            <button class="locker-btn" onclick="setAvatarItem('top', 'labcoat_200x200.png', this)">Lab Coat</button>
-                            <button class="locker-btn" onclick="setAvatarItem('top', 'suit_200x200.png', this)">Spy Suit</button>
-                            <button class="locker-btn" onclick="setAvatarItem('top', '', this)">None</button>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: left;">
-                        <div class="spy-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 5px;">GEAR:</div>
-                        <div class="locker-row">
-                            <button class="locker-btn active" onclick="setAvatarItem('acc', 'glasses_png_200x200.png', this)">Glasses</button>
-                            <button class="locker-btn" onclick="setAvatarItem('acc', 'goggles_200x200.png', this)">Goggles</button>
-                            <button class="locker-btn" onclick="setAvatarItem('acc', 'monacle_200x200.png', this)">Monocle</button>
-                            <button class="locker-btn" onclick="setAvatarItem('acc', '', this)">None</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="display: flex; gap: 10px; justify-content: center; max-width: 600px; width: 100%;">
-                <input type="text" id="player-name-input" class="spy-input spy-font" placeholder="ENTER CODENAME..." maxlength="15" style="margin: 0; flex: 1;">
-                <button class="spy-btn spy-font" onclick="generateName()" style="padding: 10px 20px; font-size: 1.2rem; border-color: var(--gold); color: var(--gold);" title="Generate Random Spy Name">🎲</button>
-            </div>
+            <h1 class="spy-font" style="color: var(--neon-blue); font-size: 2.5rem; margin-bottom: 5px;">AGENT SECURE LOGIN</h1>
+            <p class="kid-font" style="font-size: 1.15rem; color: #a0aec0; max-width: 550px; margin-bottom: 25px;">Create a secure Agent profile to save your avatar and HQ clearance data, or log in to continue your mission.</p>
             
-            <button class="spy-btn spy-font" onclick="startMission()" style="margin-top: 25px; background: var(--neon-blue); color: #050b14; font-weight: bold; width: 100%; max-width: 600px; font-size: 1.2rem;">CREATE ID & ENTER HQ</button>
+            <div style="background: rgba(5, 11, 20, 0.8); border: 1px solid var(--neon-blue); padding: 25px; border-radius: 15px; width: 100%; max-width: 400px; margin-bottom: 20px;">
+                <!-- Login / Register Toggle -->
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <button id="tab-login" class="spy-btn spy-font active" style="flex: 1; padding: 10px; border-color: var(--neon-green); color: var(--neon-green);" onclick="toggleAuthMode('login')">LOG IN</button>
+                    <button id="tab-register" class="spy-btn spy-font" style="flex: 1; padding: 10px; border-color: #a0aec0; color: #a0aec0;" onclick="toggleAuthMode('register')">REGISTER</button>
+                </div>
+
+                <input type="text" id="auth-username" class="spy-input spy-font" placeholder="AGENT USERNAME" maxlength="15" style="margin-bottom: 15px;">
+                <input type="password" id="auth-password" class="spy-input spy-font" placeholder="SECRET PASSWORD" style="margin-bottom: 15px;">
+                
+                <div id="register-fields" style="display: none;">
+                    <p class="kid-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 10px;">Select your avatar base to register:</p>
+                    <div class="locker-row" style="justify-content: center; margin-bottom: 15px;">
+                        <button class="locker-btn active" onclick="setAvatarItem('base', 'boy_200x200.png', this)">Agent Boy</button>
+                        <button class="locker-btn" onclick="setAvatarItem('base', 'girl_200x200.png', this)">Agent Girl</button>
+                    </div>
+                </div>
+
+                <div id="auth-error" class="spy-font" style="color: var(--alert-pink); font-size: 0.85rem; margin-bottom: 15px; display: none;"></div>
+
+                <button class="spy-btn spy-font" onclick="handleAuth()" style="background: var(--neon-blue); color: #050b14; font-weight: bold; width: 100%; font-size: 1.2rem;">ENTER SYSTEM</button>
+            </div>
         </div>
 
         <!-- 2. MAIN HUB / PORTAL SELECTOR -->
@@ -272,12 +268,14 @@
                         <div class="spy-font" style="color: var(--neon-blue); font-weight: bold; font-size: 1.2rem;">THE BOOK PROTOCOL</div>
                         <div class="kid-font" style="font-size: 0.95rem; color: #a0aec0; margin-top: 8px;">🔐 Secret Code Required</div>
                     </div>
+
                     <div class="zone-card" onclick="alert('Saara\'s Video Academy is currently under construction! HQ Engineers are building it now.')" style="border-color: #555; background: rgba(0,0,0,0.4);">
                         <div class="zone-icon">🎬</div>
                         <div class="spy-font" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">SAARA'S ACADEMY</div>
                         <div class="kid-font" style="font-size: 0.95rem; color: var(--alert-pink); margin-top: 8px; font-weight: bold;">🚧 Under Construction 🚧</div>
                     </div>
-                    <div class="zone-card" onclick="alert('Brain Defense Simulator coming soon! Prepare to defend the neurons!')" style="border-color: #555; background: rgba(0,0,0,0.4);">
+
+                    <div class="zone-card" onclick="showScreen('screen-defense')" style="border-color: var(--neon-green); background: rgba(5, 11, 20, 0.6);">
                         <div class="zone-icon">🛡️</div>
                         <div class="spy-font" style="color: var(--neon-green); font-weight: bold; font-size: 1.2rem;">DEFENSE SIMULATOR</div>
                         <div class="kid-font" style="font-size: 0.95rem; color: #a0aec0; margin-top: 8px;">Daily Habits Mini-Game</div>
@@ -333,6 +331,7 @@
                 <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem;" onclick="showScreen('screen-book-protocol')">← RETURN TO PROTOCOL</button>
                 <div id="zone-tagline" class="spy-font" style="color: var(--neon-blue);"></div>
             </div>
+            
             <div class="dialog-container">
                 <div id="zone-avatar" class="char-avatar"></div>
                 <div>
@@ -340,9 +339,11 @@
                     <div id="zone-dialog-text" class="dialog-bubble kid-font"></div>
                 </div>
             </div>
+
             <div id="learning-bubble" style="background: rgba(102, 252, 241, 0.08); border-left: 4px solid var(--neon-blue); padding: 15px 20px; border-radius: 0 10px 10px 0; margin-bottom: 25px;">
                 <p id="zone-explanation" class="kid-font" style="font-size: 1.1rem; color: #fff;"></p>
             </div>
+
             <div id="zone-question-container">
                 <div id="zone-question" class="question-title kid-font"></div>
                 <div id="zone-options" class="options-list"></div>
@@ -366,18 +367,45 @@
             <button id="btn-take-pledge" class="spy-btn spy-font" style="background: #39FF14; color: #050b14; opacity: 0.5; pointer-events: none;" onclick="showRewards()">I PLEDGE (Check all boxes)</button>
         </div>
 
-        <!-- 7. REWARDS VAULT -->
+        <!-- 7. REWARDS VAULT & CUSTOM CERTIFICATE -->
         <div id="screen-rewards" class="game-panel" style="text-align: center;">
             <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
             <h1 class="spy-font" style="color: var(--neon-green); font-size: 3rem;">VAULT UNLOCKED</h1>
             <p class="kid-font" style="font-size: 1.3rem; color: #fff;">Welcome to the ranks, <span class="player-name-display" style="color: var(--neon-blue); font-weight: bold;"></span>.</p>
+            
             <div style="display: flex; gap: 30px; justify-content: center; margin-top: 40px; flex-wrap: wrap;">
-                <a href="2.png" download="Agent-Certificate.png" target="_blank" style="display: block; padding: 40px 20px; background: rgba(57, 255, 20, 0.1); border: 3px solid var(--neon-green); border-radius: 15px; color: var(--neon-green); text-decoration: none; width: 250px; transition: 0.3s;" onmouseover="this.style.background='var(--neon-green)'; this.style.color='#050b14';" onmouseout="this.style.background='rgba(57, 255, 20, 0.1)'; this.style.color='var(--neon-green)';">
+                <button onclick="downloadCertificate()" style="display: block; padding: 40px 20px; background: rgba(57, 255, 20, 0.1); border: 3px solid var(--neon-green); border-radius: 15px; color: var(--neon-green); text-decoration: none; width: 250px; transition: 0.3s; cursor: pointer;" onmouseover="this.style.background='var(--neon-green)'; this.style.color='#050b14';" onmouseout="this.style.background='rgba(57, 255, 20, 0.1)'; this.style.color='var(--neon-green)';">
                     <div style="font-size: 3.5rem; margin-bottom: 15px;">🏅</div><div class="spy-font" style="font-weight: bold; font-size: 1.2rem;">PRINT CERTIFICATE</div>
-                </a>
+                </button>
                 <a href="Spy%20Cookie%20Recipe%20Background.zip" download="Spy Cookie Recipe Background.zip" target="_blank" style="display: block; padding: 40px 20px; background: rgba(102, 252, 241, 0.1); border: 3px solid var(--neon-blue); border-radius: 15px; color: var(--neon-blue); text-decoration: none; width: 250px; transition: 0.3s;" onmouseover="this.style.background='var(--neon-blue)'; this.style.color='#050b14';" onmouseout="this.style.background='rgba(102, 252, 241, 0.1)'; this.style.color='var(--neon-blue)';">
                     <div style="font-size: 3.5rem; margin-bottom: 15px;">🍪</div><div class="spy-font" style="font-weight: bold; font-size: 1.2rem;">HQ COOKIE RECIPE</div>
                 </a>
+            </div>
+        </div>
+
+        <!-- 8. DEFENSE SIMULATOR MINI-GAME -->
+        <div id="screen-defense" class="game-panel">
+            <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
+            <div style="text-align: center;">
+                <h2 class="spy-font" style="color: var(--neon-green); font-size: 2.5rem;">DEFENSE SIMULATOR</h2>
+                <p class="kid-font" style="color: #cbd5e1; font-size: 1.1rem; max-width: 600px; margin: 10px auto 30px;">
+                    Every day, your choices build up the brain's defense shields! Help Agent <span class="player-name-display" style="color: var(--neon-blue);"></span> make healthy choices to block the memory glitches.
+                </p>
+                
+                <!-- Shield Health Bar -->
+                <div style="background: rgba(5, 11, 20, 0.8); border: 2px solid var(--neon-green); padding: 15px; border-radius: 12px; max-width: 500px; margin: 0 auto 30px;">
+                    <div class="spy-font" style="color: var(--neon-green); font-size: 1.2rem; margin-bottom: 10px;">BRAIN SHIELD POWER: <span id="shield-text">100%</span></div>
+                    <div style="width: 100%; background: #050b14; height: 20px; border-radius: 10px; overflow: hidden;">
+                        <div id="shield-bar" style="width: 100%; height: 100%; background: var(--neon-green); transition: width 0.3s ease, background 0.3s ease;"></div>
+                    </div>
+                </div>
+
+                <div id="defense-scenario-box" style="background: rgba(10, 25, 47, 0.9); border: 1px solid var(--neon-blue); padding: 30px; border-radius: 15px;">
+                    <h3 id="defense-scenario-text" class="kid-font" style="font-size: 1.4rem; color: #fff; margin-bottom: 25px;">[Scenario loads here]</h3>
+                    <div id="defense-options" style="display: flex; flex-direction: column; gap: 15px;">
+                        <!-- Options injected by JS -->
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -394,15 +422,18 @@
             <div style="display: flex; align-items: center; gap: 8px;"><span style="font-size: 1.2rem;">🧠</span><span class="spy-font" style="color: #FFD700; font-weight: bold; font-size: 1rem;">HQ INTEL BOT</span></div>
             <button onclick="toggleBotChat()" style="background: none; border: none; color: #a0aec0; font-size: 1.2rem; cursor: pointer;">✕</button>
         </div>
+        
         <div id="bot-messages">
             <div style="background: rgba(69, 162, 158, 0.15); border: 1px solid #45A29E; color: #e2e8f0; padding: 10px 14px; border-radius: 12px 12px 12px 0; max-width: 85%;">
                 Greetings, Agent! Need help understanding a brain zone? Ask away!
             </div>
         </div>
+
         <div style="padding: 6px 12px; display: flex; gap: 6px; overflow-x: auto; background: rgba(10, 25, 47, 0.5); border-top: 1px solid rgba(69, 162, 158, 0.3);">
             <button onclick="sendQuickPrompt('Explain the Hippocampus simply!')" class="spy-font" style="white-space: nowrap; font-size: 0.75rem; background: rgba(5, 11, 20, 0.8); border: 1px solid #66FCF1; color: #66FCF1; padding: 4px 8px; border-radius: 12px; cursor: pointer;">Library Secret?</button>
             <button onclick="sendQuickPrompt('Give me a fun brain mission to try at home!')" class="spy-font" style="white-space: nowrap; font-size: 0.75rem; background: rgba(5, 11, 20, 0.8); border: 1px solid #FFD700; color: #FFD700; padding: 4px 8px; border-radius: 12px; cursor: pointer;">Mini Mission</button>
         </div>
+
         <div style="padding: 10px; background: rgba(10, 25, 47, 0.95); display: flex; gap: 8px; border-top: 1px solid #45A29E;">
             <input type="text" id="bot-input" placeholder="Transmit question to HQ..." style="flex: 1; background: #050b14; border: 1px solid #45A29E; color: #fff; border-radius: 8px; padding: 8px 12px; font-size: 0.9rem; outline: none;" onkeydown="if(event.key==='Enter') sendAgentMessage()">
             <button onclick="sendAgentMessage()" class="spy-font" style="background: #39FF14; color: #050b14; border: none; font-weight: bold; border-radius: 8px; padding: 0 14px; cursor: pointer;">SEND</button>
@@ -412,12 +443,13 @@
     <!-- GAME LOGIC SCRIPT -->
     <script>
         let agentName = "";
+        let authMode = 'login';
         
-        // Layered Avatar State with NEW filenames
+        // Avatar State
         let avatarLayers = {
             base: "boy_200x200.png",
-            top: "jacket_200x200.png",
-            acc: "glasses_png_200x200.png"
+            top: "",
+            acc: ""
         };
         
         let xpPoints = 0;
@@ -426,78 +458,119 @@
         let currentQuestionIndex = 0;
 
         window.onload = function() {
-            const savedData = localStorage.getItem('brainHqAgent');
-            if (savedData) {
-                const data = JSON.parse(savedData);
-                agentName = data.name; 
-                if(data.avatarLayers) avatarLayers = data.avatarLayers;
-                xpPoints = data.xp || 0; completedZones = data.zones || completedZones;
-                
-                updateBadgeDisplay(); updateHubStatus();
-                document.getElementById('status-indicator').textContent = "ACTIVE MISSION";
-                showScreen('screen-hub');
+            // Check if already logged in via active session
+            const activeUser = sessionStorage.getItem('active_hq_agent');
+            if (activeUser) {
+                const db = JSON.parse(localStorage.getItem('hq_users') || '{}');
+                if(db[activeUser]) {
+                    loginUser(activeUser, db[activeUser]);
+                }
             }
         };
 
-        function setAvatarItem(layer, filename, btnElement) {
-            // Update the state
-            avatarLayers[layer] = filename;
-            
-            // Update the big preview image
-            const previewImg = document.getElementById(`preview-${layer}`);
-            if(filename) {
-                previewImg.src = filename;
-                previewImg.style.display = 'block';
+        // --- AUTHENTICATION & LOGIN ---
+        function toggleAuthMode(mode) {
+            authMode = mode;
+            document.getElementById('register-fields').style.display = mode === 'register' ? 'block' : 'none';
+            document.getElementById('auth-error').style.display = 'none';
+
+            if(mode === 'login') {
+                document.getElementById('tab-login').style.borderColor = 'var(--neon-green)';
+                document.getElementById('tab-login').style.color = 'var(--neon-green)';
+                document.getElementById('tab-register').style.borderColor = '#a0aec0';
+                document.getElementById('tab-register').style.color = '#a0aec0';
             } else {
-                previewImg.style.display = 'none';
+                document.getElementById('tab-register').style.borderColor = 'var(--neon-green)';
+                document.getElementById('tab-register').style.color = 'var(--neon-green)';
+                document.getElementById('tab-login').style.borderColor = '#a0aec0';
+                document.getElementById('tab-login').style.color = '#a0aec0';
+            }
+        }
+
+        function handleAuth() {
+            const user = document.getElementById('auth-username').value.trim().toUpperCase();
+            const pass = document.getElementById('auth-password').value.trim();
+            const err = document.getElementById('auth-error');
+
+            if(!user || !pass) {
+                err.textContent = "USERNAME AND PASSWORD REQUIRED.";
+                err.style.display = 'block';
+                return;
             }
 
-            // Update button active state
-            const parentRow = btnElement.parentElement;
-            parentRow.querySelectorAll('.locker-btn').forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
+            const db = JSON.parse(localStorage.getItem('hq_users') || '{}');
+
+            if(authMode === 'register') {
+                if(db[user]) {
+                    err.textContent = "AGENT NAME ALREADY TAKEN. PLEASE CHOOSE ANOTHER.";
+                    err.style.display = 'block';
+                } else {
+                    db[user] = {
+                        password: pass,
+                        avatarLayers: avatarLayers,
+                        xp: 0,
+                        zones: {hq: false, warehouse: false, emotion: false, library: false}
+                    };
+                    localStorage.setItem('hq_users', JSON.stringify(db));
+                    loginUser(user, db[user]);
+                }
+            } else {
+                if(db[user] && db[user].password === pass) {
+                    loginUser(user, db[user]);
+                } else {
+                    err.textContent = "ACCESS DENIED. INVALID CREDENTIALS.";
+                    err.style.display = 'block';
+                }
+            }
         }
 
-        function generateName() {
-            const spyNames = ["NEON", "SHADOW", "GADGET", "ECHO", "GHOST", "PULSE", "CIPHER", "GLITCH", "SPARK", "NEXUS"];
-            const random = spyNames[Math.floor(Math.random() * spyNames.length)];
-            const num = Math.floor(Math.random() * 99) + 1;
-            document.getElementById('player-name-input').value = `AGENT ${random} ${num}`;
-        }
-
-        function startMission() {
-            const input = document.getElementById('player-name-input');
-            if (!input.value.trim()) { alert("Please enter or generate a Codename, Agent!"); return; }
-            agentName = input.value.trim().toUpperCase(); 
-            saveProgress();
+        function loginUser(username, userData) {
+            agentName = username;
+            avatarLayers = userData.avatarLayers;
+            xpPoints = userData.xp;
+            completedZones = userData.zones;
             
-            updateBadgeDisplay(); updateHubStatus();
+            sessionStorage.setItem('active_hq_agent', username);
+            
+            updateBadgeDisplay();
+            updateHubStatus();
             document.getElementById('status-indicator').textContent = "ACTIVE MISSION";
             showScreen('screen-hub');
         }
 
-        function saveProgress() {
-            const data = { name: agentName, avatarLayers: avatarLayers, xp: xpPoints, zones: completedZones };
-            localStorage.setItem('brainHqAgent', JSON.stringify(data));
+        function signOut() {
+            if(confirm("Sign out of Agent HQ?")) {
+                sessionStorage.removeItem('active_hq_agent');
+                location.reload();
+            }
         }
 
-        function signOut() {
-            if(confirm("Sign out? This will erase your saved clearance data on this device.")) {
-                localStorage.removeItem('brainHqAgent'); location.reload(); 
+        function saveProgress() {
+            if(!agentName) return;
+            const db = JSON.parse(localStorage.getItem('hq_users') || '{}');
+            if(db[agentName]) {
+                db[agentName].xp = xpPoints;
+                db[agentName].zones = completedZones;
+                localStorage.setItem('hq_users', JSON.stringify(db));
             }
+        }
+
+        function setAvatarItem(layer, filename, btnElement) {
+            avatarLayers[layer] = filename;
+            const parentRow = btnElement.parentElement;
+            parentRow.querySelectorAll('.locker-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
         }
 
         function updateBadgeDisplay() {
             document.querySelectorAll('.player-name-display').forEach(el => el.textContent = agentName);
             document.getElementById('xp-display').textContent = `${xpPoints} XP`;
 
-            // Update Mini Layered Badge in Hub
             const badgeBase = document.getElementById('badge-base');
             const badgeTop = document.getElementById('badge-top');
             const badgeAcc = document.getElementById('badge-acc');
             
             badgeBase.src = avatarLayers.base;
-            
             if(avatarLayers.top) {
                 badgeTop.src = avatarLayers.top;
                 badgeTop.style.display = 'block';
@@ -516,6 +589,11 @@
         function showScreen(screenId) {
             document.querySelectorAll('.game-panel').forEach(panel => panel.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
+            
+            // Auto-load defense simulator if opened
+            if(screenId === 'screen-defense' && currentDefenseScenario === 0) {
+                loadDefenseScenario();
+            }
         }
 
         // --- PASSWORD PROTOCOL ---
@@ -532,7 +610,7 @@
 
         function verifyPassword() {
             const input = document.getElementById('book-password-input').value.trim().toUpperCase();
-            if (input === "PILLAR" || input === "MEMORY") { 
+            if (input === "HQ2026") {
                 document.getElementById('password-error').style.display = 'none';
                 showScreen('screen-book-protocol');
             } else {
@@ -542,65 +620,143 @@
 
         // --- ZONE DATA & LOGIC ---
         const zoneData = {
-            hq: { title: "BRAIN HQ", character: "BIG BOSS", cssClass: "char-boss", emoji: "😎", explanation: "WHAT IS IT? The Prefrontal Cortex is the boss of the brain. It sits right behind your forehead and makes all the big decisions!", dialog: "\"Agent! The tangles are causing glitches everywhere! Pass this security check so we can reboot the main servers.\"", questions: [{q: "Where is Brain HQ (The Prefrontal Cortex) located?", options: ["Right behind your forehead", "In your toes", "In your stomach"], answer: 0 }, {q: "What is the main job of Brain HQ?", options: ["To pump blood", "To make big decisions and solve puzzles", "To digest food"], answer: 1 }, {q: "What is the condition causing the tangles and glitches in the brain called?", options: ["A Cold", "Aphasia", "Alzheimer's"], answer: 2 }] },
-            warehouse: { title: "WORD WAREHOUSE", character: "THE MANAGER", cssClass: "char-manager", emoji: "📋", explanation: "WHAT IS IT? Broca's and Wernicke's areas are the language factories! They help us build words and talk to each other.", dialog: "\"Attention Agent! We have a Class-8 Aphasia glitch on our hands. The tangles are wrapping around the glowing word-orbs! Answer these questions to help clear the vines.\"", questions: [{q: "What does the Word Warehouse help us do?", options: ["Run fast", "Build words and talk", "Go to sleep"], answer: 1 }, {q: "What is the medical name for the glitch that makes it hard to find the right words?", options: ["Aphasia", "Action Potential", "Hippocampus"], answer: 0 }, {q: "True or False: If a loved one forgets a word, we should get angry at them.", options: ["True", "False! We should be kind and patient."], answer: 1 }] },
-            emotion: { title: "EMOTION LAND", character: "RIDE OPERATOR", cssClass: "char-ride", emoji: "🎢", explanation: "WHAT IS IT? The Amygdala (Ah-MIG-dah-la) is the part of the brain that controls your feelings. It's like a roller coaster of emotions!", dialog: "\"Welcome to the Amygdala! Normally, this place is a fun park of feelings, but the rides are totally out of whack. Prove your empathy to reboot the tracks!\"", questions: [{q: "What does the Amygdala control?", options: ["Your hearing", "Your feelings and emotions", "Your muscles"], answer: 1 }, {q: "When a person with Alzheimer's feels scared or confused, what is the best gadget to use?", options: ["Gentle words and a comforting hug", "A loud whistle", "Running away"], answer: 0 }, {q: "True or False: Even if someone forgets things, their feelings are still real.", options: ["True! Love and kindness are always felt.", "False."], answer: 0 }] },
-            library: { title: "DATA LIBRARY", character: "HEAD LIBRARIAN", cssClass: "char-librarian", emoji: "📖", explanation: "WHAT IS IT? The Hippocampus is the brain's giant memory vault. It stores all your favorite memories like books on a shelf!", dialog: "\"Agent! Some of our memory shelves have glitched. Help me check the archive files so we can preserve our oldest, most treasured memories!\"", questions: [{q: "What is the Hippocampus shaped like?", options: ["A tiny seahorse", "A basketball", "A slice of pizza"], answer: 0 }, {q: "When Alzheimer's affects the Data Library, what usually gets forgotten first?", options: ["New things that happened recently", "Their own name from childhood", "How to breathe"], answer: 0 }, {q: "How can you help an older family member remember things happily?", options: ["By looking through photo albums and listening to old songs together", "By testing them with a hard math quiz", "By ignoring them"], answer: 0 }] }
+            hq: {
+                title: "BRAIN HQ",
+                character: "BIG BOSS",
+                cssClass: "char-boss",
+                emoji: "😎",
+                explanation: "WHAT IS IT? The Prefrontal Cortex is the boss of the brain. It sits right behind your forehead and makes all the big decisions!",
+                dialog: "\"Agent! The tangles are causing glitches everywhere! Pass this security check so we can reboot the main servers.\"",
+                questions: [
+                    { q: "Where is Brain HQ (The Prefrontal Cortex) located?", options: ["Right behind your forehead", "In your toes", "In your stomach"], answer: 0 },
+                    { q: "What is the main job of Brain HQ?", options: ["To pump blood", "To make big decisions and solve puzzles", "To digest food"], answer: 1 },
+                    { q: "What is the condition causing the tangles and glitches in the brain called?", options: ["A Cold", "Aphasia", "Alzheimer's"], answer: 2 }
+                ]
+            },
+            warehouse: {
+                title: "WORD WAREHOUSE",
+                character: "THE MANAGER",
+                cssClass: "char-manager",
+                emoji: "📋",
+                explanation: "WHAT IS IT? Broca's and Wernicke's areas are the language factories! They help us build words and talk to each other.",
+                dialog: "\"Attention Agent! We have a Class-8 Aphasia glitch on our hands. The tangles are wrapping around the glowing word-orbs! Answer these questions to help clear the vines.\"",
+                questions: [
+                    { q: "What does the Word Warehouse help us do?", options: ["Run fast", "Build words and talk", "Go to sleep"], answer: 1 },
+                    { q: "What is the medical name for the glitch that makes it hard to find the right words?", options: ["Aphasia", "Action Potential", "Hippocampus"], answer: 0 },
+                    { q: "True or False: If a loved one forgets a word, we should get angry at them.", options: ["True", "False! We should be kind and patient."], answer: 1 }
+                ]
+            },
+            emotion: {
+                title: "EMOTION LAND",
+                character: "RIDE OPERATOR",
+                cssClass: "char-ride",
+                emoji: "🎢",
+                explanation: "WHAT IS IT? The Amygdala (Ah-MIG-dah-la) is the part of the brain that controls your feelings. It's like a roller coaster of emotions!",
+                dialog: "\"Welcome to the Amygdala! Normally, this place is a fun park of feelings, but the rides are totally out of whack. Prove your empathy to reboot the tracks!\"",
+                questions: [
+                    { q: "What does the Amygdala control?", options: ["Your hearing", "Your feelings and emotions", "Your muscles"], answer: 1 },
+                    { q: "When a person with Alzheimer's feels scared or confused, what is the best gadget to use?", options: ["Gentle words and a comforting hug", "A loud whistle", "Running away"], answer: 0 },
+                    { q: "True or False: Even if someone forgets things, their feelings are still real.", options: ["True! Love and kindness are always felt.", "False."], answer: 0 }
+                ]
+            },
+            library: {
+                title: "DATA LIBRARY",
+                character: "HEAD LIBRARIAN",
+                cssClass: "char-librarian",
+                emoji: "📖",
+                explanation: "WHAT IS IT? The Hippocampus is the brain's giant memory vault. It stores all your favorite memories like books on a shelf!",
+                dialog: "\"Agent! Some of our memory shelves have glitched. Help me check the archive files so we can preserve our oldest, most treasured memories!\"",
+                questions: [
+                    { q: "What is the Hippocampus shaped like?", options: ["A tiny seahorse", "A basketball", "A slice of pizza"], answer: 0 },
+                    { q: "When Alzheimer's affects the Data Library, what usually gets forgotten first?", options: ["New things that happened recently", "Their own name from childhood", "How to breathe"], answer: 0 },
+                    { q: "How can you help an older family member remember things happily?", options: ["By looking through photo albums and listening to old songs together", "By testing them with a hard math quiz", "By ignoring them"], answer: 0 }
+                ]
+            }
         };
 
         function enterZone(zoneKey) {
-            currentZoneKey = zoneKey; currentQuestionIndex = 0;
+            currentZoneKey = zoneKey;
+            currentQuestionIndex = 0;
             const zone = zoneData[zoneKey];
+            
             document.getElementById('zone-tagline').textContent = zone.title;
             const avatar = document.getElementById('zone-avatar');
-            avatar.className = `char-avatar ${zone.cssClass}`; avatar.textContent = zone.emoji;
+            avatar.className = `char-avatar ${zone.cssClass}`;
+            avatar.textContent = zone.emoji;
             document.getElementById('zone-char-name').textContent = zone.character;
             document.getElementById('zone-dialog-text').textContent = zone.dialog;
             document.getElementById('zone-explanation').textContent = zone.explanation;
-            loadQuestion(); showScreen('screen-zone');
+            
+            loadQuestion();
+            showScreen('screen-zone');
         }
 
         function loadQuestion() {
-            const zone = zoneData[currentZoneKey]; const q = zone.questions[currentQuestionIndex];
+            const zone = zoneData[currentZoneKey];
+            const q = zone.questions[currentQuestionIndex];
+            
             document.getElementById('zone-question').textContent = `SECURITY QUESTION ${currentQuestionIndex + 1}: ${q.q}`;
-            const optionsContainer = document.getElementById('zone-options'); optionsContainer.innerHTML = '';
+            const optionsContainer = document.getElementById('zone-options');
+            optionsContainer.innerHTML = '';
+            
             const feedbackBox = document.getElementById('zone-feedback');
-            feedbackBox.style.display = 'none'; document.getElementById('btn-next-question').style.display = 'none';
+            feedbackBox.style.display = 'none';
+            document.getElementById('btn-next-question').style.display = 'none';
+            
             q.options.forEach((opt, index) => {
-                const btn = document.createElement('button'); btn.className = 'option-btn';
-                btn.textContent = opt; btn.onclick = () => checkAnswer(index, btn);
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt;
+                btn.onclick = () => checkAnswer(index, btn);
                 optionsContainer.appendChild(btn);
             });
         }
 
         function checkAnswer(selectedIndex, buttonElement) {
-            const zone = zoneData[currentZoneKey]; const q = zone.questions[currentQuestionIndex];
-            const feedbackBox = document.getElementById('zone-feedback'); const allBtns = document.querySelectorAll('.option-btn');
+            const zone = zoneData[currentZoneKey];
+            const q = zone.questions[currentQuestionIndex];
+            const feedbackBox = document.getElementById('zone-feedback');
+            const allBtns = document.querySelectorAll('.option-btn');
+            
             allBtns.forEach(btn => btn.style.pointerEvents = 'none');
             
             if (selectedIndex === q.answer) {
                 buttonElement.classList.add('correct');
-                feedbackBox.style.background = 'rgba(57, 255, 20, 0.15)'; feedbackBox.style.border = '1px solid #39FF14'; feedbackBox.style.color = '#39FF14';
-                feedbackBox.textContent = "✓ CORRECT! Signals unglitched."; feedbackBox.style.display = 'block';
+                feedbackBox.style.background = 'rgba(57, 255, 20, 0.15)';
+                feedbackBox.style.border = '1px solid #39FF14';
+                feedbackBox.style.color = '#39FF14';
+                feedbackBox.textContent = "✓ CORRECT! Signals unglitched.";
+                feedbackBox.style.display = 'block';
                 document.getElementById('btn-next-question').style.display = 'inline-block';
             } else {
                 buttonElement.classList.add('wrong');
-                feedbackBox.style.background = 'rgba(255, 0, 127, 0.15)'; feedbackBox.style.border = '1px solid #FF007F'; feedbackBox.style.color = '#FF007F';
-                feedbackBox.textContent = "SIGNAL INTERRUPTED! Try checking the archives again."; feedbackBox.style.display = 'block';
-                setTimeout(() => { buttonElement.classList.remove('wrong'); allBtns.forEach(btn => btn.style.pointerEvents = 'auto'); }, 1200);
+                feedbackBox.style.background = 'rgba(255, 0, 127, 0.15)';
+                feedbackBox.style.border = '1px solid #FF007F';
+                feedbackBox.style.color = '#FF007F';
+                feedbackBox.textContent = "SIGNAL INTERRUPTED! Try checking the archives again.";
+                feedbackBox.style.display = 'block';
+                
+                setTimeout(() => {
+                    buttonElement.classList.remove('wrong');
+                    allBtns.forEach(btn => btn.style.pointerEvents = 'auto');
+                }, 1200);
             }
         }
 
         function nextQuestion() {
-            const zone = zoneData[currentZoneKey]; currentQuestionIndex++;
+            const zone = zoneData[currentZoneKey];
+            currentQuestionIndex++;
             if (currentQuestionIndex < zone.questions.length) {
                 loadQuestion();
             } else {
                 if (!completedZones[currentZoneKey]) {
-                    completedZones[currentZoneKey] = true; xpPoints += 100; saveProgress();
+                    completedZones[currentZoneKey] = true;
+                    xpPoints += 100;
+                    saveProgress();
                 }
                 confetti({ particleCount: 75, spread: 60, origin: { y: 0.6 } });
-                updateBadgeDisplay(); updateHubStatus();
+                updateBadgeDisplay();
+                updateHubStatus();
                 showScreen('screen-book-protocol');
             }
         }
@@ -610,55 +766,206 @@
             document.getElementById('cleared-count').textContent = `${clearedTotal}/4`;
             
             Object.keys(completedZones).forEach(key => {
-                if(completedZones[key]) document.getElementById(`zone-btn-${key}`).classList.add('cleared');
+                if (completedZones[key]) document.getElementById(`zone-btn-${key}`).classList.add('cleared');
             });
+            
             if (clearedTotal === 4) document.getElementById('btn-vault').style.display = 'inline-block';
         }
 
         function goToPledge() { showScreen('screen-pledge'); }
+
         function verifyPledge() {
             const checkboxes = document.querySelectorAll('.pledge-check');
             const allChecked = Array.from(checkboxes).every(box => box.checked);
             const btn = document.getElementById('btn-take-pledge');
-            if (allChecked) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; btn.textContent = "I PLEDGE! UNLOCK REWARDS 🔓";
-            } else { btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none'; btn.textContent = "I PLEDGE (Check all boxes)"; }
+            
+            if (allChecked) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+                btn.textContent = "I PLEDGE! UNLOCK REWARDS 🔓";
+            } else {
+                btn.style.opacity = '0.5';
+                btn.style.pointerEvents = 'none';
+                btn.textContent = "I PLEDGE (Check all boxes)";
+            }
         }
-        function showRewards() { confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } }); showScreen('screen-rewards'); }
+
+        function showRewards() {
+            confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } });
+            showScreen('screen-rewards');
+        }
+
+        // --- CUSTOM CERTIFICATE GENERATOR ---
+        function downloadCertificate() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            // IMPORTANT: This must match the exact filename of your blank certificate
+            img.src = '2.png'; 
+            
+            img.onload = () => {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                
+                ctx.drawImage(img, 0, 0);
+                
+                // Configure the text style for the name
+                ctx.font = "bold 80px 'Share Tech Mono', monospace";
+                ctx.fillStyle = "#050b14"; // Dark text color
+                ctx.textAlign = "center";
+                
+                // Draw the agentName onto the canvas
+                ctx.fillText(agentName, canvas.width / 2, canvas.height / 2 + 50); 
+                
+                // Trigger the download
+                const link = document.createElement('a');
+                link.download = `HQ-Certificate-${agentName}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            };
+        }
+
+        // --- DEFENSE SIMULATOR GAME ---
+        const defenseScenarios = [
+            {
+                text: "The brain is feeling sluggish today! What's the best fuel to repair the shield?",
+                options: [
+                    { text: "Drink a big glass of water and eat some blueberries.", impact: 20 },
+                    { text: "Eat three candy bars.", impact: -20 }
+                ]
+            },
+            {
+                text: "Agent, it's time to build new memory connections!",
+                options: [
+                    { text: "Play a fun puzzle game or learn a new dance.", impact: 20 },
+                    { text: "Sit on the couch and stare at the wall all day.", impact: -20 }
+                ]
+            },
+            {
+                text: "The system is overheating from a long day. How do we cool it down?",
+                options: [
+                    { text: "Get 8 hours of sleep to reboot the system.", impact: 20 },
+                    { text: "Stay up until 3 AM playing video games.", impact: -20 }
+                ]
+            }
+        ];
+        
+        let currentDefenseScenario = 0;
+        let shieldHealth = 100;
+
+        function loadDefenseScenario() {
+            if (currentDefenseScenario >= defenseScenarios.length) {
+                document.getElementById('defense-scenario-text').textContent = "SIMULATION COMPLETE. SHIELDS OPTIMIZED!";
+                document.getElementById('defense-options').innerHTML = `<button class="spy-btn spy-font" onclick="showScreen('screen-hub')" style="background: var(--neon-green); color: #050b14; font-weight:bold; font-size:1.2rem;">RETURN TO HUB (+50 XP)</button>`;
+                xpPoints += 50;
+                saveProgress();
+                updateBadgeDisplay();
+                currentDefenseScenario = 0; // reset for next time
+                return;
+            }
+            
+            const s = defenseScenarios[currentDefenseScenario];
+            document.getElementById('defense-scenario-text').textContent = s.text;
+            const optsContainer = document.getElementById('defense-options');
+            optsContainer.innerHTML = '';
+            
+            s.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt.text;
+                btn.onclick = () => applyDefenseImpact(opt.impact);
+                optsContainer.appendChild(btn);
+            });
+        }
+
+        function applyDefenseImpact(impact) {
+            shieldHealth = Math.min(100, Math.max(0, shieldHealth + impact));
+            const bar = document.getElementById('shield-bar');
+            bar.style.width = shieldHealth + '%';
+            document.getElementById('shield-text').textContent = shieldHealth + '%';
+            
+            if(shieldHealth < 40) {
+                bar.style.background = 'var(--alert-pink)';
+            } else if (shieldHealth < 70) {
+                bar.style.background = 'var(--gold)';
+            } else {
+                bar.style.background = 'var(--neon-green)';
+            }
+
+            currentDefenseScenario++;
+            setTimeout(loadDefenseScenario, 600);
+        }
 
         // --- BOT ---
         let chatHistory = [];
         const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
-        function toggleBotChat() { const modal = document.getElementById("hq-bot-modal"); modal.style.display = modal.style.display === "none" || modal.style.display === "" ? "flex" : "none"; }
-        function sendQuickPrompt(promptText) { document.getElementById("bot-input").value = promptText; sendAgentMessage(); }
+
+        function toggleBotChat() {
+            const modal = document.getElementById("hq-bot-modal");
+            modal.style.display = modal.style.display === "none" || modal.style.display === "" ? "flex" : "none";
+        }
+
+        function sendQuickPrompt(promptText) {
+            document.getElementById("bot-input").value = promptText;
+            sendAgentMessage();
+        }
+
         async function sendAgentMessage() {
-            const inputEl = document.getElementById("bot-input"); const message = inputEl.value.trim();
+            const inputEl = document.getElementById("bot-input");
+            const message = inputEl.value.trim();
             if (!message) return;
+
             const msgContainer = document.getElementById("bot-messages");
 
             const userBubble = document.createElement("div");
             userBubble.style.cssText = "align-self: flex-end; background: #45A29E; color: #050b14; font-weight: 500; padding: 10px 14px; border-radius: 12px 12px 0 12px; max-width: 85%; word-break: break-word;";
-            userBubble.textContent = message; msgContainer.appendChild(userBubble);
-            inputEl.value = ""; msgContainer.scrollTop = msgContainer.scrollHeight;
+            userBubble.textContent = message;
+            msgContainer.appendChild(userBubble);
+            
+            inputEl.value = "";
+            msgContainer.scrollTop = msgContainer.scrollHeight;
 
-            const loadingBubble = document.createElement("div"); loadingBubble.id = "bot-loading-indicator";
+            const loadingBubble = document.createElement("div");
+            loadingBubble.id = "bot-loading-indicator";
             loadingBubble.style.cssText = "align-self: flex-start; background: rgba(69, 162, 158, 0.15); border: 1px dashed #66FCF1; color: #66FCF1; padding: 8px 12px; border-radius: 12px; font-family: 'Share Tech Mono', monospace; font-size: 0.85rem;";
-            loadingBubble.textContent = "DECRYPTING TRANSMISSION..."; msgContainer.appendChild(loadingBubble); msgContainer.scrollTop = msgContainer.scrollHeight;
+            loadingBubble.textContent = "DECRYPTING TRANSMISSION...";
+            msgContainer.appendChild(loadingBubble);
+            msgContainer.scrollTop = msgContainer.scrollHeight;
 
             try {
-                const res = await fetch(CHAT_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userMessage: message, history: chatHistory.slice(-6) }) });
+                const res = await fetch(CHAT_ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userMessage: message,
+                        history: chatHistory.slice(-6)
+                    })
+                });
+
                 if (!res.ok) throw new Error(`HQ Server Error! Status: ${res.status}`);
-                const data = await res.json(); loadingBubble.remove();
-                const botReply = data.reply || "Transmission lost. Try again, Agent!";
                 
+                const data = await res.json();
+                loadingBubble.remove();
+
+                const botReply = data.reply || "Transmission lost. Try again, Agent!";
                 const aiBubble = document.createElement("div");
                 aiBubble.style.cssText = "align-self: flex-start; background: rgba(69, 162, 158, 0.15); border: 1px solid #45A29E; color: #e2e8f0; padding: 10px 14px; border-radius: 12px 12px 12px 0; max-width: 85%; line-height: 1.4;";
-                aiBubble.textContent = botReply; msgContainer.appendChild(aiBubble);
-                chatHistory.push({ role: "user", content: message }, { role: "assistant", content: botReply });
+                aiBubble.textContent = botReply;
+                msgContainer.appendChild(aiBubble);
+
+                chatHistory.push(
+                    { role: "user", content: message },
+                    { role: "assistant", content: botReply }
+                );
+
             } catch (err) {
-                loadingBubble.remove(); console.error("🚨 Bot Error Log:", err);
+                loadingBubble.remove();
+                console.error("🚨 Bot Error Log:", err);
                 const errorBubble = document.createElement("div");
                 errorBubble.style.cssText = "align-self: flex-start; background: rgba(255, 51, 51, 0.15); border: 1px solid #ff3333; color: #ff9999; padding: 8px 12px; border-radius: 12px; font-size: 0.85rem;";
-                errorBubble.textContent = "Signal jammed! Check your connection."; msgContainer.appendChild(errorBubble);
+                errorBubble.textContent = "Signal jammed! Check your connection.";
+                msgContainer.appendChild(errorBubble);
             }
             msgContainer.scrollTop = msgContainer.scrollHeight;
         }
