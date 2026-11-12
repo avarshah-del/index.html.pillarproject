@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html> 
 <html lang="en" class="scroll-smooth"> 
 <head> 
@@ -62,12 +61,14 @@ HTML
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> Sponsor Portal 
                     </a> 
                 </div> 
-                <div class="hidden md:flex space-x-8 items-center ml-auto"> 
+                <div class="hidden lg:flex space-x-6 items-center ml-auto"> 
                     <a href="index.html" class="font-medium text-pillar transition">Home</a> 
                     <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a> 
                     <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a> 
                     <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a> 
-                    <a href="#partners" class="font-medium text-slate-600 hover:text-pillar transition">Our Partners</a>                    
+                    <a href="parent-guide.html" class="font-medium text-slate-600 hover:text-pillar transition">Parent Guide</a>
+                    <a href="media.html" class="font-medium text-slate-600 hover:text-pillar transition">Media Hub</a>
+                    <a href="1training-zone.html" class="font-medium text-slate-600 hover:text-pillar transition">Training Zone</a>
                     <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a> 
                 </div> 
             </div> 
@@ -81,9 +82,15 @@ HTML
             <div class="text-left"> 
                 <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-6"> Bridging the Gap in <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Memory Care</span> </h1> 
                 <p class="mt-4 text-xl text-slate-600 leading-relaxed"> When Alzheimer's impacts a family, primary caregivers shoulder immense burnout. The Pillar Project is a Gen Z-led initiative providing grassroots, intergenerational respite through our "Divide and Pamper" model. </p> 
-                <div class="mt-10 flex flex-col sm:flex-row gap-4"> 
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 flex-wrap"> 
                     <a href="#about-model" class="bg-pillar text-white text-center px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1">Learn How We Help</a> 
                     <a href="volunteer.html" class="bg-white text-pillar text-center border-2 border-pillar px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-light transition shadow-lg hover:-translate-y-1">Join the Movement</a> 
+                    
+                    <!-- NEW: Mission Packet Download Button -->
+                    <a href="mission-packet.pdf" download="Pillar-Mission-Packet.pdf" class="bg-white text-pillar text-center border-2 border-pillar px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-light transition shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2"> 
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Mission Packet
+                    </a>
                 </div> 
             </div> 
             <!-- Right Side: Authentic Photography Placeholder --> 
@@ -166,6 +173,47 @@ HTML
         </div> 
     </section> 
 
+    <!-- NEW: INTERACTIVE BRAIN VOCAB -->
+    <section class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="uppercase tracking-widest text-pillar font-bold text-sm mb-2 block text-center">Brain HQ Glossary</span>
+            <h2 class="font-heading text-4xl text-center text-slate-900 mb-12">Learn the Spy Terms</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Term 1 -->
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-pillar hover:shadow-md transition">
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Brain HQ</h3>
+                    <p class="text-sm text-slate-500 mb-3 italic">Scientific name: Prefrontal Cortex</p>
+                    <p class="text-slate-700">The boss of the brain. It sits right behind your forehead and makes all the big decisions and solves puzzles.</p>
+                </div>
+                <!-- Term 2 -->
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-pillar hover:shadow-md transition">
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Data Library</h3>
+                    <p class="text-sm text-slate-500 mb-3 italic">Scientific name: Hippocampus</p>
+                    <p class="text-slate-700">The brain's giant memory vault. It stores all your favorite memories like books on a shelf.</p>
+                </div>
+                <!-- Term 3 -->
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-pillar hover:shadow-md transition">
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Emotion Land</h3>
+                    <p class="text-sm text-slate-500 mb-3 italic">Scientific name: Amygdala</p>
+                    <p class="text-slate-700">The alarm center. It controls your feelings and tells you when to be scared, happy, or excited.</p>
+                </div>
+                <!-- Term 4 -->
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-pillar hover:shadow-md transition">
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Microglia</h3>
+                    <p class="text-sm text-slate-500 mb-3 italic">Scientific name: Glial Cells</p>
+                    <p class="text-slate-700">The brain's immune system security agents. They sweep up glitches and keep the neurons healthy.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="toggleChat(); sendReply('vocab_help')" class="bg-pillar text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1 flex items-center justify-center gap-3 mx-auto">
+                    <img src="microglia_sprite.png" class="w-6 h-6" alt="Microglia"> Ask Microglia to Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- TED-ED TALK SECTION -->
     <section class="py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center">
@@ -191,30 +239,30 @@ HTML
         </div>
     </section>
 
-   <!-- Our Partners Section -->
-        <section id="partners" class="py-20 bg-slate-100 border-t border-slate-200">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="font-heading text-4xl text-center text-slate-900 mb-6">Our Partners</h2>
-                <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">We are proud to collaborate with these incredible organizations and leaders dedicated to dementia care and education.</p>
+    <!-- Our Partners Section -->
+    <section id="partners" class="py-20 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-4xl text-center text-slate-900 mb-6">Our Partners</h2>
+            <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">We are proud to collaborate with these incredible organizations and leaders dedicated to dementia care and education.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="https://www.alz.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Alzheimer's Association ↗</h3>
+                    <p class="text-slate-600">24/7 helpline, local support groups, and comprehensive educational resources regarding dementia.</p>
+                </a>
                 
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="https://www.alz.org/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
-                        <h3 class="font-heading text-xl text-pillar-dark mb-2">Alzheimer's Association ↗</h3>
-                        <p class="text-slate-600">24/7 helpline, local support groups, and comprehensive educational resources regarding dementia.</p>
-                    </a>
-                    
-                    <a href="https://teepasnow.com/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
-                        <h3 class="font-heading text-xl text-pillar-dark mb-2">Positive Approach to Care® ↗</h3>
-                        <p class="text-slate-600">Teepa Snow's widely recognized training modules focused on practical, compassionate strategies.</p>
-                    </a>
+                <a href="https://teepasnow.com/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Positive Approach to Care® ↗</h3>
+                    <p class="text-slate-600">Teepa Snow's widely recognized training modules focused on practical, compassionate strategies.</p>
+                </a>
 
-                    <a href="https://www.dementiamap.com/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
-                        <h3 class="font-heading text-xl text-pillar-dark mb-2">Dementia Map ↗</h3>
-                        <p class="text-slate-600">Lori La Bey's global resource directory and community connecting families with dementia support and services.</p>
-                    </a>
-                </div>
+                <a href="https://www.dementiamap.com/" target="_blank" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
+                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Dementia Map ↗</h3>
+                    <p class="text-slate-600">Lori La Bey's global resource directory and community connecting families with dementia support and services.</p>
+                </a>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Social Media Feed Section --> 
     <section id="socials" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> 
@@ -234,7 +282,7 @@ HTML
         <div class="max-w-4xl mx-auto px-4"> 
             <h2 class="font-heading text-3xl mb-6">Contact Us</h2> 
             <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8"> 
-                <a href="mailto:pillarproject@gmail.com" class="text-pillar-light hover:text-white transition font-semibold">📧 contactpillarproject@gmail.com</a> 
+                <a href="mailto:contactpillarproject@gmail.com" class="text-pillar-light hover:text-white transition font-semibold">📧 contactpillarproject@gmail.com</a> 
                 <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition font-semibold">📱 @thepillarproject1</a> 
             </div> 
             <div class="border-t border-slate-700 pt-8 text-sm text-slate-400"> &copy; 2026 The Pillar Project. All rights reserved. </div> 
@@ -243,25 +291,31 @@ HTML
 
     <!-- FREE PILLAR GUIDE CHATBOT CODE --> 
     <style> 
-        #pillar-chat-btn { position: fixed; bottom: 20px; right: 20px; background-color: #9333ea; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s; } 
+        #pillar-chat-btn { position: fixed; bottom: 20px; right: 20px; background: none; border: none; padding: 0; cursor: pointer; z-index: 1000; transition: transform 0.2s; } 
+        #pillar-chat-btn img { width: 60px; height: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
         #pillar-chat-btn:hover { transform: scale(1.1); } 
         #pillar-chat-window { display: none; position: fixed; bottom: 90px; right: 20px; width: 320px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #e2e8f0; } 
-        #pillar-chat-header { background-color: #9333ea; color: white; padding: 16px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; display: flex; justify-content: space-between; align-items: center; } 
+        #pillar-chat-header { background-color: #9333ea; color: white; padding: 12px 16px; font-family: 'Montserrat', sans-serif; font-weight: 700; display: flex; justify-content: space-between; align-items: center; } 
         #pillar-chat-body { padding: 16px; height: 280px; overflow-y: auto; background-color: #f8fafc; font-family: 'Inter', sans-serif; } 
         .bot-msg { background: #e2e8f0; color: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; } 
         .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;} 
         .chat-option:hover { background: #7e22ce; } 
     </style> 
     
-    <button id="pillar-chat-btn" onclick="toggleChat()">💬</button> 
+    <button id="pillar-chat-btn" onclick="toggleChat()">
+        <img src="microglia_sprite.png" alt="Ask Microglia">
+    </button> 
     
     <div id="pillar-chat-window"> 
         <div id="pillar-chat-header"> 
-            <span>The Pillar Guide</span> 
+            <div class="flex items-center gap-2">
+                <img src="microglia_sprite.png" alt="Microglia" class="w-6 h-6">
+                <span>Microglia Guide</span>
+            </div>
             <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✖</button> 
         </div> 
         <div id="pillar-chat-body"> 
-            <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div> 
+            <div class="bot-msg">Hi! I'm Microglia, your digital guide to The Pillar Project. How can I help you today?</div> 
             <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button> 
             <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button> 
             <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button> 
@@ -281,13 +335,15 @@ HTML
             } else if (type === 'book') {
                 html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, launches this November! It takes kids on a spy adventure to understand memory loss. <br><br><a href="case-alzheimers.html" style="color:#9333ea; font-weight:bold;">Learn more here!</a></div>'; 
             } else if (type === 'resources') {
-                html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br>Scroll down to our Resources section for more links.</div>'; 
-            } 
+                html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br>Check out our <a href="parent-guide.html" style="color:#9333ea; font-weight:bold;">Parent Guide</a> for more tips!</div>'; 
+            } else if (type === 'vocab_help') {
+                html = '<div class="bot-msg">I am a Microglia! That means I am the brain\'s immune system. If a bad glitch (like Alzheimer\'s) gets inside, my job is to try to sweep it up and keep the neurons safe!</div>';
+            }
             html += '<button class="chat-option" onclick="resetChat()" style="margin-top: 15px; background: #64748b;">Start Over</button>'; 
             body.innerHTML = html; 
         } 
         function resetChat() {
-            document.getElementById("pillar-chat-body").innerHTML = ` <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div> <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button> <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button> <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button> `; 
+            document.getElementById("pillar-chat-body").innerHTML = ` <div class="bot-msg">Hi! I'm Microglia, your digital guide to The Pillar Project. How can I help you today?</div> <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button> <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button> <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button> `; 
         } 
     </script> 
 </body> 
