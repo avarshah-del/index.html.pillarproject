@@ -1,0 +1,179 @@
+<!DOCTYPE html> 
+<html lang="en" class="scroll-smooth"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Parent & Educator Guide | The Pillar Project</title> 
+    
+    <!-- Google Fonts: Montserrat (Headings) & Inter (Body) --> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
+    
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <script> 
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'], 
+                        heading: ['Montserrat', 'sans-serif'], 
+                    }, 
+                    colors: {
+                        pillar: {
+                            light: '#f3e8ff', 
+                            DEFAULT: '#9333ea', 
+                            dark: '#581c87', 
+                        } 
+                    } 
+                } 
+            } 
+        } 
+    </script> 
+</head> 
+<body class="bg-slate-50 text-slate-800 font-sans antialiased"> 
+
+    <!-- TOP HUB SWITCHER --> 
+    <div class="fixed w-full z-50 top-0 bg-slate-100 border-b border-slate-200 px-6 py-2 flex justify-between items-center text-xs md:text-sm font-sans text-slate-600 shadow-sm"> 
+        <span class="font-medium tracking-wide">Current Hub: Parent & Educator Guide</span> 
+        <a href="index.html" class="bg-pillar text-white px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm"> ⟲ Back to Main Site </a> 
+    </div> 
+
+    <!-- Navigation --> 
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-40 mt-[36px]"> 
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> 
+            <div class="flex justify-between h-16 items-center"> 
+                <div class="flex-shrink-0"> 
+                    <a href="index.html"> <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition"> </a> 
+                </div> 
+                <div class="hidden md:flex space-x-8 items-center ml-auto"> 
+                    <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a> 
+                    <a href="training-zone.html" class="font-medium text-slate-600 hover:text-pillar transition">Training Zone</a> 
+                    <a href="rec-room.html" class="font-medium text-slate-600 hover:text-pillar transition">HQ Rec Room</a> 
+                </div> 
+            </div> 
+        </div> 
+    </nav> 
+
+    <!-- HERO SECTION --> 
+    <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-pillar-dark text-white text-center"> 
+        <div class="max-w-4xl mx-auto"> 
+            <span class="uppercase tracking-widest text-pillar-light font-bold text-sm mb-4 block">Official HQ Briefing</span> 
+            <h1 class="font-heading text-5xl md:text-6xl mb-6">Parent & Educator Guide</h1> 
+            <p class="text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                Explaining memory loss to children doesn't have to be scary. This guide translates the complex science of Alzheimer's into an empowering spy adventure.
+            </p> 
+        </div> 
+    </section> 
+
+    <!-- HOW TO USE THE BOOK SECTION -->
+    <section class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-heading text-4xl text-slate-900 mb-10 text-center">How to Use the Book</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Tip 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-pillar-light text-pillar rounded-full flex items-center justify-center font-bold text-xl mb-6">1</div>
+                <h3 class="font-heading text-xl text-slate-900 mb-3">Adopt the Persona</h3>
+                <p class="text-slate-600 leading-relaxed">Refer to the child as "Agent." Treat the book like a top-secret briefing file. Framing the disease as a "glitch" in a high-tech system removes fear and replaces it with curiosity.</p>
+            </div>
+            <!-- Tip 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-pillar-light text-pillar rounded-full flex items-center justify-center font-bold text-xl mb-6">2</div>
+                <h3 class="font-heading text-xl text-slate-900 mb-3">Pause for Empathy</h3>
+                <p class="text-slate-600 leading-relaxed">As you read through the different brain zones, ask the child: <i>"How would you help your grandparent if this system glitched?"</i> Remind them that patience is their best gadget.</p>
+            </div>
+            <!-- Tip 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                <div class="w-12 h-12 bg-pillar-light text-pillar rounded-full flex items-center justify-center font-bold text-xl mb-6">3</div>
+                <h3 class="font-heading text-xl text-slate-900 mb-3">Play the Games</h3>
+                <p class="text-slate-600 leading-relaxed">After reading, use the secret code at the back of the book to unlock the <a href="training-zone.html" class="text-pillar font-bold hover:underline">Digital Training Zone</a> and the <a href="rec-room.html" class="text-pillar font-bold hover:underline">HQ Rec Room</a> for real-world activities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE SCIENCE TRANSLATED (Cheat Sheet) -->
+    <section class="py-20 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-4xl text-slate-900 mb-4 text-center">The Science Translated</h2>
+            <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">A quick cheat-sheet so you can confidently answer your child's questions about the brain's anatomy.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Data Library -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-pillar">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-xl text-slate-900">The Data Library</h3>
+                        <span class="text-sm font-mono bg-slate-100 text-slate-500 px-3 py-1 rounded">Hippocampus</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-3"><strong>The Metaphor:</strong> The brain's giant vault of memories stored like books on shelves.</p>
+                    <p class="text-slate-700 text-sm bg-slate-50 p-3 rounded"><strong>When a kid asks:</strong> "Why do they remember when they were little, but not yesterday?"<br><br><strong>Your answer:</strong> "In Alzheimer's, the glitch hits the front of the library first, where the newest books are kept. The old books in the back are safer for longer."</p>
+                </div>
+
+                <!-- Word Warehouse -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-pillar">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-xl text-slate-900">The Word Warehouse</h3>
+                        <span class="text-sm font-mono bg-slate-100 text-slate-500 px-3 py-1 rounded">Broca & Wernicke</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-3"><strong>The Metaphor:</strong> The factory where language and sentences are built.</p>
+                    <p class="text-slate-700 text-sm bg-slate-50 p-3 rounded"><strong>When a kid asks:</strong> "Why did grandpa call a pen a spoon?"<br><br><strong>Your answer:</strong> "The glitch (Aphasia) tangled the delivery system in the Word Warehouse. He knows what he wants to say, but the wrong word fell off the shelf."</p>
+                </div>
+
+                <!-- Emotion Land -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-pillar">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-xl text-slate-900">Emotion Land</h3>
+                        <span class="text-sm font-mono bg-slate-100 text-slate-500 px-3 py-1 rounded">Amygdala</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-3"><strong>The Metaphor:</strong> The emotional roller coaster and alarm center.</p>
+                    <p class="text-slate-700 text-sm bg-slate-50 p-3 rounded"><strong>When a kid asks:</strong> "Why is grandma scared when she forgets something?"<br><br><strong>Your answer:</strong> "Even when the Data Library glitches and she forgets the facts, her Emotion Land is still working perfectly. She can still feel love and fear, so she needs a hug!"</p>
+                </div>
+
+                <!-- Brain HQ -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-pillar">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-heading text-xl text-slate-900">Brain HQ</h3>
+                        <span class="text-sm font-mono bg-slate-100 text-slate-500 px-3 py-1 rounded">Prefrontal Cortex</span>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-3"><strong>The Metaphor:</strong> The boss's office where big decisions are made.</p>
+                    <p class="text-slate-700 text-sm bg-slate-50 p-3 rounded"><strong>When a kid asks:</strong> "Why did they put their keys in the fridge?"<br><br><strong>Your answer:</strong> "The boss in Brain HQ is having a hard time sorting out logic because of the tangles. It's not their fault; the system is just a bit confused."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION PACKET DOWNLOAD & RESPITE -->
+    <section class="py-20 bg-white text-center">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-4xl text-slate-900 mb-6">Offline Agent Activities</h2>
+            <p class="text-lg text-slate-600 mb-8">
+                Want to take the mission offline? Download our printable Mission Packet. It includes coloring pages, brain puzzles, and empathy exercises you can do at the kitchen table.
+            </p>
+            <a href="mission-packet.pdf" download="Pillar-Mission-Packet.pdf" class="inline-flex items-center gap-3 bg-pillar text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1 mb-16">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                Download Mission Packet (PDF)
+            </a>
+
+            <div class="border-t border-slate-200 pt-16">
+                <h3 class="font-heading text-2xl text-slate-900 mb-4">You Need a Break, Too.</h3>
+                <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+                    The Pillar Project exists to provide respite for caregivers. While your child is engaging with these materials, remember that you are allowed to rest. 
+                </p>
+                <a href="index.html#about-model" class="text-pillar font-bold hover:underline">Learn more about our "Divide & Pamper" Respite Model →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer --> 
+    <section class="py-12 bg-slate-900 text-white text-center"> 
+        <div class="max-w-4xl mx-auto px-4"> 
+            <h2 class="font-heading text-3xl mb-6">Contact Us</h2> 
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-8"> 
+                <a href="mailto:contactpillarproject@gmail.com" class="text-pillar-light hover:text-white transition font-semibold">📧 contactpillarproject@gmail.com</a> 
+                <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar-light hover:text-white transition font-semibold">📱 @thepillarproject1</a> 
+            </div> 
+            <div class="border-t border-slate-700 pt-8 text-sm text-slate-400"> &copy; 2026 The Pillar Project. All rights reserved. </div> 
+        </div> 
+    </section> 
+
+</body> 
+</html>
