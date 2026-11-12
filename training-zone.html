@@ -1,4 +1,3 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -220,11 +219,39 @@ HTML
                 <input type="text" id="auth-username" class="spy-input spy-font" placeholder="AGENT USERNAME" maxlength="15" style="margin-bottom: 15px;">
                 <input type="password" id="auth-password" class="spy-input spy-font" placeholder="SECRET PASSWORD" style="margin-bottom: 15px;">
                 
-                <div id="register-fields" style="display: none;">
-                    <p class="kid-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 10px;">Select your avatar base to register:</p>
-                    <div class="locker-row" style="justify-content: center; margin-bottom: 15px;">
-                        <button class="locker-btn active" onclick="setAvatarItem('base', 'boy_200x200.png', this)">Agent Boy</button>
-                        <button class="locker-btn" onclick="setAvatarItem('base', 'girl_200x200.png', this)">Agent Girl</button>
+                <!-- NEW LAYERED AVATAR LOCKER -->
+                <div id="register-fields" style="display: none; text-align: center;">
+                    <p class="kid-font" style="color: var(--gold); font-size: 0.9rem; margin-bottom: 10px;">Build your Agent ID Badge:</p>
+                    
+                    <div class="avatar-preview-box" style="margin: 0 auto 15px;">
+                        <img id="preview-base" class="avatar-layer" style="z-index: 1;" src="boy.png" alt="Base">
+                        <img id="preview-top" class="avatar-layer" style="z-index: 2;" src="sweatshirt.png" alt="Top">
+                        <img id="preview-acc" class="avatar-layer" style="z-index: 3;" src="glasses,png.png" alt="Accessory">
+                    </div>
+
+                    <div style="text-align: left;">
+                        <div class="spy-font" style="color: var(--gold); font-size: 0.8rem; margin-bottom: 5px;">BASE:</div>
+                        <div class="locker-row" style="margin-bottom: 10px;">
+                            <button class="locker-btn active" onclick="setAvatarItem('base', 'boy.png', this)">Boy</button>
+                            <button class="locker-btn" onclick="setAvatarItem('base', 'girl.png', this)">Girl</button>
+                        </div>
+                        
+                        <div class="spy-font" style="color: var(--gold); font-size: 0.8rem; margin-bottom: 5px;">UNIFORM:</div>
+                        <div class="locker-row" style="margin-bottom: 10px;">
+                            <button class="locker-btn active" onclick="setAvatarItem('top', 'sweatshirt.png', this)">Sweatshirt</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'jacket.png', this)">Jacket</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'labcoat.png', this)">Lab Coat</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', 'suit.png', this)">Suit</button>
+                            <button class="locker-btn" onclick="setAvatarItem('top', '', this)">None</button>
+                        </div>
+
+                        <div class="spy-font" style="color: var(--gold); font-size: 0.8rem; margin-bottom: 5px;">GEAR:</div>
+                        <div class="locker-row" style="margin-bottom: 15px;">
+                            <button class="locker-btn active" onclick="setAvatarItem('acc', 'glasses,png.png', this)">Glasses</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', 'goggles.png', this)">Goggles</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', 'monacle.png', this)">Monocle</button>
+                            <button class="locker-btn" onclick="setAvatarItem('acc', '', this)">None</button>
+                        </div>
                     </div>
                 </div>
 
@@ -400,7 +427,7 @@ HTML
                     </div>
                 </div>
 
-                <div id="defense-scenario-box" style="background: rgba(10, 25, 47, 0.9); border: 1px solid var(--neon-blue); padding: 30px; border-radius: 15px;">
+                <div id="defense-scenario-box" style="background: rgba(10, 25, 47, 0.9); border: 1px solid var(--neon-blue); padding: 30px; border-radius: 15px; transition: all 0.3s ease;">
                     <h3 id="defense-scenario-text" class="kid-font" style="font-size: 1.4rem; color: #fff; margin-bottom: 25px;">[Scenario loads here]</h3>
                     <div id="defense-options" style="display: flex; flex-direction: column; gap: 15px;">
                         <!-- Options injected by JS -->
@@ -445,11 +472,11 @@ HTML
         let agentName = "";
         let authMode = 'login';
         
-        // Avatar State
+        // Layered Avatar State
         let avatarLayers = {
-            base: "boy_200x200.png",
-            top: "",
-            acc: ""
+            base: "boy.png",
+            top: "sweatshirt.png",
+            acc: "glasses,png.png"
         };
         
         let xpPoints = 0;
@@ -557,6 +584,18 @@ HTML
 
         function setAvatarItem(layer, filename, btnElement) {
             avatarLayers[layer] = filename;
+            
+            // Update the live preview image during registration
+            const previewImg = document.getElementById(`preview-${layer}`);
+            if (previewImg) {
+                if (filename) {
+                    previewImg.src = filename;
+                    previewImg.style.display = 'block';
+                } else {
+                    previewImg.style.display = 'none';
+                }
+            }
+            
             const parentRow = btnElement.parentElement;
             parentRow.querySelectorAll('.locker-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
@@ -826,7 +865,7 @@ HTML
             };
         }
 
-        // --- DEFENSE SIMULATOR GAME ---
+        // --- UPGRADED DEFENSE SIMULATOR GAME ---
         const defenseScenarios = [
             {
                 text: "The brain is feeling sluggish today! What's the best fuel to repair the shield?",
@@ -882,9 +921,22 @@ HTML
         function applyDefenseImpact(impact) {
             shieldHealth = Math.min(100, Math.max(0, shieldHealth + impact));
             const bar = document.getElementById('shield-bar');
+            const box = document.getElementById('defense-scenario-box');
+            
             bar.style.width = shieldHealth + '%';
             document.getElementById('shield-text').textContent = shieldHealth + '%';
             
+            // Visual Shake & Glow effects
+            if (impact > 0) {
+                box.style.boxShadow = "0 0 30px var(--neon-green)";
+            } else {
+                box.style.boxShadow = "0 0 30px var(--alert-pink)";
+                box.style.transform = "translateX(-10px)";
+                setTimeout(() => box.style.transform = "translateX(10px)", 100);
+                setTimeout(() => box.style.transform = "translateX(0)", 200);
+            }
+            setTimeout(() => box.style.boxShadow = "none", 500);
+
             if(shieldHealth < 40) {
                 bar.style.background = 'var(--alert-pink)';
             } else if (shieldHealth < 70) {
@@ -894,7 +946,7 @@ HTML
             }
 
             currentDefenseScenario++;
-            setTimeout(loadDefenseScenario, 600);
+            setTimeout(loadDefenseScenario, 1000);
         }
 
         // --- BOT ---
