@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HQ Rec Room | The Pillar Project</title>
+    <!-- Tailwind CSS (Matches your tech stack) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-purple-600 text-white py-6 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold">HQ Rec Room 🎮</h1>
+            <!-- Back Button to return to the main site -->
+            <a href="index.html" class="bg-white text-purple-600 px-4 py-2 rounded-full font-bold hover:bg-gray-100 transition">
+                ⬅ Back to Base
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        
+        <!-- Page Intro -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-extrabold mb-4 text-purple-700">Agent Activity Hub</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Welcome to the Rec Room! Browse our collection of "Divide and Pamper" activities. These simple, step-by-step missions are designed to build joyful, stress-free connections.
+            </p>
+        </div>
+
+        <!-- Recipe-Style Activity Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Activity 1: Ping Pong Cup Catch (Clickable) -->
+            <!-- Note: This links to ping-pong-catch.html which we will build next! -->
+            <a href="ping-pong-catch.html" class="block group rounded-2xl bg-white shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
+                <!-- Image/Graphic Placeholder -->
+                <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
+                    <span class="text-7xl group-hover:scale-110 transition-transform duration-300">🏓</span>
+                </div>
+                <!-- Card Text -->
+                <div class="p-6">
+                    <div class="text-xs font-bold tracking-wider text-purple-600 uppercase mb-2">Sensory & Motor</div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900 group-hover:text-purple-600 transition">Ping-Pong Color Catch</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        A gentle, face-to-face game using bright cups and a rolling ping-pong ball to create a joyful, non-verbal connection.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Placeholder: Coming Soon 1 -->
+            <div class="rounded-2xl bg-gray-100 border-2 border-dashed border-gray-300 overflow-hidden flex flex-col justify-center items-center h-full p-6 opacity-70 cursor-not-allowed">
+                <span class="text-5xl mb-4 grayscale">🎵</span>
+                <h3 class="text-xl font-bold text-gray-500 text-center">Musical Memory Lane</h3>
+                <p class="text-sm text-gray-400 mt-2 font-semibold uppercase tracking-wider">Mission Loading...</p>
+            </div>
+
+            <!-- Placeholder: Coming Soon 2 -->
+            <div class="rounded-2xl bg-gray-100 border-2 border-dashed border-gray-300 overflow-hidden flex flex-col justify-center items-center h-full p-6 opacity-70 cursor-not-allowed">
+                <span class="text-5xl mb-4 grayscale">🎨</span>
+                <h3 class="text-xl font-bold text-gray-500 text-center">Tactile Art Canvas</h3>
+                <p class="text-sm text-gray-400 mt-2 font-semibold uppercase tracking-wider">Mission Loading...</p>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
