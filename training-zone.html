@@ -927,10 +927,15 @@
             
             try {
                 const res = await fetch(CHAT_ENDPOINT, {
-                    method: "POST", 
-                    headers: { "Content-Type": "application/json" }, 
-                    body: JSON.stringify({userMessage: message, history: chatHistory.slice(-6), activePage: document.title// Tells Cloudfare what page the user is on! }) 
-                });
+    method: "POST", 
+    headers: { "Content-Type": "application/json" }, 
+    body: JSON.stringify({
+        userMessage: message, 
+        history: chatHistory.slice(-6), 
+        activePage: document.title
+    })
+});
+               
                 
                 if (!res.ok) throw new Error(`HQ Server Error! Status: ${res.status}`);
                 
