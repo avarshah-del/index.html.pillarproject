@@ -933,6 +933,8 @@
         userMessage: message, 
         history: chatHistory.slice(-6), 
         activePage: document.title
+        // Replace activePage: document.title with this:
+activePage: `${document.querySelector('.game-panel.active')?.id || 'hub'} (Zone: ${currentZoneKey || 'none'})`
     })
 });
                
