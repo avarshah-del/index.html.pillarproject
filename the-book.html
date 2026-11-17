@@ -6,39 +6,138 @@
     <title>The Book | Case Alzheimer's</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
-        body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #050b14; color: #e0e0e0; overflow-x: hidden; }
-        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        body, html { 
+            margin: 0; padding: 0; 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #050b14; 
+            color: #e0e0e0; 
+            overflow-x: hidden; 
+        }
         h1, h2, h3, .spy-font { font-family: 'Share Tech Mono', monospace; }
         
-        .top-bar { background: #0b1a2a; color: #45A29E; padding: 8px 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #45A29E; }
-        .switch-btn { background: transparent; color: #66FCF1; border: 1px solid #66FCF1; padding: 5px 15px; cursor: pointer; font-family: 'Share Tech Mono'; transition: 0.3s; border-radius: 3px; text-decoration: none;}
+        .top-bar { 
+            background: #0b1a2a; color: #45A29E; 
+            padding: 8px 20px; font-size: 13px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid #45A29E; 
+        }
+        .switch-btn { 
+            background: transparent; color: #66FCF1; 
+            border: 1px solid #66FCF1; padding: 5px 15px; 
+            cursor: pointer; font-family: 'Share Tech Mono'; 
+            transition: 0.3s; border-radius: 3px; text-decoration: none;
+        }
         .switch-btn:hover { background: #66FCF1; color: #050b14; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: rgba(5, 11, 20, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(102, 252, 241, 0.2);}
+
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 50px; background: rgba(5, 11, 20, 0.8); 
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(102, 252, 241, 0.2);
+            flex-wrap: wrap; gap: 15px;
+        }
         .logo { font-size: 26px; color: #66FCF1; text-shadow: 0 0 10px rgba(102,252,241,0.5); }
-        .nav-links a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 16px; transition: 0.3s; }
+        .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; }
+        .nav-links a { 
+            color: #fff; text-decoration: none; 
+            font-size: 15px; transition: 0.3s; 
+        }
         .nav-links a:hover { color: #FFD700; text-shadow: 0 0 5px #FFD700; }
-        .sponsor-btn { background: rgba(57, 255, 20, 0.1); border: 1px solid #39FF14; color: #39FF14 !important; padding: 10px 20px; font-weight: bold; text-shadow: 0 0 5px #39FF14; box-shadow: 0 0 10px rgba(57,255,20,0.3) inset, 0 0 10px rgba(57,255,20,0.3); border-radius: 4px; transition: 0.3s; }
-        .sponsor-btn:hover { background: #39FF14; color: #000 !important; box-shadow: 0 0 20px #39FF14 inset, 0 0 20px #39FF14; }
-
-        .content-container { max-width: 1100px; margin: 50px auto; padding: 20px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
-        .book-details h1 { color: #66FCF1; font-size: 2.8rem; margin-top: 0; text-shadow: 0 0 15px rgba(102, 252, 241, 0.4);}
-        .book-details h3 { color: #FFD700; font-size: 1.5rem; }
-        .book-details p { line-height: 1.8; font-size: 1.1rem; color: #c4c4c4; }
         
-        .data-file { background: rgba(11, 26, 42, 0.7); border: 1px solid #45A29E; padding: 25px; border-radius: 8px; margin-top: 30px; box-shadow: 0 0 15px rgba(69, 162, 158, 0.2);}
-        .data-file ul { list-style: none; padding: 0; }
-        .data-file li { margin-bottom: 15px; padding-left: 25px; position: relative; }
-        .data-file li::before { content: "►"; color: #66FCF1; position: absolute; left: 0; font-family: 'Share Tech Mono'; }
-        
-        /* Real Book Cover Image Styling */
-        .cover-container { text-align: center; }
-        .book-cover-img { max-width: 100%; height: auto; border-radius: 10px; border: 2px solid #FFD700; box-shadow: 0 0 25px rgba(255,215,0,0.4); }
+        .sponsor-btn { 
+            background: rgba(57, 255, 20, 0.1); border: 1px solid #39FF14; 
+            color: #39FF14 !important; padding: 10px 20px; 
+            font-weight: bold; text-shadow: 0 0 5px #39FF14; 
+            box-shadow: 0 0 10px rgba(57,255,20,0.3) inset, 0 0 10px rgba(57,255,20,0.3); 
+            border-radius: 4px; transition: 0.3s; 
+        }
+        .sponsor-btn:hover { 
+            background: #39FF14; color: #000 !important; 
+            box-shadow: 0 0 20px #39FF14 inset, 0 0 20px #39FF14; 
+        }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid #45A29E; margin-top: 50px; font-size: 0.9rem; color: #45A29E; }
+        .book-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 50px;
+            align-items: center;
+        }
+        @media (max-width: 850px) {
+            .book-container { grid-template-columns: 1fr; text-align: center; }
+        }
+        .book-cover {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 12px;
+            border: 2px solid #66FCF1;
+            box-shadow: 0 0 30px rgba(102, 252, 241, 0.3);
+            margin: 0 auto;
+            display: block;
+        }
+        .dossier-tag {
+            display: inline-block;
+            background: rgba(102, 252, 241, 0.15);
+            color: #66FCF1;
+            border: 1px solid #66FCF1;
+            padding: 5px 14px;
+            font-size: 13px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .book-title {
+            font-size: 2.8rem;
+            color: #FFD700;
+            margin: 0 0 20px 0;
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+        }
+        .synopsis {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #c4c4c4;
+            margin-bottom: 30px;
+        }
+        .cta-btn { 
+            display: inline-block; padding: 15px 30px; margin-right: 15px; margin-bottom: 15px;
+            font-family: 'Share Tech Mono'; text-decoration: none; 
+            font-size: 18px; font-weight: bold; border-radius: 4px; transition: 0.3s; 
+        }
+        .btn-gold { 
+            background: #FFD700; color: #050b14; 
+            box-shadow: 0 0 15px rgba(255,215,0,0.6); 
+        }
+        .btn-gold:hover { background: #fff; box-shadow: 0 0 25px #FFD700; transform: translateY(-2px); }
+        .btn-cyan { 
+            background: rgba(102,252,241,0.1); color: #66FCF1; 
+            border: 2px solid #66FCF1; box-shadow: 0 0 10px rgba(102,252,241,0.3); 
+        }
+        .btn-cyan:hover { background: #66FCF1; color: #050b14; transform: translateY(-2px); }
+
+        .features-grid {
+            max-width: 1100px;
+            margin: 40px auto 80px;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .feature-card {
+            background: rgba(11, 26, 42, 0.8);
+            border: 1px solid #45A29E;
+            border-radius: 10px;
+            padding: 25px;
+        }
+        .feature-card h3 { color: #66FCF1; margin-top: 0; font-size: 1.3rem; }
+        .feature-card p { color: #c4c4c4; font-size: 0.95rem; line-height: 1.6; margin-bottom: 0; }
+
+        footer { 
+            text-align: center; padding: 40px; border-top: 1px solid #45A29E; 
+            margin-top: 50px; font-size: 0.9rem; color: #45A29E; 
+        }
     </style>
 </head>
 <body>
-    <canvas id="particle-canvas"></canvas>
 
     <div class="top-bar spy-font">
         <span>ENCRYPTED CONNECTION // HUB: CASE ALZHEIMER'S</span>
@@ -51,52 +150,48 @@
             <a href="case-alzheimers.html">HOME</a>
             <a href="the-book.html" style="color:#FFD700;">THE BOOK</a>
             <a href="training-zone.html">AGENT TRAINING ZONE</a>
+            <a href="rec-room.html">HQ REC ROOM</a>
+            <a href="parent-guide.html">PARENT GUIDE</a>
+            <a href="media.html">MEDIA HUB</a>
             <a href="sponsor-portal.html" class="sponsor-btn">SPONSOR PORTAL [RESTRICTED]</a>
         </div>
     </nav>
 
-    <section class="content-container">
-        <div class="book-details">
-            <h1 class="spy-font">MISSION BRIEFING</h1>
-            <h3 class="spy-font">Target: The Tangles</h3>
-            <p><strong>"H.M., You're Late!" yelled Big Boss. "We are in big trouble, Agent. The brain is glitching... and the worst part... The Double-Chocolate-Chunk Cookie recipe is GONE!"</strong></p>
-            <p>Join Agent H.M. as she boards the high-speed Synaptic Express to investigate mysterious "tangles" taking over the brain. From the Word Warehouse to Emotion Land, this thrilling, science-backed adventure demystifies the neurobiology of Alzheimer's disease.</p>
-            
-            <div class="data-file">
-                <h3 class="spy-font">DECRYPTED DATA: WHAT KIDS LEARN</h3>
-                <ul>
-                    <li><strong>The Data Library:</strong> How the hippocampus processes short-term memory versus deep archives.</li>
-                    <li><strong>The Word Warehouse:</strong> Understanding aphasia and why loved ones forget names (Broca's & Wernicke's areas).</li>
-                    <li><strong>Emotion Land:</strong> Making sense of the amygdala, sudden mood shifts, and building emotional empathy.</li>
-                    <li><strong>Action Potential:</strong> How chemical messengers travel across the Synaptic Gap.</li>
-                </ul>
+    <div class="book-container">
+        <div>
+            <img src="titlenew.png" alt="Case Alzheimer's Book Cover" class="book-cover">
+        </div>
+        <div>
+            <span class="dossier-tag spy-font">CLASSIFIED MISSION BRIEFING // AGES 8-12</span>
+            <h1 class="book-title spy-font">CASE ALZHEIMER'S: A BRAIN HQ MYSTERY</h1>
+            <p class="synopsis">
+                When signal blockers and tangles start interrupting transmissions inside the Data Library, Brain HQ calls in its top security agents! Designed to replace fear with curiosity and empathy, <em>Case Alzheimer's</em> translates real neuroscience into an unforgettable spy adventure for kids and families navigating a loved one's diagnosis.
+            </p>
+            <div>
+                <a href="https://a.co/d/0go6TYaq" target="_blank" rel="noopener noreferrer" class="cta-btn btn-gold">BUY ON AMAZON ↗</a>
+                <a href="training-zone.html" class="cta-btn btn-cyan">UNLOCK AGENT TRAINING</a>
             </div>
         </div>
+    </div>
 
-        <!-- Real Image Integration -->
-        <div class="cover-container">
-            <img src="titlenew.png" alt="Case Alzheimer's Book Cover" class="book-cover-img">
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3 class="spy-font">🧠 REAL NEUROSCIENCE</h3>
+            <p>Learn how the Prefrontal Cortex (Brain HQ), Hippocampus (Data Library), and Amygdala (Emotion Land) work together—and what happens when plaques and tangles appear.</p>
         </div>
-    </section>
+        <div class="feature-card">
+            <h3 class="spy-font">💛 EMPATHY GADGETS</h3>
+            <p>Equips kids with practical, compassionate ways to connect with grandparents or loved ones experiencing memory loss without frustration or fear.</p>
+        </div>
+        <div class="feature-card">
+            <h3 class="spy-font">🔓 SECRET AGENT CODE</h3>
+            <p>Includes the classified access code inside the book to unlock the full interactive Book Protocol inside the online Agent Training Zone.</p>
+        </div>
+    </div>
 
     <footer class="spy-font">
         TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.
     </footer>
 
-    <script>
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        let particles = [];
-        class Particle {
-            constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = Math.random() * 0.5 - 0.25; this.speedY = Math.random() * 0.5 - 0.25; }
-            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > canvas.width) this.speedX *= -1; if (this.y < 0 || this.y > canvas.height) this.speedY *= -1; }
-            draw() { ctx.fillStyle = 'rgba(102, 252, 241, 0.4)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
-        }
-        function init() { for (let i = 0; i < 150; i++) particles.push(new Particle()); }
-        function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particles.length; i++) { particles[i].update(); particles[i].draw(); } requestAnimationFrame(animate); }
-        init(); animate();
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
-    </script>
 </body>
 </html>
