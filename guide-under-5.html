@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under 5 Reading Guide (&lt;5 Years) | Case Alzheimer's</title>
+    
+    <!-- Editorial Fonts: Fraunces (Serif), Inter (Body), Share Tech Mono (Labels) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Share Tech Mono', 'monospace'],
+                    },
+                    colors: {
+                        paper: '#faf8f5',
+                        ink: '#1c1917',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Print Stylesheet: Only prints the Scavenger Hunt Doodle Sheet cleanly */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            #printable-doodle-sheet {
+                display: block !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            .doodle-box {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border: 2px solid #000 !important;
+                height: 150px !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased selection:bg-amber-200">
+
+    <!-- TOP SWITCHER BAR -->
+    <div class="no-print w-full bg-stone-900 text-stone-300 px-6 py-2.5 flex justify-between items-center text-xs font-mono">
+        <span>PARENT &amp; EDUCATOR COMPANION // AGE BRACKET: UNDER 5 (&lt;5 YEARS)</span>
+        <div class="flex items-center gap-4">
+            <a href="parent-guide.html" class="text-amber-300 hover:underline">← All Age Guides</a>
+            <span class="text-stone-600">/</span>
+            <a href="case-alzheimers.html" class="hover:text-white transition">Case Alzheimer's Hub</a>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="no-print w-full bg-paper/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+            <a href="parent-guide.html" class="flex items-center gap-3">
+                <img src="The Pillar Project.PNG" alt="The Pillar Project" class="h-10 w-auto">
+                <span class="font-serif text-lg font-semibold text-stone-900 tracking-tight">Guide: Under 5 Years</span>
+            </a>
+            <div class="flex items-center space-x-3 text-xs font-mono">
+                <a href="guide-under-5.html" class="bg-stone-900 text-white px-3 py-1.5 rounded">Under 5</a>
+                <a href="guide-5-8.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5">5–8</a>
+                <a href="guide-9-12.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5">9–12</a>
+                <a href="guide-13-plus.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5">13+</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 border-b border-stone-200">
+        <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-800 bg-amber-100/80 px-3 py-1 rounded mb-4">
+            <span>Age Group: Under 5 (&lt;5 Years)</span>
+            <span>•</span>
+            <span>Storytime &amp; Doodle Edition</span>
+        </div>
+        <h1 class="font-serif text-4xl sm:text-5xl text-stone-900 leading-tight mb-5">
+            How to Read <em>Case Alzheimer’s</em> With Little Listeners
+        </h1>
+        <p class="text-lg text-stone-600 leading-relaxed">
+            For children under five, you aren't giving a biology lecture—you are taking them on a high-energy train and scooter ride inside the brain. When you read with big voices, dramatic pauses, and playful sound effects, big words like <em>Hippocampus</em> and <em>Synaptic Gap</em> stop feeling scary and start feeling like magic places on a map.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#comprehension-guide" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-stone-700 transition">
+                1. Page-by-Page Reading Guide
+            </a>
+            <a href="#doodle-scavenger-hunt" class="bg-white border border-stone-300 text-stone-900 text-sm font-medium px-5 py-2.5 rounded-lg hover:border-stone-900 transition">
+                2. Brain Word Doodle Scavenger Hunt
+            </a>
+            <button onclick="window.print()" class="bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">
+                🖨️ Print Scavenger Hunt Sheet
+            </button>
+        </div>
+    </header>
+
+    <!-- PART 1: ENERGETIC READ-ALOUD & KID SPEECH PARTS -->
+    <section class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 1: Shared Storytelling</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-3">Give Your Child the "Action Lines"</h2>
+        <p class="text-stone-600 mb-8 leading-relaxed">
+            Before you open the book, tell your child: <em>"I am the Narrator, and you are my Junior Sound &amp; Action Agent!"</em> Every time you reach one of these big speech moments in the book, point to the page and let your child shout or act out the line with full enthusiasm:
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <span class="font-mono text-xs text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded">Brain HQ • Page 5</span>
+                <p class="font-serif text-xl text-stone-900 mt-2 mb-1">“NO! Not the cookies!”</p>
+                <p class="text-sm text-stone-600">Have your child put both hands on their head just like Agent H.M. when Big Boss says the Double-Chocolate-Chunk Cookie recipe is gone!</p>
+            </div>
+
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <span class="font-mono text-xs text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded">Synaptic Express • Pages 7–9</span>
+                <p class="font-serif text-xl text-stone-900 mt-2 mb-1">“SMACK!” &amp; “SCREEEEEECHHH!”</p>
+                <p class="text-sm text-stone-600">Clap hands together on <em>SMACK!</em> when H.M. grabs the train rail, then lean back and make loud train brakes on <em>SCREEEEEECHHH!</em></p>
+            </div>
+
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <span class="font-mono text-xs text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded">Signal Scooter • Pages 15 &amp; 17</span>
+                <p class="font-serif text-xl text-stone-900 mt-2 mb-1">“ZOOM!!!” &amp; “BEEP! SPUTTER... PFFFT!”</p>
+                <p class="text-sm text-stone-600">Pretend to hold scooter handlebars as you jump the Synaptic Gap, then blow a raspberry on <em>PFFFT!</em> when the ATP Fuel runs out.</p>
+            </div>
+
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <span class="font-mono text-xs text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded">Data Library &amp; HQ • Pages 26–31</span>
+                <p class="font-serif text-xl text-stone-900 mt-2 mb-1">“EUREKA!” &amp; “1... 2... 3... ZAP!”</p>
+                <p class="text-sm text-stone-600">Count to three together and press the giant orange button on the page with your fingers before shouting <em>ZAP!</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PART 2: PAGE-BY-PAGE COMPREHENSION PAUSE GUIDE -->
+    <section id="comprehension-guide" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+                <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 2: Pause &amp; Check Understanding</p>
+                <h2 class="font-serif text-3xl text-stone-900">Page-by-Page Comprehension Checkpoints</h2>
+                <p class="text-stone-600 mt-1">Pause every few pages at these six story stops to ask a quick question and translate the story into toddler-friendly ideas.</p>
+            </div>
+        </div>
+
+        <div class="space-y-5">
+            <!-- Stop 1 -->
+            <div class="bg-white border border-stone-200 rounded-xl p-6">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                    <span class="font-mono text-xs uppercase tracking-wider bg-stone-900 text-white px-3 py-1 rounded">Stop 1 • Pages 3–6 (Brain Map &amp; Brain HQ)</span>
+                    <span class="font-mono text-xs text-stone-500">Focus: The Prefrontal Cortex &amp; Missing Cookie Recipe</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">Ask Your Child:</strong>
+                        "Tap your forehead! That's where Brain HQ lives. What yummy recipe went missing in the glitch? Can you help Agent H.M. find it?"
+                    </div>
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">How to Explain It:</strong>
+                        "Our brain is like a busy city with a Boss's office right behind our forehead. Sometimes in Alzheimer's, sneaky weeds called tangles get in the way and hide recipes or plans."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stop 2 -->
+            <div class="bg-white border border-stone-200 rounded-xl p-6">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                    <span class="font-mono text-xs uppercase tracking-wider bg-stone-900 text-white px-3 py-1 rounded">Stop 2 • Pages 7–9 (The Synaptic Express Train)</span>
+                    <span class="font-mono text-xs text-stone-500">Focus: Action Potential &amp; Myelin Speed Boosters</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">Ask Your Child:</strong>
+                        "Look at Agent H.M. holding onto that super-fast white train! How fast do thoughts zoom inside your head?"
+                    </div>
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">How to Explain It:</strong>
+                        "Every time you think or wiggle your toes, a tiny electric train called an Action Potential zooms down tracks wrapped in Myelin speed boosters!"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stop 3 -->
+            <div class="bg-white border border-stone-200 rounded-xl p-6">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                    <span class="font-mono text-xs uppercase tracking-wider bg-stone-900 text-white px-3 py-1 rounded">Stop 3 • Pages 11–14 (The Word Warehouse)</span>
+                    <span class="font-mono text-xs text-stone-500">Focus: Broca's &amp; Wernicke's Areas, Aphasia &amp; Tangles</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">Ask Your Child:</strong>
+                        "Point to the green vines wrapping up the colorful word balls! And look at the Manager—did you think the loud voice came from a giant monster or a tiny helper?"
+                    </div>
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">How to Explain It:</strong>
+                        "Those round balls are words waiting to be spoken! When the green weeds (Tangles) wrap around them, it causes an Aphasia glitch—so Grandma might forget a word even when she knows what she wants to say."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stop 4 -->
+            <div class="bg-white border border-stone-200 rounded-xl p-6">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                    <span class="font-mono text-xs uppercase tracking-wider bg-stone-900 text-white px-3 py-1 rounded">Stop 4 • Pages 15–16 (The Big Jump on the Signal Scooter)</span>
+                    <span class="font-mono text-xs text-stone-500">Focus: Axon Terminal, Synaptic Gap &amp; Neurotransmitters</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">Ask Your Child:</strong>
+                        "What are all those shiny blue bubbles floating next to their scooter as they jump across the gap?"
+                    </div>
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">How to Explain It:</strong>
+                        "Brain cells don't touch! There is a tiny space between them called the Synaptic Gap. Those bubbles are Chemical Messengers (Neurotransmitters) carrying messages across!"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stop 5 -->
+            <div class="bg-white border border-stone-200 rounded-xl p-6">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                    <span class="font-mono text-xs uppercase tracking-wider bg-stone-900 text-white px-3 py-1 rounded">Stop 5 • Pages 17–22 (Emotion-Land &amp; ATP Fuel)</span>
+                    <span class="font-mono text-xs text-stone-500">Focus: Amygdala &amp; Cellular Energy</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">Ask Your Child:</strong>
+                        "Uh oh, the roller coaster in Emotion-Land has weeds on it and no one is smiling. What can we give someone we love to help them feel safe and happy again?"
+                    </div>
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">How to Explain It:</strong>
+                        "Emotion-Land (the Amygdala) is where all our feelings live. When the rides get tangled, a grandparent might feel confused or grumpy—and our hugs and calm voices are like sparkling ATP Fuel!"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stop 6 -->
+            <div class="bg-white border border-stone-200 rounded-xl p-6">
+                <div class="flex flex-wrap justify-between items-center gap-2 mb-3">
+                    <span class="font-mono text-xs uppercase tracking-wider bg-stone-900 text-white px-3 py-1 rounded">Stop 6 • Pages 23–34 (The Data Library &amp; The Deep Archives)</span>
+                    <span class="font-mono text-xs text-stone-500">Focus: Hippocampus, Long-Term Memory &amp; Empathy</span>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">Ask Your Child:</strong>
+                        "When they pressed the big button and shouted ZAP, did the weeds go away? Or did the golden screens play happy old movies instead?"
+                    </div>
+                    <div class="bg-paper p-4 rounded-lg border border-stone-200/80">
+                        <strong class="block text-stone-900 mb-1">How to Explain It:</strong>
+                        "Even though the weeds block the New Data door so they might forget what happened today, their oldest, favorite memories are locked safely inside the Deep Archives forever!"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ask Microglia Helper Box -->
+        <div class="mt-8 bg-stone-900 text-stone-100 rounded-xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <img src="microglia_sprite.png" alt="Microglia" class="w-12 h-12 flex-shrink-0">
+                <div>
+                    <h3 class="font-serif text-lg text-white">Stumped by a Toddler Question? Ask Microglia!</h3>
+                    <p class="text-sm text-stone-300">If your child asks a question while reading and you aren't sure how to put the answer into under-5 language, click here to ask Microglia for an instant kid-friendly explanation.</p>
+                </div>
+            </div>
+            <button onclick="openMicrogliaChat()" class="w-full sm:w-auto whitespace-nowrap bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">
+                Ask Microglia →
+            </button>
+        </div>
+    </section>
+
+    <!-- PART 3: THE SCIENCE OF VISUAL DRAWING & SCAVENGER HUNT -->
+    <section id="doodle-scavenger-hunt" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 3: The Brain Word Scavenger Hunt</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-4">Spot a Brain Word, Draw a Doodle!</h2>
+        
+        <!-- Scientific Explanation Box -->
+        <div class="bg-amber-50/90 border border-amber-200 rounded-xl p-6 mb-8">
+            <div class="font-mono text-xs uppercase tracking-wider text-amber-900 font-semibold mb-2">
+                🧠 Why Drawing Works: The Neuroscience of Visual Memory
+            </div>
+            <p class="text-stone-800 text-sm leading-relaxed">
+                In cognitive psychology and developmental neuroscience, young children learn through the <strong>Picture Superiority Effect</strong> and <strong>Dual-Coding Theory</strong>. Before age six, a child's abstract verbal networks are still developing, while their visual cortex and sensorimotor pathways are rapidly forming connections. When a child hears an unfamiliar scientific term like <em>Hippocampus</em> or <em>Neurotransmitter</em> and immediately draws a doodle of what they imagine it looks like, they encode the memory across three brain networks at once: <strong>auditory</strong> (hearing the word), <strong>visual</strong> (picturing the image), and <strong>kinesthetic/motor</strong> (moving the crayon). This triple-encoding anchors new concepts in long-term memory far more effectively than listening alone.
+            </p>
+        </div>
+
+        <!-- How the Scavenger Hunt & Bonus Points Work -->
+        <div class="grid sm:grid-cols-3 gap-4 mb-8 text-sm">
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">01 // PRINT THE SHEET</div>
+                <strong class="block text-stone-900 mb-1">Keep Crayons Handy</strong>
+                <p class="text-stone-600">Print the official Doodle Scavenger Hunt sheet below before you start reading <em>Case Alzheimer's</em>.</p>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">02 // PAUSE &amp; DOODLE</div>
+                <strong class="block text-stone-900 mb-1">Draw What You Imagine</strong>
+                <p class="text-stone-600">Every time your child hears one of the 14 cool brain words in the story, pause and let them doodle what they think it looks like in its box!</p>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-amber-800 font-bold mb-1">03 // EARN BONUS HQ POINTS</div>
+                <strong class="block text-stone-900 mb-1">Upload to Training Portal</strong>
+                <p class="text-stone-600">Snap a photo of your child's finished doodle sheet and upload it inside the <a href="training-zone.html" class="underline font-semibold text-stone-900">Agent Training Portal</a> to earn bonus XP!</p>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 bg-white border border-stone-200 rounded-xl p-5 mb-6">
+            <div>
+                <h3 class="font-serif text-lg text-stone-900">Printable Scavenger Hunt Sheet Preview</h3>
+                <p class="text-xs text-stone-500">Click the print button to print a clean worksheet without any website menus or buttons.</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="window.print()" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-stone-700 transition">
+                    🖨️ Print Scavenger Hunt Doodle Sheet
+                </button>
+                <a href="training-zone.html" class="bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">
+                    Upload in Training Portal →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRINTABLE SCAVENGER HUNT WORKSHEET (Prints cleanly via @media print) -->
+    <section id="printable-doodle-sheet" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="bg-white border-2 border-stone-900 rounded-xl p-6 sm:p-8 shadow-sm">
+            <!-- Worksheet Header -->
+            <div class="border-b-2 border-stone-900 pb-4 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+                <div>
+                    <p class="font-mono text-xs uppercase tracking-widest text-stone-600">CASE ALZHEIMER'S // OFFICIAL BRAIN HQ SCAVENGER HUNT</p>
+                    <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-bold">Agent H.M.’s Brain Word Doodle Sheet</h2>
+                    <p class="text-xs text-stone-600 mt-1">Mission: Every time you spot one of these brain words in the book, draw a doodle of what you think it looks like!</p>
+                </div>
+                <div class="text-xs font-mono border border-stone-400 rounded px-3 py-2 w-full sm:w-56">
+                    <div>AGENT NAME: _________________</div>
+                    <div class="mt-2">AGE: ______  DATE: __________</div>
+                </div>
+            </div>
+
+            <!-- 14 Glossary Doodle Boxes Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- 1 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">1. Brain HQ (Prefrontal Cortex)</span>
+                        <span class="font-mono text-[11px] text-stone-500">The Boss's Office</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 2 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">2. The Data Library (Hippocampus)</span>
+                        <span class="font-mono text-[11px] text-stone-500">Memory Saver</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 3 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">3. Emotion-Land (Amygdala)</span>
+                        <span class="font-mono text-[11px] text-stone-500">Feelings Coaster</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 4 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">4. The Word Warehouse (Broca's &amp; Wernicke's)</span>
+                        <span class="font-mono text-[11px] text-stone-500">Word Factory</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 5 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">5. Aphasia</span>
+                        <span class="font-mono text-[11px] text-stone-500">Class-8 Word Glitch!</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 6 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">6. Synaptic Gap</span>
+                        <span class="font-mono text-[11px] text-stone-500">The Big Jump</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 7 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">7. Neurotransmitters</span>
+                        <span class="font-mono text-[11px] text-stone-500">Chemical Messengers</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 8 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">8. Action Potential</span>
+                        <span class="font-mono text-[11px] text-stone-500">High-Speed Electric Zap</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 9 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">9. Axon Terminal &amp; Dendrites</span>
+                        <span class="font-mono text-[11px] text-stone-500">Launch Pad &amp; Catchers</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 10 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">10. Myelin</span>
+                        <span class="font-mono text-[11px] text-stone-500">Speed Boosters</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 11 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">11. ATP Fuel</span>
+                        <span class="font-mono text-[11px] text-stone-500">Sparkling Cell Energy</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 12 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">12. Proteasome Unit</span>
+                        <span class="font-mono text-[11px] text-stone-500">Brain Clean-Up Crew</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 13 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">13. Tangles</span>
+                        <span class="font-mono text-[11px] text-stone-500">The Sneaky Weeds</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+                <!-- 14 -->
+                <div class="doodle-box border-2 border-stone-300 rounded-lg p-3 flex flex-col justify-between h-40">
+                    <div class="flex justify-between items-baseline border-b border-stone-200 pb-1.5">
+                        <span class="font-serif font-bold text-sm text-stone-900">14. The Deep Archives</span>
+                        <span class="font-mono text-[11px] text-stone-500">Long-Term Memory Vault</span>
+                    </div>
+                    <div class="text-[10px] font-mono text-stone-300 text-right">DOODLE HERE</div>
+                </div>
+
+            </div>
+
+            <!-- Worksheet Footer -->
+            <div class="mt-6 pt-4 border-t border-stone-300 flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-stone-600 gap-2">
+                <span> BONUS XP: Upload a photo of your finished doodles at pillarproject.online (Agent Training Zone)!</span>
+                <span>THE PILLAR PROJECT // BRAIN HQ</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="no-print border-t border-stone-200 bg-paper py-10 text-center text-xs text-stone-500">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span>&copy; 2026 The Pillar Project. All rights reserved.</span>
+            <div class="flex gap-6">
+                <a href="parent-guide.html" class="hover:text-stone-900">← Back to All Age Guides</a>
+                <a href="training-zone.html" class="hover:text-stone-900">Agent Training Zone</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MICROGLIA CHAT WIDGET -->
+    <div id="pillar-chat-window" style="display:none;" class="no-print fixed bottom-6 right-6 w-80 sm:w-96 max-w-[92vw] bg-white border border-stone-300 rounded-xl shadow-xl z-50 flex-col overflow-hidden">
+        <div class="bg-stone-900 text-white px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
+                <img src="microglia_sprite.png" alt="Microglia" class="w-6 h-6">
+                <span class="font-serif text-sm font-semibold">Ask Microglia (Under-5 Helper)</span>
+            </div>
+            <button onclick="toggleChat()" class="text-stone-400 hover:text-white text-sm">✕</button>
+        </div>
+        <div id="pillar-chat-body" class="p-4 h-64 overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
+            <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
+                Hi! Reading <em>Case Alzheimer's</em> with a little one? Ask me how to explain any page or brain word in simple, under-5 language!
+            </div>
+        </div>
+        <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
+            <input id="pillar-chat-input" type="text" placeholder="Ask how to explain a term..." class="flex-1 text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
+            <button onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
+        let guideChatHistory = [];
+
+        function toggleChat() {
+            const win = document.getElementById("pillar-chat-window");
+            win.style.display = (win.style.display === "none" || win.style.display === "") ? "flex" : "none";
+        }
+
+        function openMicrogliaChat() {
+            const win = document.getElementById("pillar-chat-window");
+            win.style.display = "flex";
+            document.getElementById("pillar-chat-input").focus();
+        }
+
+        function appendGuideMsg(text, isUser) {
+            const body = document.getElementById("pillar-chat-body");
+            const div = document.createElement("div");
+            div.className = isUser
+                ? "bg-stone-900 text-white p-3 rounded-lg self-end max-w-[85%]"
+                : "bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]";
+            div.textContent = text;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+            return div;
+        }
+
+        async function sendGuideQuestion() {
+            const input = document.getElementById("pillar-chat-input");
+            const message = input.value.trim();
+            if (!message) return;
+            input.value = "";
+            appendGuideMsg(message, true);
+            const loading = appendGuideMsg("Translating for under-5 agents...", false);
+
+            try {
+                const res = await fetch(CHAT_ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userMessage: message,
+                        history: guideChatHistory.slice(-6),
+                        activePage: "Parent Guide: Under 5 (<5 Years)"
+                    })
+                });
+                const data = await res.json();
+                loading.remove();
+                const reply = data.reply || "Could you try asking that one more time?";
+                appendGuideMsg(reply, false);
+                guideChatHistory.push({ role: "user", content: message }, { role: "assistant", content: reply });
+            } catch (err) {
+                loading.remove();
+                appendGuideMsg("Connection is offline right now—please try again shortly.", false);
+            }
+        }
+    </script>
+</body>
+</html>
