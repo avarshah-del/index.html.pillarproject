@@ -86,11 +86,9 @@ body.read-easy header p.text-lg {
 }
 @media print {
     body.read-easy { padding-bottom: 0; font-size: 12pt; }
-    .read-fold,
-    .read-fold .fold-body,
-    .read-fold > .fold-body { display: block !important; }
-    details.read-fold > * { display: block !important; }
-    .read-fold summary { display: block !important; }
-    .fold-title { background: none; padding-right: 0; }
+    /* Closed <details> stay hidden in Chrome even if display is forced.
+       beforeprint opens details.print-sheet so the worksheet itself prints. */
+    details.print-sheet > summary { display: none !important; }
+    details.print-sheet[open] > .fold-body { display: block !important; }
     #pillar-chat-btn, #pillar-chat-window { display: none !important; }
 }

@@ -108,7 +108,7 @@
         </div>
     </header>
 
-    <section id="lesson-flow" class="read-anchor">
+    <section id="lesson-flow" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Lesson flow</span>
@@ -148,7 +148,7 @@
 </details>
 </section>
 
-    <section id="guides" class="read-anchor">
+    <section id="guides" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Four guides, four printables</span>
@@ -219,7 +219,7 @@
 </details>
 </section>
 
-    <section class="read-anchor">
+    <section class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Extensions that already exist</span>
@@ -261,7 +261,7 @@
 </details>
 </section>
 
-    <section class="read-anchor">
+    <section class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Clipboard lesson card</span>
@@ -279,7 +279,7 @@
 </section>
 
     <section id="printable-lesson" class="read-anchor">
-<details class="read-fold">
+<details class="read-fold print-sheet">
 <summary>
 <span class="fold-title">One period, no diagnosis</span>
 <span class="fold-sum">Case Alzheimer's // Classroom mission card</span>
@@ -408,5 +408,20 @@
             }
         }
     </script>
+
+<script>
+window.addEventListener('beforeprint', function () {
+  document.querySelectorAll('details.print-sheet').forEach(function (d) {
+    d.dataset.wasOpen = d.open ? '1' : '0';
+    d.open = true;
+  });
+});
+window.addEventListener('afterprint', function () {
+  document.querySelectorAll('details.print-sheet').forEach(function (d) {
+    if (d.dataset.wasOpen !== '1') d.open = false;
+  });
+});
+</script>
+
 </body>
 </html>

@@ -143,7 +143,7 @@
     </header>
 
     <!-- PART 1: ENERGETIC READ-ALOUD & KID SPEECH PARTS -->
-    <section class="read-anchor">
+    <section class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Give Your Child the "Action Lines"</span>
@@ -188,7 +188,7 @@
 </section>
 
     <!-- PART 2: PAGE-BY-PAGE COMPREHENSION PAUSE GUIDE -->
-    <section id="comprehension-guide" class="read-anchor">
+    <section id="comprehension-guide" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Page-by-Page Comprehension Checkpoints</span>
@@ -333,7 +333,7 @@
 </section>
 
     <!-- PART 3: THE SCIENCE OF VISUAL DRAWING & SCAVENGER HUNT -->
-    <section id="doodle-scavenger-hunt" class="read-anchor">
+    <section id="doodle-scavenger-hunt" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Spot a Brain Word, Draw a Doodle!</span>
@@ -394,7 +394,7 @@
 
     <!-- PRINTABLE SCAVENGER HUNT WORKSHEET (Prints cleanly via @media print) -->
     <section id="printable-doodle-sheet" class="read-anchor">
-<details class="read-fold">
+<details class="read-fold print-sheet">
 <summary>
 <span class="fold-title">Agent H.M.’s Brain Word Doodle Sheet</span>
 <span class="fold-sum">CASE ALZHEIMER'S // OFFICIAL BRAIN HQ SCAVENGER HUNT</span>
@@ -660,5 +660,20 @@
             }
         }
     </script>
+
+<script>
+window.addEventListener('beforeprint', function () {
+  document.querySelectorAll('details.print-sheet').forEach(function (d) {
+    d.dataset.wasOpen = d.open ? '1' : '0';
+    d.open = true;
+  });
+});
+window.addEventListener('afterprint', function () {
+  document.querySelectorAll('details.print-sheet').forEach(function (d) {
+    if (d.dataset.wasOpen !== '1') d.open = false;
+  });
+});
+</script>
+
 </body>
 </html>

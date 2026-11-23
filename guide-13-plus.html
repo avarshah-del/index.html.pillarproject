@@ -120,7 +120,7 @@
         </div>
     </header>
 
-    <section id="discussion" class="read-anchor">
+    <section id="discussion" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Alzheimer's, caregiving, and the metaphor's edge</span>
@@ -157,7 +157,7 @@
 </details>
 </section>
 
-    <section id="how-to-help" class="read-anchor">
+    <section id="how-to-help" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">At home, and out in the community</span>
@@ -209,7 +209,7 @@
 </details>
 </section>
 
-    <section id="get-certified" class="read-anchor">
+    <section id="get-certified" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Get certified</span>
@@ -281,7 +281,7 @@
 </details>
 </section>
 
-    <section id="reflection" class="read-anchor">
+    <section id="reflection" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Reflection prompts</span>
@@ -316,7 +316,7 @@
     </section>
 
     <section id="printable-ally" class="read-anchor">
-<details class="read-fold">
+<details class="read-fold print-sheet">
 <summary>
 <span class="fold-title">What I can carry</span>
 <span class="fold-sum">Case Alzheimer's // Youth ally sheet</span>
@@ -465,5 +465,20 @@
             }
         }
     </script>
+
+<script>
+window.addEventListener('beforeprint', function () {
+  document.querySelectorAll('details.print-sheet').forEach(function (d) {
+    d.dataset.wasOpen = d.open ? '1' : '0';
+    d.open = true;
+  });
+});
+window.addEventListener('afterprint', function () {
+  document.querySelectorAll('details.print-sheet').forEach(function (d) {
+    if (d.dataset.wasOpen !== '1') d.open = false;
+  });
+});
+</script>
+
 </body>
 </html>

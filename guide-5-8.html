@@ -119,7 +119,7 @@
         </div>
     </header>
 
-    <section id="reading-tips" class="read-anchor">
+    <section id="reading-tips" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Shared first. Independent when they ask for the wheel.</span>
@@ -174,7 +174,7 @@
 </details>
 </section>
 
-    <section id="comprehension-guide" class="read-anchor">
+    <section id="comprehension-guide" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Six checkpoints, one question each</span>
@@ -299,7 +299,7 @@
 </details>
 </section>
 
-    <section id="brain-science" class="read-anchor">
+    <section id="brain-science" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Enough brain science for this age</span>
@@ -338,7 +338,7 @@
 </details>
 </section>
 
-    <section id="field-log" class="read-anchor">
+    <section id="field-log" class="read-anchor no-print">
 <details class="read-fold">
 <summary>
 <span class="fold-title">Print the Early Reader field log</span>
@@ -362,7 +362,7 @@
 </section>
 
     <section id="printable-field-log" class="read-anchor">
-<details class="read-fold">
+<details class="read-fold print-sheet">
 <summary>
 <span class="fold-title">Agent H.M.'s six-stop log</span>
 <span class="fold-sum">Case Alzheimer's // Early Reader field log</span>
@@ -525,5 +525,20 @@
             }
         }
     </script>
+
+<script>
+window.addEventListener('beforeprint', function () {
+  document.querySelectorAll('details.print-sheet').forEach(function (d) {
+    d.dataset.wasOpen = d.open ? '1' : '0';
+    d.open = true;
+  });
+});
+window.addEventListener('afterprint', function () {
+  document.querySelectorAll('details.print-sheet').forEach(function (d) {
+    if (d.dataset.wasOpen !== '1') d.open = false;
+  });
+});
+</script>
+
 </body>
 </html>
