@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Case Alzheimers | The Pillar Project</title>
     <!-- Google Fonts: Montserrat & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,7 @@
                         heading: ['Montserrat', 'sans-serif'],
                     },
                     colors: {
+                        paper: '#faf8f5',
                         pillar: {
                             light: '#f3e8ff',
                             DEFAULT: '#9333ea',
@@ -29,18 +30,19 @@
         }
     </script>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
 
+    <div class="site-header fixed top-0 inset-x-0 z-50">
     <!-- TOP HUB SWITCHER -->
-    <div class="fixed w-full z-50 top-0 bg-slate-100 border-b border-slate-200 px-6 py-2 flex justify-between items-center text-xs md:text-sm font-sans text-slate-600 shadow-sm">
-        <span class="font-medium tracking-wide">Current Hub: The Pillar Project (Main)</span>
-        <a href="case-alzheimers.html" class="bg-pillar text-white px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm">
+    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-xs md:text-sm font-sans text-slate-600 shadow-sm">
+        <span class="font-medium tracking-wide leading-snug min-w-0">Current Hub: The Pillar Project (Main)</span>
+        <a href="case-alzheimers.html" class="shrink-0 whitespace-nowrap bg-pillar text-white px-3 sm:px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm">
             ⟲ Switch to Case Alzheimer's
         </a>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-40 mt-[36px]">
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0">
@@ -64,9 +66,22 @@
                     <a href="https://a.co/d/0go6TYaq" target="_blank" rel="noopener noreferrer" class="font-medium text-pillar transition">The Book</a>
                     <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
                 </div>
+                <button type="button" class="lg:hidden ml-auto inline-flex items-center justify-center w-11 h-11 rounded-full text-slate-700 hover:bg-pillar-light" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
+                    <svg class="menu-icon-open w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="menu-icon-close hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-100 pb-4">
+                <a href="index.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Home</a>
+                <a href="about.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Our Story</a>
+                <a href="volunteer.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Volunteer</a>
+                <a href="https://a.co/d/0go6TYaq" target="_blank" rel="noopener noreferrer" class="block px-3 py-3 rounded-lg font-medium text-pillar bg-pillar-light/70">The Book</a>
+                <a href="sponsor-portal.html" class="md:hidden block px-3 py-3 rounded-lg font-medium text-teal-700">Sponsor Portal</a>
+                <a href="https://gofund.me/1da835a42" target="_blank" class="mt-2 block bg-pillar text-white px-5 py-3 rounded-full font-semibold text-center shadow-md">Donate</a>
             </div>
         </div>
     </nav>
+    </div>
 
     <!-- Book Hero Section -->
     <section class="pt-40 pb-16 px-4 sm:px-6 lg:px-8 bg-pillar-dark text-white">
@@ -135,58 +150,106 @@
         </div>
     </section>
 
-    <!-- FREE PILLAR GUIDE CHATBOT CODE -->
+    <!-- MICROGLIA CHAT WIDGET -->
     <style>
-        #pillar-chat-btn { position: fixed; bottom: 20px; right: 20px; background: none; border: none; padding: 0; cursor: pointer; z-index: 1000; transition: transform 0.2s; }
+        #pillar-chat-btn { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); right: max(20px, env(safe-area-inset-right)); background: none; border: none; padding: 0; cursor: pointer; z-index: 1000; transition: transform 0.2s; }
         #pillar-chat-btn img { width: 60px; height: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
         #pillar-chat-btn:hover { transform: scale(1.1); }
-        #pillar-chat-window { display: none; position: fixed; bottom: 90px; right: 20px; width: 320px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #e2e8f0; }
-        #pillar-chat-header { background-color: #9333ea; color: white; padding: 16px; font-family: 'Montserrat', sans-serif; font-weight: 700; text-align: center; display: flex; justify-content: space-between; align-items: center; }
-        #pillar-chat-body { padding: 16px; height: 280px; overflow-y: auto; background-color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .bot-msg { background: #e2e8f0; color: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
-        .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;}
-        .chat-option:hover { background: #7e22ce; }
     </style>
-    <button id="pillar-chat-btn" onclick="toggleChat()">
+    <button id="pillar-chat-btn" onclick="toggleChat()" aria-label="Ask Microglia">
         <img src="microglia_sprite.png" alt="Ask Microglia">
     </button>
-    <div id="pillar-chat-window">
-        <div id="pillar-chat-header">
-            <span>The Pillar Guide</span>
-            <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✖</button>
+    <div id="pillar-chat-window" style="display:none;" class="fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-3 right-3 sm:left-auto sm:right-6 sm:w-96 max-h-[min(70vh,560px)] bg-white border border-stone-300 rounded-xl shadow-xl z-[60] flex-col overflow-hidden">
+        <div class="bg-stone-900 text-white px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
+                <img src="microglia_sprite.png" alt="Microglia" class="w-6 h-6">
+                <span class="font-serif text-sm font-semibold">Ask Microglia</span>
+            </div>
+            <button onclick="toggleChat()" class="text-stone-400 hover:text-white text-sm">✕</button>
         </div>
-        <div id="pillar-chat-body">
-            <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div>
-            <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
-            <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
-            <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
+        <div id="pillar-chat-body" class="p-4 h-64 max-h-[40vh] overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
+            <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
+                Hi! I'm Microglia. Ask me about Case Alzheimers or how to explain memory loss to a child.
+            </div>
+        </div>
+        <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
+            <input id="pillar-chat-input" type="text" placeholder="Type your question..." class="flex-1 min-w-0 text-base sm:text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
+            <button onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
         </div>
     </div>
+
     <script>
+        function toggleMobileMenu(btn) {
+            var menu = document.getElementById('mobile-menu');
+            var open = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            btn.querySelector('.menu-icon-open').classList.toggle('hidden', open);
+            btn.querySelector('.menu-icon-close').classList.toggle('hidden', !open);
+        }
+        const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
+        let guideChatHistory = [];
+
+        function setChatLauncher(visible) {
+            const btn = document.getElementById("pillar-chat-btn");
+            if (btn) btn.style.display = visible ? "block" : "none";
+        }
+
         function toggleChat() {
-            var win = document.getElementById("pillar-chat-window");
-            win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none";
+            const win = document.getElementById("pillar-chat-window");
+            const opening = win.style.display === "none" || win.style.display === "";
+            win.style.display = opening ? "flex" : "none";
+            setChatLauncher(!opening);
+            if (opening) document.getElementById("pillar-chat-input").focus();
         }
-        function sendReply(type) {
-            var body = document.getElementById("pillar-chat-body");
-            var html = '';
-            if (type === 'volunteer') {
-                html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="volunteer.html" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>';
-            } else if (type === 'book') {
-                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, takes kids on a spy adventure to understand memory loss. <br><br><a href="https://a.co/d/0go6TYaq" target="_blank" style="color:#9333ea; font-weight:bold;">Get it on Amazon here!</a></div>';
-            } else if (type === 'resources') {
-                html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br><a href="parent-guide.html" style="color:#9333ea; font-weight:bold;">Click here for our Parent Guide.</a></div>';
+
+        function openMicrogliaChat() {
+            const win = document.getElementById("pillar-chat-window");
+            win.style.display = "flex";
+            setChatLauncher(false);
+            document.getElementById("pillar-chat-input").focus();
+        }
+
+        function appendGuideMsg(text, isUser) {
+            const body = document.getElementById("pillar-chat-body");
+            const div = document.createElement("div");
+            div.className = isUser
+                ? "bg-stone-900 text-white p-3 rounded-lg self-end max-w-[85%]"
+                : "bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]";
+            div.textContent = text;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+            return div;
+        }
+
+        async function sendGuideQuestion() {
+            const input = document.getElementById("pillar-chat-input");
+            const message = input.value.trim();
+            if (!message) return;
+            input.value = "";
+            appendGuideMsg(message, true);
+            const loading = appendGuideMsg("Checking Brain HQ Glossary...", false);
+
+            try {
+                const res = await fetch(CHAT_ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userMessage: message,
+                        history: guideChatHistory.slice(-6),
+                        activePage: "Case Alzheimers Book"
+                    })
+                });
+                const data = await res.json();
+                loading.remove();
+                const reply = data.reply || "Could you try asking that one more time?";
+                appendGuideMsg(reply, false);
+                guideChatHistory.push({ role: "user", content: message }, { role: "assistant", content: reply });
+            } catch (err) {
+                loading.remove();
+                appendGuideMsg("Connection is offline right now—please try again shortly.", false);
             }
-            html += '<button class="chat-option" onclick="resetChat()" style="margin-top: 15px; background: #64748b;">Start Over</button>';
-            body.innerHTML = html;
-        }
-        function resetChat() {
-            document.getElementById("pillar-chat-body").innerHTML = `
-                <div class="bot-msg">Hi! I'm your digital guide to The Pillar Project. How can I help you today?</div>
-                <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
-                <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
-                <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
-            `;
         }
     </script>
 </body>
