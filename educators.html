@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="microglia_sprite.png">
+    <title>Educators | Case Alzheimer's Companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Share Tech Mono', 'monospace'],
+                    },
+                    colors: { paper: '#faf8f5', ink: '#1c1917' }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body { max-width: 100%; overflow-x: hidden; }
+        img { max-width: 100%; height: auto; }
+        @media print {
+            body { background: #fff !important; color: #000 !important; }
+            .no-print { display: none !important; }
+            #printable-lesson {
+                display: block !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            .print-block { break-inside: avoid; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased selection:bg-amber-200">
+
+    <div class="no-print w-full bg-stone-900 text-stone-300 px-4 sm:px-6 py-2.5 flex flex-wrap justify-between items-center gap-x-4 gap-y-1 text-[11px] sm:text-xs font-mono">
+        <span class="leading-snug">PARENT &amp; EDUCATOR COMPANION // CLASSROOMS</span>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <a href="parent-guide.html" class="text-amber-300 hover:underline">← All Age Guides</a>
+            <span class="text-stone-600" aria-hidden="true">/</span>
+            <a href="case-alzheimers.html" class="hover:text-white transition">Case Alzheimer's Hub</a>
+        </div>
+    </div>
+
+    <nav class="no-print w-full bg-paper/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-16 flex justify-between items-center gap-3">
+                <a href="parent-guide.html" class="flex items-center gap-3 min-w-0">
+                    <img src="The Pillar Project.PNG" alt="The Pillar Project" class="h-10 w-auto shrink-0">
+                    <span class="font-serif text-base sm:text-lg font-semibold text-stone-900 tracking-tight truncate">Educators</span>
+                </a>
+                <div class="hidden md:flex items-center gap-1 text-xs font-mono shrink-0">
+                    <a href="guide-under-5.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">Under 5</a>
+                    <a href="guide-5-8.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">5–8</a>
+                    <a href="guide-9-12.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">9–12</a>
+                    <a href="guide-13-plus.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">13+</a>
+                    <a href="educators.html" class="bg-stone-900 text-white px-2.5 py-1.5 rounded">Educators</a>
+                </div>
+                <button type="button" class="md:hidden shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full text-stone-700 hover:bg-stone-200/80" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
+                    <svg class="menu-icon-open w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="menu-icon-close hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden border-t border-stone-200 pb-3">
+                <a href="guide-under-5.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Under 5 guide</a>
+                <a href="guide-5-8.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 5–8 · Early Readers</a>
+                <a href="guide-9-12.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 9–12 · Core Book Agents</a>
+                <a href="guide-13-plus.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 13+ · Teens &amp; Youth Allies</a>
+                <a href="educators.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-900 bg-amber-100/80">Educators</a>
+                <a href="parent-guide.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Parent Guide &amp; glossary</a>
+                <a href="the-book.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">The Book</a>
+                <a href="training-zone.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Agent Training Zone</a>
+                <a href="rec-room.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">HQ Rec Room</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-3">A classroom companion, separate from the family age router</p>
+        <h1 class="font-serif text-4xl sm:text-5xl text-stone-900 leading-tight mb-5">
+            Teach the story. Do not teach a diagnosis.
+        </h1>
+        <p class="text-lg text-stone-600 leading-relaxed">
+            <em>Case Alzheimer's</em> is informational fiction: a spy mission through Brain HQ that lines up with real words for neurons, memory, language, and feelings. In a classroom it works as a read-aloud plus a printable, not as a unit on anyone's grandparent. The sponsor briefing describes a school pilot for 4th, 5th, and 6th grade science in Livingston, New Jersey, with the book and a neuroscience author visit. This page is the zero-prep flow for that kind of visit, and for any other room that has the book.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#lesson-flow" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-stone-700 transition">Lesson flow</a>
+            <a href="#guides" class="bg-white border border-stone-300 text-stone-900 text-sm font-medium px-5 py-2.5 rounded-lg hover:border-stone-900 transition">All four guides</a>
+            <button type="button" onclick="window.print()" class="bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">Print the lesson card</button>
+        </div>
+    </header>
+
+    <section id="lesson-flow" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">One period, about 45–60 minutes</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-3">Lesson flow</h2>
+        <p class="text-stone-600 mb-8 leading-relaxed">
+            For 4th–6th grade, use the <a href="guide-9-12.html" class="underline text-stone-800">Core Book Agents guide</a> and its Four Zones mission file. Younger read-alouds use Early Readers or Under 5. A middle or high school group that is talking about caregiving, not just cells, uses Teens &amp; Youth Allies. The book's own briefing labels the core read as ages 8–12.
+        </p>
+        <ol class="space-y-4">
+            <li class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">01 · Open · about 5 minutes</div>
+                <h3 class="font-serif text-xl text-stone-900">Forehead, then one pair of words</h3>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">Everyone taps their forehead: that is Brain HQ, the prefrontal cortex, "the boss of the brain." Put one glossary pair on the board from the <a href="parent-guide.html" class="underline text-stone-800">Parent Guide</a> — book name on the left, science name on the right. Tell the room the story is about Alzheimer's, which is a disease, and that no one will be asked to share a family story.</p>
+            </li>
+            <li class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">02 · Read · about 20 minutes</div>
+                <h3 class="font-serif text-xl text-stone-900">Four phases, one pause each</h3>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">Read aloud, or have students share the short shouted lines if you are with younger readers. Pause once in each phase the sponsor briefing already names: Brain HQ (the missing Double-Chocolate-Chunk Cookie recipe and the tangles), the Word Warehouse (Class-8 aphasia, tangles on the word-orbs, a tiny manager with a huge voice), Emotion-Land (weedy rides, the synaptic-gap scooter), and the Data Library (New Data blocked, Deep Archives still playing after ZAP). The Under 5 guide is the only place this site maps those scenes to page numbers. Use those ranges if your copy matches; if a printing differs, follow the place names instead of forcing a page.</p>
+            </li>
+            <li class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">03 · File it · about 15 minutes</div>
+                <h3 class="font-serif text-xl text-stone-900">The printable that matches the room</h3>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">Hand out the sheet linked below. Students write or draw. You are listening for the idea that ZAP does not remove the weeds, and that a kind response is different from a quiz. Collect the sheets or let students take them home. Do not grade anyone on a personal caregiving disclosure.</p>
+            </li>
+            <li class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">04 · Close · about 5 minutes</div>
+                <h3 class="font-serif text-xl text-stone-900">The Training Zone pledge, said out loud</h3>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">Read the four promises already written in the Agent Training Zone: treat people who have memory loss with patience and kindness; never tease when a word or a memory drops; show comfort when the amygdala is overwhelmed; remember the person is still there when the brain glitches. Stop there. If students have their own copy, the classified code in the back of the book opens the online Book Protocol later. Do not put that code on a slide.</p>
+            </li>
+        </ol>
+    </section>
+
+    <section id="guides" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Pick the guide, then print its sheet</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-6">Four guides, four printables</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+            <a href="guide-under-5.html" class="block bg-white border border-stone-200 rounded-xl p-5 hover:border-stone-900 transition">
+                <div class="flex justify-between items-baseline gap-2 mb-2">
+                    <span class="font-serif text-xl text-stone-900">Under 5</span>
+                    <span class="font-mono text-xs text-stone-500">Storytime</span>
+                </div>
+                <p class="text-sm text-stone-600 leading-relaxed mb-3">Action cues, six comprehension stops, and the picture-superiority note for adults. Best for a lap read, a library storytime, or an older student helping a younger sibling.</p>
+                <span class="text-sm font-medium text-stone-900 underline">Doodle scavenger hunt</span>
+            </a>
+            <a href="guide-5-8.html" class="block bg-white border border-stone-200 rounded-xl p-5 hover:border-stone-900 transition">
+                <div class="flex justify-between items-baseline gap-2 mb-2">
+                    <span class="font-serif text-xl text-stone-900">Ages 5–8</span>
+                    <span class="font-mono text-xs text-stone-500">Early readers</span>
+                </div>
+                <p class="text-sm text-stone-600 leading-relaxed mb-3">Shared reading first, an independent retelling second, checkpoints aimed at repeating questions, and a short neuron explanation for the adult.</p>
+                <span class="text-sm font-medium text-stone-900 underline">Field log printable</span>
+            </a>
+            <a href="guide-9-12.html" class="block bg-white border border-stone-200 rounded-xl p-5 hover:border-stone-900 transition">
+                <div class="flex justify-between items-baseline gap-2 mb-2">
+                    <span class="font-serif text-xl text-stone-900">Ages 9–12</span>
+                    <span class="font-mono text-xs text-stone-500">Core agents</span>
+                </div>
+                <p class="text-sm text-stone-600 leading-relaxed mb-3">The default for the 4th–6th grade pilot. Discussion questions, the neuron path in glossary words, memory, tangles, and a careful note on plaques.</p>
+                <span class="text-sm font-medium text-stone-900 underline">Operation Four Zones</span>
+            </a>
+            <a href="guide-13-plus.html" class="block bg-white border border-stone-200 rounded-xl p-5 hover:border-stone-900 transition">
+                <div class="flex justify-between items-baseline gap-2 mb-2">
+                    <span class="font-serif text-xl text-stone-900">Ages 13+</span>
+                    <span class="font-mono text-xs text-stone-500">Youth allies</span>
+                </div>
+                <p class="text-sm text-stone-600 leading-relaxed mb-3">Caregiving, co-regulation, what the metaphor cannot promise, home help, and volunteering from age 14 with a guardian waiver under 18.</p>
+                <span class="text-sm font-medium text-stone-900 underline">Ally sheet</span>
+            </a>
+        </div>
+
+        <div class="mt-8 bg-white border border-stone-200 rounded-xl p-6">
+            <h3 class="font-serif text-2xl text-stone-900 mb-3">Direct links to the printables</h3>
+            <ul class="text-sm text-stone-700 space-y-2 leading-relaxed">
+                <li><a class="underline text-stone-900" href="guide-under-5.html#printable-doodle-sheet">Under 5 · Brain Word Doodle Sheet</a> — fourteen glossary boxes. Upload a photo in the Agent Training Zone for bonus XP.</li>
+                <li><a class="underline text-stone-900" href="guide-5-8.html#printable-field-log">Ages 5–8 · Six-stop field log</a> — a few words or a doodle at each story stop.</li>
+                <li><a class="underline text-stone-900" href="guide-9-12.html#printable-mission">Ages 9–12 · Operation Four Zones</a> — one card per brain region, plus a glossary trio.</li>
+                <li><a class="underline text-stone-900" href="guide-13-plus.html#printable-ally">Ages 13+ · What I can carry</a> — one hour, one boundary, one person to tell.</li>
+                <li><a class="underline text-stone-900" href="#printable-lesson">This page · one-period lesson card</a> — the flow above, compressed for a clipboard.</li>
+            </ul>
+        </div>
+
+        <div class="mt-4 grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="bg-amber-50/90 border border-amber-200 rounded-xl p-5">
+                <h3 class="font-serif text-lg text-stone-900 mb-2">Say this</h3>
+                <p class="text-stone-700 leading-relaxed">Alzheimer's is a disease that can hide new memories, scramble word-finding, and make feelings surge. The person is still there. Patience is the assignment. The science words are the ones in the glossary, used as the book uses them.</p>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <h3 class="font-serif text-lg text-stone-900 mb-2">Leave this out</h3>
+                <p class="text-stone-700 leading-relaxed">No student medical histories. No claim that a hug, a class period, or a certificate treats or reverses the disease. No secret book code on a shared screen. For a visit with someone older, send families to the <a href="rec-room.html" class="underline text-stone-900">HQ Rec Room</a> and let them choose an activity there.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">After the period</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-4">Extensions that already exist</h2>
+        <div class="grid sm:grid-cols-3 gap-4 text-sm">
+            <a href="training-zone.html" class="bg-white border border-stone-200 rounded-xl p-5 hover:border-stone-900 transition">
+                <div class="font-mono text-xs text-stone-500 mb-1">At home</div>
+                <strong class="block text-stone-900 mb-1">Agent Training Zone</strong>
+                <p class="text-stone-600">Four zone reboots and a pledge. Students need the code printed in their own book.</p>
+            </a>
+            <a href="rec-room.html" class="bg-white border border-stone-200 rounded-xl p-5 hover:border-stone-900 transition">
+                <div class="font-mono text-xs text-stone-500 mb-1">Intergenerational</div>
+                <strong class="block text-stone-900 mb-1">HQ Rec Room</strong>
+                <p class="text-stone-600">Intergenerational activities live here. Useful as a family follow-up. Older students who want a certificate should use the <a href="guide-13-plus.html#get-certified" class="underline text-stone-900">Get certified</a> list.</p>
+            </a>
+            <a href="volunteer.html" class="bg-white border border-stone-200 rounded-xl p-5 hover:border-stone-900 transition">
+                <div class="font-mono text-xs text-stone-500 mb-1">Ages 14–22</div>
+                <strong class="block text-stone-900 mb-1">Volunteer</strong>
+                <p class="text-stone-600">Shadow, then lead art, music, or sensory sessions. Under 18 needs a guardian waiver. Optional Alzheimer's Association courses.</p>
+            </a>
+        </div>
+        <div class="mt-8 bg-stone-900 text-stone-100 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+                <img src="microglia_sprite.png" alt="Microglia" class="w-12 h-12 shrink-0">
+                <div>
+                    <h3 class="font-serif text-lg text-white">A student question you want to check first?</h3>
+                    <p class="text-sm text-stone-300">Ask Microglia for a classroom-safe explanation before you answer out loud.</p>
+                </div>
+            </div>
+            <button type="button" onclick="openMicrogliaChat()" class="w-full sm:w-auto bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">Ask Microglia</button>
+        </div>
+    </section>
+
+    <section class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <h2 class="font-serif text-2xl text-stone-900">Clipboard lesson card</h2>
+            <button type="button" onclick="window.print()" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-stone-700 transition">Print lesson card</button>
+        </div>
+    </section>
+
+    <section id="printable-lesson" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="bg-white border-2 border-stone-900 rounded-xl p-6 sm:p-8 shadow-sm">
+            <div class="border-b-2 border-stone-900 pb-4 mb-5">
+                <p class="font-mono text-xs uppercase tracking-widest text-stone-600">Case Alzheimer's // Classroom mission card</p>
+                <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-bold">One period, no diagnosis</h2>
+                <p class="text-xs text-stone-600 mt-1">Science story and empathy pledge. Students are not asked to disclose a family illness.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono mb-5">
+                <div class="border border-stone-300 rounded px-3 py-2">CLASS / GRADE: _______________________</div>
+                <div class="border border-stone-300 rounded px-3 py-2">DATE: ____________ &nbsp; GUIDE USED: ________</div>
+            </div>
+            <ol class="space-y-3 text-sm">
+                <li class="print-block border-2 border-stone-300 rounded-lg p-3"><strong>1. Open.</strong> Forehead = Brain HQ (prefrontal cortex). One glossary pair on the board. Alzheimer's is a disease. Sharing a personal story is optional and never required.</li>
+                <li class="print-block border-2 border-stone-300 rounded-lg p-3"><strong>2. Read four phases.</strong> Brain HQ and the missing cookie recipe. Word Warehouse and aphasia. Emotion-Land and the scooter jump. Data Library: weeds block new memories; ZAP plays older ones. It does not clear the tangles.</li>
+                <li class="print-block border-2 border-stone-300 rounded-lg p-3"><strong>3. Printable.</strong> Under 5 doodle sheet, 5–8 field log, 9–12 Four Zones file, or 13+ ally sheet. Listen for kindness versus quizzing.</li>
+                <li class="print-block border-2 border-stone-300 rounded-lg p-3"><strong>4. Pledge.</strong> Patience. No teasing when a word drops. Comfort when feelings surge. The person is still there. Book code stays in the book.</li>
+            </ol>
+            <div class="mt-5 text-xs text-stone-600 leading-relaxed">
+                <p class="font-mono text-[11px] uppercase tracking-wider text-stone-500 mb-1">Sheets</p>
+                <p>pillarproject.online/guide-under-5.html · /guide-5-8.html · /guide-9-12.html · /guide-13-plus.html</p>
+                <p class="mt-2">Glossary: pillarproject.online/parent-guide.html · Helpline if a family needs support: Alzheimer's NJ, 888-280-6055.</p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-stone-300 text-xs font-mono text-stone-600">The Pillar Project // Educators</div>
+        </div>
+    </section>
+
+    <footer class="no-print border-t border-stone-200 bg-paper py-10 text-center text-xs text-stone-500">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span>&copy; 2026 The Pillar Project. All rights reserved.</span>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                <a href="parent-guide.html" class="hover:text-stone-900">Parent guide</a>
+                <a href="guide-9-12.html" class="hover:text-stone-900">Core book agents</a>
+                <a href="mailto:contactpillarproject@gmail.com" class="hover:text-stone-900">contactpillarproject@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="pillar-chat-window" style="display:none;" class="no-print fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-3 right-3 sm:left-auto sm:right-6 sm:w-96 z-50 max-h-[min(70vh,560px)] bg-white border border-stone-300 rounded-xl shadow-xl flex-col overflow-hidden">
+        <div class="bg-stone-900 text-white px-4 py-3 flex justify-between items-center gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+                <img src="microglia_sprite.png" alt="" class="w-6 h-6 shrink-0">
+                <span class="font-serif text-sm font-semibold truncate">Ask Microglia (educators)</span>
+            </div>
+            <button type="button" onclick="toggleChat()" class="text-stone-400 hover:text-white text-sm shrink-0" aria-label="Close chat">✕</button>
+        </div>
+        <div id="pillar-chat-body" class="p-4 h-64 max-h-[40vh] overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
+            <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
+                Planning a class read of Case Alzheimer's? Ask for a classroom-safe way to explain a zone, a glossary word, or a student question.
+            </div>
+        </div>
+        <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
+            <input id="pillar-chat-input" type="text" placeholder="Ask a classroom question..." class="flex-1 min-w-0 text-base sm:text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
+            <button type="button" onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu(btn) {
+            var menu = document.getElementById('mobile-menu');
+            var open = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            btn.querySelector('.menu-icon-open').classList.toggle('hidden', open);
+            btn.querySelector('.menu-icon-close').classList.toggle('hidden', !open);
+        }
+        const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
+        let guideChatHistory = [];
+        function toggleChat() {
+            const win = document.getElementById("pillar-chat-window");
+            win.style.display = (win.style.display === "none" || win.style.display === "") ? "flex" : "none";
+        }
+        function openMicrogliaChat() {
+            document.getElementById("pillar-chat-window").style.display = "flex";
+            document.getElementById("pillar-chat-input").focus();
+        }
+        function appendGuideMsg(text, isUser) {
+            const body = document.getElementById("pillar-chat-body");
+            const div = document.createElement("div");
+            div.className = isUser
+                ? "bg-stone-900 text-white p-3 rounded-lg self-end max-w-[85%]"
+                : "bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]";
+            div.textContent = text;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+            return div;
+        }
+        async function sendGuideQuestion() {
+            const input = document.getElementById("pillar-chat-input");
+            const message = input.value.trim();
+            if (!message) return;
+            input.value = "";
+            appendGuideMsg(message, true);
+            const loading = appendGuideMsg("Checking the classroom briefing...", false);
+            try {
+                const res = await fetch(CHAT_ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userMessage: message,
+                        history: guideChatHistory.slice(-6),
+                        activePage: "Educators resource: Case Alzheimer's"
+                    })
+                });
+                const data = await res.json();
+                loading.remove();
+                const reply = data.reply || "Could you try asking that one more time?";
+                appendGuideMsg(reply, false);
+                guideChatHistory.push({ role: "user", content: message }, { role: "assistant", content: reply });
+            } catch (err) {
+                loading.remove();
+                appendGuideMsg("Connection is offline right now—please try again shortly.", false);
+            }
+        }
+    </script>
+</body>
+</html>

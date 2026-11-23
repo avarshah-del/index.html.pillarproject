@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="microglia_sprite.png">
     <title>The Book | Case Alzheimer's</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
@@ -42,6 +43,28 @@
             font-size: 15px; transition: 0.3s; 
         }
         .nav-links a:hover { color: #FFD700; text-shadow: 0 0 5px #FFD700; }
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            color: #66FCF1;
+            border: 1px solid #66FCF1;
+            padding: 8px 14px;
+            font-family: 'Share Tech Mono', monospace;
+            border-radius: 3px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 900px) {
+            .menu-toggle { display: inline-block; }
+            .top-bar { flex-wrap: wrap; gap: 8px; padding: 10px 12px; align-items: center; }
+            .top-bar > span { flex: 1 1 160px; min-width: 0; line-height: 1.35; }
+            .switch-btn { font-size: 12px; padding: 8px 10px; }
+            nav { padding: 14px 16px; flex-wrap: wrap; }
+            .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 4px; padding-top: 8px; }
+            .nav-links.is-open { display: flex; }
+            .nav-links a { display: block; padding: 12px 4px; }
+            .sponsor-btn { text-align: center; }
+        }
         
         .sponsor-btn { 
             background: rgba(57, 255, 20, 0.1); border: 1px solid #39FF14; 
@@ -146,12 +169,18 @@
 
     <nav>
         <div class="logo spy-font">BRAIN HQ // CA</div>
-        <div class="nav-links spy-font">
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="spy-nav" aria-label="Open menu" onclick="toggleSpyMenu(this)">MENU</button>
+        <div id="spy-nav" class="nav-links spy-font">
             <a href="case-alzheimers.html">HOME</a>
             <a href="the-book.html" style="color:#FFD700;">THE BOOK</a>
             <a href="training-zone.html">AGENT TRAINING ZONE</a>
             <a href="rec-room.html">HQ REC ROOM</a>
             <a href="parent-guide.html">PARENT GUIDE</a>
+            <a href="educators.html">EDUCATORS</a>
+            <a href="guide-under-5.html">GUIDE &lt;5</a>
+            <a href="guide-5-8.html">GUIDE 5–8</a>
+            <a href="guide-9-12.html">GUIDE 9–12</a>
+            <a href="guide-13-plus.html">GUIDE 13+</a>
             <a href="media.html">MEDIA HUB</a>
             <a href="sponsor-portal.html" class="sponsor-btn">SPONSOR PORTAL [RESTRICTED]</a>
         </div>
@@ -193,5 +222,14 @@
         TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.
     </footer>
 
+    <script>
+        function toggleSpyMenu(btn) {
+            var menu = document.getElementById('spy-nav');
+            var open = menu.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            btn.textContent = open ? 'CLOSE' : 'MENU';
+        }
+    </script>
 </body>
 </html>

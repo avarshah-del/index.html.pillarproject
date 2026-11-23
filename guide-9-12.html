@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="microglia_sprite.png">
+    <title>Ages 9–12 Reading Guide (Core Book Agents) | Case Alzheimer's</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Share Tech Mono', 'monospace'],
+                    },
+                    colors: { paper: '#faf8f5', ink: '#1c1917' }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body { max-width: 100%; overflow-x: hidden; }
+        img { max-width: 100%; height: auto; }
+        @media print {
+            body { background: #fff !important; color: #000 !important; }
+            .no-print { display: none !important; }
+            #printable-mission {
+                display: block !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            .print-block { break-inside: avoid; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased selection:bg-amber-200">
+
+    <div class="no-print w-full bg-stone-900 text-stone-300 px-4 sm:px-6 py-2.5 flex flex-wrap justify-between items-center gap-x-4 gap-y-1 text-[11px] sm:text-xs font-mono">
+        <span class="leading-snug">PARENT &amp; EDUCATOR COMPANION // AGES 9–12</span>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <a href="parent-guide.html" class="text-amber-300 hover:underline">← All Age Guides</a>
+            <span class="text-stone-600" aria-hidden="true">/</span>
+            <a href="educators.html" class="hover:text-white transition">Educators</a>
+            <span class="text-stone-600" aria-hidden="true">/</span>
+            <a href="case-alzheimers.html" class="hover:text-white transition">Case Alzheimer's Hub</a>
+        </div>
+    </div>
+
+    <nav class="no-print w-full bg-paper/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-16 flex justify-between items-center gap-3">
+                <a href="parent-guide.html" class="flex items-center gap-3 min-w-0">
+                    <img src="The Pillar Project.PNG" alt="The Pillar Project" class="h-10 w-auto shrink-0">
+                    <span class="font-serif text-base sm:text-lg font-semibold text-stone-900 tracking-tight truncate">Core Book Agents</span>
+                </a>
+                <div class="hidden md:flex items-center gap-1 text-xs font-mono shrink-0">
+                    <a href="guide-under-5.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">Under 5</a>
+                    <a href="guide-5-8.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">5–8</a>
+                    <a href="guide-9-12.html" class="bg-stone-900 text-white px-2.5 py-1.5 rounded">9–12</a>
+                    <a href="guide-13-plus.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">13+</a>
+                    <a href="educators.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">Educators</a>
+                </div>
+                <button type="button" class="md:hidden shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full text-stone-700 hover:bg-stone-200/80" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
+                    <svg class="menu-icon-open w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="menu-icon-close hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden border-t border-stone-200 pb-3">
+                <a href="guide-under-5.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Under 5</a>
+                <a href="guide-5-8.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 5–8 · Early Readers</a>
+                <a href="guide-9-12.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-900 bg-amber-100/80">Ages 9–12 · Core Book Agents</a>
+                <a href="guide-13-plus.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 13+ · Teens &amp; Youth Allies</a>
+                <a href="educators.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Educators</a>
+                <a href="parent-guide.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">All Age Guides</a>
+                <a href="the-book.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">The Book</a>
+                <a href="training-zone.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Agent Training Zone</a>
+                <a href="rec-room.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">HQ Rec Room</a>
+                <a href="media.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Media Hub</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 border-b border-stone-200">
+        <div class="inline-flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-800 bg-amber-100/80 px-3 py-1 rounded mb-4">
+            <span>Ages 9–12</span>
+            <span>·</span>
+            <span>Core Book Agents</span>
+        </div>
+        <h1 class="font-serif text-4xl sm:text-5xl text-stone-900 leading-tight mb-5">
+            The mission briefing for the readers the book was built for
+        </h1>
+        <p class="text-lg text-stone-600 leading-relaxed">
+            The book's own page calls this a classified briefing for ages 8–12. Readers here can hold both layers at once: Agent H.M.'s spy plot, and the glossary underneath it. Big Boss, the Word Warehouse manager, the Emotion-Land rides, and the Head Librarian are still characters. They are also the prefrontal cortex, Broca's and Wernicke's areas, the amygdala, and the hippocampus.
+        </p>
+        <p class="text-sm text-stone-500 mt-4 leading-relaxed">
+            Page ranges, when they appear, are the stops published on the <a href="guide-under-5.html" class="underline text-stone-700">Under 5 guide</a>. Nothing here diagnoses Alzheimer's or promises what any one person will remember.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#discussion" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-stone-700 transition">1. Discussion</a>
+            <a href="#brain-science" class="bg-white border border-stone-300 text-stone-900 text-sm font-medium px-5 py-2.5 rounded-lg hover:border-stone-900 transition">2. Neurons &amp; memory</a>
+            <a href="#mission" class="bg-white border border-stone-300 text-stone-900 text-sm font-medium px-5 py-2.5 rounded-lg hover:border-stone-900 transition">3. Four-zone mission</a>
+            <button type="button" onclick="window.print()" class="bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">Print the mission file</button>
+        </div>
+    </header>
+
+    <section id="discussion" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 1 · After a full read, or zone by zone</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-3">Questions with more than one good answer</h2>
+        <p class="text-stone-600 mb-8 leading-relaxed">
+            These are discussions, not the Training Zone's multiple-choice security checks. Let a reader disagree, as long as they can point at the story. The four phases below are the same path the sponsor briefing uses: Brain HQ, the Word Warehouse, Emotion-Land, then the Data Library.
+        </p>
+        <div class="space-y-4">
+            <article class="bg-white border border-stone-200 rounded-xl p-5">
+                <p class="font-mono text-xs text-stone-500 mb-1">Phase 1 · Brain HQ · prefrontal cortex</p>
+                <p class="font-serif text-xl text-stone-900">Why does Big Boss panic about a cookie recipe?</p>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">The Double-Chocolate-Chunk Cookie recipe is an ordinary plan, and ordinary plans live in Brain HQ, behind the forehead. Losing "what's for dinner" or a grandchild's name in the moment can look small from outside and enormous inside the office that is supposed to keep the day organized. Ask: which everyday file in your own week would scare you if it vanished?</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-5">
+                <p class="font-mono text-xs text-stone-500 mb-1">Phase 2 · Word Warehouse · Broca's &amp; Wernicke's areas</p>
+                <p class="font-serif text-xl text-stone-900">The voice is huge. The manager is tiny. What do you do with that?</p>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">Tangles wrap the glowing word-orbs and the book names the result a Class-8 aphasia: trouble finding words, not a monster and not a lack of thoughts. A sharp or stuck voice can be the glitch getting loud. The Training Zone pledge is explicit: never tease, and do not get frustrated, when someone forgets a word. What would "offering a word" look like compared with "finishing every sentence"?</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-5">
+                <p class="font-mono text-xs text-stone-500 mb-1">The ride between zones · signal scooter</p>
+                <p class="font-serif text-xl text-stone-900">Retell the scooter jump in glossary words.</p>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">H.M. jumps the synaptic gap. The launch side is the axon terminal. The catchers on the far side are dendrites. The blue bubbles are neurotransmitters. Myelin, earlier on the Synaptic Express, was the speed booster around the action potential. ATP is the fuel that runs out — "BEEP! SPUTTER... PFFFT!" Use those six terms in order, in your own sentence. Then say which part of that ride is a metaphor and which part is the real cell biology.</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-5">
+                <p class="font-mono text-xs text-stone-500 mb-1">Phase 3 · Emotion-Land · amygdala</p>
+                <p class="font-serif text-xl text-stone-900">The rides are out of whack. Are the feelings fake?</p>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">The Training Zone's Ride Operator says the park of feelings is glitching, and the quiz marks this sentence true: even if someone forgets things, their feelings are still real. A calm voice and a comforting hug are the "gadget" the zone accepts. A loud whistle and running away are not. Where would you rather be if you were the person on the weedy roller coaster?</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-5">
+                <p class="font-mono text-xs text-stone-500 mb-1">Phase 4 · Data Library · hippocampus</p>
+                <p class="font-serif text-xl text-stone-900">What does ZAP actually do?</p>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">The New Data section is blocked by weeds, so new memories are the ones that fail to save. The Deep Archives — long-term memory — still hold older favorites, and the golden screens play them. ZAP does not rip the weeds out. If you were briefing a younger sibling, how would you explain the button so they do not expect the disease to switch off?</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-5">
+                <p class="font-mono text-xs text-stone-500 mb-1">After the book · the pledge</p>
+                <p class="font-serif text-xl text-stone-900">Which pledge line is the hardest to keep?</p>
+                <p class="text-sm text-stone-600 mt-2 leading-relaxed">The Agent Training Zone asks readers to check four promises: patience and kindness; no teasing when a word or memory drops; comfort when the amygdala is overwhelmed; and remembering the person is still there when the brain glitches. Pick the one you would most want a friend to keep with your family, and the one you might break on a bad day. That second answer is the useful one.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="brain-science" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 2 · Glossary, used as science</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-4">Memory, neurons, and the words the book already defined</h2>
+        <p class="text-stone-600 mb-6 leading-relaxed">
+            Definitions below are the ones in <a href="parent-guide.html" class="underline text-stone-800">Agent H.M.'s glossary</a> and the Training Zone, plus two careful notes where a family will hear a word the plot does not act out. This is general, well-established background. It is not a description of any one person's brain.
+        </p>
+
+        <div class="bg-white border border-stone-200 rounded-xl p-6 mb-4">
+            <h3 class="font-serif text-2xl text-stone-900 mb-3">How a message moves</h3>
+            <ol class="space-y-3 text-sm text-stone-700">
+                <li class="flex gap-3"><span class="font-mono text-xs bg-stone-900 text-white rounded px-2 py-1 h-fit">1</span><span><strong>Action potential.</strong> A high-speed zap of electricity shoots down the neuron. The book puts Agent H.M. on that zap and calls the ride the Synaptic Express.</span></li>
+                <li class="flex gap-3"><span class="font-mono text-xs bg-stone-900 text-white rounded px-2 py-1 h-fit">2</span><span><strong>Myelin.</strong> A wrapping that lets the message zoom. Speed boosters on the train.</span></li>
+                <li class="flex gap-3"><span class="font-mono text-xs bg-stone-900 text-white rounded px-2 py-1 h-fit">3</span><span><strong>Axon terminal and dendrites.</strong> The launch pad where the message jumps off, and the catchers that receive it. Neurons do not touch.</span></li>
+                <li class="flex gap-3"><span class="font-mono text-xs bg-stone-900 text-white rounded px-2 py-1 h-fit">4</span><span><strong>Synaptic gap and neurotransmitters.</strong> The tiny empty space, and the chemical messengers — the blue bubbles — that cross it.</span></li>
+                <li class="flex gap-3"><span class="font-mono text-xs bg-stone-900 text-white rounded px-2 py-1 h-fit">5</span><span><strong>ATP.</strong> The energy that powers cells. In the story the Signal Scooter dies when the fuel runs out. Running out of story-fuel is a picture of a tired system, not a set of instructions for fixing one.</span></li>
+            </ol>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <h3 class="font-serif text-lg text-stone-900 mb-2">The Data Library</h3>
+                <p class="text-stone-600 leading-relaxed">The hippocampus is the memory saver that grabs new memories and files them. The Training Zone describes its shape as a tiny seahorse, and its security question says that when Alzheimer's affects this library, what usually gets forgotten first is something new — not a childhood name, and not how to breathe. The book's Deep Archives are the long-term vault of older favorites. Photos and old songs are the visit the Training Zone recommends. They are not a cure, and the story does not promise every old memory stays forever.</p>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <h3 class="font-serif text-lg text-stone-900 mb-2">Tangles, and the word "plaques"</h3>
+                <p class="text-stone-600 leading-relaxed">Tangles, in the glossary, are twisted proteins that block tracks like weeds. That is the picture the plot actually shows: vines on word-orbs, weeds on the roller coaster, weeds across the New Data door. The book page also says readers learn what happens when plaques and tangles appear. Plaques are a second, well-known change in Alzheimer's — clumps that build up between cells. The guides on this site do not describe a plaque scene, because the pages we have do not narrate one. Do not add a monster that the book did not draw.</p>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <h3 class="font-serif text-lg text-stone-900 mb-2">Cleanup is not a reset button</h3>
+                <p class="text-stone-600 leading-relaxed">The proteasome unit is the glossary's clean-up crew, the part that clears garbage. Microglia, on the home page, are glial cells — immune security agents that help keep neurons healthy — and on this website Microglia is the guide you can ask. Neither one erases the weeds in the story. If you spot the proteasome while you read, name it. Do not invent a chapter where the crew wins and the disease leaves.</p>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <h3 class="font-serif text-lg text-stone-900 mb-2">Use the tools that are actually live</h3>
+                <p class="text-stone-600 leading-relaxed">The classified code that opens the Book Protocol is printed in the book, not on this page. Enter it yourself in the <a href="training-zone.html" class="underline text-stone-800">Agent Training Zone</a> and reboot the four zones. For a real visit with an older person, start in the <a href="rec-room.html" class="underline text-stone-800">HQ Rec Room</a>, the shelf of intergenerational activities.</p>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-stone-900 text-stone-100 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+                <img src="microglia_sprite.png" alt="Microglia" class="w-12 h-12 shrink-0">
+                <div>
+                    <h3 class="font-serif text-lg text-white">Stuck between the metaphor and the cell?</h3>
+                    <p class="text-sm text-stone-300">Ask Microglia to line a glossary word up with the scene you just read.</p>
+                </div>
+            </div>
+            <button type="button" onclick="openMicrogliaChat()" class="w-full sm:w-auto bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">Ask Microglia</button>
+        </div>
+    </section>
+
+    <section id="mission" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 3 · A mission, not a quiz</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-4">Operation Four Zones</h2>
+        <div class="grid sm:grid-cols-3 gap-4 mb-6 text-sm">
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">01</div>
+                <strong class="block text-stone-900 mb-1">Read, then file</strong>
+                <p class="text-stone-600">Fill one zone card after that part of the book, or all four after the ending. Use the book's words and the science words.</p>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">02</div>
+                <strong class="block text-stone-900 mb-1">Pick a gadget</strong>
+                <p class="text-stone-600">Every card asks for one way to help a person, not a way to "fix" the weeds. ZAP is the model: connection, not clearance.</p>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-stone-500 mb-1">03</div>
+                <strong class="block text-stone-900 mb-1">Optional reboot</strong>
+                <p class="text-stone-600">Take the code from the back of your copy into the Training Zone. This website will not print that code for you.</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-4 bg-white border border-stone-200 rounded-xl p-5">
+            <div class="min-w-0">
+                <h3 class="font-serif text-lg text-stone-900">Printable mission file</h3>
+                <p class="text-xs text-stone-500">Stacked cards, so a phone and a printer both stay readable.</p>
+            </div>
+            <button type="button" onclick="window.print()" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-stone-700 transition">Print mission file</button>
+        </div>
+    </section>
+
+    <section id="printable-mission" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="bg-white border-2 border-stone-900 rounded-xl p-6 sm:p-8 shadow-sm">
+            <div class="border-b-2 border-stone-900 pb-4 mb-6 flex flex-col sm:flex-row justify-between items-start gap-4">
+                <div class="min-w-0">
+                    <p class="font-mono text-xs uppercase tracking-widest text-stone-600">Case Alzheimer's // Operation Four Zones</p>
+                    <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-bold">Core Agent mission file</h2>
+                    <p class="text-xs text-stone-600 mt-1">Ages 9–12. Write in your own words. Quote the story, then name the science.</p>
+                </div>
+                <div class="text-xs font-mono border border-stone-400 rounded px-3 py-2 w-full sm:w-56 shrink-0">
+                    <div>AGENT NAME: _________________</div>
+                    <div class="mt-2">DATE: __________</div>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-sm">
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="flex flex-wrap justify-between gap-2">
+                        <span class="font-serif font-bold text-stone-900">Zone 1 · Brain HQ</span>
+                        <span class="font-mono text-xs text-stone-500">Prefrontal cortex</span>
+                    </div>
+                    <p class="text-xs text-stone-600 mt-2">What disappeared when Big Boss called H.M. in? What do tangles do to a plan?</p>
+                    <div class="mt-3 border-b border-stone-300 h-7"></div>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                    <p class="text-xs text-stone-600 mt-3">One way to help when someone repeats a question:</p>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                </div>
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="flex flex-wrap justify-between gap-2">
+                        <span class="font-serif font-bold text-stone-900">Zone 2 · Word Warehouse</span>
+                        <span class="font-mono text-xs text-stone-500">Broca's &amp; Wernicke's · aphasia</span>
+                    </div>
+                    <p class="text-xs text-stone-600 mt-2">What was wrapping the word-orbs? Was the manager a monster or a tiny helper?</p>
+                    <div class="mt-3 border-b border-stone-300 h-7"></div>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                    <p class="text-xs text-stone-600 mt-3">A sentence I will not say when a word gets stuck:</p>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                </div>
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="flex flex-wrap justify-between gap-2">
+                        <span class="font-serif font-bold text-stone-900">Zone 3 · Emotion-Land</span>
+                        <span class="font-mono text-xs text-stone-500">Amygdala</span>
+                    </div>
+                    <p class="text-xs text-stone-600 mt-2">What was wrong with the rides? Name the scooter parts: axon terminal, synaptic gap, neurotransmitters, ATP.</p>
+                    <div class="mt-3 border-b border-stone-300 h-7"></div>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                    <p class="text-xs text-stone-600 mt-3">The gadget I would actually use (calm voice, hug, or something else kind):</p>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                </div>
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="flex flex-wrap justify-between gap-2">
+                        <span class="font-serif font-bold text-stone-900">Zone 4 · Data Library</span>
+                        <span class="font-mono text-xs text-stone-500">Hippocampus · Deep Archives</span>
+                    </div>
+                    <p class="text-xs text-stone-600 mt-2">What did the weeds block? What did ZAP play instead of deleting the weeds?</p>
+                    <div class="mt-3 border-b border-stone-300 h-7"></div>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                    <p class="text-xs text-stone-600 mt-3">An old memory I could visit with a photo or a song, instead of a quiz:</p>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                </div>
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="font-serif font-bold text-stone-900">Glossary trio</div>
+                    <p class="text-xs text-stone-600 mt-2">Choose any three terms from the Parent Guide glossary. Write the book name, the science name, and one sentence a younger kid could use.</p>
+                    <div class="mt-3 space-y-2 text-xs font-mono text-stone-500">
+                        <div>1. ______________________________________________</div>
+                        <div>2. ______________________________________________</div>
+                        <div>3. ______________________________________________</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-stone-300 text-xs font-mono text-stone-600 flex flex-col sm:flex-row justify-between gap-2">
+                <span class="min-w-0">Book code stays in the book. Training Zone reboot is optional.</span>
+                <span class="shrink-0">The Pillar Project // Brain HQ</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="no-print border-t border-stone-200 bg-paper py-10 text-center text-xs text-stone-500">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span>&copy; 2026 The Pillar Project. All rights reserved.</span>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                <a href="guide-5-8.html" class="hover:text-stone-900">Ages 5–8</a>
+                <a href="guide-13-plus.html" class="hover:text-stone-900">Next: Ages 13+</a>
+                <a href="educators.html" class="hover:text-stone-900">Educators</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="pillar-chat-window" style="display:none;" class="no-print fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-3 right-3 sm:left-auto sm:right-6 sm:w-96 z-50 max-h-[min(70vh,560px)] bg-white border border-stone-300 rounded-xl shadow-xl flex-col overflow-hidden">
+        <div class="bg-stone-900 text-white px-4 py-3 flex justify-between items-center gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+                <img src="microglia_sprite.png" alt="" class="w-6 h-6 shrink-0">
+                <span class="font-serif text-sm font-semibold truncate">Ask Microglia (ages 9–12)</span>
+            </div>
+            <button type="button" onclick="toggleChat()" class="text-stone-400 hover:text-white text-sm shrink-0" aria-label="Close chat">✕</button>
+        </div>
+        <div id="pillar-chat-body" class="p-4 h-64 max-h-[40vh] overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
+            <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
+                Ask me to connect a scene in Case Alzheimer's to a glossary term — neurons, memory, tangles — in language a core-book agent can use.
+            </div>
+        </div>
+        <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
+            <input id="pillar-chat-input" type="text" placeholder="Ask about a zone or a term..." class="flex-1 min-w-0 text-base sm:text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
+            <button type="button" onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu(btn) {
+            var menu = document.getElementById('mobile-menu');
+            var open = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            btn.querySelector('.menu-icon-open').classList.toggle('hidden', open);
+            btn.querySelector('.menu-icon-close').classList.toggle('hidden', !open);
+        }
+
+        const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
+        let guideChatHistory = [];
+
+        function toggleChat() {
+            const win = document.getElementById("pillar-chat-window");
+            win.style.display = (win.style.display === "none" || win.style.display === "") ? "flex" : "none";
+        }
+        function openMicrogliaChat() {
+            document.getElementById("pillar-chat-window").style.display = "flex";
+            document.getElementById("pillar-chat-input").focus();
+        }
+        function appendGuideMsg(text, isUser) {
+            const body = document.getElementById("pillar-chat-body");
+            const div = document.createElement("div");
+            div.className = isUser
+                ? "bg-stone-900 text-white p-3 rounded-lg self-end max-w-[85%]"
+                : "bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]";
+            div.textContent = text;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+            return div;
+        }
+        async function sendGuideQuestion() {
+            const input = document.getElementById("pillar-chat-input");
+            const message = input.value.trim();
+            if (!message) return;
+            input.value = "";
+            appendGuideMsg(message, true);
+            const loading = appendGuideMsg("Checking the Core Agent briefing...", false);
+            try {
+                const res = await fetch(CHAT_ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userMessage: message,
+                        history: guideChatHistory.slice(-6),
+                        activePage: "Parent Guide: Ages 9-12 (Core Book Agents)"
+                    })
+                });
+                const data = await res.json();
+                loading.remove();
+                const reply = data.reply || "Could you try asking that one more time?";
+                appendGuideMsg(reply, false);
+                guideChatHistory.push({ role: "user", content: message }, { role: "assistant", content: reply });
+            } catch (err) {
+                loading.remove();
+                appendGuideMsg("Connection is offline right now—please try again shortly.", false);
+            }
+        }
+    </script>
+</body>
+</html>
