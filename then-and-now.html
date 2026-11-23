@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="icon" href="favicon-hq.png">
+    <meta name="description" content="Look at one older photo and one from today. The older picture goes first. It is not a quiz.">
+    <title>Then and now | HQ Rec Room</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Poppins:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lounge.css">
+</head>
+<body>
+    <div class="top-bar spy-font">
+        <span>ENCRYPTED CONNECTION // HUB: CASE ALZHEIMER'S</span>
+        <a class="switch-btn" href="index.html">⟲ SWITCH TO PILLAR PROJECT</a>
+    </div>
+    <nav>
+        <div class="logo spy-font">BRAIN HQ // CA</div>
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="spy-nav" aria-label="Open menu" onclick="toggleSpyMenu(this)">MENU</button>
+        <div id="spy-nav" class="nav-links spy-font">
+            <a href="case-alzheimers.html">HOME</a>
+            <a href="the-book.html">THE BOOK</a>
+            <a href="training-zone.html">AGENT TRAINING ZONE</a>
+            <a href="rec-room.html" aria-current="page">HQ REC ROOM</a>
+            <a href="parent-guide.html">PARENT GUIDE</a>
+            <a href="educators.html">EDUCATORS</a>
+            <a href="guide-under-5.html">GUIDE &lt;5</a>
+            <a href="guide-5-8.html">GUIDE 5–8</a>
+            <a href="guide-9-12.html">GUIDE 9–12</a>
+            <a href="guide-13-plus.html">GUIDE 13+</a>
+            <a href="media.html">MEDIA HUB</a>
+            <a class="sponsor-btn" href="sponsor-portal.html">SPONSOR PORTAL [RESTRICTED]</a>
+        </div>
+    </nav>
+    <main class="room">
+        <div class="activity">
+            <div class="back-row">
+                <a class="back" href="rec-room.html">← MICROGLIA'S LOUNGE</a>
+                <a class="back" href="case-alzheimers.html">CASE ALZHEIMER'S HUB</a>
+            </div>
+            <h1>Then and now</h1>
+            <p class="intro">Two pictures. One from a while ago, and one from today. Look, and tell one small thing.</p>
+            <section class="video-block no-print" aria-label="Video">
+                <!-- VIDEO ID: h75YP52JYMo
+                     Swap this id in the iframe address when our own video is ready. -->
+                <div class="video-frame">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/h75YP52JYMo?rel=0"
+                        title="Quick Tip: How to Make a Dementia Memory Book"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="placeholder-note">Placeholder video - our own coming soon.</p>
+            </section>
+            <section class="guide" id="guide">
+                <h2>What you need</h2>
+                <ul>
+                    <li>One older photo. A printed picture is easier to hold than a phone.</li>
+                    <li>One photo from today, or this year.</li>
+                    <li>A table, and enough time that nobody feels rushed.</li>
+                </ul>
+                <h2>Steps</h2>
+                <ol>
+                    <li>Put the older photo down first.</li>
+                    <li>Each person says one thing they notice. A color, a hat, a smile, a place.</li>
+                    <li>Then look at today's photo the same way.</li>
+                    <li>You can stop after one photo. One good look is a whole visit.</li>
+                </ol>
+                <h2>A kindness tip</h2>
+                <p class="tip">This is not a test. If a name is missing, stay with the part they do remember. If a picture feels sad, set it aside and pick another.</p>
+                
+                <button type="button" class="print-btn no-print" onclick="window.print()">Print this guide</button>
+            </section>
+        </div>
+    </main>
+    <footer class="spy-footer spy-font">TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.</footer>
+    <button type="button" id="pillar-chat-btn" onclick="toggleChat()" aria-label="Ask Microglia" data-page="Then and now">
+        <img src="microglia_sprite.png" alt="" width="60" height="60">
+    </button>
+    <div id="pillar-chat-window">
+        <div class="chat-head">
+            <span>Ask Microglia</span>
+            <button type="button" onclick="toggleChat()" aria-label="Close chat">Close</button>
+        </div>
+        <div id="pillar-chat-body">
+            <div class="bg-white">Hi. I'm Microglia. Ask me about a visit, a feeling, or a word from the book.</div>
+        </div>
+        <form class="chat-form" onsubmit="sendGuideQuestion(); return false;">
+            <input id="pillar-chat-input" type="text" placeholder="Type a question" autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        function toggleSpyMenu(btn) {
+            var menu = document.getElementById("spy-nav");
+            var open = menu.classList.toggle("is-open");
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+            btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+            btn.textContent = open ? "CLOSE" : "MENU";
+        }
+    </script>
+    <script src="pillar-chat.js"></script>
+</body>
+</html>

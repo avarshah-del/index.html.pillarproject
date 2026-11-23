@@ -2,130 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="icon" href="favicon-hq.png">
-    <meta name="description" content="How to play Ping-Pong Color Catch, a face-to-face cup-and-ball visit from the HQ Rec Room.">
-    <meta property="og:title" content="Ping-Pong Color Catch | HQ Rec Room">
-    <meta property="og:description" content="How to play Ping-Pong Color Catch, a face-to-face cup-and-ball visit from the HQ Rec Room.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pillarproject.online/ping-pong-catch.html">
-    <meta property="og:image" content="https://pillarproject.online/IMG_1358.jpeg">
-<title>Ping-Pong Color Catch | HQ Rec Room</title>
-    <!-- Tailwind CSS (Matches your tech stack) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Roll a ping-pong ball across the table and cover it with a colored cup. Keep the ball on the table.">
+    <title>Cup catch | HQ Rec Room</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Poppins:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lounge.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-
-    <!-- Header -->
-    <header class="bg-purple-600 text-white py-6 shadow-md">
-        <div class="max-w-4xl mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold">HQ Rec Room 🎮</h1>
-            <!-- Back Button to return to the Rec Room -->
-            <a href="rec-room.html" class="bg-white text-purple-600 px-4 py-2 rounded-full font-bold hover:bg-gray-100 transition">
-                ⬅ Back to Activities
-            </a>
+<body>
+    <div class="top-bar spy-font">
+        <span>ENCRYPTED CONNECTION // HUB: CASE ALZHEIMER'S</span>
+        <a class="switch-btn" href="index.html">⟲ SWITCH TO PILLAR PROJECT</a>
+    </div>
+    <nav>
+        <div class="logo spy-font">BRAIN HQ // CA</div>
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="spy-nav" aria-label="Open menu" onclick="toggleSpyMenu(this)">MENU</button>
+        <div id="spy-nav" class="nav-links spy-font">
+            <a href="case-alzheimers.html">HOME</a>
+            <a href="the-book.html">THE BOOK</a>
+            <a href="training-zone.html">AGENT TRAINING ZONE</a>
+            <a href="rec-room.html" aria-current="page">HQ REC ROOM</a>
+            <a href="parent-guide.html">PARENT GUIDE</a>
+            <a href="educators.html">EDUCATORS</a>
+            <a href="guide-under-5.html">GUIDE &lt;5</a>
+            <a href="guide-5-8.html">GUIDE 5–8</a>
+            <a href="guide-9-12.html">GUIDE 9–12</a>
+            <a href="guide-13-plus.html">GUIDE 13+</a>
+            <a href="media.html">MEDIA HUB</a>
+            <a class="sponsor-btn" href="sponsor-portal.html">SPONSOR PORTAL [RESTRICTED]</a>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 py-12">
-        
-        <!-- Activity Hero Title -->
-        <div class="bg-white rounded-t-3xl shadow-sm border-b border-gray-100 p-8 md:p-12 text-center">
-            <span class="inline-block bg-purple-100 text-purple-700 font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wide mb-4">
-                Sensory & Motor Mission
-            </span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Ping-Pong Color Catch</h1>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                A gentle, face-to-face game using bright cups and a rolling ping-pong ball to create a joyful, non-verbal connection.
-            </p>
-        </div>
-
-        <!-- The Recipe / Instructions -->
-        <div class="bg-white rounded-b-3xl shadow-md p-8 md:p-12 mb-12">
-            
-            <h2 class="text-3xl font-bold text-purple-700 mb-8 flex items-center">
-                <span class="text-4xl mr-3">📋</span> The Physical Interaction (Step-by-Step)
-            </h2>
-
-            <!-- Steps Grid -->
-            <div class="space-y-6">
-                <!-- Step 1 -->
-                <div class="flex items-start bg-gray-50 p-6 rounded-xl border border-gray-100">
-                    <div class="flex-shrink-0 bg-purple-600 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full text-xl mr-6">1</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sitting Face-to-Face</h3>
-                        <p class="text-gray-700 leading-relaxed">The child and the adult sit directly across from each other at a small table, close enough to easily see each other's expressions. Each person has their two differently colored cups (e.g., Red in the left hand, Blue in the right hand).</p>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="flex items-start bg-gray-50 p-6 rounded-xl border border-gray-100">
-                    <div class="flex-shrink-0 bg-purple-600 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full text-xl mr-6">2</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">The Child Starts</h3>
-                        <p class="text-gray-700 leading-relaxed">The child takes the ping-pong ball and holds it up, making sure they have the adult's attention. With a gentle push, the child rolls the ball across the table toward the adult.</p>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="flex items-start bg-gray-50 p-6 rounded-xl border border-gray-100">
-                    <div class="flex-shrink-0 bg-purple-600 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full text-xl mr-6">3</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">The Adult Tracks and Catches</h3>
-                        <p class="text-gray-700 leading-relaxed">The adult watches the ball roll closer. Guided by the bright, contrasting colors of their cups, they slide either the Red or Blue cup over to trap the ball.</p>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="flex items-start bg-gray-50 p-6 rounded-xl border border-gray-100">
-                    <div class="flex-shrink-0 bg-purple-600 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full text-xl mr-6">4</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">The Return Roll</h3>
-                        <p class="text-gray-700 leading-relaxed">Once caught, the adult tips the cup forward, releasing the ball to roll it straight back to the child. The child uses their own matching colored cups to catch it, keeping the loop going.</p>
-                    </div>
-                </div>
+    </nav>
+    <main class="room">
+        <div class="activity">
+            <div class="back-row">
+                <a class="back" href="rec-room.html">← MICROGLIA'S LOUNGE</a>
+                <a class="back" href="case-alzheimers.html">CASE ALZHEIMER'S HUB</a>
             </div>
-
-            <!-- Divider -->
-            <hr class="my-12 border-gray-200">
-
-            <!-- What Makes It Special -->
-            <h2 class="text-3xl font-bold text-purple-700 mb-8 flex items-center">
-                <span class="text-4xl mr-3">✨</span> What Makes It Special
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h1>Cup catch</h1>
+            <p class="intro">Sit across from each other. Roll a ball. Cover it with a cup. Roll it back.</p>
+            <section class="video-block no-print" aria-label="Video">
+                <!-- VIDEO ID: RsWsh6ONZ8w
+                     Swap this id in the iframe address when our own video is ready. -->
+                <div class="video-frame">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/RsWsh6ONZ8w?rel=0"
+                        title="Teepa Snow Demonstrates Brainy Day"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="placeholder-note">Placeholder video - our own coming soon.</p>
+            </section>
+            <section class="guide" id="guide">
+                <h2>What you need</h2>
+                <ul>
+                    <li>A ping-pong ball, or any small ball that rolls.</li>
+                    <li>Two cups for you and two cups for the other person.</li>
+                    <li>Cups in two colors, if you have them.</li>
+                    <li>A table you can both reach.</li>
+                </ul>
+                <h2>Steps</h2>
+                <ol>
+                    <li>Sit so you can see each other's face.</li>
+                    <li>Roll the ball slowly across the table.</li>
+                    <li>Cover the ball with one cup. Tip the cup, and roll the ball back.</li>
+                    <li>Take turns. Red cup, blue cup, or whichever color you feel like calling.</li>
+                </ol>
+                <h2>A kindness tip</h2>
+                <p class="tip">Keep the ball on the table. If it hops off, pick it up and set it back down. Nobody has to chase it.</p>
                 
-                <!-- Benefit 1 -->
-                <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                    <h3 class="text-lg font-bold text-blue-900 mb-3 flex items-center">
-                        <span class="text-2xl mr-2">😂</span> Laughter Over Rules
-                    </h3>
-                    <p class="text-blue-800 text-sm leading-relaxed">Children naturally bring a sense of playfulness. If the ball rolls off the table or misses a cup, a child will usually laugh and chase after it. This completely removes any pressure or feelings of "failure" for the adult with dementia, turning mistakes into lighthearted moments.</p>
-                </div>
-
-                <!-- Benefit 2 -->
-                <div class="bg-green-50 p-6 rounded-xl border border-green-100">
-                    <h3 class="text-lg font-bold text-green-900 mb-3 flex items-center">
-                        <span class="text-2xl mr-2">🎯</span> Simple Visual Communication
-                    </h3>
-                    <p class="text-green-800 text-sm leading-relaxed">Because dementia can make verbal conversations confusing, the game replaces words with action. The child can easily prompt the adult simply by pointing to a cup or calling out a color ("Catch it with Red, Grandma!"). This gives the adult a clear, achievable goal.</p>
-                </div>
-
-                <!-- Benefit 3 -->
-                <div class="bg-orange-50 p-6 rounded-xl border border-orange-100">
-                    <h3 class="text-lg font-bold text-orange-900 mb-3 flex items-center">
-                        <span class="text-2xl mr-2">👀</span> The Power of Eye Contact
-                    </h3>
-                    <p class="text-orange-800 text-sm leading-relaxed">Every time the ball rolls back and forth, both players naturally look up at each other to see the reaction. This creates a powerful, non-verbal connection, allowing the child and the family member to share a meaningful moment of focus and joy without needing complex conversation.</p>
-                </div>
-
-            </div>
+                <button type="button" class="print-btn no-print" onclick="window.print()">Print this guide</button>
+            </section>
         </div>
-
     </main>
-
+    <footer class="spy-footer spy-font">TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.</footer>
+    <button type="button" id="pillar-chat-btn" onclick="toggleChat()" aria-label="Ask Microglia" data-page="Cup catch">
+        <img src="microglia_sprite.png" alt="" width="60" height="60">
+    </button>
+    <div id="pillar-chat-window">
+        <div class="chat-head">
+            <span>Ask Microglia</span>
+            <button type="button" onclick="toggleChat()" aria-label="Close chat">Close</button>
+        </div>
+        <div id="pillar-chat-body">
+            <div class="bg-white">Hi. I'm Microglia. Ask me about a visit, a feeling, or a word from the book.</div>
+        </div>
+        <form class="chat-form" onsubmit="sendGuideQuestion(); return false;">
+            <input id="pillar-chat-input" type="text" placeholder="Type a question" autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        function toggleSpyMenu(btn) {
+            var menu = document.getElementById("spy-nav");
+            var open = menu.classList.toggle("is-open");
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+            btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+            btn.textContent = open ? "CLOSE" : "MENU";
+        }
+    </script>
+    <script src="pillar-chat.js"></script>
 </body>
 </html>
