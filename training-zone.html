@@ -148,7 +148,25 @@
         .option-btn.correct { background: rgba(57, 255, 20, 0.2) !important; border-color: var(--neon-green) !important; color: var(--neon-green) !important; }
         .option-btn.wrong { background: rgba(255, 0, 127, 0.2) !important; border-color: var(--alert-pink) !important; color: var(--alert-pink) !important; }
         .feedback-box { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; font-size: 1.05rem; line-height: 1.4; }
-        
+       
+        /* Doodle Scanner Frame */
+.scanner-dropzone {
+    width: 100%; max-width: 520px; min-height: 240px; border: 2px dashed var(--neon-blue);
+    border-radius: 16px; background: rgba(5, 11, 20, 0.75); padding: 25px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.3s; position: relative; overflow: hidden; margin: 0 auto 20px;
+}
+.scanner-dropzone:hover { border-color: var(--gold); box-shadow: 0 0 20px rgba(255, 215, 0, 0.25); }
+.scan-beam {
+    display: none; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+    background: var(--neon-green); box-shadow: 0 0 20px var(--neon-green);
+    animation: scanMove 1.6s ease-in-out infinite;
+}
+@keyframes scanMove {
+    0% { top: 0%; }
+    50% { top: 96%; }
+    100% { top: 0%; }
+}
         /* Bot & Misc */
         .pledge-list { display: flex; flex-direction: column; gap: 15px; margin: 25px 0; text-align: left; }
         .pledge-label {
@@ -275,6 +293,11 @@
                         <div class="spy-font" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">SAARA'S BRAIN BITS</div>
                         <div class="kid-font" style="font-size: 0.95rem; color: var(--neon-green); margin-top: 8px; font-weight: bold;">▶ Watch Episode 1 (+50 XP)</div>
                     </div>
+                    <div class="zone-card" onclick="showScreen('screen-doodle-upload')" style="border-color: var(--alert-pink); background: rgba(5, 11, 20, 0.6);">
+                        <div class="zone-icon">🎨</div>
+                        <div class="spy-font" style="color: var(--alert-pink); font-weight: bold; font-size: 1.15rem;">DOODLE SCAVENGER HUNT</div>
+                        <div class="kid-font" style="font-size: 0.9rem; color: var(--gold); margin-top: 8px; font-weight: bold;">📸 Upload Sheet (+100 XP)</div>
+                    </div>
                     <a href="rec-room.html" class="zone-card" style="border-color: var(--gold); background: rgba(5, 11, 20, 0.6); text-decoration: none; display: block;">
                         <div class="zone-icon">🧩</div>
                         <div class="spy-font" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">HQ REC ROOM</div>
@@ -296,7 +319,37 @@
             <p class="kid-font" style="color: #cbd5e1; font-size: 1.15rem; max-width: 650px; margin-bottom: 25px;">
                 Explore the human brain each week with Agent Saara! Watch the intro briefing below to learn how different parts of the brain work and earn bonus HQ Clearance XP.
             </p>
-            
+
+            <!-- 2C. DOODLE SCAVENGER HUNT UPLOAD PORTAL -->
+<div id="screen-doodle-upload" class="game-panel" style="text-align: center; align-items: center;">
+    <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
+    <h2 class="spy-font" style="color: var(--alert-pink); font-size: 2.2rem; margin-bottom: 8px;">🎨 BRAIN WORD DOODLE SCANNER</h2>
+    <p class="kid-font" style="color: #cbd5e1; font-size: 1.1rem; max-width: 640px; margin-bottom: 20px;">
+        Completed your Brain Word Doodle Scavenger Hunt from the <a href="guide-under-5.html#doodle-scavenger-hunt" style="color: var(--neon-blue); text-decoration: underline;">Parent &amp; Educator Guide</a>? Upload a photo of your doodle sheet below to earn <strong>+100 Bonus XP</strong>!
+    </p>
+
+    <input type="file" id="doodle-file-input" accept="image/*" style="display: none;" onchange="previewDoodleSheet(event)">
+    <div class="scanner-dropzone" onclick="document.getElementById('doodle-file-input').click()">
+        <div id="doodle-scan-beam" class="scan-beam"></div>
+        <div id="doodle-placeholder">
+            <div style="font-size: 3.5rem; margin-bottom: 10px;">📸</div>
+            <div class="spy-font" style="color: var(--neon-blue); font-size: 1.1rem; font-weight: bold;">CLICK TO UPLOAD OR SNAP A PHOTO</div>
+            <p class="kid-font" style="color: #a0aec0; font-size: 0.9rem; margin-top: 6px;">Supports JPG, PNG, or mobile camera photos of your Doodle Sheet</p>
+        </div>
+        <img id="doodle-preview-img" src="" alt="Doodle Sheet Preview" style="display: none; max-height: 260px; max-width: 100%; border-radius: 10px; border: 1px solid var(--neon-blue);">
+    </div>
+
+    <div id="doodle-status-msg" class="spy-font" style="color: var(--gold); font-size: 0.95rem; margin-bottom: 18px; min-height: 22px;"></div>
+
+    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+        <button id="btn-submit-doodle" class="spy-btn spy-font" onclick="submitDoodleSheet()" style="background: var(--neon-green); color: #050b14; font-weight: bold; font-size: 1.1rem; opacity: 0.5; pointer-events: none;">
+            ⚡ TRANSMIT DOODLE SHEET FOR +100 XP
+        </button>
+        <a href="guide-under-5.html#doodle-scavenger-hunt" class="spy-btn spy-font" style="font-size: 0.9rem; padding: 12px 20px;">
+            🖨️ NEED THE WORKSHEET? PRINT HERE
+        </a>
+    </div>
+</div>
             <!-- Embedded YouTube Short -->
             <div style="width: 100%; max-width: 340px; margin: 0 auto 25px; border: 2px solid var(--neon-blue); border-radius: 16px; overflow: hidden; box-shadow: 0 0 25px rgba(102, 252, 241, 0.35); background: #000;">
                 <iframe 
@@ -639,17 +692,69 @@
                 showScreen('screen-password');
             }
         }
+        let uploadedDoodleSheet = false;
 
-        function verifyPassword() {
-            const input = document.getElementById('book-password-input').value.trim().toUpperCase();
-            if (input === "HQ2026") {
-                document.getElementById('password-error').style.display = 'none';
-                showScreen('screen-book-protocol');
-            } else {
-                document.getElementById('password-error').style.display = 'block';
-            }
+function previewDoodleSheet(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const preview = document.getElementById('doodle-preview-img');
+        const placeholder = document.getElementById('doodle-placeholder');
+        const submitBtn = document.getElementById('btn-submit-doodle');
+        const statusMsg = document.getElementById('doodle-status-msg');
+
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+        placeholder.style.display = 'none';
+        statusMsg.textContent = "DOODLE SHEET LOADED: READY FOR HQ SCAN.";
+        statusMsg.style.color = "var(--neon-blue)";
+
+        submitBtn.style.opacity = "1";
+        submitBtn.style.pointerEvents = "auto";
+    };
+    reader.readAsDataURL(file);
+}
+
+function submitDoodleSheet() {
+    const beam = document.getElementById('doodle-scan-beam');
+    const statusMsg = document.getElementById('doodle-status-msg');
+    const submitBtn = document.getElementById('btn-submit-doodle');
+
+    beam.style.display = 'block';
+    submitBtn.style.pointerEvents = 'none';
+    submitBtn.style.opacity = '0.6';
+    statusMsg.style.color = "var(--gold)";
+    statusMsg.textContent = "SCANNING AGENT DOODLES & VERIFYING BRAIN VOCAB...";
+
+    setTimeout(() => {
+        beam.style.display = 'none';
+        if (!uploadedDoodleSheet) {
+            uploadedDoodleSheet = true;
+            xpPoints += 100;
+            saveProgress();
+            updateBadgeDisplay();
+            statusMsg.style.color = "var(--neon-green)";
+            statusMsg.textContent = "✓ SCAN COMPLETE! +100 BONUS XP ADDED TO YOUR AGENT PROFILE!";
+            submitBtn.textContent = "✓ +100 XP AWARDED";
+        } else {
+            statusMsg.style.color = "var(--neon-green)";
+            statusMsg.textContent = "✓ NEW DOODLE SHEET SCANNED! (BONUS XP ALREADY CLAIMED)";
+            submitBtn.textContent = "✓ DOODLE VERIFIED";
         }
+        confetti({ particleCount: 110, spread: 80, origin: { y: 0.6 } });
+    }, 2000);
+}
 
+       function verifyPassword() {
+    const input = document.getElementById('book-password-input').value.trim().toUpperCase();
+    if (input === "HQ-NEURON-7" || input === "HQNEURON7" || input === "HQ2026") {
+        document.getElementById('password-error').style.display = 'none';
+        showScreen('screen-book-protocol');
+    } else {
+        document.getElementById('password-error').style.display = 'block';
+    }
+}
         // --- ZONE DATA & LOGIC ---
         const zoneData = {
             hq: {
