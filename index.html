@@ -18,8 +18,10 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         heading: ['Montserrat', 'sans-serif'],
+                        mono: ['Share Tech Mono', 'monospace'],
                     },
                     colors: {
+                        paper: '#faf8f5',
                         pillar: {
                             light: '#f3e8ff',
                             DEFAULT: '#9333ea',
@@ -39,6 +41,22 @@
             }
         }
     </script>
+    <style>
+        /* Hover-to-reveal for glossary terms (same interaction as parent-guide.html) */
+        .vocab-row .vocab-reveal {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.25s ease, padding-top 0.25s ease;
+            padding-top: 0;
+        }
+        .vocab-row:hover .vocab-reveal,
+        .vocab-row:focus-within .vocab-reveal {
+            max-height: 260px;
+            opacity: 1;
+            padding-top: 0.75rem;
+        }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
@@ -180,35 +198,144 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE BRAIN VOCAB -->
+    <!-- BRAIN HQ DATABASE / AGENT H.M.'S GLOSSARY -->
     <section class="py-20 bg-white border-b border-slate-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="uppercase tracking-widest text-pillar font-bold text-sm mb-2 block text-center">Brain HQ Glossary</span>
-            <h2 class="font-heading text-4xl text-center text-slate-900 mb-12">Learn the Spy Terms</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-pillar hover:shadow-md transition">
-                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Brain HQ</h3>
-                    <p class="text-sm text-slate-500 mb-3 italic">Scientific name: Prefrontal Cortex</p>
-                    <p class="text-slate-700">The boss of the brain. It sits right behind your forehead and makes all the big decisions and solves puzzles.</p>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="uppercase tracking-widest text-pillar font-bold text-sm mb-2 block text-center">Brain HQ Database</span>
+            <h2 class="font-heading text-4xl text-center text-slate-900 mb-4">Agent H.M.'s Glossary</h2>
+            <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+                Each entry pairs the <strong>book term</strong> with its real <strong>biological term</strong>. Hover over a card, or tap it, to reveal the definition from the book.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3.5 mb-12">
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">Brain HQ</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Prefrontal Cortex</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        The boss of the brain that makes big decisions and solves puzzles.
+                    </div>
                 </div>
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-pillar hover:shadow-md transition">
-                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Data Library</h3>
-                    <p class="text-sm text-slate-500 mb-3 italic">Scientific name: Hippocampus</p>
-                    <p class="text-slate-700">The brain's giant memory vault. It stores all your favorite memories like books on a shelf.</p>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">The Data Library</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Hippocampus</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        The brain's memory saver that grabs new memories and files them away.
+                    </div>
                 </div>
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-pillar hover:shadow-md transition">
-                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Emotion Land</h3>
-                    <p class="text-sm text-slate-500 mb-3 italic">Scientific name: Amygdala</p>
-                    <p class="text-slate-700">The alarm center. It controls your feelings and tells you when to be scared, happy, or excited.</p>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">Emotion-Land</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Amygdala</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        The part of the brain that controls your feelings and emotions.
+                    </div>
                 </div>
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:border-pillar hover:shadow-md transition">
-                    <h3 class="font-heading text-xl text-pillar-dark mb-2">Microglia</h3>
-                    <p class="text-sm text-slate-500 mb-3 italic">Scientific name: Glial Cells</p>
-                    <p class="text-slate-700">The brain's immune system security agents. They sweep up glitches and keep the neurons healthy.</p>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">The Word Warehouse</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Broca's &amp; Wernicke's Areas</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        The language factories that help us build words and talk to each other.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">A Class-8 Word Glitch!</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Aphasia</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        A condition that makes it hard to find the right words or speak.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">The Big Jump</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Synaptic Gap</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        The tiny empty space between brain cells that messages must jump across.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">Chemical Messengers</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Neurotransmitters</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        Chemicals that carry messages across the Synaptic Gap.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">High-Speed Zap</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Action Potential</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        A high-speed zap of electricity that shoots messages down a brain cell.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">The Launch Pad &amp; Catchers</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Axon Terminal &amp; Dendrites</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        The edge where messages jump off (Axon) and the landing pads that catch them (Dendrites).
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">Speed Boosters</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Myelin</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        A special wrapping that helps brain messages zoom super fast.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">Cellular Energy</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">ATP Fuel</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        The energy that powers every cell in your body.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">Clean-Up Crew</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Proteasome Unit</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        The brain's clean-up crew that clears out the garbage.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">The Weeds</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Tangles</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        Twisted proteins in Alzheimer's that block brain tracks like weeds.
+                    </div>
+                </div>
+                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
+                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
+                        <span class="font-heading text-slate-900 text-lg">The Deep Archives</span>
+                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Long-Term Memory</span>
+                    </div>
+                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
+                        Safe vaults where your oldest, favorite memories are stored forever.
+                    </div>
                 </div>
             </div>
             <div class="text-center">
-                <button onclick="toggleChat(); sendReply('vocab_help')" class="bg-pillar text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1 flex items-center justify-center gap-3 mx-auto">
+                <button onclick="openMicrogliaChat()" class="bg-pillar text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1 flex items-center justify-center gap-3 mx-auto">
                     <img src="microglia_sprite.png" class="w-6 h-6" alt="Microglia">
                     Ask Microglia to Learn More
                 </button>
@@ -282,66 +409,97 @@
         </div>
     </section>
 
-    <!-- FREE PILLAR GUIDE CHATBOT CODE -->
+    <!-- MICROGLIA CHAT WIDGET -->
     <style>
         #pillar-chat-btn { position: fixed; bottom: 20px; right: 20px; background: none; border: none; padding: 0; cursor: pointer; z-index: 1000; transition: transform 0.2s; }
         #pillar-chat-btn img { width: 60px; height: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
         #pillar-chat-btn:hover { transform: scale(1.1); }
-        #pillar-chat-window { display: none; position: fixed; bottom: 90px; right: 20px; width: 320px; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #e2e8f0; }
-        #pillar-chat-header { background-color: #9333ea; color: white; padding: 12px 16px; font-family: 'Montserrat', sans-serif; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
-        #pillar-chat-body { padding: 16px; height: 280px; overflow-y: auto; background-color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .bot-msg { background: #e2e8f0; color: #1e293b; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
-        .chat-option { display: block; width: 100%; padding: 10px; margin-bottom: 8px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.2s; font-family: 'Inter', sans-serif;}
-        .chat-option:hover { background: #7e22ce; }
     </style>
-
-    <button id="pillar-chat-btn" onclick="toggleChat()">
+    <button id="pillar-chat-btn" onclick="toggleChat()" aria-label="Ask Microglia">
         <img src="microglia_sprite.png" alt="Ask Microglia">
     </button>
-
-    <div id="pillar-chat-window">
-        <div id="pillar-chat-header">
-            <div class="flex items-center gap-2">
+    <div id="pillar-chat-window" style="display:none;" class="fixed bottom-6 right-6 w-80 sm:w-96 max-w-[92vw] bg-white border border-stone-300 rounded-xl shadow-xl z-50 flex-col overflow-hidden">
+        <div class="bg-stone-900 text-white px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
                 <img src="microglia_sprite.png" alt="Microglia" class="w-6 h-6">
-                <span>Microglia Guide</span>
+                <span class="font-serif text-sm font-semibold">Ask Microglia</span>
             </div>
-            <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✖</button>
+            <button onclick="toggleChat()" class="text-stone-400 hover:text-white text-sm">✕</button>
         </div>
-        <div id="pillar-chat-body">
-            <div class="bot-msg">Hi! I'm Microglia, your digital guide to The Pillar Project. How can I help you today?</div>
-            <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
-            <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
-            <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
+        <div id="pillar-chat-body" class="p-4 h-64 overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
+            <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
+                Hi! I'm Microglia. Ask me about any term in Agent H.M.'s Glossary or how The Pillar Project helps families.
+            </div>
+        </div>
+        <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
+            <input id="pillar-chat-input" type="text" placeholder="Type your question..." class="flex-1 text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
+            <button onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
         </div>
     </div>
 
     <script>
+        const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
+        let guideChatHistory = [];
+
+        function setChatLauncher(visible) {
+            const btn = document.getElementById("pillar-chat-btn");
+            if (btn) btn.style.display = visible ? "block" : "none";
+        }
+
         function toggleChat() {
-            var win = document.getElementById("pillar-chat-window");
-            win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none";
+            const win = document.getElementById("pillar-chat-window");
+            const opening = win.style.display === "none" || win.style.display === "";
+            win.style.display = opening ? "flex" : "none";
+            setChatLauncher(!opening);
+            if (opening) document.getElementById("pillar-chat-input").focus();
         }
-        function sendReply(type) {
-            var body = document.getElementById("pillar-chat-body");
-            var html = '';
-            if (type === 'volunteer') {
-                html = '<div class="bot-msg">Amazing! We are always looking for Gen Z volunteers to join our Memory Care Allies. <br><br><a href="volunteer.html" style="color:#9333ea; font-weight:bold;">Click here to apply!</a></div>';
-            } else if (type === 'book') {
-                html = '<div class="bot-msg">My children\'s book, <b>Case Alzheimers</b>, takes kids on a spy adventure to understand memory loss. <br><br><a href="https://a.co/d/0go6TYaq" target="_blank" style="color:#9333ea; font-weight:bold;">Get the eBook on Amazon!</a></div>';
-            } else if (type === 'resources') {
-                html = '<div class="bot-msg">If you need immediate support, please contact the Alzheimer\'s NJ Helpline at <b>888-280-6055</b>. <br><br>Check out our <a href="parent-guide.html" style="color:#9333ea; font-weight:bold;">Parent Guide</a> for more tips!</div>';
-            } else if (type === 'vocab_help') {
-                html = '<div class="bot-msg">I am a Microglia! That means I am the brain\'s immune system. If a bad glitch (like Alzheimer\'s) gets inside, my job is to try to sweep it up and keep the neurons safe!</div>';
+
+        function openMicrogliaChat() {
+            const win = document.getElementById("pillar-chat-window");
+            win.style.display = "flex";
+            setChatLauncher(false);
+            document.getElementById("pillar-chat-input").focus();
+        }
+
+        function appendGuideMsg(text, isUser) {
+            const body = document.getElementById("pillar-chat-body");
+            const div = document.createElement("div");
+            div.className = isUser
+                ? "bg-stone-900 text-white p-3 rounded-lg self-end max-w-[85%]"
+                : "bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]";
+            div.textContent = text;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+            return div;
+        }
+
+        async function sendGuideQuestion() {
+            const input = document.getElementById("pillar-chat-input");
+            const message = input.value.trim();
+            if (!message) return;
+            input.value = "";
+            appendGuideMsg(message, true);
+            const loading = appendGuideMsg("Checking Brain HQ Glossary...", false);
+
+            try {
+                const res = await fetch(CHAT_ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userMessage: message,
+                        history: guideChatHistory.slice(-6),
+                        activePage: "The Pillar Project Home"
+                    })
+                });
+                const data = await res.json();
+                loading.remove();
+                const reply = data.reply || "Could you try asking that one more time?";
+                appendGuideMsg(reply, false);
+                guideChatHistory.push({ role: "user", content: message }, { role: "assistant", content: reply });
+            } catch (err) {
+                loading.remove();
+                appendGuideMsg("Connection is offline right now—please try again shortly.", false);
             }
-            html += '<button class="chat-option" onclick="resetChat()" style="margin-top: 15px; background: #64748b;">Start Over</button>';
-            body.innerHTML = html;
-        }
-        function resetChat() {
-            document.getElementById("pillar-chat-body").innerHTML = `
-                <div class="bot-msg">Hi! I'm Microglia, your digital guide to The Pillar Project. How can I help you today?</div>
-                <button class="chat-option" onclick="sendReply('volunteer')">I want to volunteer</button>
-                <button class="chat-option" onclick="sendReply('book')">Tell me about the book</button>
-                <button class="chat-option" onclick="sendReply('resources')">I need caregiver resources</button>
-            `;
         }
     </script>
 </body>
