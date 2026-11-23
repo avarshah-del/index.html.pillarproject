@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="microglia_sprite.png">
+    <title>Ages 13+ Guide (Teens &amp; Youth Allies) | Case Alzheimer's</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Share Tech Mono', 'monospace'],
+                    },
+                    colors: { paper: '#faf8f5', ink: '#1c1917' }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body { max-width: 100%; overflow-x: hidden; }
+        img { max-width: 100%; height: auto; }
+        @media print {
+            body { background: #fff !important; color: #000 !important; }
+            .no-print { display: none !important; }
+            #printable-ally {
+                display: block !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            .print-block { break-inside: avoid; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="bg-paper text-ink font-sans antialiased selection:bg-amber-200">
+
+    <div class="no-print w-full bg-stone-900 text-stone-300 px-4 sm:px-6 py-2.5 flex flex-wrap justify-between items-center gap-x-4 gap-y-1 text-[11px] sm:text-xs font-mono">
+        <span class="leading-snug">PARENT &amp; EDUCATOR COMPANION // AGES 13+</span>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <a href="parent-guide.html" class="text-amber-300 hover:underline">← All Age Guides</a>
+            <span class="text-stone-600" aria-hidden="true">/</span>
+            <a href="educators.html" class="hover:text-white transition">Educators</a>
+            <span class="text-stone-600" aria-hidden="true">/</span>
+            <a href="case-alzheimers.html" class="hover:text-white transition">Case Alzheimer's Hub</a>
+        </div>
+    </div>
+
+    <nav class="no-print w-full bg-paper/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-16 flex justify-between items-center gap-3">
+                <a href="parent-guide.html" class="flex items-center gap-3 min-w-0">
+                    <img src="The Pillar Project.PNG" alt="The Pillar Project" class="h-10 w-auto shrink-0">
+                    <span class="font-serif text-base sm:text-lg font-semibold text-stone-900 tracking-tight truncate">Teens &amp; Youth Allies</span>
+                </a>
+                <div class="hidden md:flex items-center gap-1 text-xs font-mono shrink-0">
+                    <a href="guide-under-5.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">Under 5</a>
+                    <a href="guide-5-8.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">5–8</a>
+                    <a href="guide-9-12.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">9–12</a>
+                    <a href="guide-13-plus.html" class="bg-stone-900 text-white px-2.5 py-1.5 rounded">13+</a>
+                    <a href="educators.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">Educators</a>
+                </div>
+                <button type="button" class="md:hidden shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full text-stone-700 hover:bg-stone-200/80" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
+                    <svg class="menu-icon-open w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="menu-icon-close hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden border-t border-stone-200 pb-3">
+                <a href="guide-under-5.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Under 5</a>
+                <a href="guide-5-8.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 5–8 · Early Readers</a>
+                <a href="guide-9-12.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 9–12 · Core Book Agents</a>
+                <a href="guide-13-plus.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-900 bg-amber-100/80">Ages 13+ · Teens &amp; Youth Allies</a>
+                <a href="educators.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Educators</a>
+                <a href="parent-guide.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">All Age Guides</a>
+                <a href="volunteer.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Volunteer</a>
+                <a href="rec-room.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">HQ Rec Room</a>
+                <a href="about.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Our Story</a>
+                <a href="the-book.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">The Book</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 border-b border-stone-200">
+        <div class="inline-flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-800 bg-amber-100/80 px-3 py-1 rounded mb-4">
+            <span>Ages 13+</span>
+            <span>·</span>
+            <span>Teens &amp; Youth Allies</span>
+        </div>
+        <h1 class="font-serif text-4xl sm:text-5xl text-stone-900 leading-tight mb-5">
+            Read the metaphor, then decide what you can actually carry
+        </h1>
+        <p class="text-lg text-stone-600 leading-relaxed">
+            You are old enough to hear the limit of the story. In <em>Case Alzheimer's</em>, pressing the orange button and shouting ZAP does not pull the weeds out. The golden screens play older memories instead. A hug is not a treatment. It is still one of the only gadgets the book and the Training Zone agree on, because feelings remain real when the files do not.
+        </p>
+        <p class="text-sm text-stone-500 mt-4 leading-relaxed">
+            This page translates the book's pictures into general facts families already live with. It does not describe stages, medicines, or what will happen to a specific person. For the plot the younger guides use, start with the <a href="guide-9-12.html" class="underline text-stone-700">Core Book Agents briefing</a>.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#discussion" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-stone-700 transition">1. A harder conversation</a>
+            <a href="#how-to-help" class="bg-white border border-stone-300 text-stone-900 text-sm font-medium px-5 py-2.5 rounded-lg hover:border-stone-900 transition">2. Ways to help</a>
+            <a href="#reflection" class="bg-white border border-stone-300 text-stone-900 text-sm font-medium px-5 py-2.5 rounded-lg hover:border-stone-900 transition">3. Reflection</a>
+            <button type="button" onclick="window.print()" class="bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">Print the ally sheet</button>
+        </div>
+    </header>
+
+    <section id="discussion" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 1 · What the spy story is willing to say</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-3">Alzheimer's, caregiving, and the metaphor's edge</h2>
+        <div class="space-y-4">
+            <article class="bg-white border border-stone-200 rounded-xl p-6">
+                <h3 class="font-serif text-xl text-stone-900 mb-2">The disease, without a lecture</h3>
+                <p class="text-sm text-stone-600 leading-relaxed">Alzheimer's is a brain disease. Over time it commonly makes new memories harder to keep, word-finding harder (the book's aphasia), mood and fear harder to steady (Emotion-Land, the amygdala), and planning harder (Brain HQ, the prefrontal cortex, where even a cookie recipe can go missing). The glossary's tangles — twisted proteins that block tracks like weeds — are one real change the story draws. Plaques, named on the book page as part of what readers learn, are another: clumps between cells. The plot follows the weeds. It does not show a medical timeline, and neither should you invent one for a younger cousin.</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-6">
+                <h3 class="font-serif text-xl text-stone-900 mb-2">Recent files fail first. That is not the whole disease.</h3>
+                <p class="text-sm text-stone-600 leading-relaxed">The Training Zone teaches that new memories are usually the ones lost first, while older favorites can still be reached — the Deep Archives, visited with photo albums and songs. Hold that as an early, useful pattern, not a promise. As the disease continues, older memories can become harder to find too. Love is not stored in a cabinet the weeds cannot touch. The book's comfort is narrower and truer: the person is still there, and a familiar song can be a better door than a quiz.</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-6">
+                <h3 class="font-serif text-xl text-stone-900 mb-2">Caregiving is the other plot</h3>
+                <p class="text-sm text-stone-600 leading-relaxed"><a href="about.html" class="underline text-stone-800">Our Story</a> is about Ava's grandfather, Jayant Shah, and her grandmother, Hina, who became his primary caregiver. The page is honest that he became confused and distressed, and eventually much less active, and that the years were harsh on the person doing the care. The line they keep is simple: caregivers cannot pour from an empty cup. The Pillar Project's whole "Divide &amp; Pamper" model exists so a primary caregiver can leave for a while without the person they love being left alone or unoccupied. If your house has a Hina in it — a parent, an aunt, a grandparent doing the daily work — the mission is partly theirs to rest, not only the patient's to be entertained.</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-6">
+                <h3 class="font-serif text-xl text-stone-900 mb-2">Your feelings count, including the ugly ones</h3>
+                <p class="text-sm text-stone-600 leading-relaxed">Embarrassment when a grandparent repeats a story in front of friends, anger when a parent is too tired to show up for you, guilt for wanting to leave the room: those live in your amygdala too. The Training Zone says feelings stay real. That includes yours. You are not required to be the calm one every hour. You are also not the doctor, the spouse, or the only caregiver. Saying "I need a break" is part of co-regulation, not a betrayal. Co-regulation, on the home page, means gentle sensory engagement and shared calm — a high-school ally helping the room settle. It is not taking control of another person's body or their medical decisions.</p>
+            </article>
+            <article class="bg-white border border-stone-200 rounded-xl p-6">
+                <h3 class="font-serif text-xl text-stone-900 mb-2">What not to promise a younger kid</h3>
+                <p class="text-sm text-stone-600 leading-relaxed">Do not say the weeds come out if we love hard enough. Do not say "they're already gone" because a new fact did not stick. Do not post someone's confused moment. Do not correct harshly. If a younger sibling is reading with you, use the <a href="guide-5-8.html" class="underline text-stone-800">Early Readers guide</a> or the <a href="guide-under-5.html" class="underline text-stone-800">Under 5 guide</a> and let ZAP mean "the old movies still play," which is what the picture shows.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="how-to-help" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 2 · Right-sized help</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-3">At home, and out in the community</h2>
+        <p class="text-stone-600 mb-8 leading-relaxed">Pick one. A single reliable hour beats a speech about changing memory care.</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded inline-block">At home</div>
+                <h3 class="font-serif text-xl text-stone-900 mt-3 mb-2">Be the second person in the room</h3>
+                <ul class="text-sm text-stone-600 space-y-2 leading-relaxed list-disc pl-4">
+                    <li>Answer a repeated question again, in the same calm voice. The New Data door did not file it. Quizzing will not make it stick.</li>
+                    <li>Offer a photo album or a song they already know. That is the Training Zone's advice for the Data Library, and it matches the Deep Archives better than a memory test.</li>
+                    <li>Try <a href="ping-pong-catch.html" class="underline text-stone-800">Ping-Pong Color Catch</a> from the <a href="rec-room.html" class="underline text-stone-800">HQ Rec Room</a>: two people, bright cups, a ball rolled across a table, no need for a long conversation. The other Rec Room cards are still marked as loading.</li>
+                    <li>Hand the primary caregiver a real window — a walk, a nap, an errand — while you stay. That is Divide &amp; Pamper at kitchen-table size. The site describes respite as about one to two hours, not a personality transplant.</li>
+                </ul>
+            </div>
+            <div class="bg-white border border-stone-200 rounded-xl p-5">
+                <div class="font-mono text-xs text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded inline-block">In the community</div>
+                <h3 class="font-serif text-xl text-stone-900 mt-3 mb-2">Volunteer only if the age and the waiver fit</h3>
+                <ul class="text-sm text-stone-600 space-y-2 leading-relaxed list-disc pl-4">
+                    <li>The <a href="volunteer.html" class="underline text-stone-800">volunteer page</a> accepts high school and college students, ages 14–22. Under 18, a parent or guardian signs a liability waiver before the first visit.</li>
+                    <li>The path is apply, shadow a session, then lead. Allies run art, music, and tactile sensory sessions at partner communities and give family caregivers a one-to-two-hour break. Service hours can be signed off for school.</li>
+                    <li>Alzheimer's Association courses at <a href="https://training.alz.org" class="underline text-stone-800">training.alz.org</a> are encouraged, not required to join. They are required if you want to lead events at other facilities on the project's behalf.</li>
+                    <li>If you are 13, or 14 and not ready, you are not late. Home help still counts. Do not borrow a birthday to get into a memory-care unit.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-4 bg-amber-50/90 border border-amber-200 rounded-xl p-5 text-sm text-stone-800 leading-relaxed">
+            <strong class="font-serif text-base text-stone-900 block mb-1">If someone needs support tonight</strong>
+            The chat on this site already points families to the Alzheimer's NJ Helpline at <a href="tel:8882806055" class="underline font-medium">888-280-6055</a>. The Alzheimer's Association, linked from the home page, offers a 24/7 helpline and local groups. A school counselor or a parent counts too. This guide cannot be that call.
+        </div>
+        <div class="mt-8 bg-stone-900 text-stone-100 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+                <img src="microglia_sprite.png" alt="Microglia" class="w-12 h-12 shrink-0">
+                <div>
+                    <h3 class="font-serif text-lg text-white">Need language that is honest and still kind?</h3>
+                    <p class="text-sm text-stone-300">Ask Microglia how to explain a change to a younger sibling, or how a glossary metaphor maps onto caregiving.</p>
+                </div>
+            </div>
+            <button type="button" onclick="openMicrogliaChat()" class="w-full sm:w-auto bg-amber-400 text-stone-950 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-amber-300 transition">Ask Microglia</button>
+        </div>
+    </section>
+
+    <section id="reflection" class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-b border-stone-200">
+        <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-2">Step 3 · Not for a grade</p>
+        <h2 class="font-serif text-3xl text-stone-900 mb-4">Reflection prompts</h2>
+        <p class="text-stone-600 mb-6 leading-relaxed">Write in a notebook, or use the printable. You do not have to share the answers. Skip any prompt that is too close to home today.</p>
+        <ol class="space-y-4">
+            <li class="bg-white border border-stone-200 rounded-xl p-5 text-sm text-stone-700 leading-relaxed"><strong class="text-stone-900">1.</strong> Which picture in the book actually helped — the cookie recipe, the word-orbs, the weedy roller coaster, the blocked New Data door — and which one feels too tidy for what you have seen?</li>
+            <li class="bg-white border border-stone-200 rounded-xl p-5 text-sm text-stone-700 leading-relaxed"><strong class="text-stone-900">2.</strong> ZAP does not clear the tangles. What does a family do with love that cannot reverse a disease?</li>
+            <li class="bg-white border border-stone-200 rounded-xl p-5 text-sm text-stone-700 leading-relaxed"><strong class="text-stone-900">3.</strong> Who carries the daily care in your life, or in Ava's (Hina, caring for Jayant)? What would one real hour of rest look like for them this week? Name the hour, not the feeling.</li>
+            <li class="bg-white border border-stone-200 rounded-xl p-5 text-sm text-stone-700 leading-relaxed"><strong class="text-stone-900">4.</strong> Co-regulation is shared calm, not control. When did you make a room quieter? When did you make it louder?</li>
+            <li class="bg-white border border-stone-200 rounded-xl p-5 text-sm text-stone-700 leading-relaxed"><strong class="text-stone-900">5.</strong> What boundary do you need — school, friends, sleep, not being the person who explains the diagnosis at dinner?</li>
+            <li class="bg-white border border-stone-200 rounded-xl p-5 text-sm text-stone-700 leading-relaxed"><strong class="text-stone-900">6.</strong> Is volunteering a fit (14 or older, waiver if you are under 18), or is the right-sized mission at the kitchen table? Write the smaller one if both feel true.</li>
+        </ol>
+    </section>
+
+    <section class="no-print max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+        <div class="flex flex-wrap items-center justify-between gap-4 bg-white border border-stone-200 rounded-xl p-5">
+            <div class="min-w-0">
+                <h3 class="font-serif text-lg text-stone-900">Printable ally sheet</h3>
+                <p class="text-xs text-stone-500">A one-sitting page: boundary, one action, one person to tell.</p>
+            </div>
+            <button type="button" onclick="window.print()" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-stone-700 transition">Print ally sheet</button>
+        </div>
+    </section>
+
+    <section id="printable-ally" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div class="bg-white border-2 border-stone-900 rounded-xl p-6 sm:p-8 shadow-sm">
+            <div class="border-b-2 border-stone-900 pb-4 mb-5 flex flex-col sm:flex-row justify-between items-start gap-4">
+                <div class="min-w-0">
+                    <p class="font-mono text-xs uppercase tracking-widest text-stone-600">Case Alzheimer's // Youth ally sheet</p>
+                    <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-bold">What I can carry</h2>
+                    <p class="text-xs text-stone-600 mt-1">Ages 13+. Private unless you choose to share it. Not a medical plan.</p>
+                </div>
+                <div class="text-xs font-mono border border-stone-400 rounded px-3 py-2 w-full sm:w-56 shrink-0">
+                    <div>NAME: _________________</div>
+                    <div class="mt-2">DATE: __________</div>
+                </div>
+            </div>
+            <div class="space-y-4 text-sm">
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="font-serif font-bold text-stone-900">The metaphor I trust, and the one I don't</div>
+                    <p class="text-xs text-stone-600 mt-1">Cookie recipe / word-orbs / Emotion-Land / New Data door / ZAP and the old movies.</p>
+                    <div class="mt-3 border-b border-stone-300 h-7"></div>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                </div>
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="font-serif font-bold text-stone-900">One hour I can actually give</div>
+                    <p class="text-xs text-stone-600 mt-1">Circle one: answer without quizzing · photos or a song · Ping-Pong Color Catch · cover so a caregiver can leave · volunteer (only if I am 14+ and a guardian has signed, if I am under 18).</p>
+                    <p class="text-xs text-stone-600 mt-3">When, and who it helps:</p>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                </div>
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="font-serif font-bold text-stone-900">My boundary</div>
+                    <p class="text-xs text-stone-600 mt-1">I am not the doctor. I will not promise the tangles will leave. I will not post someone else's hard moment. The line I still need:</p>
+                    <div class="mt-3 border-b border-stone-300 h-7"></div>
+                    <div class="mt-2 border-b border-stone-300 h-7"></div>
+                </div>
+                <div class="print-block border-2 border-stone-300 rounded-lg p-4">
+                    <div class="font-serif font-bold text-stone-900">Who I tell if this gets heavy</div>
+                    <p class="text-xs text-stone-600 mt-1">A parent, a counselor, or the Alzheimer's NJ Helpline, 888-280-6055. Name one person in your real life:</p>
+                    <div class="mt-3 border-b border-stone-300 h-7"></div>
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-stone-300 text-xs font-mono text-stone-600 flex flex-col sm:flex-row justify-between gap-2">
+                <span class="min-w-0">Volunteer path: pillarproject.online/volunteer.html · Activity: Rec Room</span>
+                <span class="shrink-0">The Pillar Project</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="no-print border-t border-stone-200 bg-paper py-10 text-center text-xs text-stone-500">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span>&copy; 2026 The Pillar Project. All rights reserved.</span>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                <a href="parent-guide.html" class="hover:text-stone-900">All age guides</a>
+                <a href="volunteer.html" class="hover:text-stone-900">Volunteer</a>
+                <a href="educators.html" class="hover:text-stone-900">Educators</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="pillar-chat-window" style="display:none;" class="no-print fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-3 right-3 sm:left-auto sm:right-6 sm:w-96 z-50 max-h-[min(70vh,560px)] bg-white border border-stone-300 rounded-xl shadow-xl flex-col overflow-hidden">
+        <div class="bg-stone-900 text-white px-4 py-3 flex justify-between items-center gap-2">
+            <div class="flex items-center gap-2.5 min-w-0">
+                <img src="microglia_sprite.png" alt="" class="w-6 h-6 shrink-0">
+                <span class="font-serif text-sm font-semibold truncate">Ask Microglia (teens)</span>
+            </div>
+            <button type="button" onclick="toggleChat()" class="text-stone-400 hover:text-white text-sm shrink-0" aria-label="Close chat">✕</button>
+        </div>
+        <div id="pillar-chat-body" class="p-4 h-64 max-h-[40vh] overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
+            <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
+                Ask how to talk about Alzheimer's or caregiving with a younger sibling, or how a book metaphor lines up with real life. I can't give medical advice.
+            </div>
+        </div>
+        <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
+            <input id="pillar-chat-input" type="text" placeholder="Ask a caregiving or science question..." class="flex-1 min-w-0 text-base sm:text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
+            <button type="button" onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu(btn) {
+            var menu = document.getElementById('mobile-menu');
+            var open = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            btn.querySelector('.menu-icon-open').classList.toggle('hidden', open);
+            btn.querySelector('.menu-icon-close').classList.toggle('hidden', !open);
+        }
+        const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
+        let guideChatHistory = [];
+        function toggleChat() {
+            const win = document.getElementById("pillar-chat-window");
+            win.style.display = (win.style.display === "none" || win.style.display === "") ? "flex" : "none";
+        }
+        function openMicrogliaChat() {
+            document.getElementById("pillar-chat-window").style.display = "flex";
+            document.getElementById("pillar-chat-input").focus();
+        }
+        function appendGuideMsg(text, isUser) {
+            const body = document.getElementById("pillar-chat-body");
+            const div = document.createElement("div");
+            div.className = isUser
+                ? "bg-stone-900 text-white p-3 rounded-lg self-end max-w-[85%]"
+                : "bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]";
+            div.textContent = text;
+            body.appendChild(div);
+            body.scrollTop = body.scrollHeight;
+            return div;
+        }
+        async function sendGuideQuestion() {
+            const input = document.getElementById("pillar-chat-input");
+            const message = input.value.trim();
+            if (!message) return;
+            input.value = "";
+            appendGuideMsg(message, true);
+            const loading = appendGuideMsg("Checking the youth-ally briefing...", false);
+            try {
+                const res = await fetch(CHAT_ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userMessage: message,
+                        history: guideChatHistory.slice(-6),
+                        activePage: "Parent Guide: Ages 13+ (Teens and Youth Allies)"
+                    })
+                });
+                const data = await res.json();
+                loading.remove();
+                const reply = data.reply || "Could you try asking that one more time?";
+                appendGuideMsg(reply, false);
+                guideChatHistory.push({ role: "user", content: message }, { role: "assistant", content: reply });
+            } catch (err) {
+                loading.remove();
+                appendGuideMsg("Connection is offline right now—please try again shortly.", false);
+            }
+        }
+    </script>
+</body>
+</html>

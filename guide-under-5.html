@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="microglia_sprite.png">
     <title>Under 5 Reading Guide (&lt;5 Years) | Case Alzheimer's</title>
     
     <!-- Editorial Fonts: Fraunces (Serif), Inter (Body), Share Tech Mono (Labels) -->
@@ -29,6 +30,9 @@
         }
     </script>
     <style>
+        html, body { max-width: 100%; overflow-x: hidden; }
+        img { max-width: 100%; height: auto; }
+        .doodle-box > .flex { flex-wrap: wrap; gap: 0.25rem 0.75rem; }
         /* Print Stylesheet: Only prints the Scavenger Hunt Doodle Sheet cleanly */
         @media print {
             body {
@@ -58,27 +62,48 @@
 <body class="bg-paper text-ink font-sans antialiased selection:bg-amber-200">
 
     <!-- TOP SWITCHER BAR -->
-    <div class="no-print w-full bg-stone-900 text-stone-300 px-6 py-2.5 flex justify-between items-center text-xs font-mono">
-        <span>PARENT &amp; EDUCATOR COMPANION // AGE BRACKET: UNDER 5 (&lt;5 YEARS)</span>
-        <div class="flex items-center gap-4">
+    <div class="no-print w-full bg-stone-900 text-stone-300 px-4 sm:px-6 py-2.5 flex flex-wrap justify-between items-center gap-x-4 gap-y-1 text-[11px] sm:text-xs font-mono">
+        <span class="leading-snug">PARENT &amp; EDUCATOR COMPANION // UNDER 5</span>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
             <a href="parent-guide.html" class="text-amber-300 hover:underline">← All Age Guides</a>
-            <span class="text-stone-600">/</span>
+            <span class="text-stone-600" aria-hidden="true">/</span>
+            <a href="educators.html" class="hover:text-white transition">Educators</a>
+            <span class="text-stone-600" aria-hidden="true">/</span>
             <a href="case-alzheimers.html" class="hover:text-white transition">Case Alzheimer's Hub</a>
         </div>
     </div>
 
     <!-- NAVIGATION -->
     <nav class="no-print w-full bg-paper/95 backdrop-blur-sm border-b border-stone-200 sticky top-0 z-40">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
-            <a href="parent-guide.html" class="flex items-center gap-3">
-                <img src="The Pillar Project.PNG" alt="The Pillar Project" class="h-10 w-auto">
-                <span class="font-serif text-lg font-semibold text-stone-900 tracking-tight">Guide: Under 5 Years</span>
-            </a>
-            <div class="flex items-center space-x-3 text-xs font-mono">
-                <a href="guide-under-5.html" class="bg-stone-900 text-white px-3 py-1.5 rounded">Under 5</a>
-                <a href="guide-5-8.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5">5–8</a>
-                <a href="guide-9-12.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5">9–12</a>
-                <a href="guide-13-plus.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5">13+</a>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="h-16 flex justify-between items-center gap-3">
+                <a href="parent-guide.html" class="flex items-center gap-3 min-w-0">
+                    <img src="The Pillar Project.PNG" alt="The Pillar Project" class="h-10 w-auto shrink-0">
+                    <span class="font-serif text-base sm:text-lg font-semibold text-stone-900 tracking-tight truncate">Under 5</span>
+                </a>
+                <div class="hidden md:flex items-center gap-1 text-xs font-mono shrink-0">
+                    <a href="guide-under-5.html" class="bg-stone-900 text-white px-2.5 py-1.5 rounded">Under 5</a>
+                    <a href="guide-5-8.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">5–8</a>
+                    <a href="guide-9-12.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">9–12</a>
+                    <a href="guide-13-plus.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">13+</a>
+                    <a href="educators.html" class="text-stone-600 hover:text-stone-900 px-2.5 py-1.5 rounded">Educators</a>
+                </div>
+                <button type="button" class="md:hidden shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full text-stone-700 hover:bg-stone-200/80" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
+                    <svg class="menu-icon-open w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="menu-icon-close hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden border-t border-stone-200 pb-3">
+                <a href="guide-under-5.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-900 bg-amber-100/80">Under 5</a>
+                <a href="guide-5-8.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 5–8 · Early Readers</a>
+                <a href="guide-9-12.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 9–12 · Core Book Agents</a>
+                <a href="guide-13-plus.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Ages 13+ · Teens &amp; Youth Allies</a>
+                <a href="educators.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Educators</a>
+                <a href="parent-guide.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">All Age Guides</a>
+                <a href="the-book.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">The Book</a>
+                <a href="training-zone.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Agent Training Zone</a>
+                <a href="rec-room.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">HQ Rec Room</a>
+                <a href="media.html" class="block px-2 py-3 rounded-lg text-sm font-medium text-stone-700">Media Hub</a>
             </div>
         </div>
     </nav>
@@ -490,13 +515,14 @@
             <span>&copy; 2026 The Pillar Project. All rights reserved.</span>
             <div class="flex gap-6">
                 <a href="parent-guide.html" class="hover:text-stone-900">← Back to All Age Guides</a>
+                <a href="educators.html" class="hover:text-stone-900">Educators</a>
                 <a href="training-zone.html" class="hover:text-stone-900">Agent Training Zone</a>
             </div>
         </div>
     </footer>
 
     <!-- MICROGLIA CHAT WIDGET -->
-    <div id="pillar-chat-window" style="display:none;" class="no-print fixed bottom-6 right-6 w-80 sm:w-96 max-w-[92vw] bg-white border border-stone-300 rounded-xl shadow-xl z-50 flex-col overflow-hidden">
+    <div id="pillar-chat-window" style="display:none;" class="no-print fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-3 right-3 sm:left-auto sm:right-6 sm:w-96 z-50 max-h-[min(70vh,560px)] bg-white border border-stone-300 rounded-xl shadow-xl flex-col overflow-hidden">
         <div class="bg-stone-900 text-white px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2.5">
                 <img src="microglia_sprite.png" alt="Microglia" class="w-6 h-6">
@@ -510,12 +536,22 @@
             </div>
         </div>
         <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
-            <input id="pillar-chat-input" type="text" placeholder="Ask how to explain a term..." class="flex-1 text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
+            <input id="pillar-chat-input" type="text" placeholder="Ask how to explain a term..." class="flex-1 min-w-0 text-base sm:text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
             <button onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
         </div>
     </div>
 
     <script>
+        function toggleMobileMenu(btn) {
+            var menu = document.getElementById('mobile-menu');
+            var open = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            btn.querySelector('.menu-icon-open').classList.toggle('hidden', open);
+            btn.querySelector('.menu-icon-close').classList.toggle('hidden', !open);
+        }
+
         const CHAT_ENDPOINT = "https://brain-hq-bot.avarshah.workers.dev";
         let guideChatHistory = [];
 
