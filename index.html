@@ -122,33 +122,24 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-slate-50 via-pillar-light/40 to-white bg-[length:400%_400%] animate-gradient overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <!-- Left Side: Text -->
-            <div class="text-left">
+    <section class="pt-36 pb-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div class="text-left md:pr-4">
                 <h1 class="font-heading text-5xl md:text-6xl text-slate-900 tracking-tight mb-6">
                     Bridging the Gap in <span class="text-transparent bg-clip-text bg-gradient-to-r from-pillar to-pillar-dark">Memory Care</span>
                 </h1>
                 <p class="mt-4 text-xl text-slate-600 leading-relaxed">
                     When Alzheimer's impacts a family, primary caregivers shoulder immense burnout. The Pillar Project is a Gen Z-led initiative providing grassroots, intergenerational respite through our "Divide &amp; Pamper" model.
                 </p>
-                <div class="mt-10 flex flex-col sm:flex-row gap-4 flex-wrap">
-                    <a href="#about-model" class="bg-pillar text-white text-center px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1">Learn How We Help</a>
-                    <a href="volunteer.html" class="bg-white text-pillar text-center border-2 border-pillar px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-light transition shadow-lg hover:-translate-y-1">Join the Movement</a>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                    <a href="#about-model" class="bg-pillar text-white text-center px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg">Learn How We Help</a>
+                    <a href="volunteer.html" class="bg-white text-pillar text-center border-2 border-pillar px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-light transition shadow-lg">Join the Movement</a>
                 </div>
+                <p class="mt-8 text-sm font-bold text-slate-800">Based in Livingston, NJ</p>
             </div>
-            
-            <!-- Right Side: Authentic Photography -->
-            <div class="relative mt-10 md:mt-0">
-                <div class="rounded-2xl shadow-2xl overflow-hidden border-4 border-white bg-slate-200 aspect-video md:aspect-[4/3] flex items-center justify-center relative">
-                    <img src="IMG_1358.jpeg" alt="Gen Z volunteers with memory care patients" class="w-full h-full object-cover z-10">
-                </div>
-                <!-- Floating Location Tag -->
-                <div class="absolute -bottom-6 -left-6 bg-white py-3 px-6 rounded-xl shadow-xl border border-slate-100 z-20 hidden md:block">
-                    <p class="text-sm font-bold text-slate-800 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-pillar" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        Based in Livingston, NJ
-                    </p>
+            <div class="mt-2 md:mt-0">
+                <div class="overflow-hidden rounded-2xl border-4 border-white shadow-xl bg-slate-200 aspect-[3/4] mx-auto w-full">
+                    <img src="IMG_1358.jpeg" alt="Gen Z volunteers with memory care patients" class="w-full h-full object-cover object-center">
                 </div>
             </div>
         </div>
@@ -431,6 +422,7 @@
 
     <!-- MICROGLIA CHAT WIDGET -->
     <style>
+        body { padding-bottom: 7rem; }
         #pillar-chat-btn { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); right: max(20px, env(safe-area-inset-right)); background: none; border: none; padding: 0; cursor: pointer; z-index: 1000; transition: transform 0.2s; }
         #pillar-chat-btn img { width: 60px; height: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
         #pillar-chat-btn:hover { transform: scale(1.1); }
