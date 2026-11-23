@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Case Alzheimer's | The Pillar Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
@@ -104,6 +104,37 @@
             text-align: center; padding: 40px; border-top: 1px solid #45A29E; 
             margin-top: 50px; font-size: 0.9rem; color: #45A29E; 
         }
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            color: #66FCF1;
+            border: 1px solid #66FCF1;
+            padding: 8px 14px;
+            font-family: 'Share Tech Mono', monospace;
+            border-radius: 3px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 900px) {
+            .menu-toggle { display: inline-block; }
+            .top-bar { flex-wrap: wrap; gap: 8px; padding: 10px 12px; align-items: center; }
+            .top-bar > span { flex: 1 1 160px; min-width: 0; line-height: 1.35; }
+            .switch-btn { font-size: 12px; padding: 8px 10px; }
+            nav { padding: 14px 16px; flex-wrap: wrap; }
+            .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 4px; padding-top: 8px; }
+            .nav-links.is-open { display: flex; }
+            .nav-links a { margin: 0; display: block; padding: 12px 4px; }
+            .sponsor-btn { text-align: center; }
+            .hero { flex-direction: column; padding: 36px 16px 28px; min-height: 0; text-align: center; }
+            .hero-content { max-width: 100%; }
+            .hero-image { width: min(260px, 78%); margin: 28px auto 0; }
+            .typewriter { display: inline-block; max-width: 100%; font-size: 1.65rem; min-height: 0; line-height: 1.3; overflow-wrap: break-word; vertical-align: top; border-right: none !important; }
+            .hero-sub { font-size: 1rem; margin-bottom: 24px; }
+            .cta-btn { margin-right: 8px; }
+            .brain-map-container { height: 340px !important; max-width: 100%; overflow: hidden; }
+            .tooltip { width: min(220px, 70vw); }
+            section h2.spy-font { display: block !important; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+        }
     </style>
 </head>
 <body>
@@ -116,7 +147,8 @@
 
     <nav>
         <div class="logo spy-font">BRAIN HQ // CA</div>
-        <div class="nav-links spy-font">
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="spy-nav" aria-label="Open menu" onclick="toggleSpyMenu(this)">MENU</button>
+        <div id="spy-nav" class="nav-links spy-font">
             <a href="case-alzheimers.html" style="color:#FFD700;">HOME</a>
             <a href="the-book.html">THE BOOK</a>
             <!-- Updated to match the new file name -->
@@ -225,6 +257,13 @@
     </footer>
 
     <script>
+        function toggleSpyMenu(btn) {
+            var menu = document.getElementById('spy-nav');
+            var open = menu.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            btn.textContent = open ? 'CLOSE' : 'MENU';
+        }
         const text = "Demystifying Dementia for the Next Generation of Agents.";
         const element = document.getElementById("typewriter");
         let i = 0;

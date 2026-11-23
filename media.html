@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth"> 
 <head> 
     <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"> 
     <title>Media & Impact Hub | The Pillar Project</title> 
     
     <!-- Google Fonts: Montserrat (Headings) & Inter (Body) --> 
@@ -31,16 +31,17 @@
         } 
     </script> 
 </head> 
-<body class="bg-slate-50 text-slate-800 font-sans antialiased"> 
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden"> 
 
+    <div class="site-header fixed top-0 inset-x-0 z-50">
     <!-- TOP HUB SWITCHER --> 
-    <div class="fixed w-full z-50 top-0 bg-slate-100 border-b border-slate-200 px-6 py-2 flex justify-between items-center text-xs md:text-sm font-sans text-slate-600 shadow-sm"> 
-        <span class="font-medium tracking-wide">Current Hub: Media & Impact</span> 
-        <a href="index.html" class="bg-pillar text-white px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm"> ⟲ Back to Main Site </a> 
+    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-xs md:text-sm font-sans text-slate-600 shadow-sm"> 
+        <span class="font-medium tracking-wide leading-snug min-w-0">Current Hub: Media & Impact</span> 
+        <a href="index.html" class="shrink-0 whitespace-nowrap bg-pillar text-white px-3 sm:px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm"> ⟲ Back to Main Site </a> 
     </div> 
 
     <!-- Navigation --> 
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-40 mt-[36px]"> 
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm"> 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> 
             <div class="flex justify-between h-16 items-center"> 
                 <div class="flex-shrink-0"> 
@@ -51,10 +52,21 @@
                     <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a> 
                     <a href="parent-guide.html" class="font-medium text-slate-600 hover:text-pillar transition">Parent Guide</a> 
                     <a href="training-zone.html" class="bg-slate-100 text-pillar px-4 py-2 rounded-full font-bold text-sm hover:bg-slate-200 transition">Agent Training Zone</a> 
-                </div> 
-            </div> 
+                </div>
+                <button type="button" class="md:hidden ml-auto inline-flex items-center justify-center w-11 h-11 rounded-full text-slate-700 hover:bg-slate-100" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
+                    <svg class="menu-icon-open w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="menu-icon-close hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden border-t border-slate-100 pb-3">
+                <a href="index.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Home</a>
+                <a href="case-alzheimers.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">The Book</a>
+                <a href="parent-guide.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Parent Guide</a>
+                <a href="training-zone.html" class="mt-1 block text-center bg-slate-100 text-pillar px-4 py-3 rounded-full font-bold text-sm">Agent Training Zone</a>
+            </div>
         </div> 
-    </nav> 
+    </nav>
+    </div> 
 
     <!-- HERO SECTION --> 
     <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-pillar-dark text-white text-center"> 
@@ -118,12 +130,8 @@
                 </div>
 
                 <a href="https://www.youtube.com/shorts/VAJMqWQIIhI" target="_blank" rel="noopener noreferrer" class="mt-6 text-center block w-full bg-slate-100 text-slate-700 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">
-                    Watch the Brain Bits intro
+                    Watch on YouTube
                 </a>
-                <!-- TODO: No YouTube channel URL exists anywhere in this repo. Do not guess one. Replace the note below with Ava's real channel URL (and use it for a Subscribe link) once it is confirmed. -->
-                <p class="mt-4 text-center text-sm text-slate-500 leading-relaxed">
-                    TODO: YouTube channel link — a real channel URL was not found in the site files.
-                </p>
             </div>
 
         </div>
@@ -165,5 +173,16 @@
         </div> 
     </section> 
 
+    <script>
+        function toggleMobileMenu(btn) {
+            var menu = document.getElementById('mobile-menu');
+            var open = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            btn.querySelector('.menu-icon-open').classList.toggle('hidden', open);
+            btn.querySelector('.menu-icon-close').classList.toggle('hidden', !open);
+        }
+    </script>
 </body> 
 </html>
