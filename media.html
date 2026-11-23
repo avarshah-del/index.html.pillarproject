@@ -3,8 +3,15 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <link rel="icon" href="microglia_sprite.png"> 
-    <title>Media & Impact Hub | The Pillar Project</title> 
+
+    <link rel="icon" href="favicon-pillar.png">
+    <meta name="description" content="Watch Ava Shah's TED-Ed talk and The Pillar Project videos from memory-care visits and the book.">
+    <meta property="og:title" content="Media & Impact Hub | The Pillar Project">
+    <meta property="og:description" content="Watch Ava Shah's TED-Ed talk and The Pillar Project videos from memory-care visits and the book.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pillarproject.online/media.html">
+    <meta property="og:image" content="https://pillarproject.online/IMG_1358.jpeg">
+<title>Media & Impact Hub | The Pillar Project</title> 
     
     <!-- Google Fonts: Montserrat (Headings) & Inter (Body) --> 
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -35,45 +42,57 @@
 <body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden"> 
 
     <div class="site-header fixed top-0 inset-x-0 z-50">
-    <!-- TOP HUB SWITCHER --> 
-    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-xs md:text-sm font-sans text-slate-600 shadow-sm"> 
-        <span class="font-medium tracking-wide leading-snug min-w-0">Current Hub: Media & Impact</span> 
-        <a href="index.html" class="shrink-0 whitespace-nowrap bg-pillar text-white px-3 sm:px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm"> ⟲ Back to Main Site </a> 
-    </div> 
+    <!-- TOP HUB SWITCHER -->
+    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-xs md:text-sm font-sans text-slate-600 shadow-sm">
+        <span class="font-medium tracking-wide leading-snug min-w-0">Current Hub: The Pillar Project (Main)</span>
+        <a href="case-alzheimers.html" class="shrink-0 whitespace-nowrap bg-pillar text-white px-3 sm:px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm">
+            ⟲ Switch to Case Alzheimer's
+        </a>
+    </div>
 
-    <!-- Navigation --> 
-    <nav class="bg-white/95 backdrop-blur-md shadow-sm"> 
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> 
-            <div class="flex justify-between h-16 items-center"> 
-                <div class="flex-shrink-0"> 
-                    <a href="index.html"> <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition"> </a> 
-                </div> 
-                <div class="hidden lg:flex space-x-6 items-center ml-auto"> 
-                    <a href="index.html" class="font-medium text-slate-600 hover:text-pillar transition">Home</a>
-                    <a href="case-alzheimers.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a> 
-                    <a href="parent-guide.html" class="font-medium text-slate-600 hover:text-pillar transition">Parent Guide</a>
-                    <a href="educators.html" class="font-medium text-slate-600 hover:text-pillar transition">Educators</a>
-                    <a href="training-zone.html" class="bg-slate-100 text-pillar px-4 py-2 rounded-full font-bold text-sm hover:bg-slate-200 transition whitespace-nowrap">Agent Training Zone</a> 
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <img src="The Pillar Project.PNG" alt="The Pillar Project Logo" class="h-14 w-auto drop-shadow-sm hover:scale-105 transition">
+                    </a>
                 </div>
-                <button type="button" class="lg:hidden ml-auto inline-flex items-center justify-center w-11 h-11 rounded-full text-slate-700 hover:bg-slate-100" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
+                
+                <!-- SPONSOR PORTAL BUTTON -->
+                <div class="hidden md:block ml-4">
+                    <a href="sponsor-portal.html" class="text-teal-700 border-2 border-teal-600 px-5 py-2 rounded-full font-semibold text-sm hover:bg-teal-50 hover:shadow-sm transition-all flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        Sponsor Portal
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex space-x-6 items-center ml-auto">
+                    <a href="index.html" class="font-medium text-slate-600 hover:text-pillar transition">Home</a>
+                    <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a>
+                    <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a>
+                    <a href="book.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
+                    <a href="media.html" class="font-medium text-pillar transition">Media</a>
+                    <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
+                </div>
+                <button type="button" class="lg:hidden ml-auto inline-flex items-center justify-center w-11 h-11 rounded-full text-slate-700 hover:bg-pillar-light" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
                     <svg class="menu-icon-open w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     <svg class="menu-icon-close hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
-            <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-100 pb-3">
-                <a href="index.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Home</a>
-                <a href="case-alzheimers.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">The Book</a>
-                <a href="parent-guide.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Parent Guide</a>
-                <a href="educators.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Educators</a>
-                <a href="guide-under-5.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Guide: Under 5</a>
-                <a href="guide-5-8.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Guide: Ages 5–8</a>
-                <a href="guide-9-12.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Guide: Ages 9–12</a>
-                <a href="guide-13-plus.html" class="block px-2 py-3 rounded-lg font-medium text-slate-700">Guide: Ages 13+</a>
-                <a href="training-zone.html" class="mt-1 block text-center bg-slate-100 text-pillar px-4 py-3 rounded-full font-bold text-sm">Agent Training Zone</a>
+            <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-100 pb-4">
+                <a href="index.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Home</a>
+                <a href="about.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Our Story</a>
+                <a href="volunteer.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Volunteer</a>
+                <a href="book.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">The Book</a>
+                <a href="media.html" class="block px-3 py-3 rounded-lg font-medium text-pillar bg-pillar-light/70">Media</a>
+                <a href="sponsor-portal.html" class="md:hidden block px-3 py-3 rounded-lg font-medium text-teal-700">Sponsor Portal</a>
+                <a href="https://gofund.me/1da835a42" target="_blank" class="mt-2 block bg-pillar text-white px-5 py-3 rounded-full font-semibold text-center shadow-md">Donate</a>
             </div>
-        </div> 
+        </div>
     </nav>
-    </div> 
+    </div>
 
     <!-- HERO SECTION --> 
     <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-pillar-dark text-white text-center"> 
@@ -180,6 +199,35 @@
         </div> 
     </section> 
 
+    <!-- MICROGLIA CHAT WIDGET -->
+    <style>
+        #pillar-chat-btn { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); right: max(20px, env(safe-area-inset-right)); background: none; border: none; padding: 0; cursor: pointer; z-index: 1000; transition: transform 0.2s; }
+        #pillar-chat-btn img { width: 60px; height: 60px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+        #pillar-chat-btn:hover { transform: scale(1.1); }
+    </style>
+    <button id="pillar-chat-btn" onclick="toggleChat()" aria-label="Ask Microglia" data-page="Media & Impact Hub">
+        <img src="microglia_sprite.png" alt="Ask Microglia">
+    </button>
+    <div id="pillar-chat-window" style="display:none;" class="fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] left-3 right-3 sm:left-auto sm:right-6 sm:w-96 max-h-[min(70vh,560px)] bg-white border border-stone-300 rounded-xl shadow-xl z-[60] flex-col overflow-hidden">
+        <div class="bg-stone-900 text-white px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
+                <img src="microglia_sprite.png" alt="" class="w-6 h-6">
+                <span class="font-serif text-sm font-semibold">Ask Microglia</span>
+            </div>
+            <button onclick="toggleChat()" class="text-stone-400 hover:text-white text-sm" aria-label="Close chat">Close</button>
+        </div>
+        <div id="pillar-chat-body" class="p-4 h-64 max-h-[40vh] overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
+            <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
+                Hi! I'm Microglia. Ask me about any term in Agent H.M.'s Glossary or how The Pillar Project helps families.
+            </div>
+        </div>
+        <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
+            <input id="pillar-chat-input" type="text" placeholder="Type your question..." class="flex-1 min-w-0 text-base sm:text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
+            <button onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
+        </div>
+    </div>
+
+    <script src="pillar-chat.js"></script>
     <script>
         function toggleMobileMenu(btn) {
             var menu = document.getElementById('mobile-menu');
