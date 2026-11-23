@@ -2,65 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="icon" href="favicon-hq.png">
-    <meta name="description" content="HQ Rec Room activities for a visit with someone living with memory loss. Start with Ping-Pong Color Catch.">
-    <meta property="og:title" content="HQ Rec Room | The Pillar Project">
-    <meta property="og:description" content="HQ Rec Room activities for a visit with someone living with memory loss. Start with Ping-Pong Color Catch.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pillarproject.online/rec-room.html">
-    <meta property="og:image" content="https://pillarproject.online/IMG_1358.jpeg">
-<title>HQ Rec Room | The Pillar Project</title>
-    <!-- Tailwind CSS (Matches your tech stack) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Microglia's lounge: five short visits to share with someone you love. Cup catch, colors, feelings, photos, and cookies.">
+    <title>Microglia's Lounge | HQ Rec Room</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Poppins:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lounge.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-
-    <!-- Header -->
-    <header class="bg-purple-600 text-white py-6 shadow-md">
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold">HQ Rec Room 🎮</h1>
-            <!-- Back Button to return to the main site -->
-            <a href="index.html" class="bg-white text-purple-600 px-4 py-2 rounded-full font-bold hover:bg-gray-100 transition">
-                ⬅ Back to Base
-            </a>
+<body>
+    <div class="top-bar spy-font">
+        <span>ENCRYPTED CONNECTION // HUB: CASE ALZHEIMER'S</span>
+        <a class="switch-btn" href="index.html">⟲ SWITCH TO PILLAR PROJECT</a>
+    </div>
+    <nav>
+        <div class="logo spy-font">BRAIN HQ // CA</div>
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="spy-nav" aria-label="Open menu" onclick="toggleSpyMenu(this)">MENU</button>
+        <div id="spy-nav" class="nav-links spy-font">
+            <a href="case-alzheimers.html">HOME</a>
+            <a href="the-book.html">THE BOOK</a>
+            <a href="training-zone.html">AGENT TRAINING ZONE</a>
+            <a href="rec-room.html" aria-current="page">HQ REC ROOM</a>
+            <a href="parent-guide.html">PARENT GUIDE</a>
+            <a href="educators.html">EDUCATORS</a>
+            <a href="guide-under-5.html">GUIDE &lt;5</a>
+            <a href="guide-5-8.html">GUIDE 5–8</a>
+            <a href="guide-9-12.html">GUIDE 9–12</a>
+            <a href="guide-13-plus.html">GUIDE 13+</a>
+            <a href="media.html">MEDIA HUB</a>
+            <a class="sponsor-btn" href="sponsor-portal.html">SPONSOR PORTAL [RESTRICTED]</a>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 py-12">
-        
-        <!-- Page Intro -->
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-extrabold mb-4 text-purple-700">Agent Activity Hub</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Welcome to the Rec Room! Browse our collection of "Divide &amp; Pamper" activities. These simple, step-by-step missions are designed to build joyful, stress-free connections.
-            </p>
-        </div>
-
-        <!-- Recipe-Style Activity Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Activity 1: Ping Pong Cup Catch (Clickable) -->
-            <!-- Note: This links to ping-pong-catch.html which we will build next! -->
-            <a href="ping-pong-catch.html" class="block group rounded-2xl bg-white shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
-                <!-- Image/Graphic Placeholder -->
-                <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-                    <span class="text-7xl group-hover:scale-110 transition-transform duration-300">🏓</span>
+    </nav>
+    <main class="room">
+        <div class="wrap">
+            <div class="back-row">
+                <a class="back" href="case-alzheimers.html">← CASE ALZHEIMER'S HUB</a>
+            </div>
+            <div class="host">
+                <div class="rug">
+                    <img src="microglia_sprite.png" alt="Microglia, the friendly cell who hosts the lounge">
                 </div>
-                <!-- Card Text -->
-                <div class="p-6">
-                    <div class="text-xs font-bold tracking-wider text-purple-600 uppercase mb-2">Sensory & Motor</div>
-                    <h3 class="text-xl font-bold mb-2 text-gray-900 group-hover:text-purple-600 transition">Ping-Pong Color Catch</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        A gentle, face-to-face game using bright cups and a rolling ping-pong ball to create a joyful, non-verbal connection.
-                    </p>
+                <div>
+                    <p class="bubble">Hi. I'm Microglia. Pick one thing. We'll do it with someone you love.</p>
+                    <div class="badges">
+                        <span class="badge gold">SPY BADGE</span>
+                        <span class="badge cyan">BRAIN HQ</span>
+                        <span class="badge ink">AGES 6–12</span>
+                    </div>
                 </div>
-            </a>
-
+            </div>
+            <h1 class="lounge-title">Microglia's lounge</h1>
+            <p class="lead">Five short visits. Big pictures. Tap one.</p>
+            <div class="tiles">
+                <a class="tile" href="ping-pong-catch.html">
+                    <span class="art"><span class="set" aria-hidden="true"><i class="ball"></i><i class="cup red"></i><i class="cup blue"></i></span></span>
+                    <strong>Cup catch</strong>
+                    <span class="hint">Roll. Cover. Roll back.</span>
+                </a>
+                <a class="tile" href="color-radio.html">
+                    <span class="art"><span class="fan" aria-hidden="true"><i class="card c1"></i><i class="card c2"></i><i class="card c3"></i></span></span>
+                    <strong>Color radio</strong>
+                    <span class="hint">Hold up a color.</span>
+                </a>
+                <a class="tile" href="feelings-wheel.html">
+                    <span class="art"><span class="wheel" aria-hidden="true"></span></span>
+                    <strong>Feelings wheel</strong>
+                    <span class="hint">Point to a feeling.</span>
+                </a>
+                <a class="tile" href="then-and-now.html">
+                    <span class="art"><span class="polaroid" aria-hidden="true"><img src="IMG_2628.jpeg" alt=""></span></span>
+                    <strong>Then and now</strong>
+                    <span class="hint">Old photo first.</span>
+                </a>
+                <a class="tile" href="cookie-mission.html">
+                    <span class="art"><span class="tray" aria-hidden="true"><i class="cookie"></i><i class="cookie"></i><i class="cookie"></i></span></span>
+                    <strong>Cookie mission</strong>
+                    <span class="hint">Share a cookie.</span>
+                </a>
+            </div>
         </div>
     </main>
-
+    <footer class="spy-footer spy-font">TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.</footer>
+    <button type="button" id="pillar-chat-btn" onclick="toggleChat()" aria-label="Ask Microglia" data-page="HQ Rec Room">
+        <img src="microglia_sprite.png" alt="" width="60" height="60">
+    </button>
+    <div id="pillar-chat-window">
+        <div class="chat-head">
+            <span>Ask Microglia</span>
+            <button type="button" onclick="toggleChat()" aria-label="Close chat">Close</button>
+        </div>
+        <div id="pillar-chat-body">
+            <div class="bg-white">Hi. I'm Microglia. Ask me about a visit, a feeling, or a word from the book.</div>
+        </div>
+        <form class="chat-form" onsubmit="sendGuideQuestion(); return false;">
+            <input id="pillar-chat-input" type="text" placeholder="Type a question" autocomplete="off">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script>
+        function toggleSpyMenu(btn) {
+            var menu = document.getElementById("spy-nav");
+            var open = menu.classList.toggle("is-open");
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+            btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+            btn.textContent = open ? "CLOSE" : "MENU";
+        }
+    </script>
+    <script src="pillar-chat.js"></script>
 </body>
 </html>
