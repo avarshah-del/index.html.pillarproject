@@ -1,0 +1,94 @@
+/* Easier reading for the family and classroom guides. */
+body.read-easy {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    padding-bottom: 7.5rem;
+}
+body.read-easy header h1 {
+    font-size: clamp(2.15rem, 5vw, 3.15rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+body.read-easy header .text-lg,
+body.read-easy header p.text-lg {
+    font-size: 1.2rem;
+    line-height: 1.75;
+}
+.read-anchor {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0.35rem 1rem;
+}
+.read-fold {
+    background: #fff;
+    border: 1px solid #e7e5e4;
+    border-radius: 18px;
+    margin: 0.85rem 0 1.15rem;
+}
+.read-fold summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.35rem 1.4rem;
+}
+.read-fold summary::-webkit-details-marker { display: none; }
+.read-fold summary::marker { content: ""; }
+.fold-title {
+    display: block;
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.55rem;
+    line-height: 1.25;
+    color: #1c1917;
+    padding-right: 1.75rem;
+    background-image: linear-gradient(#1c1917, #1c1917), linear-gradient(#1c1917, #1c1917);
+    background-repeat: no-repeat;
+    background-position: right 0.15rem center, right 0.15rem center;
+    background-size: 14px 2px, 2px 14px;
+}
+.read-fold[open] .fold-title {
+    background-size: 14px 2px, 0 0;
+}
+.fold-sum {
+    display: block;
+    margin-top: 0.45rem;
+    color: #57534e;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+.read-fold:hover { border-color: #1c1917; }
+.fold-body {
+    padding: 0 1.4rem 1.5rem;
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+.fold-body h2 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+#pillar-chat-btn {
+    position: fixed !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    right: max(16px, env(safe-area-inset-right)) !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+#pillar-chat-window {
+    position: fixed !important;
+    right: max(16px, env(safe-area-inset-right)) !important;
+    left: auto !important;
+    bottom: calc(env(safe-area-inset-bottom) + 88px) !important;
+    width: min(24rem, calc(100vw - 32px)) !important;
+    z-index: 1000;
+}
+@media print {
+    body.read-easy { padding-bottom: 0; font-size: 12pt; }
+    /* Closed <details> stay hidden in Chrome even if display is forced.
+       beforeprint opens details.print-sheet so the worksheet itself prints. */
+    details.print-sheet > summary { display: none !important; }
+    details.print-sheet[open] > .fold-body { display: block !important; }
+    #pillar-chat-btn, #pillar-chat-window { display: none !important; }
+}
