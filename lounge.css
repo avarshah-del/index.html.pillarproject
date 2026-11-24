@@ -270,6 +270,15 @@ nav {
     background: #1c2430;
 }
 .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-frame video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: contain;
+    background: #1c2430;
+}
 .placeholder-note { margin: 8px 0 0; color: #52606c; font-size: 0.92rem; }
 .guide {
     margin-top: 22px;
