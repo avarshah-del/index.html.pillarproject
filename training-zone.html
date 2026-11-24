@@ -168,6 +168,21 @@
         .option-btn.correct { background: rgba(57, 255, 20, 0.2) !important; border-color: var(--neon-green) !important; color: var(--neon-green) !important; }
         .option-btn.wrong { background: rgba(255, 0, 127, 0.2) !important; border-color: var(--alert-pink) !important; color: var(--alert-pink) !important; }
         .feedback-box { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; font-size: 1.05rem; line-height: 1.4; }
+        .bb-quiz { width: 100%; max-width: 650px; align-self: stretch; text-align: left; margin-top: 8px; }
+        #screen-brain-bits .spy-btn { max-width: 100%; white-space: normal; text-align: center; line-height: 1.35; }
+        #screen-brain-bits h2, #screen-brain-bits h3 { overflow-wrap: anywhere; }
+        .bb-options { display: flex; flex-direction: column; gap: 10px; }
+        .bb-question { margin-bottom: 22px; }
+        .bb-option {
+            width: 100%; min-height: 48px; background: rgba(5, 11, 20, 0.7); border: 1px solid var(--neon-blue); color: #fff;
+            padding: 14px 16px; border-radius: 8px; text-align: left; cursor: pointer; font-size: 1.05rem;
+            font-family: 'Inter', sans-serif; line-height: 1.35; transition: all 0.2s ease;
+        }
+        .bb-option:hover { background: rgba(102, 252, 241, 0.2); border-color: #fff; }
+        .bb-option:disabled { cursor: default; }
+        .bb-option.correct { background: rgba(57, 255, 20, 0.2); border-color: var(--neon-green); color: var(--neon-green); }
+        .bb-option.wrong { background: rgba(255, 0, 127, 0.2); border-color: var(--alert-pink); color: var(--alert-pink); }
+        .bb-feedback { margin-top: 12px; padding: 12px 14px; border-radius: 8px; display: none; font-size: 1.05rem; line-height: 1.4; }
        
         /* Doodle Scanner Frame */
 .scanner-dropzone {
@@ -244,6 +259,7 @@
             .hq-status { font-size: 0.68rem; letter-spacing: 1px; }
             .game-panel { padding: 22px 14px; }
             #game-container { padding: 20px 12px 120px; }
+            #screen-brain-bits h2.spy-font { font-size: 1.55rem !important; }
             h1.spy-font { font-size: 1.7rem !important; }
         }
         @media (max-width: 768px) {
@@ -382,7 +398,7 @@
                     <div class="zone-card" onclick="showScreen('screen-brain-bits')" style="border-color: var(--gold); background: rgba(5, 11, 20, 0.6);">
                         <div class="zone-icon">🎬</div>
                         <div class="spy-font" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">SAARA'S BRAIN BITS</div>
-                        <div class="kid-font" style="font-size: 0.95rem; color: var(--neon-green); margin-top: 8px; font-weight: bold;">▶ Watch Episode 1 (+50 XP)</div>
+                        <div class="kid-font" style="font-size: 0.95rem; color: var(--neon-green); margin-top: 8px; font-weight: bold;">▶ Watch the shorts (+XP)</div>
                     </div>
                     <div class="zone-card" onclick="showScreen('screen-doodle-upload')" style="border-color: var(--alert-pink); background: rgba(5, 11, 20, 0.6);">
                         <div class="zone-icon">🎨</div>
@@ -408,8 +424,9 @@
             <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
             <h2 class="spy-font" style="color: var(--gold); font-size: 2.3rem; margin-bottom: 10px;">🎬 SAARA'S BRAIN BITS</h2>
             <p class="kid-font" style="color: #cbd5e1; font-size: 1.15rem; max-width: 650px; margin-bottom: 25px;">
-                Explore the human brain each week with Agent Saara! Watch the intro briefing below to learn how different parts of the brain work and earn bonus HQ Clearance XP.
+                Explore the human brain each week with Agent Saara! Watch the intro briefing, then the next short. A correct quiz answer adds +10 HQ Clearance XP.
             </p>
+            <h3 class="spy-font" style="color: var(--gold); font-size: 1.25rem; margin-bottom: 14px;">Intro: Brain Bits with Saara</h3>
             <!-- Embedded YouTube Short -->
             <div style="width: 100%; max-width: 340px; margin: 0 auto 25px; border: 2px solid var(--neon-blue); border-radius: 16px; overflow: hidden; box-shadow: 0 0 25px rgba(102, 252, 241, 0.35); background: #000;">
                 <iframe
@@ -425,6 +442,55 @@
             <button id="btn-claim-brainbits" class="spy-btn spy-font" onclick="claimBrainBitsXP()" style="background: var(--neon-green); color: #050b14; font-weight: bold; font-size: 1.15rem;">
                 ✓ MISSION WATCHED: CLAIM +50 XP
             </button>
+
+            <h3 class="spy-font" style="color: var(--gold); font-size: 1.25rem; margin: 36px 0 8px;">Brain Bits: The Amygdala</h3>
+            <p class="kid-font" style="color: #cbd5e1; font-size: 1.05rem; max-width: 650px; margin-bottom: 16px;">
+                Agent Saara's next short. Answer the three questions after you watch.
+            </p>
+            <div style="width: 100%; max-width: 340px; margin: 0 auto 25px; border: 2px solid var(--neon-blue); border-radius: 16px; overflow: hidden; box-shadow: 0 0 25px rgba(102, 252, 241, 0.35); background: #000;">
+                <iframe
+                    width="100%"
+                    height="600"
+                    src="https://www.youtube.com/embed/N8VHo_vITxY?rel=0"
+                    title="Brain Bits: The Amygdala"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="bb-quiz" id="brain-bits-quiz">
+                <div class="spy-font" style="color: var(--neon-blue); font-size: 0.9rem; margin-bottom: 16px;">Quiz points: <span id="bb-quiz-points">0</span></div>
+                <div class="bb-question" data-qid="amygdala-1" data-answer="0">
+                    <p class="kid-font" style="font-size: 1.2rem; color: #fff; margin-bottom: 12px;">1. Which part of the brain is this short about?</p>
+                    <div class="bb-options">
+                        <button type="button" class="bb-option" data-index="0">The amygdala</button>
+                        <button type="button" class="bb-option" data-index="1">The stomach</button>
+                        <button type="button" class="bb-option" data-index="2">The lungs</button>
+                        <button type="button" class="bb-option" data-index="3">The kneecap</button>
+                    </div>
+                    <div class="bb-feedback kid-font"></div>
+                </div>
+                <div class="bb-question" data-qid="amygdala-2" data-answer="0">
+                    <p class="kid-font" style="font-size: 1.2rem; color: #fff; margin-bottom: 12px;">2. What does the amygdala do?</p>
+                    <div class="bb-options">
+                        <button type="button" class="bb-option" data-index="0">It controls your feelings and emotions</button>
+                        <button type="button" class="bb-option" data-index="1">It chews your food</button>
+                        <button type="button" class="bb-option" data-index="2">It makes your hair grow</button>
+                        <button type="button" class="bb-option" data-index="3">It pumps your blood</button>
+                    </div>
+                    <div class="bb-feedback kid-font"></div>
+                </div>
+                <div class="bb-question" data-qid="amygdala-3" data-answer="0">
+                    <p class="kid-font" style="font-size: 1.2rem; color: #fff; margin-bottom: 12px;">3. The short's title says you can unlock the agent training portal by visiting which website?</p>
+                    <div class="bb-options">
+                        <button type="button" class="bb-option" data-index="0">pillarproject.online</button>
+                        <button type="button" class="bb-option" data-index="1">A pizza website</button>
+                        <button type="button" class="bb-option" data-index="2">A weather website</button>
+                        <button type="button" class="bb-option" data-index="3">A sports website</button>
+                    </div>
+                    <div class="bb-feedback kid-font"></div>
+                </div>
+            </div>
         </div>
 
         <!-- 2C. DOODLE SCAVENGER HUNT UPLOAD PORTAL -->
@@ -620,8 +686,11 @@
         let currentQuestionIndex = 0;
         let watchedBrainBits = false;
         let brainBitsClaimed = false;
+        let brainBitsQuiz = {};
         let doodleClaimed = false;
         let defenseClaimed = false;
+        const BRAIN_BITS_QUESTION_IDS = ['amygdala-1', 'amygdala-2', 'amygdala-3'];
+        const BRAIN_BITS_QUESTION_XP = 10;
 
         function toggleSpyMenu(btn) {
             const menu = document.getElementById('spy-nav');
@@ -680,6 +749,7 @@
                         xp: 0,
                         zones: { hq: false, warehouse: false, emotion: false, library: false },
                         brainBitsClaimed: false,
+                        brainBitsQuiz: {},
                         doodleClaimed: false,
                         defenseClaimed: false
                     };
@@ -702,6 +772,7 @@
             xpPoints = userData.xp || 0;
             completedZones = userData.zones || { hq: false, warehouse: false, emotion: false, library: false };
             brainBitsClaimed = !!userData.brainBitsClaimed;
+            brainBitsQuiz = userData.brainBitsQuiz || {};
             doodleClaimed = !!userData.doodleClaimed;
             defenseClaimed = !!userData.defenseClaimed;
             watchedBrainBits = brainBitsClaimed;
@@ -728,6 +799,7 @@
                 db[agentName].xp = xpPoints;
                 db[agentName].zones = completedZones;
                 db[agentName].brainBitsClaimed = brainBitsClaimed;
+                db[agentName].brainBitsQuiz = brainBitsQuiz;
                 db[agentName].doodleClaimed = doodleClaimed;
                 db[agentName].defenseClaimed = defenseClaimed;
                 localStorage.setItem('hq_users', JSON.stringify(db));
@@ -790,6 +862,7 @@
                 { done: !!completedZones.emotion, label: 'Reboot Emotion Land', action: "requirePassword('book')" },
                 { done: !!completedZones.library, label: 'Reboot the Data Library', action: "requirePassword('book')" },
                 { done: brainBitsClaimed, label: "Watch Saara's Brain Bits (+50 XP)", action: "showScreen('screen-brain-bits')" },
+                { done: BRAIN_BITS_QUESTION_IDS.every(id => brainBitsQuiz[id]), label: "Amygdala quiz (+10 XP each)", action: "showScreen('screen-brain-bits')" },
                 { done: doodleClaimed, label: 'Scan your doodle sheet (+100 XP)', action: "showScreen('screen-doodle-upload')" },
                 { done: defenseClaimed, label: 'Run the Defense Simulator (+50 XP)', action: "showScreen('screen-defense')" }
             ];
@@ -809,6 +882,7 @@
                 brainBtn.style.opacity = '0.7';
                 brainBtn.style.pointerEvents = 'none';
             }
+            restoreBrainBitsQuiz();
             const statusMsg = document.getElementById('doodle-status-msg');
             if (doodleClaimed && statusMsg && !statusMsg.textContent) {
                 statusMsg.style.color = 'var(--neon-green)';
@@ -838,6 +912,84 @@
             btn.style.opacity = "0.7";
             btn.style.pointerEvents = "none";
         }
+
+        function brainBitsQuizScore() {
+            return BRAIN_BITS_QUESTION_IDS.filter(id => brainBitsQuiz[id]).length * BRAIN_BITS_QUESTION_XP;
+        }
+
+        function updateBrainBitsQuizPoints() {
+            const el = document.getElementById('bb-quiz-points');
+            if (el) el.textContent = String(brainBitsQuizScore());
+        }
+
+        function rememberBrainBitsAward(qid) {
+            try {
+                const awarded = JSON.parse(localStorage.getItem('brain_bits_quiz_awarded') || '{}');
+                awarded[qid] = true;
+                localStorage.setItem('brain_bits_quiz_awarded', JSON.stringify(awarded));
+            } catch (e) { /* keep the profile save even if this mirror fails */ }
+        }
+
+        function lockBrainBitsQuestion(qEl, already) {
+            qEl.dataset.locked = '1';
+            const answer = String(qEl.dataset.answer);
+            qEl.querySelectorAll('.bb-option').forEach(btn => {
+                btn.disabled = true;
+                btn.classList.remove('wrong');
+                if (btn.dataset.index === answer) btn.classList.add('correct');
+            });
+            const feedback = qEl.querySelector('.bb-feedback');
+            feedback.style.display = 'block';
+            feedback.style.background = 'rgba(57, 255, 20, 0.15)';
+            feedback.style.border = '1px solid #39FF14';
+            feedback.style.color = '#39FF14';
+            feedback.textContent = already
+                ? `✓ CORRECT! +${BRAIN_BITS_QUESTION_XP} XP already saved.`
+                : `✓ CORRECT! +${BRAIN_BITS_QUESTION_XP} XP`;
+        }
+
+        function restoreBrainBitsQuiz() {
+            document.querySelectorAll('#brain-bits-quiz .bb-question').forEach(qEl => {
+                if (brainBitsQuiz[qEl.dataset.qid]) lockBrainBitsQuestion(qEl, true);
+            });
+            updateBrainBitsQuizPoints();
+        }
+
+        document.getElementById('brain-bits-quiz').addEventListener('click', (event) => {
+            const btn = event.target.closest('.bb-option');
+            if (!btn) return;
+            const qEl = btn.closest('.bb-question');
+            if (!qEl || qEl.dataset.locked === '1') return;
+            const feedback = qEl.querySelector('.bb-feedback');
+            if (btn.dataset.index === String(qEl.dataset.answer)) {
+                const qid = qEl.dataset.qid;
+                const fresh = !brainBitsQuiz[qid];
+                if (fresh && agentName) {
+                    brainBitsQuiz[qid] = true;
+                    xpPoints += BRAIN_BITS_QUESTION_XP;
+                    rememberBrainBitsAward(qid);
+                    saveProgress();
+                    updateBadgeDisplay();
+                    confetti({ particleCount: 40, spread: 50, origin: { y: 0.7 } });
+                } else if (fresh) {
+                    brainBitsQuiz[qid] = true;
+                    rememberBrainBitsAward(qid);
+                }
+                lockBrainBitsQuestion(qEl, !fresh);
+                updateBrainBitsQuizPoints();
+            } else {
+                btn.classList.add('wrong');
+                feedback.style.display = 'block';
+                feedback.style.background = 'rgba(255, 0, 127, 0.15)';
+                feedback.style.border = '1px solid #FF007F';
+                feedback.style.color = '#FF007F';
+                feedback.textContent = 'Not quite. Try another answer.';
+                setTimeout(() => {
+                    if (qEl.dataset.locked === '1') return;
+                    btn.classList.remove('wrong');
+                }, 900);
+            }
+        });
 
         // --- PASSWORD PROTOCOL ---
         function requirePassword(type) {
