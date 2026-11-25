@@ -38,12 +38,26 @@
             }
         }
     </script>
+    <style>
+        a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 3px solid #581c87 !important;
+            outline-offset: 3px;
+        }
+        .skip-link {
+            position: absolute; left: 1rem; top: -3rem; z-index: 80;
+            background: #581c87; color: #fff; font-weight: 700;
+            padding: 0.6rem 1rem; border-radius: 999px;
+        }
+        .skip-link:focus { top: 0.5rem; }
+        :target, section[id] { scroll-margin-top: 9rem; }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <div class="site-header fixed top-0 inset-x-0 z-50">
     <!-- TOP HUB SWITCHER -->
-    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-xs md:text-sm font-sans text-slate-600 shadow-sm">
+    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-sm font-sans text-slate-600 shadow-sm">
         <span class="font-medium tracking-wide leading-snug min-w-0">Current Hub: The Pillar Project (Main)</span>
         <a href="case-alzheimers.html" class="shrink-0 whitespace-nowrap bg-pillar text-white px-3 sm:px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm">
             ⟲ Switch to Case Alzheimer's
@@ -71,7 +85,7 @@
                 <div class="hidden lg:flex space-x-6 items-center ml-auto">
                     <a href="index.html" class="font-medium text-slate-600 hover:text-pillar transition">Home</a>
                     <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a>
-                    <a href="volunteer.html" class="font-medium text-pillar transition">Volunteer</a>
+                    <a href="volunteer.html" class="font-medium text-pillar transition" aria-current="page">Volunteer</a>
                     <a href="book.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
                     <a href="media.html" class="font-medium text-slate-600 hover:text-pillar transition">Media</a>
                     <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
@@ -84,7 +98,7 @@
             <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-100 pb-4">
                 <a href="index.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Home</a>
                 <a href="about.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Our Story</a>
-                <a href="volunteer.html" class="block px-3 py-3 rounded-lg font-medium text-pillar bg-pillar-light/70">Volunteer</a>
+                <a href="volunteer.html" class="block px-3 py-3 rounded-lg font-medium text-pillar bg-pillar-light/70" aria-current="page">Volunteer</a>
                 <a href="book.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">The Book</a>
                 <a href="media.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Media</a>
                 <a href="sponsor-portal.html" class="md:hidden block px-3 py-3 rounded-lg font-medium text-teal-700">Sponsor Portal</a>
@@ -94,6 +108,7 @@
     </nav>
     </div>
 
+    <main id="main">
     <!-- HERO SECTION: Split Layout with Photo -->
     <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-pillar-light/30">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
@@ -111,36 +126,9 @@
             
             <div class="relative mt-10 md:mt-0">
                 <div class="rounded-2xl shadow-xl overflow-hidden border-4 border-white bg-slate-200 aspect-[3/4] w-full flex items-center justify-center relative">
-                    <!-- Specific Image Provided by User -->
-                    <img src="IMG_1358.jpeg" alt="Youth volunteer with a memory care resident" class="w-full h-full object-cover object-center z-10">
-                    <span class="absolute z-0 text-slate-500 font-medium px-6 text-center text-sm">
-                        [ VISUAL PLACEHOLDER: Image IMG_1358.jpeg loading... ]
-                    </span>
+                    <img src="IMG_1358.jpeg" alt="Youth volunteer with a memory care resident" class="w-full h-full object-cover object-center">
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- OPTIONAL TRAINING & RECOGNITION SECTION -->
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
-        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl text-center border-b-4 border-pillar">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-pillar/20 text-pillar-light mb-6">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </div>
-            <h2 class="font-heading text-3xl md:text-4xl text-white mb-4">Level Up Your Care: The Empowered Caregiver</h2>
-            <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-6">
-                While not required to join, we highly encourage all volunteers to expand their knowledge. For every Alzheimer’s Association course you complete and show verification of, you will receive special recognition in our network!
-            </p>
-            
-            <div class="bg-pillar/10 border border-pillar/30 rounded-xl p-4 mb-8 max-w-2xl mx-auto">
-                <p class="text-pillar-light text-sm font-medium">
-                    <span class="font-bold text-white">Note:</span> If you would like to step up as a leader and run events at other local partner facilities on our behalf, you <span class="underline">must</span> be fully trained and certified.
-                </p>
-            </div>
-
-            <a href="https://training.alz.org" target="_blank" class="inline-block bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg">
-                Access Training Portal ↗
-            </a>
         </div>
     </section>
 
@@ -177,30 +165,50 @@
                 <div class="relative">
                     <div class="w-12 h-12 bg-pillar text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 z-10 relative shadow-md">1</div>
                     <div class="hidden md:block absolute top-6 left-[50%] w-full h-1 bg-slate-300 -z-0"></div>
-                    <h4 class="font-heading font-bold text-slate-800 mb-2">Apply Online</h4>
+                    <h3 class="font-heading font-bold text-slate-800 mb-2">Apply Online</h3>
                     <p class="text-sm text-slate-600">Fill out our quick interest form to let us know your availability.</p>
                 </div>
                 
                 <div class="relative">
                     <div class="w-12 h-12 bg-pillar text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 z-10 relative shadow-md">2</div>
                     <div class="hidden md:block absolute top-6 left-[50%] w-full h-1 bg-slate-300 -z-0"></div>
-                    <h4 class="font-heading font-bold text-slate-800 mb-2">Shadow a Session</h4>
+                    <h3 class="font-heading font-bold text-slate-800 mb-2">Shadow a Session</h3>
                     <p class="text-sm text-slate-600">Join a senior ally at a partner facility to learn the ropes in person.</p>
                 </div>
                 
                 <div class="relative">
                     <div class="w-12 h-12 bg-pillar text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 z-10 relative shadow-md">3</div>
                     <div class="hidden md:block absolute top-6 left-[50%] w-full h-1 bg-slate-300 -z-0"></div>
-                    <h4 class="font-heading font-bold text-slate-800 mb-2">Lead & Earn Hours</h4>
+                    <h3 class="font-heading font-bold text-slate-800 mb-2">Lead & Earn Hours</h3>
                     <p class="text-sm text-slate-600">Start leading activities, logging verified service hours, and changing lives.</p>
                 </div>
                 
                 <div class="relative">
                     <div class="w-12 h-12 bg-pillar text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 z-10 relative shadow-md">★</div>
-                    <h4 class="font-heading font-bold text-slate-800 mb-2">Optional Training</h4>
+                    <h3 class="font-heading font-bold text-slate-800 mb-2">Optional Training</h3>
                     <p class="text-sm text-slate-600">Complete formal courses to earn recognition or lead off-site events.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-slate-900 rounded-3xl p-8 md:p-12 shadow-2xl text-center border-b-4 border-pillar">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-pillar/20 text-pillar-light mb-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h2 class="font-heading text-3xl md:text-4xl text-white mb-4">Optional Alzheimer's Association courses</h2>
+            <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-6">
+                These courses are not required to join. For every course you complete and show us, you get special recognition in our network.
+            </p>
+            <div class="bg-pillar/10 border border-pillar/30 rounded-xl p-4 mb-8 max-w-2xl mx-auto">
+                <p class="text-pillar-light text-base font-medium">
+                    <span class="font-bold text-white">To lead events at another partner facility,</span> you must be fully trained and certified.
+                </p>
+            </div>
+            <a href="https://training.alz.org" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg">
+                Open the training portal
+            </a>
         </div>
     </section>
 
@@ -211,17 +219,17 @@
             <div class="space-y-6">
                 
                 <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-bold text-slate-900 text-lg mb-2">Do I need prior experience with dementia?</h4>
-                    <p class="text-slate-600">Not at all. We provide on-site shadowing before you ever lead a session on your own, and we highly encourage utilizing the online training portals to build confidence.</p>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Do I need prior experience with dementia?</h3>
+                    <p class="text-slate-600">Not at all. You shadow a session in person before you lead one on your own.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-bold text-slate-900 text-lg mb-2">How do I verify my service hours?</h4>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">How do I verify my service hours?</h3>
                     <p class="text-slate-600">Once you join as a Memory Care Ally, email the Pillar Project team at contactpillarproject@gmail.com with your logged hours. The team signs off by email for NHS, college apps, or graduation requirements.</p>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                    <h4 class="font-bold text-slate-900 text-lg mb-2">How old do I have to be?</h4>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">How old do I have to be?</h3>
                     <p class="text-slate-600">We currently accept high school and college students (ages 14-22). If you are under 18, you will need a parent or guardian to sign a standard liability waiver before your first visit.</p>
                 </div>
 
@@ -243,6 +251,8 @@
         </div>
     </section>
 
+    </main>
+
     <!-- MICROGLIA CHAT WIDGET -->
     <style>
         body { padding-bottom: 7rem; }
@@ -263,12 +273,12 @@
         </div>
         <div id="pillar-chat-body" class="p-4 h-64 max-h-[40vh] overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
             <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
-                Hi! I'm Microglia. Ask me about any term in Agent H.M.'s Glossary or how The Pillar Project helps families.
+                Hi! I'm Microglia. Ask me how The Pillar Project helps families, or about a word from the book. The full word list is in the Parent Guide.
             </div>
         </div>
         <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
             <input id="pillar-chat-input" type="text" placeholder="Type your question..." class="flex-1 min-w-0 text-base sm:text-sm border border-stone-300 rounded-lg px-3 py-2 outline-none focus:border-stone-900" onkeydown="if(event.key==='Enter') sendGuideQuestion()">
-            <button onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
+            <button onclick="sendGuideQuestion()" class="bg-stone-900 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-stone-700 transition">Send</button>
         </div>
     </div>
 

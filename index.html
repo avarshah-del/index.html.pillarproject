@@ -50,28 +50,26 @@
         }
     </script>
     <style>
-        /* Hover-to-reveal for glossary terms (same interaction as parent-guide.html) */
-        .vocab-row .vocab-reveal {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, opacity 0.25s ease, padding-top 0.25s ease;
-            padding-top: 0;
+        a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 3px solid #581c87 !important;
+            outline-offset: 3px;
         }
-        .vocab-row:hover .vocab-reveal,
-        .vocab-row:focus-within .vocab-reveal {
-            max-height: 260px;
-            opacity: 1;
-            padding-top: 0.75rem;
+        .skip-link {
+            position: absolute; left: 1rem; top: -3rem; z-index: 80;
+            background: #581c87; color: #fff; font-weight: 700;
+            padding: 0.6rem 1rem; border-radius: 999px;
         }
+        .skip-link:focus { top: 0.5rem; }
+        :target, section[id] { scroll-margin-top: 9rem; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <div class="site-header fixed top-0 inset-x-0 z-50">
     <!-- TOP HUB SWITCHER -->
-    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-xs md:text-sm font-sans text-slate-600 shadow-sm">
-        <span class="font-medium tracking-wide leading-snug min-w-0">Current Hub: The Pillar Project (Main)</span>
+    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-sm font-sans text-slate-600 shadow-sm">
+        <span class="font-medium tracking-wide leading-snug min-w-0 text-sm">Current Hub: The Pillar Project (Main)</span>
         <a href="case-alzheimers.html" class="shrink-0 whitespace-nowrap bg-pillar text-white px-3 sm:px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm">
             ⟲ Switch to Case Alzheimer's
         </a>
@@ -96,7 +94,7 @@
                 </div>
 
                 <div class="hidden lg:flex space-x-6 items-center ml-auto">
-                    <a href="index.html" class="font-medium text-pillar transition">Home</a>
+                    <a href="index.html" class="font-medium text-pillar transition" aria-current="page">Home</a>
                     <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a>
                     <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a>
                     <a href="book.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
@@ -109,7 +107,7 @@
                 </button>
             </div>
             <div id="mobile-menu" class="lg:hidden hidden border-t border-slate-100 pb-4">
-                <a href="index.html" class="block px-3 py-3 rounded-lg font-medium text-pillar bg-pillar-light/70">Home</a>
+                <a href="index.html" class="block px-3 py-3 rounded-lg font-medium text-pillar bg-pillar-light/70" aria-current="page">Home</a>
                 <a href="about.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Our Story</a>
                 <a href="volunteer.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Volunteer</a>
                 <a href="book.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">The Book</a>
@@ -121,6 +119,7 @@
     </nav>
     </div>
 
+    <main id="main">
     <!-- HERO SECTION -->
     <section class="pt-36 pb-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -156,18 +155,6 @@
         </div>
     </div>
 
-    <!-- RECOGNITION / PRESS SECTION (EPIC MENTOR GUIDE) -->
-    <section class="py-16 bg-pillar-light/30 text-center px-4 sm:px-6 lg:px-8 border-y border-pillar-light">
-        <span class="uppercase tracking-widest text-pillar-dark font-bold text-sm mb-4 block">Formal book endorsement</span>
-        <div class="max-w-3xl mx-auto">
-            <h4 class="font-heading text-2xl md:text-3xl text-slate-900 mb-6">Illana Raia, Epic Mentor</h4>
-            <p class="text-lg md:text-xl text-slate-700 leading-relaxed">
-                Illana Raia formally endorsed <em>Case Alzheimer's</em> and featured it in the Epic Mentor Newsletter. Teepa Snow is the book's other formal endorser.
-            </p>
-            <a href="https://www.etregirls.com/the-epic-mentor-newsletter/from-mic-drop-to-book-launch-when-a-ted-ed-talk-becomes-a-book-two-weeks-later" target="_blank" rel="noopener noreferrer" class="inline-block mt-6 text-pillar font-bold hover:underline">Read the Epic Mentor feature</a>
-        </div>
-    </section>
-
     <!-- Divide &amp; Pamper Section -->
     <section id="about-model" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-slate-50">
         <h2 class="font-heading text-4xl text-center text-slate-900 mb-16">Our "Divide &amp; Pamper" Model</h2>
@@ -202,169 +189,25 @@
                 <a href="book.html" class="inline-block bg-yellow-400 text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-yellow-300 transition shadow-lg hover:-translate-y-1">Get the Book</a>
                 <a href="case-alzheimers.html" class="inline-block bg-white text-pillar-dark px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg hover:-translate-y-1">Enter Brain HQ</a>
             </div>
+            <p class="mt-6 text-base text-slate-200 max-w-2xl mx-auto">
+                The word list — each story word beside its science word — is in the <a href="parent-guide.html#glossary" class="text-white font-semibold underline">Parent Guide glossary</a>.
+            </p>
         </div>
     </section>
 
-    <!-- BRAIN HQ DATABASE / AGENT H.M.'S GLOSSARY -->
-    <section class="py-20 bg-white border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <span class="uppercase tracking-widest text-pillar font-bold text-sm mb-2 block text-center">Brain HQ Database</span>
-            <h2 class="font-heading text-4xl text-center text-slate-900 mb-4">Agent H.M.'s Glossary</h2>
-            <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-                Each entry pairs the <strong>book term</strong> with its real <strong>biological term</strong>. Hover over a card, or tap it, to reveal the definition from the book.
+    <section class="py-16 bg-slate-50 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="font-heading text-3xl md:text-4xl text-slate-900 mb-4">Watch and follow along</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                Ava's TED-Ed talk and photos from visits are on the Media page.
             </p>
-            <div class="grid sm:grid-cols-2 gap-3.5 mb-12">
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">Brain HQ</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Prefrontal Cortex</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        The boss of the brain that makes big decisions and solves puzzles.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">The Data Library</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Hippocampus</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        The brain's memory saver that grabs new memories and files them away.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">Emotion-Land</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Amygdala</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        The part of the brain that controls your feelings and emotions.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">The Word Warehouse</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Broca's &amp; Wernicke's Areas</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        The language factories that help us build words and talk to each other.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">A Class-8 Word Glitch!</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Aphasia</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        A condition that makes it hard to find the right words or speak.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">The Big Jump</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Synaptic Gap</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        The tiny empty space between brain cells that messages must jump across.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">Chemical Messengers</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Neurotransmitters</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        Chemicals that carry messages across the Synaptic Gap.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">High-Speed Zap</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Action Potential</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        A high-speed zap of electricity that shoots messages down a brain cell.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">The Launch Pad &amp; Catchers</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Axon Terminal &amp; Dendrites</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        The edge where messages jump off (Axon) and the landing pads that catch them (Dendrites).
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">Speed Boosters</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Myelin</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        A special wrapping that helps brain messages zoom super fast.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">Cellular Energy</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">ATP Fuel</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        The energy that powers every cell in your body.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">Clean-Up Crew</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Proteasome Unit</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        The brain's clean-up crew that clears out the garbage.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">The Weeds</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Tangles</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        Twisted proteins in Alzheimer's that block brain tracks like weeds.
-                    </div>
-                </div>
-                <div tabindex="0" class="vocab-row bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 cursor-pointer hover:border-pillar hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pillar transition">
-                    <div class="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1">
-                        <span class="font-heading text-slate-900 text-lg">The Deep Archives</span>
-                        <span class="font-mono text-xs text-pillar-dark bg-pillar-light px-2.5 py-0.5 rounded">Long-Term Memory</span>
-                    </div>
-                    <div class="vocab-reveal text-sm text-slate-600 border-t border-slate-200 mt-2">
-                        Safe vaults where your oldest, favorite memories are stored forever.
-                    </div>
-                </div>
-            </div>
-            <div class="text-center">
-                <button onclick="openMicrogliaChat()" class="bg-pillar text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg hover:-translate-y-1 flex items-center justify-center gap-3 mx-auto">
-                    <img src="microglia_sprite.png" class="w-6 h-6" alt="Microglia">
-                    Ask Microglia to Learn More
-                </button>
+            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="media.html" class="bg-pillar text-white text-center px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-lg">Watch the TED-Ed talk</a>
+                <a href="media.html#the-gram" class="bg-white text-pillar text-center border-2 border-pillar px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-light transition">See Instagram on the Media page</a>
             </div>
         </div>
     </section>
 
-    <!-- TED-ED TALK SECTION -->
-    <section class="py-20 bg-slate-50 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="uppercase tracking-widest text-pillar font-bold text-sm mb-2 block">Watch the Mission in Action</span>
-            <h2 class="font-heading text-4xl text-slate-900 mb-6">Ava Shah at TED-Ed</h2>
-            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
-                Discover the inspiration behind Case Alzheimer's and how Generation Z can change the future of memory care.
-            </p>
-            <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 transition duration-300 hover:shadow-md">
-                <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-xl bg-slate-100">
-                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/rHwoYGU_3UA?modestbranding=1&rel=0" title="Ava Shah TED-Ed Talk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Our Partners Section -->
     <section id="partners" class="py-20 bg-slate-100 border-t border-slate-200">
@@ -373,36 +216,22 @@
             <p class="text-center text-slate-600 mb-12 max-w-3xl mx-auto">Teepa Snow and Illana Raia formally endorsed <em>Case Alzheimer's</em>. Lori La Bey collaborated with the project. The Alzheimer's Association link is a public resource for families, not a partnership.</p>
             <div class="grid md:grid-cols-3 gap-6">
                 <a href="https://teepasnow.com/" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
-                    <p class="text-xs font-bold uppercase tracking-widest text-pillar mb-2">Endorsed the book</p>
+                    <p class="text-sm font-bold uppercase tracking-widest text-pillar mb-2">Endorsed the book</p>
                     <h3 class="font-heading text-xl text-pillar-dark mb-2">Teepa Snow ↗</h3>
-                    <p class="text-slate-600">Positive Approach to Care. Teepa Snow formally endorsed Case Alzheimer's.</p>
+                    <p class="text-slate-600">Positive Approach to Care.</p>
                 </a>
                 <a href="https://www.etregirls.com/the-epic-mentor-newsletter/from-mic-drop-to-book-launch-when-a-ted-ed-talk-becomes-a-book-two-weeks-later" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
-                    <p class="text-xs font-bold uppercase tracking-widest text-pillar mb-2">Endorsed the book</p>
+                    <p class="text-sm font-bold uppercase tracking-widest text-pillar mb-2">Endorsed the book</p>
                     <h3 class="font-heading text-xl text-pillar-dark mb-2">Illana Raia ↗</h3>
-                    <p class="text-slate-600">Epic Mentor. Illana Raia endorsed the book and featured it in her newsletter.</p>
+                    <p class="text-slate-600">Epic Mentor. She featured the book in her newsletter.</p>
                 </a>
                 <a href="https://www.dementiamap.com/" target="_blank" rel="noopener noreferrer" class="block bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-slate-200 transition duration-300 hover:-translate-y-2">
-                    <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Collaborated</p>
+                    <p class="text-sm font-bold uppercase tracking-widest text-slate-600 mb-2">Collaborated</p>
                     <h3 class="font-heading text-xl text-pillar-dark mb-2">Lori La Bey ↗</h3>
-                    <p class="text-slate-600">Dementia Map. Lori La Bey collaborated with The Pillar Project.</p>
+                    <p class="text-slate-600">Dementia Map.</p>
                 </a>
             </div>
             <p class="text-center text-slate-600 mt-10 max-w-3xl mx-auto">The project has also collaborated with <a href="https://wearehfc.org/team/" target="_blank" rel="noopener noreferrer" class="text-pillar font-semibold hover:underline">HFC (Hilarity for Charity)</a>, <a href="https://litlitpublishing.com/about" target="_blank" rel="noopener noreferrer" class="text-pillar font-semibold hover:underline">Alice-Kate Lamb</a>, and <a href="https://www.imdb.com/name/nm6214398/" target="_blank" rel="noopener noreferrer" class="text-pillar font-semibold hover:underline">Anke Hoffman</a>. Families who need support can use the <a href="https://www.alz.org/" target="_blank" rel="noopener noreferrer" class="text-pillar font-semibold hover:underline">Alzheimer's Association</a> helpline and local groups.</p>
-        </div>
-    </section>
-
-    <!-- Social Media Feed Section -->
-    <section id="socials" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="font-heading text-4xl text-center text-slate-900 mb-6">Our Journey on Instagram</h2>
-        <p class="text-center text-slate-600 mb-12 text-lg">
-            Follow along <a href="https://instagram.com/thepillarproject1" target="_blank" class="text-pillar font-bold hover:underline">@thepillarproject1</a> for updates, volunteer shoutouts, and real-time impact.
-        </p>
-        <div class="bg-white border border-slate-200 rounded-2xl p-4 text-center min-h-[300px] flex items-center justify-center shadow-sm">
-            <div class="w-full overflow-hidden rounded-xl">
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-9ab5c311-02d3-407c-a703-695f4a8fe236" data-elfsight-app-lazy></div>
-            </div>
         </div>
     </section>
 
@@ -419,6 +248,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- MICROGLIA CHAT WIDGET -->
     <style>
@@ -440,7 +270,7 @@
         </div>
         <div id="pillar-chat-body" class="p-4 h-64 max-h-[40vh] overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
             <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
-                Hi! I'm Microglia. Ask me about any term in Agent H.M.'s Glossary or how The Pillar Project helps families.
+                Hi! I'm Microglia. Ask me how The Pillar Project helps families, or about a word from the book. The full word list is in the Parent Guide.
             </div>
         </div>
         <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">

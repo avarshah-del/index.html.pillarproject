@@ -60,8 +60,16 @@
         .header-tools { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .hq-status { font-size: 0.78rem; color: var(--neon-green); white-space: nowrap; }
         .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 0.78rem; letter-spacing: 1px; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.5px; }
         .nav-links a:hover { color: var(--gold); }
+        a:focus-visible, button:focus-visible, .zone-card:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .scanlines { display: none; }
+            .game-panel { animation: none; }
+        }
         .nav-links a.nav-current { color: var(--gold); }
         .nav-links a.sponsor-link { color: var(--neon-green); border: 1px solid var(--neon-green); padding: 6px 10px; border-radius: 4px; }
         .menu-toggle {
@@ -701,6 +709,18 @@
         }
 
         window.onload = function() {
+            document.querySelectorAll('.zone-card[onclick]').forEach(card => {
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                const label = card.querySelector('.spy-font');
+                if (label) card.setAttribute('aria-label', label.textContent.trim());
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        card.click();
+                    }
+                });
+            });
             const activeUser = sessionStorage.getItem('active_hq_agent');
             if (activeUser) {
                 const db = JSON.parse(localStorage.getItem('hq_users') || '{}');
@@ -783,6 +803,7 @@
             updateHubStatus();
             document.getElementById('status-indicator').textContent = "ACTIVE MISSION";
             showScreen('screen-hub');
+            if (location.hash === '#brain-bits') showScreen('screen-brain-bits');
         }
 
         function signOut() {
