@@ -1,0 +1,47 @@
+.hof-status,
+.hof-empty {
+    color: #c4c4c4;
+    font-family: 'Poppins', 'Fredoka', sans-serif;
+    line-height: 1.45;
+    margin: 12px 0 0;
+}
+.hof-board {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+.hof-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid rgba(102, 252, 241, 0.35);
+    border-radius: 10px;
+    background: rgba(5, 11, 20, 0.72);
+}
+.hof-row.is-you {
+    border-color: #FFD700;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
+}
+.hof-name {
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 1px;
+    color: #FFD700;
+    font-size: 1.05rem;
+    overflow-wrap: anywhere;
+}
+.hof-meta {
+    color: #a0aec0;
+    font-family: 'Poppins', 'Fredoka', sans-serif;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+@media (max-width: 500px) {
+    .hof-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .hof-meta { white-space: normal; }
+}

@@ -1,0 +1,9 @@
+name = "hall-of-fame"
+main = "worker.js"
+compatibility_date = "2025-12-01"
+
+# Create the namespace, then replace the id below before you deploy.
+# Local `wrangler dev` can use this placeholder id.
+[[kv_namespaces]]
+binding = "HALL"
+id = "00000000000000000000000000000000"

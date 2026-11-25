@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Share+Tech+Mono&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hall-of-fame.css">
     <!-- Canvas Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
@@ -117,8 +118,9 @@
         }
         .agent-badge-display {
             display: flex; align-items: center; gap: 15px; background: rgba(5,11,20,0.8);
-            padding: 10px 20px; border-radius: 50px; border: 1px solid var(--neon-blue);
+            padding: 10px 20px; border-radius: 50px; border: 1px solid var(--neon-blue); max-width: 100%;
         }
+        .agent-badge-display > div { min-width: 0; }
         .badge-icon-layered {
             position: relative; width: 50px; height: 50px; background: rgba(102, 252, 241, 0.1);
             border-radius: 50%; overflow: hidden; border: 2px solid var(--neon-blue);
@@ -274,6 +276,63 @@
             .locker-container { flex-direction: column; align-items: center; }
             #hq-bot-modal { right: max(12px, env(safe-area-inset-right)); left: auto; width: min(340px, calc(100vw - 24px)); bottom: calc(env(safe-area-inset-bottom) + 84px); top: auto; height: min(420px, 62vh); }
         }
+        .js-clearance-badge[hidden], .clearance-rank[hidden] { display: none !important; }
+        .header-clearance-badge { width: 38px; height: 38px; flex-shrink: 0; }
+        .profile-clearance-badge, .reward-badge { width: 64px; height: 64px; flex-shrink: 0; }
+        .clearance-rank { color: var(--gold); font-size: 0.68rem; letter-spacing: 1px; }
+        .level-long { font-size: 0.78rem !important; letter-spacing: 0; }
+        .spy-btn:disabled, .spy-btn.is-locked { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+        .spy-btn:disabled:hover, .spy-btn.is-locked:hover { background: transparent; color: var(--neon-blue); transform: none; box-shadow: none; }
+        #screen-clearance { text-align: center; }
+        #screen-clearance .reward-card, #screen-clearance .unlock-panel, #screen-clearance .reward-identity { text-align: left; }
+        .reward-points-line { color: var(--gold); font-size: 1.2rem; margin: 8px 0 12px; }
+        .reward-points-note { color: #a0aec0; font-size: 0.9rem; }
+        .reward-identity { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .reward-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; width: 100%; margin: 8px 0 8px; }
+        .reward-card { text-align: left; background: rgba(5, 11, 20, 0.72); border: 2px solid var(--gold); border-radius: 16px; padding: 18px; min-width: 0; }
+        .reward-card-master { border-color: var(--neon-blue); }
+        .reward-title { color: var(--gold); font-size: 1.45rem; line-height: 1.25; margin: 6px 0 10px; overflow-wrap: anywhere; }
+        #reward-board { width: 100%; padding: 12px 2px 6px; }
+        .reward-body, .reward-unlocks, .reward-balance, .hof-blurb, #field-challenges-copy, #certificate-note, #hof-submit-note { color: #f4f7fb; font-size: 1.02rem; line-height: 1.5; }
+        .reward-body { margin-bottom: 10px; }
+        .reward-cost { color: var(--neon-blue); font-size: 1.05rem; margin-bottom: 4px; }
+        .reward-balance { margin: 8px 0; }
+        .reward-unlocks { margin: 0 0 8px 1.15rem; }
+        .reward-need { min-height: 2.7em; margin: 8px 0; font-family: 'Fredoka', cursive; font-size: 1rem; color: var(--gold); }
+        .reward-need.is-short { color: #ff8abf; }
+        .reward-need.is-ready { color: var(--neon-green); }
+        .reward-card .spy-btn { width: 100%; margin-top: 4px; }
+        .reward-card .spy-btn:not(:disabled), .download-row .spy-btn:not(.is-locked) {
+            background: var(--neon-blue); color: #050b14; font-weight: bold;
+        }
+        .reward-card .spy-btn:not(:disabled):hover, .download-row .spy-btn:not(.is-locked):hover {
+            background: #ffffff; color: #050b14;
+        }
+        .unlock-panel { width: 100%; text-align: left; margin-top: 26px; padding-top: 16px; border-top: 1px solid rgba(102, 252, 241, 0.3); }
+        .unlock-panel > h3 { color: var(--neon-blue); margin-bottom: 10px; }
+        .challenge-box { border: 2px dashed rgba(102, 252, 241, 0.45); border-radius: 14px; padding: 16px; margin: 12px 0 16px; background: rgba(5, 11, 20, 0.55); }
+        .challenge-box.is-open { border-style: solid; border-color: var(--neon-green); }
+        .challenge-box.is-locked { border-color: var(--alert-pink); }
+        .challenge-state { font-size: 0.8rem; margin-bottom: 6px; }
+        .challenge-box.is-locked .challenge-state { color: var(--alert-pink); }
+        .challenge-box.is-open .challenge-state { color: var(--neon-green); }
+        #field-challenges-title { color: var(--neon-blue); font-size: 1.05rem; margin: 0 0 8px; font-weight: normal; }
+        .wallpaper-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+        .wallpaper-row figure { margin: 0; min-width: 0; }
+        .wallpaper-row img { width: 100%; height: auto; border: 2px solid var(--neon-blue); border-radius: 12px; background: #050b14; display: block; }
+        .wallpaper-row figcaption { color: #a0aec0; font-size: 0.9rem; margin-top: 6px; }
+        .download-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+        .download-row .spy-btn { text-align: center; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .cert-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(5, 11, 20, 0.96); display: flex; flex-direction: column; }
+        .cert-overlay[hidden] { display: none !important; }
+        .cert-overlay-bar { display: flex; justify-content: flex-end; padding: 10px; }
+        .cert-overlay iframe { flex: 1; width: 100%; border: 0; background: #f7f1de; }
+        @media (max-width: 700px) {
+            .reward-title { font-size: 1.25rem; }
+            #screen-clearance h2.spy-font { font-size: 1.45rem !important; }
+            .reward-card .spy-btn, .download-row .spy-btn { white-space: normal; line-height: 1.35; }
+        }
     </style>
 </head>
 <body>
@@ -282,6 +341,7 @@
         <div class="header-bar">
             <div class="brand-title spy-font">BRAIN HQ // THE PILLAR PROJECT</div>
             <div class="header-tools">
+                <img class="js-clearance-badge header-clearance-badge" src="synaptic-specialist-badge.svg" alt="Synaptic Specialist badge" hidden>
                 <div class="hq-status spy-font">SYSTEM: <span id="status-indicator">STANDBY</span></div>
                 <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="spy-nav" aria-label="Open menu" onclick="toggleSpyMenu(this)">MENU</button>
             </div>
@@ -358,9 +418,11 @@
                         <img id="badge-top" class="avatar-layer" style="z-index: 2; display: none;" alt="">
                         <img id="badge-acc" class="avatar-layer" style="z-index: 3; display: none;" alt="">
                     </div>
+                    <img class="js-clearance-badge profile-clearance-badge" src="synaptic-specialist-badge.svg" alt="" hidden>
                     <div>
                         <div class="spy-font" style="color: #a0aec0; font-size: 0.75rem;">AGENT CODENAME</div>
                         <div class="player-name-display spy-font" style="color: var(--neon-blue); font-weight: bold; font-size: 1.2rem;"></div>
+                        <div class="clearance-rank spy-font" hidden></div>
                     </div>
                 </div>
                 <div style="display: flex; gap: 20px; align-items: center;">
@@ -389,7 +451,7 @@
                             <div id="progress-xp" class="stat-value spy-font">0 XP</div>
                         </div>
                     </div>
-                    <p class="progress-note kid-font">Level 1 is the rank printed on your agent certificate.</p>
+                    <p id="progress-note" class="progress-note kid-font">Level 1 is the rank printed on your agent certificate.</p>
                     <div class="next-label spy-font">DO THESE NEXT</div>
                     <ul id="next-missions" class="next-missions"></ul>
                     <div class="hub-links">
@@ -423,8 +485,92 @@
                         <div class="spy-font" style="color: var(--neon-green); font-weight: bold; font-size: 1.2rem;">DEFENSE SIMULATOR</div>
                         <div class="kid-font" style="font-size: 0.95rem; color: #a0aec0; margin-top: 8px;">Daily Habits Mini-Game</div>
                     </div>
+                    <div class="zone-card" onclick="showScreen('screen-clearance')" style="border-color: var(--gold); background: rgba(5, 11, 20, 0.6);">
+                        <div class="zone-icon">🏅</div>
+                        <div class="spy-font" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">CLEARANCE REWARDS</div>
+                        <div class="kid-font" style="font-size: 0.95rem; color: #a0aec0; margin-top: 8px;">Spend points for clearance</div>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- 2D. CLEARANCE REWARDS -->
+        <div id="screen-clearance" class="game-panel">
+            <button type="button" class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
+            <div id="reward-board">
+            <h2 class="spy-font" style="color: var(--gold); font-size: 2rem; margin-bottom: 8px;">CLEARANCE REWARDS</h2>
+            <p class="kid-font" style="color: #cbd5e1; font-size: 1.05rem; max-width: 680px; margin-bottom: 8px;">Spend the points you earned in Brain HQ. Each reward can be redeemed one time. Level 2 comes before Master Agent.</p>
+            <p class="kid-font reward-points-line">Your points: <strong id="reward-points">0</strong> <span class="reward-points-note">(this is your HQ Clearance XP)</span></p>
+            <div class="reward-identity">
+                <img class="js-clearance-badge reward-badge" src="synaptic-specialist-badge.svg" alt="" hidden>
+                <div>
+                    <div class="spy-font" style="color: #a0aec0; font-size: 0.72rem;">AGENT CODENAME</div>
+                    <div class="player-name-display spy-font" style="color: var(--neon-blue); font-weight: bold;"></div>
+                    <div class="clearance-rank spy-font" hidden></div>
+                </div>
+            </div>
+            <p id="redeem-announce" class="sr-only" role="status"></p>
+            <div class="reward-grid">
+                <article class="reward-card" aria-labelledby="reward-level2-title">
+                    <p class="kid-font reward-cost">Cost: 100 Points</p>
+                    <h3 id="reward-level2-title" class="kid-font reward-title">Clearance Level 2: Synaptic Specialist</h3>
+                    <p class="kid-font reward-body">You’ve mastered the basics of the Synaptic Express—now it’s time to upgrade your credentials. Redeem your points to unlock your official gold-trimmed Synaptic Specialist Digital Badge, an exclusive downloadable Synaptic Express wallpaper for your computer or tablet, and Level 2 security clearance inside Brain HQ.</p>
+                    <p class="kid-font reward-balance">Your points: <span class="reward-points-live">0</span></p>
+                    <ul class="kid-font reward-unlocks">
+                        <li>Official gold-trimmed Synaptic Specialist profile badge.</li>
+                        <li>High-res downloadable Synaptic Express device wallpaper.</li>
+                        <li>Access to intermediate Brain HQ field challenges.</li>
+                    </ul>
+                    <p id="level2-need" class="reward-need" role="status"></p>
+                    <button type="button" id="btn-redeem-level2" class="spy-btn spy-font" aria-describedby="level2-need" onclick="redeemLevel2()">REDEEM</button>
+                </article>
+                <article class="reward-card reward-card-master" aria-labelledby="reward-master-title">
+                    <p class="kid-font reward-cost">Cost: 500 Points</p>
+                    <h3 id="reward-master-title" class="kid-font reward-title">Highest Clearance: Master Agent (Director’s Circle)</h3>
+                    <p class="kid-font reward-body">Reserved for the sharpest detectives and top empathy allies in the agency. Master Agents have cracked every neuroscience case file, mastered the secrets of the Deep Archives, and proven they have what it takes to lead the mission. Redeem your points to earn your official Master Agent Certificate signed by Agent H.M. and claim your permanent spot on the Brain HQ Hall of Fame leaderboard.</p>
+                    <p class="kid-font reward-balance">Your points: <span class="reward-points-live">0</span></p>
+                    <p id="master-need" class="reward-need" role="status"></p>
+                    <button type="button" id="btn-redeem-master" class="spy-btn spy-font" aria-describedby="master-need" onclick="redeemMaster()">REDEEM</button>
+                </article>
+            </div>
+            </div>
+
+            <section class="unlock-panel" aria-labelledby="level2-gear-title">
+                <h3 id="level2-gear-title" class="spy-font">LEVEL 2 FIELD GEAR</h3>
+                <div id="field-challenges" class="challenge-box is-locked">
+                    <p id="field-challenges-state" class="spy-font challenge-state">LOCKED</p>
+                    <h4 id="field-challenges-title" class="spy-font">LEVEL 2 FIELD CHALLENGES</h4>
+                    <p id="field-challenges-copy" class="kid-font"></p>
+                </div>
+                <div class="wallpaper-row">
+                    <figure>
+                        <img src="synaptic-express-wallpaper.png" alt="Synaptic Express wallpaper showing a neon train on a neuron track, gold myelin boosters, and blue neurotransmitter bubbles jumping the synaptic gap" width="640" height="400" loading="lazy">
+                        <figcaption class="kid-font">Computer wallpaper, 2560 by 1600</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="synaptic-express-wallpaper-tablet.png" alt="Tablet Synaptic Express wallpaper with the same neon neuron train, myelin boosters, and neurotransmitter bubbles" width="512" height="384" loading="lazy">
+                        <figcaption class="kid-font">Tablet wallpaper, 2048 by 1536</figcaption>
+                    </figure>
+                </div>
+                <div class="download-row">
+                    <a id="link-wallpaper-desktop" class="spy-btn spy-font is-locked" aria-disabled="true" tabindex="-1">DOWNLOAD COMPUTER WALLPAPER</a>
+                    <a id="link-wallpaper-tablet" class="spy-btn spy-font is-locked" aria-disabled="true" tabindex="-1">DOWNLOAD TABLET WALLPAPER</a>
+                </div>
+            </section>
+
+            <section class="unlock-panel" aria-labelledby="master-gear-title">
+                <h3 id="master-gear-title" class="spy-font">MASTER AGENT</h3>
+                <p id="certificate-note" class="kid-font"></p>
+                <button type="button" id="btn-open-certificate" class="spy-btn spy-font" onclick="openMasterCertificate()" disabled>OPEN MASTER AGENT CERTIFICATE</button>
+                <p id="hof-submit-note" class="kid-font" role="status"></p>
+                <div id="hof-panel">
+                <h3 id="hof-title" class="spy-font">BRAIN HQ HALL OF FAME</h3>
+                <p class="kid-font hof-blurb">Master Agents in the Director’s Circle. The newest names are at the top. The same list is on the Case Alzheimer's home page.</p>
+                <div id="hof-training" aria-live="polite">
+                    <p class="hof-status">Hall of Fame loading…</p>
+                </div>
+                </div>
+            </section>
         </div>
 
         <!-- 2B. SAARA'S BRAIN BITS PORTAL -->
@@ -680,6 +826,7 @@
     </div>
 
     <!-- GAME LOGIC SCRIPT -->
+    <script src="hall-of-fame.js"></script>
     <script>
         let agentName = "";
         let authMode = 'login';
@@ -697,6 +844,12 @@
         let brainBitsQuiz = {};
         let doodleClaimed = false;
         let defenseClaimed = false;
+        let level2Unlocked = false;
+        let masterUnlocked = false;
+        let hallOfFameState = "";
+        let masterUnlockedAt = "";
+        const LEVEL2_COST = 100;
+        const MASTER_COST = 500;
         const BRAIN_BITS_QUESTION_IDS = ['amygdala-1', 'amygdala-2', 'amygdala-3'];
         const BRAIN_BITS_QUESTION_XP = 10;
 
@@ -719,6 +872,11 @@
                         event.preventDefault();
                         card.click();
                     }
+                });
+            });
+            document.querySelectorAll('#link-wallpaper-desktop, #link-wallpaper-tablet').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    if (link.getAttribute('aria-disabled') === 'true') event.preventDefault();
                 });
             });
             const activeUser = sessionStorage.getItem('active_hq_agent');
@@ -771,7 +929,11 @@
                         brainBitsClaimed: false,
                         brainBitsQuiz: {},
                         doodleClaimed: false,
-                        defenseClaimed: false
+                        defenseClaimed: false,
+                        level2Unlocked: false,
+                        masterUnlocked: false,
+                        hallOfFameState: "",
+                        masterUnlockedAt: ""
                     };
                     localStorage.setItem('hq_users', JSON.stringify(db));
                     loginUser(user, db[user]);
@@ -795,6 +957,10 @@
             brainBitsQuiz = userData.brainBitsQuiz || {};
             doodleClaimed = !!userData.doodleClaimed;
             defenseClaimed = !!userData.defenseClaimed;
+            level2Unlocked = !!userData.level2Unlocked;
+            masterUnlocked = !!userData.masterUnlocked;
+            hallOfFameState = userData.hallOfFameState || "";
+            masterUnlockedAt = userData.masterUnlockedAt || "";
             watchedBrainBits = brainBitsClaimed;
             uploadedDoodleSheet = doodleClaimed;
             sessionStorage.setItem('active_hq_agent', username);
@@ -804,6 +970,9 @@
             document.getElementById('status-indicator').textContent = "ACTIVE MISSION";
             showScreen('screen-hub');
             if (location.hash === '#brain-bits') showScreen('screen-brain-bits');
+            if (masterUnlocked && hallOfFameState !== "listed" && hallOfFameState !== "blocked") {
+                submitMasterToHall();
+            }
         }
 
         function signOut() {
@@ -823,6 +992,10 @@
                 db[agentName].brainBitsQuiz = brainBitsQuiz;
                 db[agentName].doodleClaimed = doodleClaimed;
                 db[agentName].defenseClaimed = defenseClaimed;
+                db[agentName].level2Unlocked = level2Unlocked;
+                db[agentName].masterUnlocked = masterUnlocked;
+                db[agentName].hallOfFameState = hallOfFameState;
+                db[agentName].masterUnlockedAt = masterUnlockedAt;
                 localStorage.setItem('hq_users', JSON.stringify(db));
             }
         }
@@ -867,7 +1040,24 @@
             } else {
                 badgeAcc.style.display = 'none';
             }
+            const showClearanceBadge = level2Unlocked || masterUnlocked;
+            document.querySelectorAll('.js-clearance-badge').forEach(img => {
+                img.hidden = !showClearanceBadge;
+            });
+            document.querySelectorAll('.clearance-rank').forEach(el => {
+                if (masterUnlocked) {
+                    el.hidden = false;
+                    el.textContent = 'MASTER AGENT';
+                } else if (level2Unlocked) {
+                    el.hidden = false;
+                    el.textContent = 'SYNAPTIC SPECIALIST';
+                } else {
+                    el.hidden = true;
+                    el.textContent = '';
+                }
+            });
             updateProgressPanel();
+            if (document.getElementById('screen-clearance')) renderRewards();
         }
 
         function updateProgressPanel() {
@@ -875,7 +1065,21 @@
             if (!zonesEl) return;
             const cleared = Object.values(completedZones).filter(Boolean).length;
             zonesEl.textContent = `${cleared}/4`;
-            document.getElementById('level-display').textContent = '1';
+            const levelEl = document.getElementById('level-display');
+            const noteEl = document.getElementById('progress-note');
+            if (masterUnlocked) {
+                levelEl.textContent = 'MASTER';
+                levelEl.classList.add('level-long');
+                if (noteEl) noteEl.textContent = 'Highest Clearance: Master Agent (Director\u2019s Circle).';
+            } else if (level2Unlocked) {
+                levelEl.textContent = '2';
+                levelEl.classList.remove('level-long');
+                if (noteEl) noteEl.textContent = 'Clearance Level 2: Synaptic Specialist.';
+            } else {
+                levelEl.textContent = '1';
+                levelEl.classList.remove('level-long');
+                if (noteEl) noteEl.textContent = 'Level 1 is the rank printed on your agent certificate.';
+            }
             document.getElementById('progress-xp').textContent = `${xpPoints} XP`;
             const missions = [
                 { done: !!completedZones.hq, label: 'Reboot Brain HQ', action: "requirePassword('book')" },
@@ -890,7 +1094,12 @@
             const next = missions.filter(mission => !mission.done);
             const list = document.getElementById('next-missions');
             if (!next.length) {
-                list.innerHTML = '<li class="kid-font" style="color:#cbd5e1;">All missions clear. You can reread any zone. Your rank stays Level 1.</li>';
+                const rankLine = masterUnlocked
+                    ? 'All missions clear. You can reread any zone. Your clearance is Master Agent.'
+                    : level2Unlocked
+                        ? 'All missions clear. You can reread any zone. Your clearance is Level 2, Synaptic Specialist.'
+                        : 'All missions clear. You can reread any zone. Your rank stays Level 1.';
+                list.innerHTML = `<li class="kid-font" style="color:#cbd5e1;">${rankLine}</li>`;
                 return;
             }
             list.innerHTML = next.map(mission => `<li><button type="button" class="next-mission" onclick="${mission.action}">${mission.label}</button></li>`).join('');
@@ -916,6 +1125,11 @@
             document.getElementById(screenId).classList.add('active');
             if (screenId === 'screen-defense' && currentDefenseScenario === 0) {
                 loadDefenseScenario();
+            }
+            if (screenId === 'screen-clearance') {
+                renderRewards();
+                if (typeof loadHallOfFame === 'function') loadHallOfFame('hof-training', { highlight: agentName });
+                window.scrollTo(0, 0);
             }
         }
 
@@ -1351,6 +1565,346 @@ function submitDoodleSheet() {
             }
             currentDefenseScenario++;
             setTimeout(loadDefenseScenario, 1000);
+        }
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, (ch) => ({
+                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+            }[ch]));
+        }
+
+        function celebrate(count) {
+            if (!window.confetti) return;
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            confetti({ particleCount: count, spread: 70, origin: { y: 0.6 } });
+        }
+
+        function announceReward(message) {
+            const el = document.getElementById("redeem-announce");
+            if (el) el.textContent = message;
+        }
+
+        function formatEarnedDate(iso) {
+            const date = new Date(iso);
+            if (Number.isNaN(date.getTime())) return "";
+            return date.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+        }
+
+        function setGearLink(id, href, filename, unlocked) {
+            const link = document.getElementById(id);
+            if (!link) return;
+            if (unlocked) {
+                link.href = href;
+                link.setAttribute("download", filename);
+                link.classList.remove("is-locked");
+                link.removeAttribute("aria-disabled");
+                link.tabIndex = 0;
+            } else {
+                link.removeAttribute("href");
+                link.removeAttribute("download");
+                link.classList.add("is-locked");
+                link.setAttribute("aria-disabled", "true");
+                link.tabIndex = -1;
+            }
+        }
+
+        function renderRewards() {
+            const pointsEl = document.getElementById("reward-points");
+            if (!pointsEl) return;
+            pointsEl.textContent = String(xpPoints);
+            document.querySelectorAll(".reward-points-live").forEach(el => {
+                el.textContent = String(xpPoints);
+            });
+
+            const level2Btn = document.getElementById("btn-redeem-level2");
+            const level2Need = document.getElementById("level2-need");
+            if (level2Unlocked) {
+                level2Btn.disabled = true;
+                level2Btn.textContent = "REDEEMED";
+                level2Need.textContent = "Clearance Level 2 is unlocked.";
+                level2Need.className = "reward-need is-ready";
+            } else if (xpPoints < LEVEL2_COST) {
+                level2Btn.disabled = true;
+                level2Btn.textContent = "REDEEM";
+                level2Need.textContent = `You need ${LEVEL2_COST - xpPoints} more points.`;
+                level2Need.className = "reward-need is-short";
+            } else {
+                level2Btn.disabled = false;
+                level2Btn.textContent = "REDEEM";
+                level2Need.textContent = "You have enough points to redeem this.";
+                level2Need.className = "reward-need is-ready";
+            }
+
+            const masterBtn = document.getElementById("btn-redeem-master");
+            const masterNeed = document.getElementById("master-need");
+            if (masterUnlocked) {
+                masterBtn.disabled = true;
+                masterBtn.textContent = "REDEEMED";
+                masterNeed.textContent = "Master Agent clearance is unlocked.";
+                masterNeed.className = "reward-need is-ready";
+            } else if (!level2Unlocked && xpPoints < MASTER_COST) {
+                masterBtn.disabled = true;
+                masterBtn.textContent = "REDEEM";
+                masterNeed.textContent = `Unlock Clearance Level 2 first. You need ${MASTER_COST - xpPoints} more points.`;
+                masterNeed.className = "reward-need is-short";
+            } else if (!level2Unlocked) {
+                masterBtn.disabled = true;
+                masterBtn.textContent = "REDEEM";
+                masterNeed.textContent = "Unlock Clearance Level 2 first.";
+                masterNeed.className = "reward-need is-short";
+            } else if (xpPoints < MASTER_COST) {
+                masterBtn.disabled = true;
+                masterBtn.textContent = "REDEEM";
+                masterNeed.textContent = `You need ${MASTER_COST - xpPoints} more points.`;
+                masterNeed.className = "reward-need is-short";
+            } else {
+                masterBtn.disabled = false;
+                masterBtn.textContent = "REDEEM";
+                masterNeed.textContent = "You have enough points to redeem this.";
+                masterNeed.className = "reward-need is-ready";
+            }
+
+            const challenges = document.getElementById("field-challenges");
+            const challengeState = document.getElementById("field-challenges-state");
+            const challengeCopy = document.getElementById("field-challenges-copy");
+            if (level2Unlocked) {
+                challenges.classList.remove("is-locked");
+                challenges.classList.add("is-open");
+                challengeState.textContent = "UNLOCKED";
+                challengeCopy.textContent = "Your Level 2 clearance is open. Intermediate field challenges will be posted here by Brain HQ.";
+            } else {
+                challenges.classList.add("is-locked");
+                challenges.classList.remove("is-open");
+                challengeState.textContent = "LOCKED";
+                challengeCopy.textContent = "These intermediate Brain HQ field challenges are locked. Redeem Clearance Level 2 to open them.";
+            }
+
+            setGearLink("link-wallpaper-desktop", "synaptic-express-wallpaper.png", "Synaptic-Express-Wallpaper.png", level2Unlocked);
+            setGearLink("link-wallpaper-tablet", "synaptic-express-wallpaper-tablet.png", "Synaptic-Express-Wallpaper-Tablet.png", level2Unlocked);
+
+            const certBtn = document.getElementById("btn-open-certificate");
+            const certNote = document.getElementById("certificate-note");
+            if (certBtn) certBtn.disabled = !masterUnlocked;
+            if (certNote) {
+                certNote.textContent = masterUnlocked
+                    ? "Your certificate has your codename on it and a signature line for Agent H.M."
+                    : "Redeem Master Agent to open your certificate.";
+            }
+        }
+
+        function redeemLevel2() {
+            if (!agentName || level2Unlocked || xpPoints < LEVEL2_COST) return;
+            level2Unlocked = true;
+            xpPoints -= LEVEL2_COST;
+            saveProgress();
+            updateBadgeDisplay();
+            announceReward("Clearance Level 2 unlocked. Synaptic Specialist badge added.");
+            celebrate(100);
+        }
+
+        function redeemMaster() {
+            if (!agentName || masterUnlocked || !level2Unlocked || xpPoints < MASTER_COST) return;
+            masterUnlocked = true;
+            masterUnlockedAt = new Date().toISOString();
+            xpPoints -= MASTER_COST;
+            saveProgress();
+            updateBadgeDisplay();
+            announceReward("Master Agent unlocked.");
+            celebrate(140);
+            submitMasterToHall();
+        }
+
+        function submitMasterToHall() {
+            const note = document.getElementById("hof-submit-note");
+            if (!masterUnlocked || !agentName) return;
+            if (hallOfFameState === "listed" || hallOfFameState === "blocked") {
+                if (note && hallOfFameState === "listed") note.textContent = "Your codename is on the Brain HQ Hall of Fame.";
+                if (note && hallOfFameState === "blocked") note.textContent = "That codename can't be shown on the public Hall of Fame. Your Master Agent unlock is still saved on this device.";
+                return;
+            }
+            if (typeof submitHallOfFameCodename !== "function") {
+                if (note) note.textContent = "Your Master Agent unlock is saved on this device. The Hall of Fame could not be reached, so Brain HQ will try again next visit.";
+                return;
+            }
+            if (note) note.textContent = "Sending your codename to the Hall of Fame\u2026";
+            submitHallOfFameCodename(agentName).then((data) => {
+                hallOfFameState = "listed";
+                saveProgress();
+                if (note) {
+                    note.textContent = data && data.alreadyListed
+                        ? "This codename is already on the Hall of Fame."
+                        : "Your codename is on the Brain HQ Hall of Fame.";
+                }
+                if (typeof loadHallOfFame === "function") loadHallOfFame("hof-training", { highlight: agentName });
+            }).catch((err) => {
+                const code = err && err.code;
+                if (code === "codename_not_allowed" || code === "invalid_codename") {
+                    hallOfFameState = "blocked";
+                    saveProgress();
+                    if (note) note.textContent = "That codename can't be shown on the public Hall of Fame. Your Master Agent unlock is still saved on this device.";
+                    return;
+                }
+                if (note) note.textContent = "Your Master Agent unlock is saved on this device. The Hall of Fame could not be reached, so Brain HQ will try again next visit.";
+            });
+        }
+
+        function buildCertificateHtml(name, iso) {
+            const safeName = escapeHtml(name);
+            const pretty = escapeHtml(formatEarnedDate(iso));
+            return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master Agent Certificate</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e7e1d2; color: #102033; font-family: "Share Tech Mono", monospace; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 14px; }
+  .actions button { font-family: "Share Tech Mono", monospace; background: #102033; color: #f7f1de; border: 0; border-radius: 6px; padding: 12px 16px; cursor: pointer; font-size: 0.95rem; }
+  .actions button:focus-visible { outline: 3px solid #c6a15b; outline-offset: 3px; }
+  .sheet { max-width: 920px; margin: 0 auto 24px; background: #f7f1de; border: 10px solid #102033; outline: 3px solid #c6a15b; outline-offset: -18px; padding: 54px 36px 40px; text-align: center; }
+  .kicker { letter-spacing: 3px; font-size: 0.85rem; margin: 0; }
+  .eyebrow { letter-spacing: 4px; color: #8a6a2f; margin: 22px 0 0; }
+  h1 { font-size: clamp(1.8rem, 6vw, 3.1rem); letter-spacing: 2px; margin: 10px 0; overflow-wrap: anywhere; }
+  .circle { font-family: "Great Vibes", cursive; font-size: clamp(2rem, 6vw, 3.2rem); color: #8a6a2f; margin: 0 0 18px; }
+  .rule { width: min(240px, 60%); height: 2px; background: #c6a15b; border: 0; margin: 8px auto 20px; }
+  .lead { letter-spacing: 2px; font-size: 0.85rem; }
+  .name { font-size: clamp(1.7rem, 7vw, 3.2rem); color: #0b6e75; letter-spacing: 2px; margin: 10px 0; overflow-wrap: anywhere; }
+  .date { margin-top: 18px; }
+  .signature { margin-top: 28px; }
+  .sign { font-family: "Great Vibes", cursive; font-size: clamp(2.4rem, 8vw, 3.6rem); margin: 0; line-height: 1; }
+  .sign-role { letter-spacing: 2px; font-size: 0.8rem; margin-top: 4px; }
+  @media (max-width: 500px) {
+    .sheet { margin: 0 8px 16px; padding: 40px 14px 28px; outline-offset: -12px; }
+    .actions { flex-direction: column; }
+    .actions button { width: 100%; }
+  }
+  @media print {
+    .no-print { display: none !important; }
+    body { background: white; }
+    .sheet { margin: 0; max-width: none; }
+  }
+</style>
+</head>
+<body data-agent="${safeName}" data-earned="${escapeHtml(iso)}">
+  <div class="actions no-print">
+    <button type="button" onclick="window.print()">PRINT CERTIFICATE</button>
+    <button type="button" onclick="downloadCertificatePng()">DOWNLOAD PNG</button>
+  </div>
+  <main class="sheet">
+    <p class="kicker">BRAIN HQ // THE PILLAR PROJECT</p>
+    <p class="eyebrow">HIGHEST CLEARANCE</p>
+    <h1>MASTER AGENT</h1>
+    <p class="circle">Director\u2019s Circle</p>
+    <hr class="rule">
+    <p class="lead">THIS CERTIFIES THAT AGENT</p>
+    <p class="name" id="cert-name">${safeName}</p>
+    <p>HAS EARNED THE RANK OF MASTER AGENT</p>
+    <p class="date" id="cert-date">Earned ${pretty}</p>
+    <div class="signature">
+      <svg viewBox="0 0 240 64" width="220" height="58" aria-hidden="true">
+        <path d="M8 46 C 28 8, 48 62, 78 36 S 120 8, 150 42 S 190 66, 232 20" fill="none" stroke="#1a2744" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <p class="sign">Agent H.M.</p>
+      <p class="sign-role">SIGNED BY AGENT H.M. · BRAIN HQ</p>
+    </div>
+  </main>
+  <script>
+    function downloadCertificatePng() {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1650;
+      canvas.height = 1275;
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#f7f1de";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "#102033";
+      ctx.lineWidth = 24;
+      ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+      ctx.strokeStyle = "#c6a15b";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(68, 68, canvas.width - 136, canvas.height - 136);
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#102033";
+      ctx.font = "28px 'Share Tech Mono', monospace";
+      ctx.fillText("BRAIN HQ  //  THE PILLAR PROJECT", 825, 190);
+      ctx.fillStyle = "#8a6a2f";
+      ctx.font = "22px 'Share Tech Mono', monospace";
+      ctx.fillText("HIGHEST CLEARANCE", 825, 260);
+      ctx.fillStyle = "#102033";
+      ctx.font = "78px 'Share Tech Mono', monospace";
+      ctx.fillText("MASTER AGENT", 825, 370);
+      ctx.fillStyle = "#8a6a2f";
+      ctx.font = "72px 'Great Vibes', cursive";
+      ctx.fillText("Director's Circle", 825, 470);
+      ctx.fillStyle = "#102033";
+      ctx.font = "24px 'Share Tech Mono', monospace";
+      ctx.fillText("THIS CERTIFIES THAT AGENT", 825, 580);
+      const name = document.getElementById("cert-name").textContent;
+      ctx.fillStyle = "#0b6e75";
+      ctx.font = "68px 'Share Tech Mono', monospace";
+      ctx.fillText(name, 825, 680);
+      ctx.fillStyle = "#102033";
+      ctx.font = "24px 'Share Tech Mono', monospace";
+      ctx.fillText("HAS EARNED THE RANK OF MASTER AGENT", 825, 760);
+      ctx.fillText(document.getElementById("cert-date").textContent, 825, 820);
+      ctx.beginPath();
+      ctx.strokeStyle = "#1a2744";
+      ctx.lineWidth = 3;
+      ctx.moveTo(620, 980);
+      ctx.bezierCurveTo(700, 900, 760, 1040, 860, 960);
+      ctx.bezierCurveTo(960, 880, 1040, 1040, 1140, 930);
+      ctx.stroke();
+      ctx.fillStyle = "#102033";
+      ctx.font = "78px 'Great Vibes', cursive";
+      ctx.fillText("Agent H.M.", 825, 1000);
+      ctx.font = "20px 'Share Tech Mono', monospace";
+      ctx.fillText("SIGNED BY AGENT H.M.", 825, 1070);
+      const link = document.createElement("a");
+      const slug = name.replace(/[^A-Za-z0-9]+/g, "-") || "agent";
+      link.download = "Master-Agent-Certificate-" + slug + ".png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+  <\/script>
+</body>
+</html>`;
+        }
+
+        function showCertificateOverlay(html) {
+            let overlay = document.getElementById("certificate-overlay");
+            if (!overlay) {
+                overlay = document.createElement("div");
+                overlay.id = "certificate-overlay";
+                overlay.className = "cert-overlay";
+                overlay.innerHTML = '<div class="cert-overlay-bar"><button type="button" class="spy-btn spy-font" id="certificate-overlay-close">CLOSE</button></div><iframe id="certificate-frame" title="Master Agent Certificate"></iframe>';
+                document.body.appendChild(overlay);
+                overlay.querySelector("#certificate-overlay-close").addEventListener("click", () => {
+                    overlay.hidden = true;
+                });
+            }
+            overlay.hidden = false;
+            const frame = overlay.querySelector("iframe");
+            frame.title = "Master Agent Certificate";
+            frame.srcdoc = html;
+        }
+
+        function openMasterCertificate() {
+            if (!masterUnlocked || !agentName) return;
+            if (!masterUnlockedAt) {
+                masterUnlockedAt = new Date().toISOString();
+                saveProgress();
+            }
+            const html = buildCertificateHtml(agentName, masterUnlockedAt);
+            const win = window.open("", "_blank");
+            if (!win) {
+                showCertificateOverlay(html);
+                return;
+            }
+            win.document.open();
+            win.document.write(html);
+            win.document.close();
         }
 
         // --- BOT ---
