@@ -62,7 +62,7 @@ nav {
 }
 .logo { font-size: 22px; color: var(--cyan); text-shadow: 0 0 10px rgba(102, 252, 241, 0.45); }
 .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; justify-content: flex-end; }
-.nav-links a { color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 0.4px; }
+.nav-links a { color: #fff; text-decoration: none; font-size: 15px; letter-spacing: 0.4px; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--gold); }
 .sponsor-btn {
     background: rgba(57, 255, 20, 0.1);
@@ -136,7 +136,7 @@ nav {
 .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .badge {
     font-family: "Share Tech Mono", monospace;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.6px;
     border-radius: 999px;
     padding: 5px 9px;
@@ -413,7 +413,8 @@ footer.spy-footer {
     .menu-toggle { display: inline-block; }
     .top-bar { flex-wrap: wrap; padding: 10px 12px; }
     .top-bar span { flex: 1 1 180px; line-height: 1.35; }
-    .switch-btn { font-size: 12px; }
+    .switch-btn { font-size: 14px; }
+    .nav-links a { font-size: 1rem; }
     nav { padding: 12px 14px; }
     .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 2px; }
     .nav-links.is-open { display: flex; padding-bottom: 72px; }

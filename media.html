@@ -38,12 +38,26 @@
             } 
         } 
     </script> 
+    <style>
+        a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 3px solid #581c87 !important;
+            outline-offset: 3px;
+        }
+        .skip-link {
+            position: absolute; left: 1rem; top: -3rem; z-index: 80;
+            background: #581c87; color: #fff; font-weight: 700;
+            padding: 0.6rem 1rem; border-radius: 999px;
+        }
+        .skip-link:focus { top: 0.5rem; }
+        :target, section[id] { scroll-margin-top: 9rem; }
+    </style>
 </head> 
-<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden"> 
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+    <a class="skip-link" href="#main">Skip to content</a> 
 
     <div class="site-header fixed top-0 inset-x-0 z-50">
     <!-- TOP HUB SWITCHER -->
-    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-xs md:text-sm font-sans text-slate-600 shadow-sm">
+    <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 py-2 flex justify-between items-center gap-2 text-sm font-sans text-slate-600 shadow-sm">
         <span class="font-medium tracking-wide leading-snug min-w-0">Current Hub: The Pillar Project (Main)</span>
         <a href="case-alzheimers.html" class="shrink-0 whitespace-nowrap bg-pillar text-white px-3 sm:px-4 py-1 rounded-full font-semibold hover:bg-pillar-dark transition-colors shadow-sm">
             ⟲ Switch to Case Alzheimer's
@@ -73,7 +87,7 @@
                     <a href="about.html" class="font-medium text-slate-600 hover:text-pillar transition">Our Story</a>
                     <a href="volunteer.html" class="font-medium text-slate-600 hover:text-pillar transition">Volunteer</a>
                     <a href="book.html" class="font-medium text-slate-600 hover:text-pillar transition">The Book</a>
-                    <a href="media.html" class="font-medium text-pillar transition">Media</a>
+                    <a href="media.html" class="font-medium text-pillar transition" aria-current="page">Media</a>
                     <a href="https://gofund.me/1da835a42" target="_blank" class="bg-pillar text-white px-5 py-2 rounded-full font-semibold hover:bg-pillar-dark transition shadow-md hover:shadow-lg">Donate</a>
                 </div>
                 <button type="button" class="lg:hidden ml-auto inline-flex items-center justify-center w-11 h-11 rounded-full text-slate-700 hover:bg-pillar-light" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" onclick="toggleMobileMenu(this)">
@@ -86,7 +100,7 @@
                 <a href="about.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Our Story</a>
                 <a href="volunteer.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">Volunteer</a>
                 <a href="book.html" class="block px-3 py-3 rounded-lg font-medium text-slate-700">The Book</a>
-                <a href="media.html" class="block px-3 py-3 rounded-lg font-medium text-pillar bg-pillar-light/70">Media</a>
+                <a href="media.html" class="block px-3 py-3 rounded-lg font-medium text-pillar bg-pillar-light/70" aria-current="page">Media</a>
                 <a href="sponsor-portal.html" class="md:hidden block px-3 py-3 rounded-lg font-medium text-teal-700">Sponsor Portal</a>
                 <a href="https://gofund.me/1da835a42" target="_blank" class="mt-2 block bg-pillar text-white px-5 py-3 rounded-full font-semibold text-center shadow-md">Donate</a>
             </div>
@@ -94,145 +108,50 @@
     </nav>
     </div>
 
+    <main id="main">
     <!-- HERO SECTION --> 
     <section class="pt-40 pb-20 px-4 sm:px-6 lg:px-8 bg-pillar-dark text-white text-center"> 
         <div class="max-w-4xl mx-auto"> 
             <span class="uppercase tracking-widest text-pillar-light font-bold text-sm mb-4 block">Our Momentum</span> 
             <h1 class="font-heading text-5xl md:text-6xl mb-6">Media & Impact Hub</h1> 
             <p class="text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
-                Watch our Gen Z volunteers in action. From TED-Ed stages to local memory care centers, see how we are rewriting the narrative on Alzheimer's.
+                Ava's TED-Ed talk is here, with visit photos on Instagram below.
             </p> 
         </div> 
     </section> 
 
-    <!-- VIDEO GRID: TED-ED & SAARA'S BRAIN BITS -->
-    <section class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-10 items-start">
-
-            <!-- TED-Ed talk -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col">
-                <div class="flex items-center gap-3 mb-6">
-                    <svg class="w-8 h-8 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    <h2 class="font-heading text-2xl text-slate-900">Ava Shah at TED-Ed</h2>
-                </div>
-
-                <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-xl bg-slate-100 border border-slate-200">
-                    <iframe
-                        class="absolute top-0 left-0 w-full h-full"
-                        src="https://www.youtube.com/embed/rHwoYGU_3UA?modestbranding=1&rel=0"
-                        title="Ava Shah TED-Ed Talk"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <a href="https://www.youtube.com/watch?v=rHwoYGU_3UA" target="_blank" rel="noopener noreferrer" class="mt-6 text-center block w-full bg-slate-100 text-slate-700 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">
-                    Watch the TED-Ed talk
-                </a>
+    <section class="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h2 class="font-heading text-2xl text-slate-900 mb-4">Ava Shah at TED-Ed</h2>
+            <p class="text-slate-600 leading-relaxed mb-6">
+                The talk behind Case Alzheimer's, and how Generation Z can change memory care.
+            </p>
+            <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-xl bg-slate-100 border border-slate-200">
+                <iframe
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/rHwoYGU_3UA?modestbranding=1&rel=0"
+                    title="Ava Shah TED-Ed Talk"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
             </div>
-
-            <!-- Saara's Brain Bits -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col">
-                <div class="flex items-center gap-3 mb-4">
-                    <svg class="w-8 h-8 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    <h2 class="font-heading text-2xl text-slate-900">Saara's Brain Bits</h2>
-                </div>
-                <p class="text-slate-600 text-sm leading-relaxed mb-2">
-                    Explore the human brain with Agent Saara. This intro short opens the series — the same briefing used in the Agent Training Zone.
-                </p>
-                <h3 class="font-heading text-lg text-slate-900 mb-6">Intro: Brain Bits with Saara</h3>
-
-                <div class="flex justify-center">
-                    <div class="relative w-full max-w-[280px] overflow-hidden rounded-xl bg-slate-100 border border-slate-200" style="aspect-ratio: 9 / 16;">
-                        <iframe
-                            class="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/VAJMqWQIIhI?rel=0"
-                            title="Intro: Brain Bits with Saara"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <a href="https://www.youtube.com/shorts/VAJMqWQIIhI" target="_blank" rel="noopener noreferrer" class="mt-6 text-center block w-full bg-slate-100 text-slate-700 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">
-                    Watch on YouTube
-                </a>
-            </div>
-
+            <a href="https://www.youtube.com/watch?v=rHwoYGU_3UA" target="_blank" rel="noopener noreferrer" class="mt-6 text-center block w-full bg-slate-100 text-slate-700 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">
+                Watch the TED-Ed talk on YouTube
+            </a>
         </div>
 
-        <div class="bg-white p-6 mt-10 mx-auto w-full max-w-xl rounded-2xl shadow-sm border border-slate-200 flex flex-col min-w-0">
-                <h3 class="font-heading text-xl text-slate-900 mb-2">Brain Bits: The Amygdala</h3>
-                <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Agent Saara's next short is about the amygdala. Watch it, then answer the three questions. A correct answer earns 10 points.
-                </p>
-
-                <div class="flex justify-center">
-                    <div class="relative w-full max-w-[280px] overflow-hidden rounded-xl bg-slate-100 border border-slate-200" style="aspect-ratio: 9 / 16;">
-                        <iframe
-                            class="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/N8VHo_vITxY?rel=0"
-                            title="Brain Bits: The Amygdala"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <a href="https://www.youtube.com/shorts/N8VHo_vITxY" target="_blank" rel="noopener noreferrer" class="mt-6 text-center block w-full bg-slate-100 text-slate-700 py-3 rounded-xl font-semibold hover:bg-slate-200 transition">
-                    Watch on YouTube
-                </a>
-
-                <div id="brain-bits-quiz" class="mt-6 border-t border-slate-200 pt-6 min-w-0">
-                    <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
-                        <h4 class="font-heading text-lg text-slate-900">Check what you learned</h4>
-                        <p id="bb-points-label" class="text-sm font-semibold text-pillar">Quiz points: 0</p>
-                    </div>
-                    <p class="text-sm text-slate-600 leading-relaxed mb-5">
-                        Three questions for ages 6–12. Tap an answer for instant feedback. Each correct answer earns 10 points, one time. If you are signed in to the Agent Training Zone in this tab, those points are added to your HQ clearance.
-                    </p>
-
-                    <div class="bb-question mb-6" data-qid="amygdala-1" data-answer="0">
-                        <p class="font-semibold text-slate-900 mb-3 leading-snug">1. Which part of the brain is this short about?</p>
-                        <div class="flex flex-col gap-2">
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="0">The amygdala</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="1">The stomach</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="2">The lungs</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="3">The kneecap</button>
-                        </div>
-                        <p class="bb-feedback mt-3 text-sm font-semibold leading-relaxed" hidden></p>
-                    </div>
-
-                    <div class="bb-question mb-6" data-qid="amygdala-2" data-answer="0">
-                        <p class="font-semibold text-slate-900 mb-3 leading-snug">2. What does the amygdala do?</p>
-                        <div class="flex flex-col gap-2">
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="0">It controls your feelings and emotions</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="1">It chews your food</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="2">It makes your hair grow</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="3">It pumps your blood</button>
-                        </div>
-                        <p class="bb-feedback mt-3 text-sm font-semibold leading-relaxed" hidden></p>
-                    </div>
-
-                    <div class="bb-question" data-qid="amygdala-3" data-answer="0">
-                        <p class="font-semibold text-slate-900 mb-3 leading-snug">3. The short's title says you can unlock the agent training portal by visiting which website?</p>
-                        <div class="flex flex-col gap-2">
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="0">pillarproject.online</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="1">A pizza website</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="2">A weather website</button>
-                            <button type="button" class="bb-choice w-full text-left px-4 py-3 min-h-12 rounded-xl border border-slate-200 bg-slate-50 font-medium text-slate-800 hover:bg-slate-100" data-index="3">A sports website</button>
-                        </div>
-                        <p class="bb-feedback mt-3 text-sm font-semibold leading-relaxed" hidden></p>
-                    </div>
-                </div>
-            </div>
+        <div class="mt-8 bg-pillar-light/50 border border-pillar-light rounded-2xl p-6">
+            <h2 class="font-heading text-xl text-slate-900 mb-2">Saara's Brain Bits are in the Training Zone</h2>
+            <p class="text-slate-700 leading-relaxed">
+                Those shorts, and the three questions about the amygdala, live in the Agent Training Zone. Sign in, then open Saara's Brain Bits. A correct answer still adds 10 points.
+            </p>
+            <a href="training-zone.html#brain-bits" class="inline-block mt-4 bg-pillar text-white px-6 py-3 rounded-full font-bold hover:bg-pillar-dark transition">Open Saara's Brain Bits</a>
+        </div>
     </section>
 
     <!-- INSTAGRAM SECTION -->
-    <section class="py-20 bg-slate-100 border-t border-slate-200">
+    <section id="the-gram" class="py-20 bg-slate-100 border-t border-slate-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="font-heading text-4xl text-slate-900 mb-4">The Gram</h2>
@@ -267,6 +186,8 @@
         </div> 
     </section> 
 
+    </main>
+
     <!-- MICROGLIA CHAT WIDGET -->
     <style>
         body { padding-bottom: 7rem; }
@@ -287,7 +208,7 @@
         </div>
         <div id="pillar-chat-body" class="p-4 h-64 max-h-[40vh] overflow-y-auto bg-paper flex flex-col gap-2.5 text-sm">
             <div class="bg-white border border-stone-200 text-stone-800 p-3 rounded-lg self-start max-w-[88%]">
-                Hi! I'm Microglia. Ask me about any term in Agent H.M.'s Glossary or how The Pillar Project helps families.
+                Hi! I'm Microglia. Ask me how The Pillar Project helps families, or about a word from the book. The full word list is in the Parent Guide.
             </div>
         </div>
         <div class="p-2.5 bg-white border-t border-stone-200 flex gap-2">
@@ -308,120 +229,6 @@
             btn.querySelector('.menu-icon-close').classList.toggle('hidden', !open);
         }
 
-        var BRAIN_BITS_QUESTION_XP = 10;
-        var BRAIN_BITS_QUESTION_IDS = ['amygdala-1', 'amygdala-2', 'amygdala-3'];
-
-        function brainBitsAwardedMap() {
-            try {
-                return JSON.parse(localStorage.getItem('brain_bits_quiz_awarded') || '{}');
-            } catch (e) {
-                return {};
-            }
-        }
-
-        function activeAgentQuiz() {
-            var agent = sessionStorage.getItem('active_hq_agent');
-            if (!agent) return null;
-            try {
-                var db = JSON.parse(localStorage.getItem('hq_users') || '{}');
-                if (!db[agent]) return null;
-                db[agent].brainBitsQuiz = db[agent].brainBitsQuiz || {};
-                return { agent: agent, db: db };
-            } catch (e) {
-                return null;
-            }
-        }
-
-        function questionAlreadyAwarded(qid) {
-            if (brainBitsAwardedMap()[qid]) return true;
-            var session = activeAgentQuiz();
-            return !!(session && session.db[session.agent].brainBitsQuiz[qid]);
-        }
-
-        function quizPointsEarned() {
-            var n = 0;
-            BRAIN_BITS_QUESTION_IDS.forEach(function (qid) {
-                if (questionAlreadyAwarded(qid)) n += BRAIN_BITS_QUESTION_XP;
-            });
-            return n;
-        }
-
-        function updateQuizPointsLabel() {
-            var label = document.getElementById('bb-points-label');
-            if (label) label.textContent = 'Quiz points: ' + quizPointsEarned();
-        }
-
-        function markChoice(btn, state) {
-            btn.classList.remove('border-slate-200', 'bg-slate-50', 'text-slate-800', 'border-emerald-600', 'bg-emerald-50', 'text-emerald-900', 'border-rose-500', 'bg-rose-50', 'text-rose-900');
-            if (state === 'correct') btn.classList.add('border-emerald-600', 'bg-emerald-50', 'text-emerald-900');
-            else if (state === 'wrong') btn.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
-            else btn.classList.add('border-slate-200', 'bg-slate-50', 'text-slate-800');
-        }
-
-        function lockQuizQuestion(qEl, already) {
-            qEl.dataset.locked = '1';
-            var answer = String(qEl.dataset.answer);
-            qEl.querySelectorAll('.bb-choice').forEach(function (btn) {
-                btn.disabled = true;
-                markChoice(btn, btn.dataset.index === answer ? 'correct' : '');
-            });
-            var feedback = qEl.querySelector('.bb-feedback');
-            feedback.hidden = false;
-            feedback.className = 'bb-feedback mt-3 text-sm font-semibold leading-relaxed text-emerald-800';
-            feedback.textContent = already
-                ? 'Correct! You already earned ' + BRAIN_BITS_QUESTION_XP + ' points for this one.'
-                : 'Correct! +' + BRAIN_BITS_QUESTION_XP + ' points.';
-        }
-
-        function awardQuizQuestion(qid) {
-            var awarded = brainBitsAwardedMap();
-            var freshDevice = !awarded[qid];
-            awarded[qid] = true;
-            localStorage.setItem('brain_bits_quiz_awarded', JSON.stringify(awarded));
-            var session = activeAgentQuiz();
-            var addedToAgent = false;
-            if (session && !session.db[session.agent].brainBitsQuiz[qid]) {
-                session.db[session.agent].brainBitsQuiz[qid] = true;
-                session.db[session.agent].xp = (session.db[session.agent].xp || 0) + BRAIN_BITS_QUESTION_XP;
-                localStorage.setItem('hq_users', JSON.stringify(session.db));
-                addedToAgent = true;
-            }
-            return { freshDevice: freshDevice, addedToAgent: addedToAgent };
-        }
-
-        function restoreMediaQuiz() {
-            document.querySelectorAll('#brain-bits-quiz .bb-question').forEach(function (qEl) {
-                if (questionAlreadyAwarded(qEl.dataset.qid)) lockQuizQuestion(qEl, true);
-            });
-            updateQuizPointsLabel();
-        }
-
-        document.getElementById('brain-bits-quiz').addEventListener('click', function (event) {
-            var btn = event.target.closest('.bb-choice');
-            if (!btn) return;
-            var qEl = btn.closest('.bb-question');
-            if (!qEl || qEl.dataset.locked === '1') return;
-            var feedback = qEl.querySelector('.bb-feedback');
-            if (btn.dataset.index === String(qEl.dataset.answer)) {
-                var result = awardQuizQuestion(qEl.dataset.qid);
-                lockQuizQuestion(qEl, false);
-                if (result.addedToAgent) {
-                    feedback.textContent = 'Correct! +' + BRAIN_BITS_QUESTION_XP + ' XP added to your agent clearance.';
-                }
-                updateQuizPointsLabel();
-            } else {
-                markChoice(btn, 'wrong');
-                feedback.hidden = false;
-                feedback.className = 'bb-feedback mt-3 text-sm font-semibold leading-relaxed text-rose-700';
-                feedback.textContent = 'Not quite. Try another answer.';
-                setTimeout(function () {
-                    if (qEl.dataset.locked === '1') return;
-                    markChoice(btn, '');
-                }, 900);
-            }
-        });
-
-        restoreMediaQuiz();
     </script>
 </body> 
 </html>
