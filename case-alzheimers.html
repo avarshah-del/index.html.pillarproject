@@ -13,6 +13,7 @@
     <meta property="og:image" content="https://pillarproject.online/titlenew.jpg">
 <title>Case Alzheimer's | The Pillar Project</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hall-of-fame.css">
     <style>
         body, html { 
             margin: 0; padding: 0; 
@@ -115,6 +116,16 @@
         }
         @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } }
 
+        .hof-section {
+            padding: 70px 20px 30px;
+            text-align: center;
+            background: rgba(5, 11, 20, 0.95);
+            border-top: 1px solid rgba(102, 252, 241, 0.2);
+        }
+        .hof-section h2 { color: #FFD700; font-size: 2.2rem; margin: 0 auto 12px; }
+        .hof-intro { color: #c4c4c4; max-width: 640px; margin: 0 auto; font-size: 1.05rem; line-height: 1.5; }
+        .hof-wrap { max-width: 720px; margin: 0 auto; }
+        .hof-cta { margin-top: 22px; }
         footer { 
             text-align: center; padding: 40px; border-top: 1px solid #45A29E; 
             margin-top: 50px; font-size: 0.9rem; color: #45A29E; 
@@ -150,6 +161,8 @@
             .top-bar { font-size: 15px; }
             .tooltip { width: min(220px, 70vw); }
             section h2.spy-font { display: block !important; max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+            .hof-section { padding: 36px 16px 16px; }
+            .hof-section h2 { font-size: 1.55rem; }
         }
     </style>
 </head>
@@ -267,6 +280,15 @@
         </div>
     </section>
 
+    <section id="hall-of-fame" class="hof-section" aria-labelledby="hof-heading">
+        <h2 id="hof-heading" class="spy-font">BRAIN HQ HALL OF FAME</h2>
+        <p class="hof-intro">Master Agents in the Director’s Circle. The newest names are at the top.</p>
+        <div class="hof-wrap" id="hof-hub" aria-live="polite">
+            <p class="hof-status">Hall of Fame loading…</p>
+        </div>
+        <a class="cta-btn btn-cyan hof-cta" href="training-zone.html">EARN A SPOT IN AGENT TRAINING</a>
+    </section>
+
     <footer class="spy-font">
         TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.
     </footer>
@@ -339,6 +361,10 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         });
+    </script>
+    <script src="hall-of-fame.js"></script>
+    <script>
+        if (typeof loadHallOfFame === "function") loadHallOfFame("hof-hub");
     </script>
 </body>
 </html>
