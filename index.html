@@ -61,6 +61,58 @@
         }
         .skip-link:focus { top: 0.5rem; }
         :target, section[id] { scroll-margin-top: 9rem; }
+        #parent-updates [hidden] { display: none !important; }
+        #parent-updates .signup-hp {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        #parent-updates .signup-hp input {
+            width: 1px;
+            height: 1px;
+            min-width: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            opacity: 0;
+        }
+        #parent-updates [data-signup-status] { outline: none; }
+        #parent-updates [data-signup-status]:focus-visible {
+            outline: 3px solid #581c87;
+            outline-offset: 3px;
+        }
+        #parent-updates [data-signup-status]:empty { display: none; }
+        #parent-updates .is-pending,
+        #parent-updates .is-success,
+        #parent-updates .is-error {
+            margin-bottom: 1.25rem;
+            padding: 0.9rem 1rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            line-height: 1.45;
+            overflow-wrap: anywhere;
+        }
+        #parent-updates .is-pending {
+            color: #581c87;
+            background: #fff;
+            border: 1px solid #d8b4fe;
+        }
+        #parent-updates .is-success {
+            color: #065f46;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+        }
+        #parent-updates .is-error {
+            color: #991b1b;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
@@ -235,6 +287,56 @@
         </div>
     </section>
 
+    <section id="parent-updates" class="py-16 sm:py-20 px-4 bg-pillar-light" aria-labelledby="parent-updates-heading">
+        <div class="max-w-xl mx-auto">
+            <h2 id="parent-updates-heading" class="font-heading text-3xl md:text-4xl text-center text-slate-900 mb-4">Parent email updates</h2>
+            <p class="text-center text-slate-700 text-lg leading-relaxed mb-8">
+                Parents and caregivers can get occasional notes on The Pillar Project and Alzheimer's. Emails are sent by hand from <a href="mailto:contactpillarproject@gmail.com" class="text-pillar-dark font-semibold underline">contactpillarproject@gmail.com</a>. There is no account and no password.
+            </p>
+            <form class="relative bg-white border border-white rounded-2xl p-6 sm:p-8 shadow-sm" data-parent-signup data-page="Home" novalidate>
+                <p id="signup-status" data-signup-status role="status" aria-live="polite" tabindex="-1" class="is-pending">Sign-ups open soon</p>
+                <div data-signup-fields>
+                    <div class="mb-5">
+                        <label for="signup-name" class="block font-semibold text-slate-800 mb-2">Parent name <span class="font-medium text-slate-600">(optional)</span></label>
+                        <input id="signup-name" name="name" type="text" autocomplete="name" maxlength="200" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900">
+                    </div>
+                    <div class="mb-5">
+                        <label for="signup-email" class="block font-semibold text-slate-800 mb-2">Email <span class="text-pillar-dark">(required)</span></label>
+                        <input id="signup-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" autocorrect="off" spellcheck="false" required maxlength="254" aria-required="true" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900">
+                    </div>
+                    <fieldset class="mb-5 border-0 p-0 m-0">
+                        <legend class="font-semibold text-slate-800 mb-1">What should we email you?</legend>
+                        <div class="flex flex-col">
+                            <label class="flex items-start gap-3 py-2 min-h-[44px] cursor-pointer">
+                                <input class="mt-1 h-5 w-5 shrink-0 accent-pillar" type="checkbox" name="interests" value="Pillar Project news and events">
+                                <span class="text-slate-700 leading-snug min-w-0">Pillar Project news and events</span>
+                            </label>
+                            <label class="flex items-start gap-3 py-2 min-h-[44px] cursor-pointer">
+                                <input class="mt-1 h-5 w-5 shrink-0 accent-pillar" type="checkbox" name="interests" value="Alzheimer's tips and resources for families">
+                                <span class="text-slate-700 leading-snug min-w-0">Alzheimer's tips and resources for families</span>
+                            </label>
+                            <label class="flex items-start gap-3 py-2 min-h-[44px] cursor-pointer">
+                                <input class="mt-1 h-5 w-5 shrink-0 accent-pillar" type="checkbox" name="interests" value="Case Alzheimer's book news">
+                                <span class="text-slate-700 leading-snug min-w-0">Case Alzheimer's book news</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="mb-2">
+                        <label class="flex items-start gap-3 py-2 min-h-[44px] cursor-pointer">
+                            <input id="signup-consent" class="mt-1 h-5 w-5 shrink-0 accent-pillar" type="checkbox" name="consent" value="yes" required aria-required="true">
+                            <span class="text-slate-700 leading-snug min-w-0">I agree to get emails from The Pillar Project. I can unsubscribe anytime by emailing contactpillarproject@gmail.com.</span>
+                        </label>
+                    </div>
+                    <div class="signup-hp" aria-hidden="true">
+                        <label for="signup-website">Website</label>
+                        <input id="signup-website" name="website" type="text" tabindex="-1" autocomplete="off">
+                    </div>
+                </div>
+                <button type="submit" disabled aria-disabled="true" aria-describedby="signup-status" class="w-full bg-pillar text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-pillar-dark transition shadow-md disabled:opacity-40 disabled:shadow-none disabled:cursor-not-allowed disabled:hover:bg-pillar">Join the email list</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <section class="py-12 bg-slate-900 text-white text-center">
         <div class="max-w-4xl mx-auto px-4">
@@ -291,5 +393,6 @@
         }
     </script>
     <script src="pillar-chat.js"></script>
+    <script src="signup.js"></script>
 </body>
 </html>
