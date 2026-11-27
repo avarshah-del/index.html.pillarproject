@@ -51,7 +51,7 @@
 
         /* LOGIN SCREEN STYLES */
         #login-screen {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -59,6 +59,15 @@
             text-align: center;
             padding: 20px;
         }
+        .portal-footer {
+            text-align: center;
+            padding: 28px 16px 36px;
+            color: var(--light-blue);
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 10;
+        }
+        .portal-footer a { color: var(--neon-green); margin: 0 8px; }
 
         .terminal-box {
             border: 2px solid var(--neon-green);
@@ -364,6 +373,10 @@
 
             <div id="access-message"></div>
         </div>
+        <footer class="portal-footer">
+            <div>TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.</div>
+            <div style="margin-top: 10px;"><a href="privacy.html">PRIVACY</a><a href="sources.html">SOURCES</a></div>
+        </footer>
     </div>
 
     <!-- 🟢 PROJECT DASHBOARD (REVEALED ON SUCCESS) -->
@@ -469,6 +482,11 @@
                 <a href="mailto:contactpillarproject@gmail.com?subject=Case Alzheimer's Sponsorship" class="comms-button">ESTABLISH CONNECTION</a>
             </div>
         </div>
+
+        <footer class="portal-footer">
+            <div>TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.</div>
+            <div style="margin-top: 10px;"><a href="privacy.html">PRIVACY</a><a href="sources.html">SOURCES</a></div>
+        </footer>
 
     </div>
 

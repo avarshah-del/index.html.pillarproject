@@ -333,6 +333,14 @@ footer.spy-footer {
     letter-spacing: 0.4px;
     background: var(--bg);
 }
+footer.spy-footer .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    margin-top: 8px;
+}
+footer.spy-footer a { color: var(--cyan); }
 
 #pillar-chat-btn {
     position: fixed;

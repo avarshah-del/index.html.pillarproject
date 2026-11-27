@@ -269,6 +269,7 @@
             .hq-status { font-size: 0.68rem; letter-spacing: 1px; }
             .game-panel { padding: 22px 14px; }
             #game-container { padding: 20px 12px 120px; }
+            #auth-username.spy-input { font-size: 0.95rem; letter-spacing: 0.4px; }
             #screen-brain-bits h2.spy-font { font-size: 1.55rem !important; }
             h1.spy-font { font-size: 1.7rem !important; }
         }
@@ -324,6 +325,21 @@
         .download-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
         .download-row .spy-btn { text-align: center; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+        .preview-btn { width: 100%; max-width: 460px; margin: 0 0 8px; border-color: var(--gold); background: var(--gold); color: #050b14; font-weight: bold; }
+        .preview-btn:hover { background: #fff; color: #050b14; box-shadow: 0 0 20px var(--gold); }
+        .preview-note { color: #e2e8f0; font-size: 1rem; max-width: 520px; margin: 0 auto 22px; line-height: 1.45; }
+        .preview-note a, .name-note a, .edu-card a { color: var(--neon-blue); }
+        .name-note { color: #cbd5e1; font-size: 0.95rem; line-height: 1.4; margin: 0 0 14px; }
+        .preview-banner { background: rgba(255, 215, 0, 0.12); border: 1px solid var(--gold); color: #fff; border-radius: 12px; padding: 12px 14px; margin-bottom: 18px; line-height: 1.45; }
+        .preview-banner strong { color: var(--gold); }
+        .edu-card { width: 100%; max-width: 720px; margin-top: 8px; text-align: left; background: rgba(5, 11, 20, 0.8); border: 1px solid rgba(102, 252, 241, 0.45); border-radius: 15px; padding: 18px 18px 16px; }
+        .edu-card h2 { color: var(--gold); font-size: 1.2rem; margin-bottom: 8px; letter-spacing: 1px; }
+        .edu-card p { color: #e2e8f0; line-height: 1.45; margin-bottom: 8px; }
+        .edu-card ol { margin: 8px 0 12px 1.2rem; color: #f8fafc; }
+        .edu-card li { margin: 8px 0; line-height: 1.4; }
+        .hq-footer { width: 100%; text-align: center; padding: 22px 16px 28px; color: var(--neon-blue); border-top: 1px solid rgba(102, 252, 241, 0.35); font-size: 0.78rem; z-index: 6; position: relative; }
+        .hq-footer a { color: var(--gold); margin: 0 8px; }
+        .hq-footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; margin-top: 10px; }
         .cert-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(5, 11, 20, 0.96); display: flex; flex-direction: column; }
         .cert-overlay[hidden] { display: none !important; }
         .cert-overlay-bar { display: flex; justify-content: flex-end; padding: 10px; }
@@ -361,16 +377,18 @@
     <div id="game-container">
         <!-- 1. SECURE GATEWAY / LOGIN / REGISTER -->
         <div id="screen-login" class="game-panel active" style="text-align: center; align-items: center;">
-            <h1 class="spy-font" style="color: var(--neon-blue); font-size: 2.5rem; margin-bottom: 5px;">AGENT SECURE LOGIN</h1>
-            <p class="kid-font" style="font-size: 1.15rem; color: #a0aec0; max-width: 550px; margin-bottom: 25px;">Create a secure Agent profile to save your avatar and HQ clearance data, or log in to continue your mission.</p>
+            <h1 class="spy-font" style="color: var(--neon-blue); font-size: 2.5rem; margin-bottom: 5px;">AGENT SIGN-IN</h1>
+            <p class="kid-font" style="font-size: 1.15rem; color: #a0aec0; max-width: 560px; margin-bottom: 18px;">Use a first name or nickname. It stays in this browser for your progress and certificate. There is no password.</p>
+            <button type="button" class="spy-btn spy-font preview-btn" onclick="startPreview()">PREVIEW AS EDUCATOR / REVIEWER</button>
+            <p class="kid-font preview-note">Opens all 4 brain zones with no book code. For teachers and award reviewers. Progress is not saved. Readers keep using the code in the book. You can also open <a href="training-zone.html?preview=1">training-zone.html?preview=1</a>.</p>
             <div style="background: rgba(5, 11, 20, 0.8); border: 1px solid var(--neon-blue); padding: 25px; border-radius: 15px; width: 100%; max-width: 400px; margin-bottom: 20px;">
-                <!-- Login / Register Toggle -->
+                <!-- Continue / new agent -->
                 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
-                    <button id="tab-login" class="spy-btn spy-font active" style="flex: 1; padding: 10px; border-color: var(--neon-green); color: var(--neon-green);" onclick="toggleAuthMode('login')">LOG IN</button>
-                    <button id="tab-register" class="spy-btn spy-font" style="flex: 1; padding: 10px; border-color: #a0aec0; color: #a0aec0;" onclick="toggleAuthMode('register')">REGISTER</button>
+                    <button id="tab-login" class="spy-btn spy-font active" style="flex: 1; padding: 10px; border-color: var(--neon-green); color: var(--neon-green);" onclick="toggleAuthMode('login')">CONTINUE</button>
+                    <button id="tab-register" class="spy-btn spy-font" style="flex: 1; padding: 10px; border-color: #a0aec0; color: #a0aec0;" onclick="toggleAuthMode('register')">NEW AGENT</button>
                 </div>
-                <input type="text" id="auth-username" class="spy-input spy-font" placeholder="AGENT USERNAME" maxlength="15" style="margin-bottom: 15px;">
-                <input type="password" id="auth-password" class="spy-input spy-font" placeholder="SECRET PASSWORD" style="margin-bottom: 15px;" onkeydown="if(event.key==='Enter') handleAuth()">
+                <input type="text" id="auth-username" class="spy-input spy-font" placeholder="FIRST NAME OR NICKNAME" maxlength="15" autocomplete="nickname" style="margin-bottom: 12px;" onkeydown="if(event.key==='Enter') handleAuth()">
+                <p class="kid-font name-note">Under 13? A first name or nickname only. Don't type a full name, school, or address. <a href="privacy.html">Privacy</a></p>
                 
                 <!-- NEW LAYERED AVATAR LOCKER -->
                 <div id="register-fields" style="display: none; text-align: center;">
@@ -406,6 +424,17 @@
                 <div id="auth-error" class="spy-font" style="color: var(--alert-pink); font-size: 0.85rem; margin-bottom: 15px; display: none;"></div>
                 <button class="spy-btn spy-font" onclick="handleAuth()" style="background: var(--neon-blue); color: #050b14; font-weight: bold; width: 100%; font-size: 1.2rem;">ENTER SYSTEM</button>
             </div>
+            <section id="for-educators" class="edu-card" aria-labelledby="for-educators-title">
+                <h2 id="for-educators-title" class="spy-font">FOR EDUCATORS</h2>
+                <p class="kid-font">One learning goal for each zone, in the words the zone already teaches. Students with the book still use the printed code. This preview does not replace it.</p>
+                <ol class="kid-font">
+                    <li><strong>Brain HQ, prefrontal cortex.</strong> Point behind the forehead. This part makes the big decisions and solves puzzles. Alzheimer's is the condition causing the tangles and glitches.</li>
+                    <li><strong>Word Warehouse, Broca's and Wernicke's areas.</strong> These areas build words and talk. Aphasia is the glitch that makes the right word hard to find. If a word drops, be kind and patient.</li>
+                    <li><strong>Emotion Land, amygdala.</strong> This part controls feelings. When someone is scared or confused, gentle words and a comforting hug help. Feelings stay real even when memories slip.</li>
+                    <li><strong>Data Library, hippocampus.</strong> This memory vault is shaped like a tiny seahorse. New things are usually forgotten first. Photo albums and old songs are how you help someone remember happily.</li>
+                </ol>
+                <p class="kid-font"><a href="sources.html">Sources for these zones</a> · <a href="educators.html">Classroom lesson</a> · <a href="privacy.html">Privacy</a></p>
+            </section>
         </div>
 
         <!-- 2. MAIN HUB / PORTAL SELECTOR -->
@@ -689,12 +718,15 @@
             <input type="text" id="book-password-input" class="spy-input spy-font" placeholder="ENTER SECRET CODE..." style="max-width: 400px; margin-bottom: 20px; font-size: 1.5rem;" onkeydown="if(event.key==='Enter') verifyPassword()">
             <button class="spy-btn spy-font" onclick="verifyPassword()" style="background: var(--neon-blue); color: #050b14; font-size: 1.2rem; font-weight: bold;">DECRYPT TRANSMISSION</button>
             <div id="password-error" class="spy-font" style="color: var(--alert-pink); margin-top: 15px; display: none; font-weight: bold;">❌ ACCESS DENIED. INCORRECT CODE.</div>
+            <button type="button" class="spy-btn spy-font preview-btn" style="margin-top: 28px;" onclick="startPreview()">PREVIEW AS EDUCATOR / REVIEWER</button>
+            <p class="kid-font preview-note">Teachers and award reviewers can open all 4 zones here, or with <a href="training-zone.html?preview=1">?preview=1</a>. The book code above is unchanged for readers.</p>
         </div>
 
         <!-- 4. THE BOOK PROTOCOL -->
         <div id="screen-book-protocol" class="game-panel">
             <button class="spy-btn spy-font" style="padding: 5px 15px; font-size: 0.85rem; align-self: flex-start; margin-bottom: 20px;" onclick="showScreen('screen-hub')">← BACK TO TRAINING CENTER</button>
             <div style="text-align: center;">
+                <p id="preview-banner" class="kid-font preview-banner" hidden><strong>PREVIEW.</strong> All 4 zones are open to view. Progress is not saved, and a certificate from this visit is marked preview. Readers with the book still use the secret code. <a href="training-zone.html" style="color: var(--gold);">Leave preview</a></p>
                 <h2 class="spy-font" style="color: var(--neon-blue); font-size: 2rem;">THE BOOK PROTOCOL</h2>
                 <p class="kid-font" style="color: #cbd5e1; font-size: 1.1rem;">ZONES REBOOTED: <span id="cleared-count" style="color: var(--neon-green); font-weight:bold;">0/4</span></p>
                 <div class="zone-grid">
@@ -796,6 +828,15 @@
         </div>
     </div>
 
+    <footer class="hq-footer spy-font">
+        <div>TRANSMISSION SECURED. © 2026 THE PILLAR PROJECT. ALL RIGHTS RESERVED.</div>
+        <div class="footer-links">
+            <a href="privacy.html">PRIVACY</a>
+            <a href="sources.html">SOURCES</a>
+            <a href="educators.html">EDUCATORS</a>
+        </div>
+    </footer>
+
     <!-- FLOATING HQ ASSISTANT WIDGET -->
     <button type="button" id="hq-bot-bubble" onclick="toggleBotChat()" aria-label="Ask Microglia">
         <img src="microglia_sprite.png" alt="" style="width: 60px; height: 60px; filter: drop-shadow(0 2px 5px rgba(102, 252, 241, 0.5));">
@@ -830,6 +871,7 @@
     <script>
         let agentName = "";
         let authMode = 'login';
+        let previewMode = false;
         let avatarLayers = {
             base: "boy_200x200.png",
             top: "sweatshirt.png",
@@ -861,7 +903,83 @@
             btn.textContent = open ? 'CLOSE' : 'MENU';
         }
 
+        function isPreviewRequest() {
+            return new URLSearchParams(location.search).get('preview') === '1';
+        }
+
+        function startPreview() {
+            const url = new URL(location.href);
+            url.searchParams.set('preview', '1');
+            url.hash = '';
+            location.assign(url.pathname + url.search);
+        }
+
+        function scrubStoredPasswords() {
+            function scrubStore(store) {
+                const keys = [];
+                try {
+                    for (let i = 0; i < store.length; i++) keys.push(store.key(i));
+                } catch (e) {
+                    return;
+                }
+                keys.forEach(key => {
+                    if (key && /password/i.test(key)) {
+                        try { store.removeItem(key); } catch (e) { /* leave unrelated data */ }
+                    }
+                });
+            }
+            scrubStore(localStorage);
+            scrubStore(sessionStorage);
+            try {
+                document.cookie.split(';').forEach(part => {
+                    const name = part.split('=')[0].trim();
+                    if (name && /password/i.test(name)) {
+                        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax';
+                    }
+                });
+            } catch (e) { /* cookies may be blocked */ }
+            try {
+                const raw = localStorage.getItem('hq_users');
+                if (!raw) return;
+                const db = JSON.parse(raw);
+                let changed = false;
+                if (db && typeof db === 'object') {
+                    Object.keys(db).forEach(name => {
+                        if (db[name] && typeof db[name] === 'object' && Object.prototype.hasOwnProperty.call(db[name], 'password')) {
+                            delete db[name].password;
+                            changed = true;
+                        }
+                    });
+                }
+                if (changed) localStorage.setItem('hq_users', JSON.stringify(db));
+            } catch (e) { /* keep the saved profiles if the record cannot be read */ }
+        }
+
+        function enterPreview() {
+            previewMode = true;
+            agentName = 'PREVIEW';
+            xpPoints = 0;
+            completedZones = { hq: false, warehouse: false, emotion: false, library: false };
+            brainBitsClaimed = false;
+            brainBitsQuiz = {};
+            doodleClaimed = false;
+            defenseClaimed = false;
+            level2Unlocked = false;
+            masterUnlocked = false;
+            hallOfFameState = '';
+            masterUnlockedAt = '';
+            sessionStorage.removeItem('active_hq_agent');
+            const banner = document.getElementById('preview-banner');
+            if (banner) banner.hidden = false;
+            const status = document.getElementById('status-indicator');
+            if (status) status.textContent = 'PREVIEW';
+            updateBadgeDisplay();
+            updateHubStatus();
+            showScreen('screen-book-protocol');
+        }
+
         window.onload = function() {
+            scrubStoredPasswords();
             document.querySelectorAll('.zone-card[onclick]').forEach(card => {
                 card.setAttribute('tabindex', '0');
                 card.setAttribute('role', 'button');
@@ -879,6 +997,10 @@
                     if (link.getAttribute('aria-disabled') === 'true') event.preventDefault();
                 });
             });
+            if (isPreviewRequest()) {
+                enterPreview();
+                return;
+            }
             const activeUser = sessionStorage.getItem('active_hq_agent');
             if (activeUser) {
                 const db = JSON.parse(localStorage.getItem('hq_users') || '{}');
@@ -908,21 +1030,19 @@
 
         function handleAuth() {
             const user = document.getElementById('auth-username').value.trim().toUpperCase();
-            const pass = document.getElementById('auth-password').value.trim();
             const err = document.getElementById('auth-error');
-            if (!user || !pass) {
-                err.textContent = "USERNAME AND PASSWORD REQUIRED.";
+            if (!user) {
+                err.textContent = "TYPE A FIRST NAME OR NICKNAME.";
                 err.style.display = 'block';
                 return;
             }
             const db = JSON.parse(localStorage.getItem('hq_users') || '{}');
             if (authMode === 'register') {
                 if (db[user]) {
-                    err.textContent = "AGENT NAME ALREADY TAKEN. PLEASE CHOOSE ANOTHER.";
+                    err.textContent = "THAT NAME IS ALREADY ON THIS BROWSER. CHOOSE CONTINUE TO PICK UP YOUR PROGRESS.";
                     err.style.display = 'block';
                 } else {
                     db[user] = {
-                        password: pass,
                         avatarLayers: avatarLayers,
                         xp: 0,
                         zones: { hq: false, warehouse: false, emotion: false, library: false },
@@ -938,13 +1058,11 @@
                     localStorage.setItem('hq_users', JSON.stringify(db));
                     loginUser(user, db[user]);
                 }
+            } else if (db[user]) {
+                loginUser(user, db[user]);
             } else {
-                if (db[user] && db[user].password === pass) {
-                    loginUser(user, db[user]);
-                } else {
-                    err.textContent = "ACCESS DENIED. INVALID CREDENTIALS.";
-                    err.style.display = 'block';
-                }
+                err.textContent = "NO SAVED PROGRESS FOR THAT NAME. CHOOSE NEW AGENT.";
+                err.style.display = 'block';
             }
         }
 
@@ -976,16 +1094,21 @@
         }
 
         function signOut() {
+            if (previewMode) {
+                location.href = 'training-zone.html';
+                return;
+            }
             if (confirm("Sign out of Agent HQ?")) {
                 sessionStorage.removeItem('active_hq_agent');
-                location.reload();
+                location.href = 'training-zone.html';
             }
         }
 
         function saveProgress() {
-            if (!agentName) return;
+            if (previewMode || !agentName) return;
             const db = JSON.parse(localStorage.getItem('hq_users') || '{}');
             if (db[agentName]) {
+                delete db[agentName].password;
                 db[agentName].xp = xpPoints;
                 db[agentName].zones = completedZones;
                 db[agentName].brainBitsClaimed = brainBitsClaimed;
@@ -1158,6 +1281,7 @@
         }
 
         function rememberBrainBitsAward(qid) {
+            if (previewMode) return;
             try {
                 const awarded = JSON.parse(localStorage.getItem('brain_bits_quiz_awarded') || '{}');
                 awarded[qid] = true;
@@ -1228,6 +1352,10 @@
 
         // --- PASSWORD PROTOCOL ---
         function requirePassword(type) {
+            if (previewMode) {
+                showScreen('screen-book-protocol');
+                return;
+            }
             const clearedTotal = Object.values(completedZones).filter(Boolean).length;
             if (clearedTotal === 4) {
                 showScreen('screen-book-protocol');
@@ -1470,9 +1598,15 @@ function submitDoodleSheet() {
                 ctx.textAlign = "center";
                 const textX = canvas.width / 2;
                 const textY = (canvas.height / 2) - 30;
-                ctx.fillText(agentName, textX, textY);
+                const certName = previewMode ? 'PREVIEW' : agentName;
+                ctx.fillText(certName, textX, textY);
+                if (previewMode) {
+                    ctx.font = "bold 48px 'Share Tech Mono', monospace";
+                    ctx.fillStyle = "#FFD700";
+                    ctx.fillText('PREVIEW ONLY', textX, textY + 90);
+                }
                 const link = document.createElement('a');
-                link.download = `HQ-Certificate-${agentName}.png`;
+                link.download = `HQ-Certificate-${certName}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             };
@@ -1716,6 +1850,10 @@ function submitDoodleSheet() {
 
         function submitMasterToHall() {
             const note = document.getElementById("hof-submit-note");
+            if (previewMode) {
+                if (note) note.textContent = "Preview mode does not add a name to the Hall of Fame.";
+                return;
+            }
             if (!masterUnlocked || !agentName) return;
             if (hallOfFameState === "listed" || hallOfFameState === "blocked") {
                 if (note && hallOfFameState === "listed") note.textContent = "Your codename is on the Brain HQ Hall of Fame.";
@@ -1891,6 +2029,11 @@ function submitDoodleSheet() {
         }
 
         function openMasterCertificate() {
+            if (previewMode) {
+                const note = document.getElementById("certificate-note");
+                if (note) note.textContent = "Preview mode does not save or issue a Master Agent certificate.";
+                return;
+            }
             if (!masterUnlocked || !agentName) return;
             if (!masterUnlockedAt) {
                 masterUnlockedAt = new Date().toISOString();
