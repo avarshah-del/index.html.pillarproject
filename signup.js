@@ -2,9 +2,8 @@
 // Messages are sent by hand from contactpillarproject@gmail.com.
 // This file only collects sign-ups. There are no accounts or passwords.
 //
-// SETUP: paste the Google Apps Script web app URL (it ends in /exec).
-// Leave the quotes empty until that URL exists.
-const SIGNUP_ENDPOINT = '';
+// Deployed Google Apps Script web app (the URL ends in /exec).
+const SIGNUP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbweeaPAPnbEDJWwnD8dCDf2Ui-2YczNZnLBI0zgTJG1BIGvLb4VLnDwvD-UB6b2QCvT/exec';
 
 var SIGNUP_EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
