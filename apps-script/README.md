@@ -4,6 +4,8 @@ The website form on the home page and the Case Alzheimer's page collects parent 
 
 Sign-ups are stored in a Google Sheet on your account. The form sends each one to a Google Apps Script web app that is attached to that sheet.
 
+The web app is deployed. `signup.js` is set to the live `/exec` URL, so the forms on the home page and the Case Alzheimer's page are open and the button is enabled.
+
 ## 1. Make the sheet
 
 1. Open Google Sheets in the Google account that owns contactpillarproject@gmail.com (or the account you want to own the list).
@@ -41,15 +43,16 @@ Timestamp, name, email, interests joined with a comma and a space, the page they
 
 ## 4. Connect the website
 
+This step is done. The deployed `/exec` URL is in `signup.js`, and both forms are open.
+
+If you deploy again and the URL changes:
+
 1. Open `signup.js` in this project.
-2. Find this line at the top:
-
-   `const SIGNUP_ENDPOINT = '';`
-
-3. Paste the `/exec` URL between the quotes. Leave the quotes in place.
+2. Find `SIGNUP_ENDPOINT` at the top.
+3. Paste the new `/exec` URL between the quotes. Leave the quotes in place.
 4. Save the file and publish the website the way you usually do.
 
-Until that URL is filled in, both forms show "Sign-ups open soon" and the button stays off.
+If that URL is emptied again, both forms show "Sign-ups open soon" and the button stays off.
 
 ## If you change the script later
 
